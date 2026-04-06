@@ -48,6 +48,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* === Font heading utility (for non-heading elements needing the heading font) === */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
 /* === Section padding utility === */
 .section-padding {
   padding: 5rem 1rem;
