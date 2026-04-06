@@ -1,11 +1,10 @@
 import { useTranslations } from "next-intl";
-import SectionTag from "@/components/ui/SectionTag";
+import { CERT_KEYS } from "@/config/certifications";
 
 export default function Hero() {
   const t = useTranslations("hero");
   const certs = useTranslations("certifications");
 
-  const certList = ["itil", "prince2", "psm", "pspo", "freshworks"] as const;
 
   return (
     <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-navy via-navy-light to-navy overflow-hidden">
@@ -18,12 +17,12 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="max-w-3xl">
           {/* Tagline */}
-          <p className="text-orange font-semibold text-lg mb-4 font-[family-name:var(--font-heading)]">
+          <p className="text-orange font-semibold text-lg mb-4 font-heading">
             {t("tagline")}
           </p>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 font-[family-name:var(--font-heading)]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
             {t("headline")}
           </h1>
 
@@ -54,7 +53,7 @@ export default function Hero() {
               {t("trustedBy")}
             </p>
             <div className="flex flex-wrap gap-3">
-              {certList.map((cert) => (
+              {CERT_KEYS.map((cert) => (
                 <span
                   key={cert}
                   className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full text-white/90 text-sm font-medium"

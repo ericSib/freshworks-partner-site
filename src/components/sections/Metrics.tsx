@@ -13,15 +13,13 @@ export default function Metrics() {
     <section className="bg-navy py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-orange px-4 py-1.5 bg-orange/10 rounded-full mb-4">
-            {t("sectionTag")}
-          </span>
+          <SectionTag>{t("sectionTag")}</SectionTag>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, i) => (
             <div key={i} className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-orange mb-2 font-[family-name:var(--font-heading)]">
+              <div className="text-4xl sm:text-5xl font-bold text-orange mb-2 font-heading">
                 {item.value}
               </div>
               <p className="text-white/70 text-sm sm:text-base">

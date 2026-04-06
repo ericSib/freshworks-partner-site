@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import SectionTag from "@/components/ui/SectionTag";
+import SectionHeader from "@/components/ui/SectionHeader";
+import CheckIcon from "@/components/ui/CheckIcon";
 
 export default function About() {
   const t = useTranslations("about");
@@ -10,12 +11,7 @@ export default function About() {
   return (
     <section id="about" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <SectionTag>{t("sectionTag")}</SectionTag>
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy font-[family-name:var(--font-heading)]">
-            {t("headline")}
-          </h2>
-        </div>
+        <SectionHeader tag={t("sectionTag")} headline={t("headline")} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Photo */}
@@ -35,7 +31,7 @@ export default function About() {
 
           {/* Bio */}
           <div>
-            <h3 className="text-2xl font-bold text-navy mb-1 font-[family-name:var(--font-heading)]">
+            <h3 className="text-2xl font-bold text-navy mb-1">
               {t("name")}
             </h3>
             <p className="text-orange font-semibold mb-6">{t("role")}</p>
@@ -49,19 +45,7 @@ export default function About() {
               {credentials.map((cred, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="w-6 h-6 bg-orange/10 rounded-full flex items-center justify-center shrink-0">
-                    <svg
-                      className="w-3.5 h-3.5 text-orange"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={3}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
+                    <CheckIcon className="w-3.5 h-3.5 text-orange" />
                   </div>
                   <span className="text-gray-700 font-medium">{cred}</span>
                 </div>
