@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What A Service — Freshworks Consulting, Done Right</title>
+  <meta name="description" content="Conseil expert Freshservice & Freshdesk pour PME et ETI. ITIL 4, PRINCE2, Scrum. Bilingue FR/EN. Audit, deploiement, optimisation.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fef7f2',
+              100: '#fde8d8',
+              200: '#fbcdb0',
+              300: '#f8ad7e',
+              400: '#f49962',
+              500: '#e8823f',
+              600: '#d06a2a',
+              700: '#ad5422',
+              800: '#8a4321',
+              900: '#6f381e',
+              950: '#3c1b0e',
+            },
+            navy: {
+              50: '#e8ecf0',
+              100: '#c5cdd8',
+              200: '#9daebb',
+              300: '#6d8399',
+              400: '#475d77',
+              500: '#2a4058',
+              600: '#1f3247',
+              700: '#182838',
+              800: '#132338',
+              900: '#0e1a29',
+              950: '#080f18',
+            }
+          },
+          fontFamily: {
+            display: ['"Josefin Sans"', 'Futura', 'system-ui', 'sans-serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; }
+    h1,h2,h3,h4,h5,h6,.font-display { font-family: 'Josefin Sans', 'Futura', system-ui, sans-serif; }
+    .gradient-hero { background: linear-gradient(135deg, #132338 0%, #1f3247 50%, #2a4058 100%); }
+    .gradient-cta { background: linear-gradient(135deg, #f49962 0%, #e8823f 100%); }
+    .gradient-cta-hover:hover { background: linear-gradient(135deg, #e8823f 0%, #d06a2a 100%); }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(19,35,56,0.12); }
+    .counter { font-variant-numeric: tabular-nums; }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .service-icon { width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:24px; }
+    .header-scrolled { background:rgba(255,255,255,0.97)!important; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
+    .orange-underline { text-decoration-color: #f49962; text-underline-offset: 6px; }
+    .pricing-popular { border: 2px solid #f49962; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- ============ HEADER ============ -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full gradient-cta flex items-center justify-center">
+            <span class="text-white font-bold text-sm font-display">WaS</span>
+          </div>
+          <span id="logo-text" class="text-xl font-bold text-white transition-colors duration-300 font-display">
+            What <span class="text-brand-400">a</span> Service
+          </span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#services" id="nav-services" class="text-sm font-medium text-white/80 hover:text-white transition-colors">Services</a>
+          <a href="#cas-clients" id="nav-cas" class="text-sm font-medium text-white/80 hover:text-white transition-colors">Cas clients</a>
+          <a href="#pricing" id="nav-pricing" class="text-sm font-medium text-white/80 hover:text-white transition-colors">Tarifs</a>
+          <a href="#a-propos" id="nav-about" class="text-sm font-medium text-white/80 hover:text-white transition-colors">A propos</a>
+          <!-- Language toggle -->
+          <div class="flex items-center gap-1 text-sm text-white/60">
+            <span class="text-white font-semibold">FR</span>
+            <span>|</span>
+            <a href="#" class="hover:text-white transition-colors">EN</a>
+          </div>
+          <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg gradient-cta text-white text-sm font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-brand-400/25">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Prendre RDV
+          </a>
+        </nav>
+        <button id="menu-toggle" class="md:hidden text-white p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg">
+      <div class="px-4 py-6 space-y-4">
+        <a href="#services" class="block text-gray-700 font-medium py-2">Services</a>
+        <a href="#cas-clients" class="block text-gray-700 font-medium py-2">Cas clients</a>
+        <a href="#pricing" class="block text-gray-700 font-medium py-2">Tarifs</a>
+        <a href="#a-propos" class="block text-gray-700 font-medium py-2">A propos</a>
+        <div class="flex gap-3 text-sm text-gray-500 py-2"><span class="text-gray-900 font-semibold">FR</span> | <a href="#" class="hover:text-gray-900">EN</a></div>
+        <a href="#contact" class="block w-full text-center px-5 py-3 rounded-lg gradient-cta text-white font-semibold">Prendre RDV</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="gradient-hero min-h-[90vh] flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 right-20 w-96 h-96 rounded-full bg-brand-400 blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-64 h-64 rounded-full bg-brand-300 blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-fade-in-up">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-brand-400 text-sm font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+            Partenaire Expert Freshworks · ITIL 4 · PRINCE2 · Scrum
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Freshservice & Freshdesk,
+            <span class="text-brand-400"> Done Right.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed">
+            Conseil expert pour les ETI de 200 a 2 000 collaborateurs. Deploiement, migration, optimisation — des resultats en semaines, pas en mois. <strong class="text-white">Bilingue FR/EN.</strong>
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl gradient-cta text-white font-bold text-lg hover:opacity-90 transition-opacity shadow-xl shadow-brand-400/30">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Reserver un appel gratuit
+            </a>
+            <a href="#quiz" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold text-lg hover:bg-white/20 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              Evaluez votre maturite ITSM
+            </a>
+          </div>
+        </div>
+        <!-- Dashboard mockup -->
+        <div class="hidden lg:flex justify-center animate-fade-in-up" style="animation-delay:0.2s;">
+          <div class="relative">
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 w-[480px] shadow-2xl">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                <span class="text-white/40 text-xs ml-2">whataservice.freshservice.com</span>
+              </div>
+              <div class="space-y-3">
+                <div class="bg-white/10 rounded-lg p-4">
+                  <div class="flex justify-between items-center mb-3">
+                    <span class="text-white/60 text-sm">Taux de resolution</span>
+                    <span class="text-brand-400 font-bold text-lg">94%</span>
+                  </div>
+                  <div class="w-full bg-white/10 rounded-full h-2">
+                    <div class="bg-brand-400 h-2 rounded-full" style="width:94%"></div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                  <div class="bg-white/10 rounded-lg p-3 text-center">
+                    <div class="text-xl font-bold text-white">-40%</div>
+                    <div class="text-white/50 text-[10px] mt-1">Temps traitement</div>
+                  </div>
+                  <div class="bg-white/10 rounded-lg p-3 text-center">
+                    <div class="text-xl font-bold text-white">+60%</div>
+                    <div class="text-white/50 text-[10px] mt-1">Adoption outil</div>
+                  </div>
+                  <div class="bg-white/10 rounded-lg p-3 text-center">
+                    <div class="text-xl font-bold text-white">65%</div>
+                    <div class="text-white/50 text-[10px] mt-1">Deflection IA</div>
+                  </div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-4 flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-brand-400 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-white text-sm font-medium">Freddy AI actif</div>
+                    <div class="text-white/50 text-xs">12 workflows automatises</div>
+                  </div>
+                  <div class="ml-auto"><span class="px-2 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-medium">Live</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="mt-16 pt-8 border-t border-white/10">
+        <p class="text-white/40 text-sm text-center mb-6 uppercase tracking-wider">Certifications & expertise</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
+          <div class="flex items-center gap-2 text-white/70"><div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">FW</div><span class="text-sm">Freshworks Partner</span></div>
+          <div class="flex items-center gap-2 text-white/70"><div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">I4</div><span class="text-sm">ITIL 4</span></div>
+          <div class="flex items-center gap-2 text-white/70"><div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">P2</div><span class="text-sm">PRINCE2</span></div>
+          <div class="flex items-center gap-2 text-white/70"><div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">SM</div><span class="text-sm">PSM I</span></div>
+          <div class="flex items-center gap-2 text-white/70"><div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">PO</div><span class="text-sm">PSPO I</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 60" fill="none"><path d="M0 60L48 55C96 50 192 40 288 35C384 30 480 30 576 33.3C672 36.7 768 43.3 864 45C960 46.7 1056 43.3 1152 38.3C1248 33.3 1344 26.7 1392 23.3L1440 20V60H0Z" fill="white"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM AGITATION ============ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-navy-800 mb-6">
+        Votre outil ITSM est deploye... mais sous-exploite ?
+      </h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="p-4 rounded-xl bg-red-50 border border-red-100">
+          <div class="text-red-500 text-2xl mb-2">&#x1f525;</div>
+          <p class="text-sm text-red-700 font-medium">Equipe IT en mode pompier permanent</p>
+        </div>
+        <div class="p-4 rounded-xl bg-amber-50 border border-amber-100">
+          <div class="text-amber-500 text-2xl mb-2">&#x1f4c9;</div>
+          <p class="text-sm text-amber-700 font-medium">Taux d'adoption inferieur a 40%</p>
+        </div>
+        <div class="p-4 rounded-xl bg-orange-50 border border-orange-100">
+          <div class="text-orange-500 text-2xl mb-2">&#x23f3;</div>
+          <p class="text-sm text-orange-700 font-medium">Taches manuelles et repetitives</p>
+        </div>
+        <div class="p-4 rounded-xl bg-purple-50 border border-purple-100">
+          <div class="text-purple-500 text-2xl mb-2">&#x1f4b8;</div>
+          <p class="text-sm text-purple-700 font-medium">ROI du licencing introuvable</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHIFFRES CLES ============ -->
+  <section class="py-16 bg-navy-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter font-display">50+</div>
+          <div class="text-gray-400 mt-2 text-sm font-medium">Projets livres</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter font-display">98%</div>
+          <div class="text-gray-400 mt-2 text-sm font-medium">Respect SLA</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter font-display">+20%</div>
+          <div class="text-gray-400 mt-2 text-sm font-medium">Resolution 1er contact</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter font-display">-30%</div>
+          <div class="text-gray-400 mt-2 text-sm font-medium">Taches manuelles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 PILIERS SERVICES ============ -->
+  <section id="services" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-4">Nos expertises</div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-800 mb-4">5 piliers pour couvrir tout le cycle Freshworks</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto text-lg">De l'implementation initiale a l'IA avancee, un accompagnement forfaitaire a chaque etape.</p>
+      </div>
+
+      <!-- Process steps -->
+      <div class="flex flex-wrap justify-center items-center gap-4 mb-12 text-sm font-medium">
+        <span class="px-4 py-2 rounded-full bg-navy-800 text-white">1. Discover</span>
+        <svg class="w-4 h-4 text-brand-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="px-4 py-2 rounded-full bg-brand-400 text-white">2. Implement</span>
+        <svg class="w-4 h-4 text-brand-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="px-4 py-2 rounded-full bg-navy-800 text-white">3. Optimize</span>
+      </div>
+
+      <!-- Service cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Pillar 1: Implementation -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
+          <div class="service-icon bg-blue-50 text-blue-600 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-navy-800 mb-2">Implementation & Launch</h3>
+          <p class="text-gray-500 mb-4 text-sm leading-relaxed">Deploiement Freshservice ou Freshdesk de zero. Configuration, workflows, formation, go-live.</p>
+          <ul class="space-y-2 mb-5 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>QuickStart (2-3 sem.) · Pro (4-6 sem.) · Enterprise</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Service catalog, portail self-service</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Formation equipes (admins, agents, users)</li>
+          </ul>
+          <div class="text-brand-500 font-bold text-sm">A partir de 5 000 &euro;</div>
+        </div>
+        <!-- Pillar 2: Migration -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
+          <div class="service-icon bg-indigo-50 text-indigo-600 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-navy-800 mb-2">Migration</h3>
+          <p class="text-gray-500 mb-4 text-sm leading-relaxed">Migration depuis ServiceNow, Jira SM, Zendesk, ManageEngine ou spreadsheets.</p>
+          <ul class="space-y-2 mb-5 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Plan de migration + historique tickets</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Periode parallel-run + validation</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Re-formation des agents</li>
+          </ul>
+          <div class="text-brand-500 font-bold text-sm">A partir de 10 000 &euro;</div>
+        </div>
+        <!-- Pillar 3: Optimisation -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover pricing-popular relative">
+          <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold">Populaire</span></div>
+          <div class="service-icon bg-brand-50 text-brand-600 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-navy-800 mb-2">Audit & Optimisation</h3>
+          <p class="text-gray-500 mb-4 text-sm leading-relaxed">Diagnostic complet, recommandations priorisees, ROI estime par initiative. L'entree naturelle.</p>
+          <ul class="space-y-2 mb-5 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Audit 360° en 2-3 jours</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Roadmap avec ROI par action</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Execution des quick wins</li>
+          </ul>
+          <div class="text-brand-500 font-bold text-sm">A partir de 5 000 &euro;</div>
+        </div>
+        <!-- Pillar 4: ESM -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
+          <div class="service-icon bg-emerald-50 text-emerald-600 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-navy-800 mb-2">ESM Expansion</h3>
+          <p class="text-gray-500 mb-4 text-sm leading-relaxed">Deployer Freshservice au-dela de l'IT : RH, Finance, Facilities, Legal. Le produit phare 2025.</p>
+          <ul class="space-y-2 mb-5 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Modules par departement</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Onboarding multi-services</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Orchestration cross-departement</li>
+          </ul>
+          <div class="text-brand-500 font-bold text-sm">A partir de 5 000 &euro; / dept</div>
+        </div>
+        <!-- Pillar 5: AI -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
+          <div class="service-icon bg-violet-50 text-violet-600 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-navy-800 mb-2">IA & Freddy AI</h3>
+          <p class="text-gray-500 mb-4 text-sm leading-relaxed">Configuration de Freddy AI Agent, Copilot & Insights. Objectif : 65% de deflection tickets.</p>
+          <ul class="space-y-2 mb-5 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>AI Readiness Assessment</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Setup Freddy Agent + Copilot</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Dashboard KPI deflection</li>
+          </ul>
+          <div class="text-brand-500 font-bold text-sm">A partir de 8 000 &euro;</div>
+        </div>
+        <!-- Managed Services -->
+        <div class="bg-navy-800 rounded-2xl p-8 shadow-sm card-hover text-white">
+          <div class="service-icon bg-brand-400/20 text-brand-400 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-2">Services Manages</h3>
+          <p class="text-gray-400 mb-4 text-sm leading-relaxed">Retainer mensuel : amelioration continue, support prioritaire, optimisation permanente.</p>
+          <ul class="space-y-2 mb-5 text-sm text-gray-300">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>QBR trimestrielles</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Veille nouvelles features</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Support prioritaire</li>
+          </ul>
+          <div class="text-brand-400 font-bold text-sm">A partir de 2 000 &euro; / mois</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAS CLIENTS ============ -->
+  <section id="cas-clients" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-4">Resultats concrets</div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-800 mb-4">Ils nous ont fait confiance</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- Case 1 -->
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-lg font-display">LS</div>
+            <div><div class="font-semibold text-navy-800">LogiServices</div><div class="text-sm text-gray-500">ETI Logistique — 450 collab.</div></div>
+            <span class="ml-auto px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium">Freshservice</span>
+          </div>
+          <h4 class="text-lg font-bold text-navy-800 mb-3">De 30% a 95% d'adoption en 3 mois</h4>
+          <p class="text-gray-500 mb-6 text-sm leading-relaxed">Freshservice deploye mais sous-utilise. Audit, reconfiguration des workflows et formation. Adoption passee de 30% a 95%.</p>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="text-center p-3 bg-white rounded-lg"><div class="text-xl font-bold text-brand-500">-40%</div><div class="text-xs text-gray-500 mt-1">Temps resolution</div></div>
+            <div class="text-center p-3 bg-white rounded-lg"><div class="text-xl font-bold text-brand-500">95%</div><div class="text-xs text-gray-500 mt-1">Adoption</div></div>
+            <div class="text-center p-3 bg-white rounded-lg"><div class="text-xl font-bold text-brand-500">3 mois</div><div class="text-xs text-gray-500 mt-1">Duree projet</div></div>
+          </div>
+        </div>
+        <!-- Case 2 -->
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-lg font-display">TC</div>
+            <div><div class="font-semibold text-navy-800">TechCommerce</div><div class="text-sm text-gray-500">PME E-commerce — 120 collab.</div></div>
+            <span class="ml-auto px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-medium">Freshdesk</span>
+          </div>
+          <h4 class="text-lg font-bold text-navy-800 mb-3">Volume x3, equipe identique</h4>
+          <p class="text-gray-500 mb-6 text-sm leading-relaxed">Tickets x3 en un an. Automatisations Freshdesk et portail self-service pour absorber la croissance sans recrutement.</p>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="text-center p-3 bg-white rounded-lg"><div class="text-xl font-bold text-brand-500">x3</div><div class="text-xs text-gray-500 mt-1">Volume gere</div></div>
+            <div class="text-center p-3 bg-white rounded-lg"><div class="text-xl font-bold text-brand-500">60%</div><div class="text-xs text-gray-500 mt-1">Self-service</div></div>
+            <div class="text-center p-3 bg-white rounded-lg"><div class="text-xl font-bold text-brand-500">4.8/5</div><div class="text-xs text-gray-500 mt-1">CSAT</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonials -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-navy-800 rounded-2xl p-8 text-white relative">
+          <svg class="absolute top-6 right-6 w-10 h-10 text-brand-400 opacity-30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-white/90 text-lg leading-relaxed mb-6 italic">"L'audit de What A Service a ete un declencheur. En 3 mois, nos equipes ont completement adopte Freshservice. Le ROI a ete visible des le premier trimestre."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-400 flex items-center justify-center text-white font-semibold text-sm">SB</div>
+            <div><div class="font-semibold">Sophie Bertrand</div><div class="text-brand-400 text-sm">DSI — LogiServices</div></div>
+          </div>
+        </div>
+        <div class="bg-navy-800 rounded-2xl p-8 text-white relative">
+          <svg class="absolute top-6 right-6 w-10 h-10 text-brand-400 opacity-30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-white/90 text-lg leading-relaxed mb-6 italic">"On gerait 3x plus de tickets sans embaucher. Freshdesk etait la, il fallait juste quelqu'un pour l'optimiser. What A Service l'a fait en 6 semaines."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-400 flex items-center justify-center text-white font-semibold text-sm">MD</div>
+            <div><div class="font-semibold">Marc Dupont</div><div class="text-brand-400 text-sm">Resp. Support — TechCommerce</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ LEAD MAGNET ============ -->
+  <section id="quiz" class="py-20 bg-brand-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-sm font-medium mb-6">Outil gratuit</div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-800 mb-4">Evaluez votre maturite ITSM en 5 minutes</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg mb-8">Repondez a 10 questions et recevez votre score personnalise sur 5 dimensions : Processus, Technologies, Personnes, Automatisation, Gouvernance.</p>
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-brand-100 max-w-lg mx-auto">
+        <div class="flex items-center justify-between mb-6">
+          <span class="text-sm text-gray-500">Question 1/10</span>
+          <div class="w-32 bg-gray-200 rounded-full h-2"><div class="bg-brand-400 h-2 rounded-full" style="width:10%"></div></div>
+        </div>
+        <p class="text-navy-800 font-semibold mb-6">Comment gerez-vous les incidents IT aujourd'hui ?</p>
+        <div class="space-y-3 text-left">
+          <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-400 cursor-pointer transition-colors">
+            <input type="radio" name="q1" class="accent-[#f49962]">
+            <span class="text-sm text-gray-700">Par email / telephone uniquement</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-400 cursor-pointer transition-colors">
+            <input type="radio" name="q1" class="accent-[#f49962]">
+            <span class="text-sm text-gray-700">Outil ticketing basique, peu de workflows</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-400 cursor-pointer transition-colors">
+            <input type="radio" name="q1" class="accent-[#f49962]">
+            <span class="text-sm text-gray-700">Processus definis avec SLA et escalades</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-400 cursor-pointer transition-colors">
+            <input type="radio" name="q1" class="accent-[#f49962]">
+            <span class="text-sm text-gray-700">Fully automated avec IA et self-service</span>
+          </label>
+        </div>
+        <button class="mt-6 w-full px-6 py-3 rounded-xl gradient-cta text-white font-semibold hover:opacity-90 transition-opacity">Question suivante &rarr;</button>
+        <p class="text-xs text-gray-400 mt-3">Gratuit. Aucune carte bancaire requise. Resultats immediats.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A PROPOS ============ -->
+  <section id="a-propos" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-8 aspect-square max-w-md mx-auto flex flex-col items-center justify-center">
+            <div class="w-48 h-48 rounded-full bg-navy-800 flex items-center justify-center mb-6 shadow-xl">
+              <span class="text-5xl font-bold text-brand-400 font-display">ES</span>
+            </div>
+            <div class="text-center">
+              <div class="text-xl font-bold text-navy-800 font-display">Eric Sib</div>
+              <div class="text-gray-500">Fondateur — What A Service</div>
+            </div>
+          </div>
+          <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center">
+                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+              </div>
+              <div><div class="text-sm font-semibold text-navy-800">ITIL 4 · PRINCE2 · Scrum</div><div class="text-xs text-gray-500">Certifie Freshworks Partner</div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-6">The Expert Next Door</div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-800 mb-6">Connaissances profondes. Approche pragmatique.</h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-6">What A Service aide les entreprises de 200 a 2 000 collaborateurs a implementer, optimiser et migrer vers Freshservice et Freshdesk — de la bonne maniere.</p>
+          <p class="text-gray-500 text-lg leading-relaxed mb-8">Avec des certifications ITIL 4, PRINCE2 et Scrum, et une expertise Freshworks approfondie, nous livrons des solutions ITSM que vos equipes adoptent reellement. <strong class="text-navy-800">Bilingue FR/EN. Pas de superflu. Des resultats en semaines.</strong></p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><div><div class="font-semibold text-navy-800 text-sm">Pragmatisme</div><div class="text-gray-500 text-sm">Resultats mesurables, pas de PowerPoints</div></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg></div><div><div class="font-semibold text-navy-800 text-sm">Bilingue natif FR/EN</div><div class="text-gray-500 text-sm">Pas traduit : ecrit nativement</div></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="font-semibold text-navy-800 text-sm">Transfert de competences</div><div class="text-gray-500 text-sm">Vos equipes montent en autonomie</div></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><div><div class="font-semibold text-navy-800 text-sm">Forfait fixe</div><div class="text-gray-500 text-sm">Budget maitrise, zero surprise</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="py-20 gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"><div class="absolute top-10 left-20 w-64 h-64 rounded-full bg-brand-400 blur-3xl"></div><div class="absolute bottom-10 right-20 w-96 h-96 rounded-full bg-brand-300 blur-3xl"></div></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-6">Pret a exploiter 100% de vos outils Freshworks ?</h2>
+      <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Reservez un appel decouverte gratuit de 30 minutes. On analyse ensemble votre situation et on identifie les premiers quick wins.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand-400 text-white font-bold text-lg hover:bg-brand-500 transition-colors shadow-xl">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Reserver mon appel gratuit
+        </a>
+        <a href="mailto:contact@whataservice.fr" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold text-lg hover:bg-white/20 transition-colors">
+          contact@whataservice.fr
+        </a>
+      </div>
+      <p class="text-white/40 text-sm mt-6">Nous repondrons sous 24 heures.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / CALENDLY ============ -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-4">Contact</div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-navy-800 mb-4">Parlons de votre projet</h2>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-xl font-bold text-navy-800 mb-6 flex items-center gap-2 font-display">
+            <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Reservez un creneau
+          </h3>
+          <div class="bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 p-12 text-center min-h-[400px] flex flex-col items-center justify-center">
+            <div class="w-16 h-16 rounded-2xl bg-brand-50 flex items-center justify-center mb-4"><svg class="w-8 h-8 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
+            <div class="text-lg font-semibold text-gray-700 mb-2">Widget Calendly</div>
+            <div class="text-gray-400 text-sm max-w-xs">Appel decouverte gratuit de 30 min. Le widget sera integre ici.</div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-navy-800 mb-6 flex items-center gap-2 font-display">
+            <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Envoyez un message
+          </h3>
+          <form class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div><label class="block text-sm font-medium text-gray-700 mb-2">Nom complet</label><input type="text" placeholder="Jean Dupont" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 outline-none transition-all text-sm"></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-2">Email professionnel</label><input type="email" placeholder="jean@entreprise.fr" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 outline-none transition-all text-sm"></div>
+            </div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-2">Entreprise</label><input type="text" placeholder="Nom de votre entreprise" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 outline-none transition-all text-sm"></div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-2">Votre plus grand defi IT ?</label>
+              <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 outline-none transition-all text-sm text-gray-500">
+                <option>Deployer Freshservice ou Freshdesk</option>
+                <option>Migrer depuis un autre outil</option>
+                <option>Optimiser notre configuration actuelle</option>
+                <option>Etendre a d'autres departements (ESM)</option>
+                <option>Configurer l'IA / Freddy</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-2">Message (optionnel)</label><textarea rows="3" placeholder="Decrivez brievement votre situation..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 outline-none transition-all text-sm resize-none"></textarea></div>
+            <button type="submit" class="w-full px-8 py-4 rounded-xl gradient-cta text-white font-bold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-brand-400/25">Envoyer ma demande</button>
+            <p class="text-xs text-gray-400 text-center">Nous repondrons sous 24 heures. Pas de spam, promis.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-navy-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full gradient-cta flex items-center justify-center"><span class="text-white font-bold text-sm font-display">WaS</span></div>
+            <span class="text-xl font-bold font-display">What <span class="text-brand-400">a</span> Service</span>
+          </div>
+          <p class="text-gray-400 max-w-sm leading-relaxed mb-4 text-sm">Conseil expert Freshservice & Freshdesk pour ETI. ITIL 4, PRINCE2, Scrum. Bilingue FR/EN.</p>
+          <p class="text-gray-500 text-sm italic mb-6">"Freshworks Consulting, Done Right."</p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-400 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="mailto:contact@whataservice.fr" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-400 transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4 font-display">Navigation</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+            <li><a href="#cas-clients" class="text-gray-400 hover:text-white transition-colors">Cas clients</a></li>
+            <li><a href="#quiz" class="text-gray-400 hover:text-white transition-colors">Quiz ITSM</a></li>
+            <li><a href="#a-propos" class="text-gray-400 hover:text-white transition-colors">A propos</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4 font-display">Contact</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-2 text-gray-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>contact@whataservice.fr</li>
+            <li class="flex items-center gap-2 text-gray-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>whataservice.fr</li>
+            <li class="flex items-center gap-2 text-gray-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>France — Remote & sur site</li>
+          </ul>
+          <div class="mt-4 flex gap-2"><span class="text-white text-sm font-semibold">FR</span><span class="text-gray-500">|</span><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">EN</a></div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">&copy; 2026 What A Service. Tous droits reserves.</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Mentions legales</a>
+          <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Politique de confidentialite</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header=document.getElementById('header'),logoText=document.getElementById('logo-text'),navLinks=document.querySelectorAll('#nav-services,#nav-cas,#nav-pricing,#nav-about');
+    window.addEventListener('scroll',()=>{if(window.scrollY>80){header.classList.add('header-scrolled');logoText.classList.remove('text-white');logoText.classList.add('text-navy-800');navLinks.forEach(l=>{l.classList.remove('text-white/80','hover:text-white');l.classList.add('text-gray-600','hover:text-navy-800')});document.getElementById('menu-toggle').classList.remove('text-white');document.getElementById('menu-toggle').classList.add('text-gray-700')}else{header.classList.remove('header-scrolled');logoText.classList.add('text-white');logoText.classList.remove('text-navy-800');navLinks.forEach(l=>{l.classList.add('text-white/80','hover:text-white');l.classList.remove('text-gray-600','hover:text-navy-800')});document.getElementById('menu-toggle').classList.add('text-white');document.getElementById('menu-toggle').classList.remove('text-gray-700')}});
+    document.getElementById('menu-toggle').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('hidden')});
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t){t.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mobile-menu').classList.add('hidden')}})});
+  </script>
+</body>
+</html>

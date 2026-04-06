@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "title": "What A Service — Freshworks Consultant | Freshservice & Freshdesk",
+    "description": "Implementation, optimization and migration of Freshservice & Freshdesk for mid-market companies. ITIL 4, PRINCE2, Scrum certified. Results in weeks, not months."
+  },
+  "nav": {
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "about": "About",
+    "contact": "Contact",
+    "bookCall": "Book a Call"
+  },
+  "hero": {
+    "tagline": "Freshworks Consulting, Done Right.",
+    "headline": "Your Freshworks partner for real results",
+    "subheadline": "Implementation, optimization and migration of Freshservice & Freshdesk for mid-market companies. ITIL 4 · PRINCE2 · Scrum certified. Results in weeks, not months.",
+    "ctaPrimary": "Book a discovery call",
+    "ctaSecondary": "Explore our services",
+    "trustedBy": "Certifications & Partnerships"
+  },
+  "certifications": {
+    "itil": "ITIL 4",
+    "prince2": "PRINCE2",
+    "psm": "PSM I",
+    "pspo": "PSPO I",
+    "freshworks": "Freshworks Partner"
+  },
+  "problems": {
+    "sectionTag": "Challenges you face",
+    "headline": "Sound familiar?",
+    "cards": [
+      {
+        "icon": "chart-down",
+        "title": "Low adoption",
+        "description": "Your team only uses 30% of Freshservice. The investment isn't translating into ROI."
+      },
+      {
+        "icon": "cog",
+        "title": "Manual processes",
+        "description": "No automation, breached SLAs, and an overwhelmed support team."
+      },
+      {
+        "icon": "switch",
+        "title": "Risky migration",
+        "description": "Your current tool is too expensive but migrating without losing data worries you."
+      },
+      {
+        "icon": "spreadsheet",
+        "title": "HR stuck in Excel",
+        "description": "Onboarding and offboarding still rely on emails and manual spreadsheets."
+      }
+    ]
+  },
+  "metrics": {
+    "sectionTag": "Proven results",
+    "items": [
+      { "value": "95%", "label": "client satisfaction" },
+      { "value": "<4 wks", "label": "to deploy" },
+      { "value": "+60%", "label": "average adoption" },
+      { "value": "10+", "label": "Freshworks projects delivered" }
+    ]
+  },
+  "services": {
+    "sectionTag": "What we do",
+    "headline": "5 pillars to transform your IT",
+    "subheadline": "Each service is designed to deliver measurable value, not useless documentation.",
+    "cards": [
+      {
+        "icon": "rocket",
+        "title": "Implementation",
+        "description": "End-to-end Freshservice or Freshdesk deployment. Configuration, workflows, self-service portal, training.",
+        "price": "Starting at €5,000",
+        "features": ["ITSM/ESM configuration", "Workflows & automations", "Team training", "Go-live in 4 weeks"]
+      },
+      {
+        "icon": "settings",
+        "title": "Optimization",
+        "description": "Audit of your existing instance. Improve adoption, processes and ROI.",
+        "price": "Starting at €3,000",
+        "features": ["360° instance audit", "Quick wins identified", "Optimization plan", "KPI tracking"]
+      },
+      {
+        "icon": "arrow-right-left",
+        "title": "Migration",
+        "description": "Migration from ServiceNow, Jira, BMC or any other tool to Freshworks with zero data loss.",
+        "price": "Starting at €8,000",
+        "features": ["Data mapping", "Zero-downtime migration", "Post-migration validation", "New tool training"]
+      },
+      {
+        "icon": "users",
+        "title": "ESM (Enterprise Service Management)",
+        "description": "Extend Freshservice to HR, Finance, Legal. Onboarding, offboarding, internal requests.",
+        "price": "Starting at €4,000",
+        "features": ["Multi-department portal", "HR/Finance workflows", "Service catalog", "Cross-functional reporting"]
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Training & Coaching",
+        "description": "Upskill your IT and business teams on Freshworks. Hands-on sessions.",
+        "price": "Starting at €1,500",
+        "features": ["Admin training", "Agent training", "Best practices coaching", "Custom documentation"]
+      },
+      {
+        "icon": "shield-check",
+        "title": "Managed Services",
+        "description": "Ongoing support, maintenance and evolution of your Freshworks instance.",
+        "price": "Custom quote",
+        "features": ["Dedicated L2/L3 support", "Monthly evolutions", "Proactive monitoring", "Monthly reporting"]
+      }
+    ]
+  },
+  "caseStudies": {
+    "sectionTag": "Case Studies",
+    "headline": "Results, not promises",
+    "cases": [
+      {
+        "client": "Mid-market — Industrial sector",
+        "challenge": "Freshservice adoption at 30%, frustrated teams, invisible ROI.",
+        "solution": "Full audit, workflow redesign, targeted training, self-service portal.",
+        "results": [
+          { "metric": "85%", "label": "adoption in 6 weeks" },
+          { "metric": "-40%", "label": "manual tickets" },
+          { "metric": "4.5/5", "label": "user satisfaction" }
+        ]
+      },
+      {
+        "client": "SMB — B2B Services",
+        "challenge": "Migration from a legacy tool. Fear of data loss and change resistance.",
+        "solution": "Progressive migration, parallel training, data validation at each step.",
+        "results": [
+          { "metric": "0", "label": "data lost" },
+          { "metric": "3 wks", "label": "complete migration" },
+          { "metric": "+50%", "label": "support productivity" }
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Eric transformed how we work with Freshservice. In 4 weeks, our teams adopted it naturally.",
+        "author": "Sophie M.",
+        "role": "CIO — Industrial mid-market",
+        "avatar": "sophie"
+      },
+      {
+        "quote": "The migration went smoothly. Not a single piece of data lost, and the team was autonomous from day 1.",
+        "author": "Marc D.",
+        "role": "Support Manager — B2B SMB",
+        "avatar": "marc"
+      }
+    ]
+  },
+  "about": {
+    "sectionTag": "About",
+    "headline": "The expert who makes the difference",
+    "name": "Eric Sib",
+    "role": "Founder, What A Service",
+    "bio": "ITSM consultant with over 10 years of experience in IT service digital transformation. Specialized in Freshworks, I combine technical expertise with a pragmatic approach to deliver real results, in weeks rather than months.",
+    "credentials": [
+      "ITIL 4 Foundation Certified",
+      "PRINCE2 Practitioner Certified",
+      "Professional Scrum Master (PSM I)",
+      "Professional Scrum Product Owner (PSPO I)",
+      "Freshworks Certified Partner"
+    ],
+    "cta": "Let's discuss your project"
+  },
+  "footer": {
+    "description": "Freshworks consultant for mid-market and SMBs. Implementation, optimization, migration.",
+    "navigation": "Navigation",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy",
+    "contact": "Contact",
+    "email": "contact@whataservice.fr",
+    "rights": "© 2026 What A Service. All rights reserved.",
+    "madeWith": "Made with passion in Paris"
+  }
+}
