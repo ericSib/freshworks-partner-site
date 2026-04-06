@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, DM_Sans } from "next/font/google";
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { SITE_URL, SITE_NAME, OG_LOCALES } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -33,19 +34,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: `https://whataservice.fr/${locale}`,
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
-        fr: "https://whataservice.fr/fr",
-        en: "https://whataservice.fr/en",
-        "x-default": "https://whataservice.fr/fr",
+        fr: `${SITE_URL}/fr`,
+        en: `${SITE_URL}/en`,
+        "x-default": `${SITE_URL}/fr`,
       },
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: `https://whataservice.fr/${locale}`,
-      siteName: "What A Service",
-      locale: locale === "fr" ? "fr_FR" : "en_US",
+      url: `${SITE_URL}/${locale}`,
+      siteName: SITE_NAME,
+      locale: OG_LOCALES[locale] ?? "fr_FR",
       type: "website",
     },
   };

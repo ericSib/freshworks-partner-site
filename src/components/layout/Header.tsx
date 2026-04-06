@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import { SITE_NAME } from "@/config/site";
+import { NAV_LINKS } from "@/config/navigation";
 
 export default function Header() {
   const t = useTranslations("nav");
@@ -24,12 +26,10 @@ export default function Header() {
     router.replace(pathname, { locale: newLocale });
   };
 
-  const navLinks = [
-    { href: "#services", label: t("services") },
-    { href: "#case-studies", label: t("caseStudies") },
-    { href: "#about", label: t("about") },
-    { href: "#contact", label: t("contact") },
-  ];
+  const navLinks = NAV_LINKS.map((link) => ({
+    href: link.href,
+    label: t(link.labelKey),
+  }));
 
   return (
     <header
@@ -45,18 +45,18 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/logo-was.png"
-              alt="What A Service"
+              alt={SITE_NAME}
               width={44}
               height={44}
               className="rounded-full"
               priority
             />
             <span
-              className={`font-[family-name:var(--font-heading)] font-bold text-lg transition-colors ${
+              className={`font-heading font-bold text-lg transition-colors ${
                 isScrolled ? "text-navy" : "text-white"
               }`}
             >
-              What A Service
+              {SITE_NAME}
             </span>
           </Link>
 
@@ -82,11 +82,9 @@ export default function Header() {
                   ? "border-navy/20 text-navy hover:bg-navy/5"
                   : "border-white/30 text-white hover:bg-white/10"
               }`}
-              aria-label={
-                locale === "fr" ? "Switch to English" : "Passer en français"
-              }
+              aria-label={t("switchLang")}
             >
-              {locale === "fr" ? "EN" : "FR"}
+              {t("switchLangShort")}
             </button>
 
             {/* CTA */}
@@ -136,7 +134,7 @@ export default function Header() {
 
         {/* Mobile menu */}
         {isMobileOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white rounded-xl shadow-xl mx-(-4) px-4">
+          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white rounded-xl shadow-xl -mx-4 px-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
@@ -155,7 +153,7 @@ export default function Header() {
                 }}
                 className="text-left text-navy font-medium py-2 hover:text-orange"
               >
-                {locale === "fr" ? "🇬🇧 English" : "🇫🇷 Français"}
+                {t("switchLangFull")}
               </button>
               <a
                 href="#contact"

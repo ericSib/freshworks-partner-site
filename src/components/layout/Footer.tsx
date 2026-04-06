@@ -1,19 +1,18 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { SITE_NAME } from "@/config/site";
+import { NAV_LINKS } from "@/config/navigation";
+import { CERT_KEYS } from "@/config/certifications";
 
 export default function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
   const certs = useTranslations("certifications");
 
-  const certList = ["itil", "prince2", "psm", "pspo", "freshworks"] as const;
-
-  const navLinks = [
-    { href: "#services", label: nav("services") },
-    { href: "#case-studies", label: nav("caseStudies") },
-    { href: "#about", label: nav("about") },
-    { href: "#contact", label: nav("contact") },
-  ];
+  const navLinks = NAV_LINKS.map((link) => ({
+    href: link.href,
+    label: nav(link.labelKey),
+  }));
 
   return (
     <footer id="contact" className="bg-navy text-white">
@@ -24,13 +23,13 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/images/logo-was.png"
-                alt="What A Service"
+                alt={SITE_NAME}
                 width={40}
                 height={40}
                 className="rounded-full"
               />
-              <span className="font-[family-name:var(--font-heading)] font-bold text-xl">
-                What A Service
+              <span className="font-heading font-bold text-xl">
+                {SITE_NAME}
               </span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-md">
@@ -39,7 +38,7 @@ export default function Footer() {
 
             {/* Certifications */}
             <div className="flex flex-wrap gap-2">
-              {certList.map((cert) => (
+              {CERT_KEYS.map((cert) => (
                 <span
                   key={cert}
                   className="text-xs px-3 py-1 bg-white/10 rounded-full text-white/70"
@@ -52,7 +51,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-[family-name:var(--font-heading)] font-bold text-sm uppercase tracking-wider mb-4 text-white/90">
+            <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/90">
               {t("navigation")}
             </h4>
             <ul className="space-y-3">
@@ -79,7 +78,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-[family-name:var(--font-heading)] font-bold text-sm uppercase tracking-wider mb-4 text-white/90">
+            <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/90">
               {t("contact")}
             </h4>
             <ul className="space-y-3">
@@ -99,7 +98,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                 </svg>
-                Paris, France
+                {t("location")}
               </li>
             </ul>
           </div>
