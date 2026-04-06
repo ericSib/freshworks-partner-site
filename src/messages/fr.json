@@ -8,7 +8,10 @@
     "caseStudies": "Cas clients",
     "about": "À propos",
     "contact": "Contact",
-    "bookCall": "Réserver un appel"
+    "bookCall": "Réserver un appel",
+    "switchLang": "Switch to English",
+    "switchLangShort": "EN",
+    "switchLangFull": "EN — English"
   },
   "hero": {
     "tagline": "Freshworks Consulting, Done Right.",
@@ -62,7 +65,7 @@
   },
   "services": {
     "sectionTag": "Ce que nous faisons",
-    "headline": "5 piliers pour transformer votre IT",
+    "headline": "6 piliers pour transformer votre IT",
     "subheadline": "Chaque service est conçu pour livrer de la valeur mesurable, pas de la documentation inutile.",
     "cards": [
       {
@@ -112,6 +115,8 @@
   "caseStudies": {
     "sectionTag": "Cas clients",
     "headline": "Des résultats, pas des promesses",
+    "challengeLabel": "Défi",
+    "solutionLabel": "Solution",
     "cases": [
       {
         "client": "ETI — Secteur industriel",
@@ -138,14 +143,12 @@
       {
         "quote": "Eric a transformé notre façon de travailler avec Freshservice. En 4 semaines, nos équipes l'ont adopté naturellement.",
         "author": "Sophie M.",
-        "role": "DSI — ETI industrielle",
-        "avatar": "sophie"
+        "role": "DSI — ETI industrielle"
       },
       {
         "quote": "La migration s'est faite sans accroc. Pas une seule donnée perdue, et l'équipe était autonome dès le jour 1.",
         "author": "Marc D.",
-        "role": "Support Manager — PME B2B",
-        "avatar": "marc"
+        "role": "Support Manager — PME B2B"
       }
     ]
   },
@@ -168,8 +171,8 @@
     "description": "Consultant Freshworks pour ETI et PME. Implémentation, optimisation, migration.",
     "navigation": "Navigation",
     "legal": "Mentions légales",
-    "privacy": "Politique de confidentialité",
     "contact": "Contact",
+    "location": "Paris, France",
     "email": "contact@whataservice.fr",
     "rights": "© 2026 What A Service. Tous droits réservés.",
     "madeWith": "Fait avec passion à Paris"

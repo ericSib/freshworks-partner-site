@@ -8,7 +8,10 @@
     "caseStudies": "Case Studies",
     "about": "About",
     "contact": "Contact",
-    "bookCall": "Book a Call"
+    "bookCall": "Book a Call",
+    "switchLang": "Passer en français",
+    "switchLangShort": "FR",
+    "switchLangFull": "FR — Français"
   },
   "hero": {
     "tagline": "Freshworks Consulting, Done Right.",
@@ -62,7 +65,7 @@
   },
   "services": {
     "sectionTag": "What we do",
-    "headline": "5 pillars to transform your IT",
+    "headline": "6 pillars to transform your IT",
     "subheadline": "Each service is designed to deliver measurable value, not useless documentation.",
     "cards": [
       {
@@ -112,6 +115,8 @@
   "caseStudies": {
     "sectionTag": "Case Studies",
     "headline": "Results, not promises",
+    "challengeLabel": "Challenge",
+    "solutionLabel": "Solution",
     "cases": [
       {
         "client": "Mid-market — Industrial sector",
@@ -138,14 +143,12 @@
       {
         "quote": "Eric transformed how we work with Freshservice. In 4 weeks, our teams adopted it naturally.",
         "author": "Sophie M.",
-        "role": "CIO — Industrial mid-market",
-        "avatar": "sophie"
+        "role": "CIO — Industrial mid-market"
       },
       {
         "quote": "The migration went smoothly. Not a single piece of data lost, and the team was autonomous from day 1.",
         "author": "Marc D.",
-        "role": "Support Manager — B2B SMB",
-        "avatar": "marc"
+        "role": "Support Manager — B2B SMB"
       }
     ]
   },
@@ -168,8 +171,8 @@
     "description": "Freshworks consultant for mid-market and SMBs. Implementation, optimization, migration.",
     "navigation": "Navigation",
     "legal": "Legal notice",
-    "privacy": "Privacy policy",
     "contact": "Contact",
+    "location": "Paris, France",
     "email": "contact@whataservice.fr",
     "rights": "© 2026 What A Service. All rights reserved.",
     "madeWith": "Made with passion in Paris"
