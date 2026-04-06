@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
 import SectionHeader from "@/components/ui/SectionHeader";
+import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
+import StaggerChildren from "@/components/ui/StaggerChildren";
 import { problemIcons } from "@/components/icons/problem-icons";
 
 const colorClasses = [
@@ -21,9 +23,14 @@ export default function Problems() {
   return (
     <section className="section-padding bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader tag={t("sectionTag")} headline={t("headline")} />
+        <AnimateOnScroll variant="fade-up">
+          <SectionHeader tag={t("sectionTag")} headline={t("headline")} />
+        </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerChildren
+          staggerDelay={100}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {cards.map((card, i) => (
             <div
               key={i}
@@ -38,7 +45,7 @@ export default function Problems() {
               </p>
             </div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );

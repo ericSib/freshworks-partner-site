@@ -6,6 +6,9 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { SITE_NAME } from "@/config/site";
 import { NAV_LINKS } from "@/config/navigation";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
+
+const SECTION_IDS = ["services", "case-studies", "about", "contact"];
 
 export default function Header() {
   const t = useTranslations("nav");
@@ -14,12 +17,19 @@ export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const activeSection = useScrollSpy(SECTION_IDS, 120);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isMobileOpen]);
 
   const switchLocale = () => {
     const newLocale = locale === "fr" ? "en" : "fr";
@@ -29,13 +39,25 @@ export default function Header() {
   const navLinks = NAV_LINKS.map((link) => ({
     href: link.href,
     label: t(link.labelKey),
+    sectionId: link.href.replace("#", ""),
   }));
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.offsetTop - 80;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+    setIsMobileOpen(false);
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md py-3"
+          ? "bg-white/95 backdrop-blur-md shadow-[var(--shadow-md)] py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -66,15 +88,22 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-orange ${
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`relative text-sm font-medium transition-colors hover:text-orange ${
                   isScrolled ? "text-navy/80" : "text-white/90"
                 }`}
               >
                 {link.label}
+                {/* Active indicator */}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-orange rounded-full transition-all duration-300 ${
+                    activeSection === link.sectionId ? "w-full" : "w-0"
+                  }`}
+                />
               </a>
             ))}
 
-            {/* Language toggle */}
+            {/* Language toggle — no flags (GTM directive) */}
             <button
               onClick={switchLocale}
               className={`text-sm font-semibold px-3 py-1.5 rounded-md border transition-colors ${
@@ -84,13 +113,14 @@ export default function Header() {
               }`}
               aria-label={t("switchLang")}
             >
-              {t("switchLangShort")}
+              {locale === "fr" ? "English" : "Français"}
             </button>
 
             {/* CTA */}
             <a
               href="#contact"
-              className="bg-orange text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-orange-dark transition-colors shadow-lg shadow-orange/25"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="bg-orange text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-dark transition-all shadow-[var(--shadow-orange-sm)] hover:shadow-[var(--shadow-orange-md)] hover:translate-y-[-1px]"
             >
               {t("bookCall")}
             </a>
@@ -103,7 +133,7 @@ export default function Header() {
             aria-label="Menu"
           >
             <span
-              className={`block w-6 h-0.5 transition-all ${
+              className={`block w-6 h-0.5 transition-all duration-300 ${
                 isMobileOpen
                   ? "rotate-45 translate-y-2 bg-navy"
                   : isScrolled
@@ -112,7 +142,7 @@ export default function Header() {
               }`}
             />
             <span
-              className={`block w-6 h-0.5 transition-all ${
+              className={`block w-6 h-0.5 transition-all duration-300 ${
                 isMobileOpen
                   ? "opacity-0"
                   : isScrolled
@@ -121,7 +151,7 @@ export default function Header() {
               }`}
             />
             <span
-              className={`block w-6 h-0.5 transition-all ${
+              className={`block w-6 h-0.5 transition-all duration-300 ${
                 isMobileOpen
                   ? "-rotate-45 -translate-y-2 bg-navy"
                   : isScrolled
@@ -132,16 +162,27 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile menu */}
-        {isMobileOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 bg-white rounded-xl shadow-xl -mx-4 px-4">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
+        {/* Mobile menu — animated */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+            isMobileOpen ? "max-h-[500px] opacity-100 mt-4" : "max-h-0 opacity-0"
+          }`}
+        >
+          <nav className="pb-4 border-t border-gray-200 pt-4 bg-white rounded-xl shadow-xl -mx-4 px-6">
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link, i) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-navy font-medium py-2 hover:text-orange transition-colors"
-                  onClick={() => setIsMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`text-navy font-medium py-3 hover:text-orange transition-all duration-300 border-b border-gray-100 last:border-0 ${
+                    activeSection === link.sectionId ? "text-orange" : ""
+                  }`}
+                  style={{
+                    transitionDelay: isMobileOpen ? `${i * 50}ms` : "0ms",
+                    opacity: isMobileOpen ? 1 : 0,
+                    transform: isMobileOpen ? "translateX(0)" : "translateX(-10px)",
+                  }}
                 >
                   {link.label}
                 </a>
@@ -151,20 +192,20 @@ export default function Header() {
                   switchLocale();
                   setIsMobileOpen(false);
                 }}
-                className="text-left text-navy font-medium py-2 hover:text-orange"
+                className="text-left text-navy font-medium py-3 hover:text-orange border-b border-gray-100 transition-colors"
               >
-                {t("switchLangFull")}
+                {locale === "fr" ? "English" : "Français"}
               </button>
               <a
                 href="#contact"
-                className="bg-orange text-white px-5 py-3 rounded-lg text-center font-semibold hover:bg-orange-dark transition-colors"
-                onClick={() => setIsMobileOpen(false)}
+                className="bg-orange text-white px-5 py-3 rounded-xl text-center font-semibold hover:bg-orange-dark transition-colors mt-2"
+                onClick={(e) => handleNavClick(e, "#contact")}
               >
                 {t("bookCall")}
               </a>
             </div>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   );

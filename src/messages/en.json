@@ -15,10 +15,11 @@
   },
   "hero": {
     "tagline": "Freshworks Consulting, Done Right.",
-    "headline": "Your Freshworks partner for real results",
-    "subheadline": "Implementation, optimization and migration of Freshservice & Freshdesk for mid-market companies. ITIL 4 · PRINCE2 · Scrum certified. Results in weeks, not months.",
-    "ctaPrimary": "Book a discovery call",
-    "ctaSecondary": "Explore our services",
+    "headline": "Freshservice & Freshdesk, Configured Right the First Time",
+    "subheadline": "ITIL 4 · PRINCE2 · Scrum certified consultant for mid-market companies. Implementation, migration and optimization of Freshworks. Measurable results in weeks, not months.",
+    "ctaPrimary": "Book a Consultation",
+    "ctaSecondary": "See Our Case Studies",
+    "clientsTrust": "Trusted by",
     "trustedBy": "Certifications & Partnerships"
   },
   "certifications": {
@@ -29,30 +30,80 @@
     "freshworks": "Freshworks Partner"
   },
   "problems": {
-    "sectionTag": "Challenges you face",
+    "sectionTag": "Your IT team deserves better",
     "headline": "Sound familiar?",
     "cards": [
       {
         "icon": "chart-down",
-        "title": "Low adoption",
-        "description": "Your team only uses 30% of Freshservice. The investment isn't translating into ROI."
+        "title": "Your IT team is firefighting",
+        "description": "Freshservice adoption at 30%. Tickets falling through the cracks. The investment isn't translating into ROI."
       },
       {
         "icon": "cog",
-        "title": "Manual processes",
-        "description": "No automation, breached SLAs, and an overwhelmed support team."
+        "title": "Your ITSM tool is holding you back",
+        "description": "Too complex, too expensive, too little adoption. No automation, breached SLAs, an overwhelmed team."
       },
       {
         "icon": "switch",
-        "title": "Risky migration",
-        "description": "Your current tool is too expensive but migrating without losing data worries you."
+        "title": "Migration feels risky",
+        "description": "Your current tool costs too much but switching without losing data or disrupting operations is scary."
       },
       {
         "icon": "spreadsheet",
-        "title": "HR stuck in Excel",
-        "description": "Onboarding and offboarding still rely on emails and manual spreadsheets."
+        "title": "Your processes don't scale",
+        "description": "Onboarding, offboarding and internal requests still rely on emails and Excel spreadsheets."
       }
     ]
+  },
+  "process": {
+    "sectionTag": "Our approach",
+    "headline": "3 steps to IT excellence",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discover",
+        "description": "Free audit of your IT environment. Identify quick wins and Freshworks improvement potential.",
+        "details": ["Current state analysis", "Needs mapping", "Prioritized recommendations"]
+      },
+      {
+        "number": "02",
+        "title": "Implement",
+        "description": "Tailored configuration, data migration, team training. Go-live in 4 weeks.",
+        "details": ["Custom configuration", "Zero-downtime migration", "Hands-on training"]
+      },
+      {
+        "number": "03",
+        "title": "Optimize",
+        "description": "Continuous improvement, advanced automations, KPI tracking. Your ROI grows every month.",
+        "details": ["Freddy AI automations", "KPI dashboards", "Ongoing support"]
+      }
+    ],
+    "cta": "Start with a free audit"
+  },
+  "clientLogos": {
+    "title": "Trusted by"
+  },
+  "freshworksProducts": {
+    "sectionTag": "Freshworks ecosystem",
+    "headline": "The products we master",
+    "cards": [
+      {
+        "title": "Freshservice",
+        "subtitle": "ITSM & ESM",
+        "description": "IT and business service management. Incidents, requests, changes, CMDB, self-service portal."
+      },
+      {
+        "title": "Freshdesk",
+        "subtitle": "Customer support",
+        "description": "Omnichannel customer support. Tickets, chat, knowledge base, automations."
+      },
+      {
+        "title": "Freddy AI",
+        "subtitle": "Artificial intelligence",
+        "description": "Intelligent automation. Chatbot, agent suggestions, predictive analytics, ticket deflection."
+      }
+    ],
+    "cta": "Discover our services →"
   },
   "metrics": {
     "sectionTag": "Proven results",
@@ -64,51 +115,49 @@
     ]
   },
   "services": {
-    "sectionTag": "What we do",
-    "headline": "6 pillars to transform your IT",
-    "subheadline": "Each service is designed to deliver measurable value, not useless documentation.",
+    "sectionTag": "Our services",
+    "headline": "5 pillars to transform your IT",
+    "subheadline": "Each fixed-fee package is designed to deliver measurable value. Results in weeks, not months.",
     "cards": [
       {
         "icon": "rocket",
-        "title": "Implementation",
+        "title": "Implementation & Launch",
         "description": "End-to-end Freshservice or Freshdesk deployment. Configuration, workflows, self-service portal, training.",
         "price": "Starting at €5,000",
+        "badge": "",
         "features": ["ITSM/ESM configuration", "Workflows & automations", "Team training", "Go-live in 4 weeks"]
+      },
+      {
+        "icon": "arrow-right-left",
+        "title": "Migration",
+        "description": "Migration from ServiceNow, Jira, Zendesk or any other tool to Freshworks with zero data loss.",
+        "price": "Starting at €8,000",
+        "badge": "Recommended",
+        "features": ["Data mapping", "Zero-downtime migration", "Post-migration validation", "New tool training"]
       },
       {
         "icon": "settings",
         "title": "Optimization",
         "description": "Audit of your existing instance. Improve adoption, processes and ROI.",
         "price": "Starting at €3,000",
+        "badge": "",
         "features": ["360° instance audit", "Quick wins identified", "Optimization plan", "KPI tracking"]
       },
       {
-        "icon": "arrow-right-left",
-        "title": "Migration",
-        "description": "Migration from ServiceNow, Jira, BMC or any other tool to Freshworks with zero data loss.",
-        "price": "Starting at €8,000",
-        "features": ["Data mapping", "Zero-downtime migration", "Post-migration validation", "New tool training"]
-      },
-      {
         "icon": "users",
-        "title": "ESM (Enterprise Service Management)",
+        "title": "ESM — Business Teams",
         "description": "Extend Freshservice to HR, Finance, Legal. Onboarding, offboarding, internal requests.",
         "price": "Starting at €4,000",
+        "badge": "",
         "features": ["Multi-department portal", "HR/Finance workflows", "Service catalog", "Cross-functional reporting"]
       },
       {
-        "icon": "graduation-cap",
-        "title": "Training & Coaching",
-        "description": "Upskill your IT and business teams on Freshworks. Hands-on sessions.",
-        "price": "Starting at €1,500",
-        "features": ["Admin training", "Agent training", "Best practices coaching", "Custom documentation"]
-      },
-      {
         "icon": "shield-check",
-        "title": "Managed Services",
-        "description": "Ongoing support, maintenance and evolution of your Freshworks instance.",
-        "price": "Custom quote",
-        "features": ["Dedicated L2/L3 support", "Monthly evolutions", "Proactive monitoring", "Monthly reporting"]
+        "title": "AI & Automation",
+        "description": "Freddy AI Agent, Copilot and Insights. Smart chatbot, agent suggestions, predictive analytics.",
+        "price": "Starting at €6,000",
+        "badge": "",
+        "features": ["Freddy AI Agent & Copilot", "65% ticket deflection", "Predictive analytics", "Continuous optimization"]
       }
     ]
   },
@@ -150,7 +199,8 @@
         "author": "Marc D.",
         "role": "Support Manager — B2B SMB"
       }
-    ]
+    ],
+    "cta": "Get similar results"
   },
   "about": {
     "sectionTag": "About",
@@ -166,6 +216,41 @@
       "Freshworks Certified Partner"
     ],
     "cta": "Let's discuss your project"
+  },
+  "contact": {
+    "sectionTag": "Ready to transform your IT?",
+    "headline": "Let's talk about your project",
+    "subheadline": "Book a 30-minute call to identify your Freshworks quick wins.",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "John Smith",
+      "email": "Work email",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "challenge": "Your biggest IT challenge",
+      "challengeOptions": {
+        "default": "Select a challenge",
+        "adoption": "Low ITSM tool adoption",
+        "tool": "Current tool is too complex or expensive",
+        "migration": "Planning a tool migration",
+        "scale": "Processes don't scale with growth",
+        "other": "Other"
+      },
+      "submit": "Send",
+      "sending": "Sending...",
+      "success": "Message sent! We'll respond within 24 hours.",
+      "successCta": "Or book a slot directly →",
+      "error": "Something went wrong. Try again or email us directly.",
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address"
+    },
+    "info": {
+      "title": "Other ways to reach us",
+      "email": "contact@whataservice.fr",
+      "location": "Paris, France",
+      "response": "Response within 24h"
+    }
   },
   "footer": {
     "description": "Freshworks consultant for mid-market and SMBs. Implementation, optimization, migration.",

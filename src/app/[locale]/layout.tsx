@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Josefin_Sans, DM_Sans } from "next/font/google";
+import { Jost, DM_Sans } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SITE_URL, SITE_NAME, OG_LOCALES } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
-const josefinSans = Josefin_Sans({
+const jost = Jost({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -63,10 +64,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${josefinSans.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${jost.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-[family-name:var(--font-body)]">
         <NextIntlClientProvider messages={messages}>
+          <ScrollProgress />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

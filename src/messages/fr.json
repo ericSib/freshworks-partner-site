@@ -15,10 +15,11 @@
   },
   "hero": {
     "tagline": "Freshworks Consulting, Done Right.",
-    "headline": "Votre partenaire Freshworks pour des résultats concrets",
-    "subheadline": "Implémentation, optimisation et migration Freshservice & Freshdesk pour les ETI et PME. Certifié ITIL 4 · PRINCE2 · Scrum. Résultats en semaines, pas en mois.",
-    "ctaPrimary": "Réserver un appel découverte",
-    "ctaSecondary": "Découvrir nos services",
+    "headline": "Freshservice & Freshdesk, configurés correctement dès le premier jour",
+    "subheadline": "Intégrateur certifié ITIL 4 · PRINCE2 · Scrum pour ETI et PME. Implémentation, migration et optimisation Freshworks. Résultats mesurables en semaines, pas en mois.",
+    "ctaPrimary": "Réservez une consultation",
+    "ctaSecondary": "Voir nos cas clients",
+    "clientsTrust": "Ils nous font confiance",
     "trustedBy": "Certifications & Partenariats"
   },
   "certifications": {
@@ -29,30 +30,80 @@
     "freshworks": "Freshworks Partner"
   },
   "problems": {
-    "sectionTag": "Les défis que vous rencontrez",
+    "sectionTag": "Votre équipe IT mérite mieux",
     "headline": "Ces situations vous parlent ?",
     "cards": [
       {
         "icon": "chart-down",
-        "title": "Adoption en berne",
-        "description": "Votre équipe n'utilise que 30 % de Freshservice. L'investissement ne se traduit pas en ROI."
+        "title": "Votre équipe IT éteint des incendies",
+        "description": "Adoption Freshservice à 30 %. Tickets qui tombent entre les mailles du filet. L'investissement ne se traduit pas en ROI."
       },
       {
         "icon": "cog",
-        "title": "Processus manuels",
-        "description": "Pas d'automatisation, des SLA non respectés, et une équipe support débordée."
+        "title": "Votre outil ITSM est un frein",
+        "description": "Trop complexe, trop cher, trop peu adopté. Pas d'automatisation, des SLA non respectés, une équipe débordée."
       },
       {
         "icon": "switch",
-        "title": "Migration risquée",
-        "description": "Votre outil actuel coûte trop cher mais migrer sans perdre de données vous inquiète."
+        "title": "Migrer vous inquiète",
+        "description": "Votre outil actuel coûte trop cher mais changer sans perdre de données ni perturber les opérations fait peur."
       },
       {
         "icon": "spreadsheet",
-        "title": "RH en mode Excel",
-        "description": "L'onboarding et l'offboarding passent encore par des emails et des fichiers manuels."
+        "title": "Vos processus ne suivent plus",
+        "description": "L'onboarding, l'offboarding et les demandes internes passent encore par des emails et des fichiers Excel."
       }
     ]
+  },
+  "process": {
+    "sectionTag": "Notre approche",
+    "headline": "3 étapes vers l'excellence IT",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Découvrir",
+        "description": "Audit gratuit de votre environnement IT. Identification des quick wins et du potentiel d'amélioration Freshworks.",
+        "details": ["Analyse de l'existant", "Cartographie des besoins", "Recommandations priorisées"]
+      },
+      {
+        "number": "02",
+        "title": "Implémenter",
+        "description": "Configuration sur mesure, migration de données, formation des équipes. Go-live en 4 semaines.",
+        "details": ["Configuration personnalisée", "Migration sans interruption", "Formation hands-on"]
+      },
+      {
+        "number": "03",
+        "title": "Optimiser",
+        "description": "Amélioration continue, automatisations avancées, suivi des KPIs. Votre ROI grandit chaque mois.",
+        "details": ["Automatisations Freddy AI", "Tableaux de bord KPI", "Support continu"]
+      }
+    ],
+    "cta": "Commencer par un audit gratuit"
+  },
+  "clientLogos": {
+    "title": "Ils nous font confiance"
+  },
+  "freshworksProducts": {
+    "sectionTag": "Écosystème Freshworks",
+    "headline": "Les produits que nous maîtrisons",
+    "cards": [
+      {
+        "title": "Freshservice",
+        "subtitle": "ITSM & ESM",
+        "description": "Gestion des services IT et métier. Incidents, demandes, changements, CMDB, portail self-service."
+      },
+      {
+        "title": "Freshdesk",
+        "subtitle": "Support client",
+        "description": "Support omnicanal pour vos clients. Tickets, chat, base de connaissances, automatisations."
+      },
+      {
+        "title": "Freddy AI",
+        "subtitle": "Intelligence artificielle",
+        "description": "Automatisation intelligente. Chatbot, suggestions d'agents, analytics prédictifs, déflexion de tickets."
+      }
+    ],
+    "cta": "Découvrir nos services →"
   },
   "metrics": {
     "sectionTag": "Résultats prouvés",
@@ -64,51 +115,49 @@
     ]
   },
   "services": {
-    "sectionTag": "Ce que nous faisons",
-    "headline": "6 piliers pour transformer votre IT",
-    "subheadline": "Chaque service est conçu pour livrer de la valeur mesurable, pas de la documentation inutile.",
+    "sectionTag": "Nos services",
+    "headline": "5 piliers pour transformer votre IT",
+    "subheadline": "Chaque forfait est conçu pour livrer de la valeur mesurable. Résultats en semaines, pas en mois.",
     "cards": [
       {
         "icon": "rocket",
-        "title": "Implémentation",
+        "title": "Implémentation & Lancement",
         "description": "Déploiement Freshservice ou Freshdesk de A à Z. Configuration, workflows, portail self-service, formation.",
         "price": "À partir de 5 000 €",
+        "badge": "",
         "features": ["Configuration ITSM/ESM", "Workflows & automatisations", "Formation équipes", "Go-live en 4 semaines"]
+      },
+      {
+        "icon": "arrow-right-left",
+        "title": "Migration",
+        "description": "Migration depuis ServiceNow, Jira, Zendesk ou tout autre outil vers Freshworks sans perte de données.",
+        "price": "À partir de 8 000 €",
+        "badge": "Recommandé",
+        "features": ["Mapping des données", "Migration sans interruption", "Validation post-migration", "Formation au nouvel outil"]
       },
       {
         "icon": "settings",
         "title": "Optimisation",
         "description": "Audit de votre instance existante. Amélioration de l'adoption, des processus et du ROI.",
         "price": "À partir de 3 000 €",
+        "badge": "",
         "features": ["Audit 360° de l'instance", "Quick wins identifiés", "Plan d'optimisation", "Suivi KPIs"]
       },
       {
-        "icon": "arrow-right-left",
-        "title": "Migration",
-        "description": "Migration depuis ServiceNow, Jira, BMC ou tout autre outil vers Freshworks sans perte de données.",
-        "price": "À partir de 8 000 €",
-        "features": ["Mapping des données", "Migration sans interruption", "Validation post-migration", "Formation au nouvel outil"]
-      },
-      {
         "icon": "users",
-        "title": "ESM (Enterprise Service Management)",
+        "title": "ESM — Services aux métiers",
         "description": "Étendez Freshservice aux RH, Finance, Juridique. Onboarding, offboarding, demandes internes.",
         "price": "À partir de 4 000 €",
+        "badge": "",
         "features": ["Portail multi-départements", "Workflows RH/Finance", "Catalogue de services", "Reporting transversal"]
       },
       {
-        "icon": "graduation-cap",
-        "title": "Formation & Coaching",
-        "description": "Montée en compétences de vos équipes IT et métier sur Freshworks. Sessions pratiques.",
-        "price": "À partir de 1 500 €",
-        "features": ["Formation administrateurs", "Formation agents", "Coaching best practices", "Documentation sur mesure"]
-      },
-      {
         "icon": "shield-check",
-        "title": "Services managés",
-        "description": "Support continu, maintenance et évolution de votre instance Freshworks.",
-        "price": "Sur devis",
-        "features": ["Support L2/L3 dédié", "Évolutions mensuelles", "Monitoring proactif", "Reporting mensuel"]
+        "title": "IA & Automatisation",
+        "description": "Freddy AI Agent, Copilot et Insights. Chatbot intelligent, suggestions d'agents, analytics prédictifs.",
+        "price": "À partir de 6 000 €",
+        "badge": "",
+        "features": ["Freddy AI Agent & Copilot", "Déflexion de tickets 65%", "Analytics prédictifs", "Optimisation continue"]
       }
     ]
   },
@@ -150,7 +199,8 @@
         "author": "Marc D.",
         "role": "Support Manager — PME B2B"
       }
-    ]
+    ],
+    "cta": "Obtenez des résultats similaires"
   },
   "about": {
     "sectionTag": "À propos",
@@ -166,6 +216,41 @@
       "Freshworks Certified Partner"
     ],
     "cta": "Discutons de votre projet"
+  },
+  "contact": {
+    "sectionTag": "Prêt à transformer votre IT ?",
+    "headline": "Parlons de votre projet",
+    "subheadline": "Réservez un échange de 30 minutes pour identifier vos quick wins Freshworks.",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Email professionnel",
+      "emailPlaceholder": "jean@entreprise.fr",
+      "company": "Entreprise",
+      "companyPlaceholder": "Nom de votre entreprise",
+      "challenge": "Votre plus grand défi IT",
+      "challengeOptions": {
+        "default": "Sélectionnez un défi",
+        "adoption": "Faible adoption de mon outil ITSM",
+        "tool": "Mon outil actuel est trop complexe ou cher",
+        "migration": "Je prévois une migration d'outil",
+        "scale": "Mes processus ne suivent plus la croissance",
+        "other": "Autre"
+      },
+      "submit": "Envoyer",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé ! Nous vous répondrons sous 24 heures.",
+      "successCta": "Ou réservez directement un créneau →",
+      "error": "Une erreur est survenue. Réessayez ou contactez-nous par email.",
+      "required": "Ce champ est requis",
+      "invalidEmail": "Adresse email invalide"
+    },
+    "info": {
+      "title": "Autres moyens de nous contacter",
+      "email": "contact@whataservice.fr",
+      "location": "Paris, France",
+      "response": "Réponse sous 24h"
+    }
   },
   "footer": {
     "description": "Consultant Freshworks pour ETI et PME. Implémentation, optimisation, migration.",
