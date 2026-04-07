@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { SITE_NAME } from "@/config/site";
 import { NAV_LINKS } from "@/config/navigation";
@@ -65,12 +66,12 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <a
+                <Link
                   href="/mentions-legales"
                   className="text-slate-500 hover:text-accent transition-colors duration-300 text-sm"
                 >
                   {t("legal")}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

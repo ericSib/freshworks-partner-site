@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useScrollReveal } from "./useScrollReveal";
+
+function getPrefersReducedMotion() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 interface UseCountUpOptions {
   end: number;
@@ -15,19 +20,15 @@ export function useCountUp<T extends HTMLElement = HTMLDivElement>({
   delay = 0,
 }: UseCountUpOptions) {
   const { ref, isVisible } = useScrollReveal<T>({ threshold: 0.3 });
-  const [count, setCount] = useState(0);
+  const reducedMotion = useSyncExternalStore(
+    () => () => {},
+    getPrefersReducedMotion,
+    () => false
+  );
+  const [count, setCount] = useState(reducedMotion ? end : 0);
 
   useEffect(() => {
-    if (!isVisible) return;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      setCount(end);
-      return;
-    }
+    if (!isVisible || reducedMotion) return;
 
     const timeout = setTimeout(() => {
       const startTime = performance.now();
@@ -35,7 +36,6 @@ export function useCountUp<T extends HTMLElement = HTMLDivElement>({
       const animate = (now: number) => {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        // Ease-out cubic
         const eased = 1 - Math.pow(1 - progress, 3);
         setCount(Math.round(eased * end));
 
@@ -48,7 +48,7 @@ export function useCountUp<T extends HTMLElement = HTMLDivElement>({
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [isVisible, end, duration, delay]);
+  }, [isVisible, end, duration, delay, reducedMotion]);
 
   return { ref, count, isVisible };
 }

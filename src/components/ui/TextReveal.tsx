@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+
+function getPrefersReducedMotion() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 interface TextRevealProps {
   text: string;
@@ -17,23 +22,20 @@ export default function TextReveal({
   initialDelay = 300,
   as: Tag = "h1",
 }: TextRevealProps) {
-  const [isReady, setIsReady] = useState(false);
+  const reducedMotion = useSyncExternalStore(
+    () => () => {},
+    getPrefersReducedMotion,
+    () => false
+  );
+  const [isReady, setIsReady] = useState(reducedMotion);
   const words = text.split(" ");
 
   useEffect(() => {
-    // Respect prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      setIsReady(true);
-      return;
-    }
+    if (reducedMotion) return;
 
     const timer = setTimeout(() => setIsReady(true), initialDelay);
     return () => clearTimeout(timer);
-  }, [initialDelay]);
+  }, [initialDelay, reducedMotion]);
 
   return (
     <Tag className={className}>

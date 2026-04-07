@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+
+function getPrefersReducedMotion() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 interface UseScrollRevealOptions {
   threshold?: number;
@@ -12,21 +17,18 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>({
   once = true,
 }: UseScrollRevealOptions = {}) {
   const ref = useRef<T>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const reducedMotion = useSyncExternalStore(
+    () => () => {},
+    getPrefersReducedMotion,
+    () => false
+  );
+  const [isVisible, setIsVisible] = useState(reducedMotion);
 
   useEffect(() => {
+    if (reducedMotion) return;
+
     const el = ref.current;
     if (!el) return;
-
-    // Respect prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      setIsVisible(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -40,7 +42,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold, once]);
+  }, [threshold, once, reducedMotion]);
 
   return { ref, isVisible };
 }

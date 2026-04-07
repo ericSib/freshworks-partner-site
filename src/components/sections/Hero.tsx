@@ -21,7 +21,7 @@ export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    requestAnimationFrame(() => setIsLoaded(true));
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-export default {
+const config = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'scope-enum': [
@@ -32,3 +32,5 @@ export default {
     'body-max-line-length': [1, 'always', 120],
   },
 };
+
+export default config;
