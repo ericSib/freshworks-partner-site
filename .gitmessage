@@ -1,0 +1,12 @@
+# type(scope): description courte (impératif, < 72 chars)
+#
+# Types : feat | fix | refactor | test | docs | style | perf | chore | ci
+# Scopes : hero, services, products, process, about, contact, metrics,
+#          cases, problems, clients, layout, header, footer, i18n,
+#          config, ui, seo, a11y, e2e, ci, deps, redesign
+#
+# Body (optionnel) : expliquer POURQUOI, pas quoi
+#
+#
+# Footer (optionnel) :
+# Closes #XX | Refs US-XXX
