@@ -4,7 +4,7 @@ type CheckIconProps = {
 };
 
 export default function CheckIcon({
-  className = "w-4 h-4 text-orange",
+  className = "w-4 h-4 text-accent",
   strokeWidth = 3,
 }: CheckIconProps) {
   return (

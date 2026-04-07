@@ -18,45 +18,45 @@ export default function ClientLogos() {
   const t = useTranslations("clientLogos");
 
   return (
-    <section className="py-12 bg-gray-50 border-y border-gray-100">
+    <section className="py-16 bg-deep border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll variant="fade">
-          <p className="text-center text-gray-400 text-xs uppercase tracking-widest mb-8">
+          <p className="text-center text-slate-600 text-xs uppercase tracking-[0.2em] mb-10">
             {t("title")}
           </p>
 
-          {/* Desktop: static row */}
-          <div className="hidden md:flex items-center justify-center gap-12 flex-wrap">
+          {/* Desktop */}
+          <div className="hidden md:flex items-center justify-center gap-16 flex-wrap">
             {LOGOS.map((logo) => (
               <div
                 key={logo.alt}
-                className="grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className="w-24 h-10 flex items-center justify-center grayscale opacity-25 hover:opacity-50 transition-all duration-500"
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
                   height={36}
-                  width={120}
-                  className="h-9 w-auto object-contain"
+                  width={96}
+                  className="max-h-8 max-w-full object-contain invert"
                 />
               </div>
             ))}
           </div>
 
-          {/* Mobile: scrolling marquee */}
+          {/* Mobile marquee */}
           <div className="md:hidden overflow-hidden">
-            <div className="flex items-center gap-12 animate-marquee">
+            <div className="flex items-center gap-16 animate-marquee">
               {[...LOGOS, ...LOGOS].map((logo, i) => (
                 <div
                   key={`${logo.alt}-${i}`}
-                  className="grayscale opacity-40 shrink-0"
+                  className="w-20 h-8 flex items-center justify-center grayscale opacity-25 shrink-0"
                 >
                   <Image
                     src={logo.src}
                     alt={logo.alt}
                     height={32}
-                    width={100}
-                    className="h-8 w-auto object-contain"
+                    width={80}
+                    className="max-h-7 max-w-full object-contain invert"
                   />
                 </div>
               ))}

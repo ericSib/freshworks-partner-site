@@ -26,68 +26,55 @@ export default function CaseStudies() {
   }));
 
   return (
-    <section id="case-studies" className="section-padding bg-gray-50">
+    <section id="case-studies" className="section-padding bg-deep">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade-up">
-          <SectionHeader tag={t("sectionTag")} headline={t("headline")} />
+          <SectionHeader tag={t("sectionTag")} headline={t("headline")} light />
         </AnimateOnScroll>
 
-        {/* Case Study Cards — Editorial layout */}
-        <StaggerChildren staggerDelay={150} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {/* Case Study Cards */}
+        <StaggerChildren staggerDelay={150} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
           {cases.map((caseStudy, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-[var(--shadow-lg)] transition-all duration-300"
+              className="border border-white/5 rounded-xl overflow-hidden hover:border-accent/10 transition-colors duration-500"
             >
-              {/* Client header bar */}
-              <div className="bg-gradient-to-r from-navy to-navy-light px-8 py-4">
-                <span className="text-orange font-semibold text-sm uppercase tracking-wider">
+              {/* Client header */}
+              <div className="px-8 py-5 border-b border-white/5">
+                <span className="text-accent text-sm font-medium tracking-wider uppercase">
                   {caseStudy.client}
                 </span>
               </div>
 
               <div className="p-8">
                 {/* Challenge */}
-                <div className="mb-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center">
-                      <svg className="w-3.5 h-3.5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" />
-                      </svg>
-                    </div>
-                    <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
-                      {t("challengeLabel")}
-                    </h4>
-                  </div>
-                  <p className="text-gray-600 pl-8">{caseStudy.challenge}</p>
+                <div className="mb-6">
+                  <h4 className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">
+                    {t("challengeLabel")}
+                  </h4>
+                  <p className="text-slate-300 text-[15px] leading-relaxed">
+                    {caseStudy.challenge}
+                  </p>
                 </div>
 
                 {/* Solution */}
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center">
-                      <svg className="w-3.5 h-3.5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                    </div>
-                    <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
-                      {t("solutionLabel")}
-                    </h4>
-                  </div>
-                  <p className="text-gray-600 pl-8">{caseStudy.solution}</p>
+                <div className="mb-8">
+                  <h4 className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">
+                    {t("solutionLabel")}
+                  </h4>
+                  <p className="text-slate-300 text-[15px] leading-relaxed">
+                    {caseStudy.solution}
+                  </p>
                 </div>
 
-                {/* Results — individual metric cards */}
-                <div className="grid grid-cols-3 gap-3">
+                {/* Results */}
+                <div className="grid grid-cols-3 gap-4">
                   {caseStudy.results.map((result, j) => (
-                    <div
-                      key={j}
-                      className="bg-gray-50 rounded-xl p-3 text-center"
-                    >
-                      <div className="text-xl sm:text-2xl font-bold text-orange font-heading">
+                    <div key={j} className="text-center">
+                      <div className="text-2xl font-semibold text-accent font-heading mb-1">
                         {result.metric}
                       </div>
-                      <p className="text-[11px] text-gray-500 mt-1 leading-tight">
+                      <p className="text-[11px] text-slate-500 leading-tight">
                         {result.label}
                       </p>
                     </div>
@@ -98,20 +85,19 @@ export default function CaseStudies() {
           ))}
         </StaggerChildren>
 
-        {/* Testimonials — Carousel */}
+        {/* Testimonials */}
         <AnimateOnScroll variant="fade-up">
           <TestimonialCarousel testimonials={testimonials} />
         </AnimateOnScroll>
 
-        {/* CTA */}
         <AnimateOnScroll variant="fade-up" delay={200}>
-          <div className="text-center mt-12">
+          <div className="mt-12">
             <a
               href="#contact"
-              className="inline-flex items-center text-orange font-semibold hover:text-orange-dark transition-colors"
+              className="group inline-flex items-center text-accent text-sm font-medium hover:text-accent-light transition-colors duration-300"
             >
               {t("cta")}
-              <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-3.5 h-3.5 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </a>
@@ -136,44 +122,36 @@ function TestimonialCarousel({
 
   useEffect(() => {
     if (isPaused || testimonials.length <= 1) return;
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
   }, [isPaused, next, testimonials.length]);
 
   return (
     <div
-      className="relative max-w-3xl mx-auto"
+      className="relative max-w-2xl mx-auto"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="overflow-hidden">
         <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${current * 100}%)` }}
+          className="flex transition-transform duration-700"
+          style={{
+            transform: `translateX(-${current * 100}%)`,
+            transitionTimingFunction: "var(--ease-spring)",
+          }}
         >
           {testimonials.map((testimonial, i) => (
             <div key={i} className="w-full shrink-0 px-4">
-              <div className="bg-white rounded-2xl p-10 shadow-sm border border-gray-100 text-center relative">
-                {/* Large quote mark */}
-                <div className="text-7xl text-orange/10 font-serif leading-none mb-4">
-                  &ldquo;
-                </div>
-
-                <blockquote className="text-gray-700 italic text-lg sm:text-xl leading-relaxed mb-8">
-                  {testimonial.quote}
+              <div className="text-center">
+                <blockquote className="text-slate-300 italic text-lg sm:text-xl leading-relaxed mb-8 max-w-xl mx-auto">
+                  &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
-
-                <div className="flex items-center justify-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange to-orange-dark flex items-center justify-center text-white font-bold text-lg">
-                    {testimonial.author.charAt(0)}
+                <div>
+                  <div className="font-medium text-surface text-sm">
+                    {testimonial.author}
                   </div>
-                  <div className="text-left">
-                    <div className="font-semibold text-navy">
-                      {testimonial.author}
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      {testimonial.role}
-                    </div>
+                  <div className="text-xs text-slate-500 mt-1">
+                    {testimonial.role}
                   </div>
                 </div>
               </div>
@@ -182,17 +160,16 @@ function TestimonialCarousel({
         </div>
       </div>
 
-      {/* Dots */}
       {testimonials.length > 1 && (
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-2 mt-8">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              className={`h-[2px] rounded-full transition-all duration-500 ${
                 i === current
-                  ? "bg-orange w-8"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  ? "bg-accent w-8"
+                  : "bg-white/10 w-4 hover:bg-white/20"
               }`}
               aria-label={`Testimonial ${i + 1}`}
             />

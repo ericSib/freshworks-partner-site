@@ -4,7 +4,7 @@ type SectionTagProps = {
 
 export default function SectionTag({ children }: SectionTagProps) {
   return (
-    <span className="inline-block text-sm font-semibold uppercase tracking-wider text-orange px-4 py-1.5 bg-orange/10 rounded-full mb-4">
+    <span className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-accent mb-6">
       {children}
     </span>
   );

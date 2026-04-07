@@ -6,6 +6,8 @@
 export const CERT_KEYS = [
   "itil",
   "prince2",
+  "dora",
+  "bpm",
   "psm",
   "pspo",
   "freshworks",

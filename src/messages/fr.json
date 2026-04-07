@@ -1,247 +1,282 @@
 {
   "metadata": {
-    "title": "What A Service — Consultant Freshworks | Freshservice & Freshdesk",
-    "description": "Implémentation, optimisation et migration Freshservice & Freshdesk pour ETI et PME. Certifié ITIL 4, PRINCE2, Scrum. Résultats en semaines, pas en mois."
+    "title": "What A Service \u2014 ITSM & Support Client, d\u00e9ploy\u00e9s pour performer",
+    "description": "Consultant Freshworks pour ETI et PME. Freshservice (ITSM, ITAM, ESM) et Freshdesk (support omnicanal, CX). ITIL 4, PRINCE2, DORA. R\u00e9sultats en 4 semaines."
   },
   "nav": {
     "services": "Services",
     "caseStudies": "Cas clients",
-    "about": "À propos",
+    "about": "\u00c0 propos",
     "contact": "Contact",
-    "bookCall": "Réserver un appel",
+    "bookCall": "R\u00e9server un appel",
     "switchLang": "Switch to English",
     "switchLangShort": "EN",
-    "switchLangFull": "EN — English"
+    "switchLangFull": "EN \u2014 English"
   },
   "hero": {
-    "tagline": "Freshworks Consulting, Done Right.",
-    "headline": "Freshservice & Freshdesk, configurés correctement dès le premier jour",
-    "subheadline": "Intégrateur certifié ITIL 4 · PRINCE2 · Scrum pour ETI et PME. Implémentation, migration et optimisation Freshworks. Résultats mesurables en semaines, pas en mois.",
-    "ctaPrimary": "Réservez une consultation",
-    "ctaSecondary": "Voir nos cas clients",
+    "tagline": "Consultant Freshworks certifi\u00e9 \u2014 ITSM & CX",
+    "headline": "Vos services IT et votre support client m\u00e9ritent mieux",
+    "subheadline": "Tickets mal rout\u00e9s, CSAT en chute, processus manuels, outils sous-exploit\u00e9s. Nous configurons Freshservice et Freshdesk pour que vos \u00e9quipes IT et support d\u00e9livrent enfin une exp\u00e9rience \u00e0 la hauteur.",
+    "ctaPrimary": "Diagnostic gratuit en 30 min",
+    "ctaSecondary": "Voir nos r\u00e9sultats clients",
     "clientsTrust": "Ils nous font confiance",
     "trustedBy": "Certifications & Partenariats"
   },
   "certifications": {
     "itil": "ITIL 4",
     "prince2": "PRINCE2",
+    "dora": "DORA",
+    "bpm": "BPM",
     "psm": "PSM I",
     "pspo": "PSPO I",
     "freshworks": "Freshworks Partner"
   },
   "problems": {
-    "sectionTag": "Votre équipe IT mérite mieux",
-    "headline": "Ces situations vous parlent ?",
+    "sectionTag": "Ce que vivent nos clients avant de nous appeler",
+    "headline": "Ces situations vous parlent\u00a0?",
     "cards": [
       {
         "icon": "chart-down",
-        "title": "Votre équipe IT éteint des incendies",
-        "description": "Adoption Freshservice à 30 %. Tickets qui tombent entre les mailles du filet. L'investissement ne se traduit pas en ROI."
+        "title": "Votre ITSM ne d\u00e9livre pas",
+        "description": "Adoption \u00e0 30\u00a0%, CMDB vide, SLA explos\u00e9s. L\u2019outil est d\u00e9ploy\u00e9 mais personne ne l\u2019utilise vraiment. La DSI ne peut pas justifier l\u2019investissement."
       },
       {
         "icon": "cog",
-        "title": "Votre outil ITSM est un frein",
-        "description": "Trop complexe, trop cher, trop peu adopté. Pas d'automatisation, des SLA non respectés, une équipe débordée."
+        "title": "Votre support client s\u2019essouffle",
+        "description": "Temps de r\u00e9ponse qui d\u00e9rapent, CSAT en baisse, canaux fragment\u00e9s. Vos agents jonglent entre email, chat et t\u00e9l\u00e9phone sans vue unifi\u00e9e."
       },
       {
         "icon": "switch",
-        "title": "Migrer vous inquiète",
-        "description": "Votre outil actuel coûte trop cher mais changer sans perdre de données ni perturber les opérations fait peur."
+        "title": "Migrer sans tout casser",
+        "description": "ServiceNow trop lourd, Zendesk trop cher, outil maison trop rigide. Changer sans perdre l\u2019historique ni perturber la production\u00a0: c\u2019est le vrai d\u00e9fi."
       },
       {
         "icon": "spreadsheet",
-        "title": "Vos processus ne suivent plus",
-        "description": "L'onboarding, l'offboarding et les demandes internes passent encore par des emails et des fichiers Excel."
+        "title": "Excel, emails, bricolage",
+        "description": "Onboarding, ITAM, demandes internes, suivi client\u00a0: tout passe encore par des fichiers partag\u00e9s. Pas de tra\u00e7abilit\u00e9, pas de reporting, pas de visibilit\u00e9."
       }
     ]
   },
   "process": {
-    "sectionTag": "Notre approche",
-    "headline": "3 étapes vers l'excellence IT",
+    "sectionTag": "Notre m\u00e9thode",
+    "headline": "3 \u00e9tapes, z\u00e9ro surprise",
     "steps": [
       {
         "number": "01",
-        "title": "Découvrir",
-        "description": "Audit gratuit de votre environnement IT. Identification des quick wins et du potentiel d'amélioration Freshworks.",
-        "details": ["Analyse de l'existant", "Cartographie des besoins", "Recommandations priorisées"]
+        "title": "Diagnostic",
+        "description": "Audit gratuit de vos services IT et support client\u00a0: outils, processus, canaux, int\u00e9grations. On identifie les quick wins et les vrais blocages.",
+        "details": ["Cartographie ITSM & support CX", "Analyse des flux et canaux", "Recommandations prioris\u00e9es"]
       },
       {
         "number": "02",
-        "title": "Implémenter",
-        "description": "Configuration sur mesure, migration de données, formation des équipes. Go-live en 4 semaines.",
-        "details": ["Configuration personnalisée", "Migration sans interruption", "Formation hands-on"]
+        "title": "D\u00e9ploiement",
+        "description": "Configuration Freshservice et/ou Freshdesk sur mesure. Int\u00e9grations SI, migration de donn\u00e9es, mise en place omnicanal. Go-live en 4 semaines.",
+        "details": ["Int\u00e9grations EntraID, M365, CRM", "Portail self-service & widget chat", "Formation hands-on"]
       },
       {
         "number": "03",
-        "title": "Optimiser",
-        "description": "Amélioration continue, automatisations avancées, suivi des KPIs. Votre ROI grandit chaque mois.",
-        "details": ["Automatisations Freddy AI", "Tableaux de bord KPI", "Support continu"]
+        "title": "Pilotage",
+        "description": "Automatisations Freddy AI, CMDB structur\u00e9e, dashboards CSAT/SLA/NPS. Votre performance s\u2019am\u00e9liore chaque mois.",
+        "details": ["Freddy AI Agent & Copilot", "KPIs\u00a0: CSAT, NPS, SLA, FCR", "Optimisation continue"]
       }
     ],
-    "cta": "Commencer par un audit gratuit"
+    "cta": "Commencer par un diagnostic gratuit"
   },
   "clientLogos": {
     "title": "Ils nous font confiance"
   },
+  "techStack": {
+    "sectionTag": "On parle votre langue",
+    "headline": "Votre \u00e9cosyst\u00e8me, on le conna\u00eet",
+    "subheadline": "Freshworks ne vit pas en silo. On int\u00e8gre vos outils existants pour un SI coh\u00e9rent et une exp\u00e9rience client fluide.",
+    "categories": [
+      {
+        "label": "Identit\u00e9 & Endpoints",
+        "items": ["EntraID", "Intune", "Active Directory", "Azure Cloud"]
+      },
+      {
+        "label": "Collaboration & CX",
+        "items": ["Microsoft 365", "Google Workspace", "Slack", "WhatsApp Business"]
+      },
+      {
+        "label": "D\u00e9veloppement & Ops",
+        "items": ["Jira", "GitHub", "GitLab", "Terraform"]
+      },
+      {
+        "label": "ERP, CRM & ITAM",
+        "items": ["SAP", "Sage", "Salesforce", "Device42"]
+      }
+    ]
+  },
   "freshworksProducts": {
-    "sectionTag": "Écosystème Freshworks",
-    "headline": "Les produits que nous maîtrisons",
+    "sectionTag": "\u00c9cosyst\u00e8me Freshworks",
+    "headline": "Deux plateformes, un seul partenaire",
     "cards": [
       {
         "title": "Freshservice",
-        "subtitle": "ITSM & ESM",
-        "description": "Gestion des services IT et métier. Incidents, demandes, changements, CMDB, portail self-service."
+        "subtitle": "ITSM \u00b7 ESM \u00b7 ITAM",
+        "description": "Gestion des services IT et m\u00e9tier. Incidents, demandes, changements, CMDB, ITAM, portail self-service. La colonne vert\u00e9brale de votre IT interne."
       },
       {
         "title": "Freshdesk",
-        "subtitle": "Support client",
-        "description": "Support omnicanal pour vos clients. Tickets, chat, base de connaissances, automatisations."
+        "subtitle": "Support client omnicanal",
+        "description": "Email, chat, t\u00e9l\u00e9phone, WhatsApp, r\u00e9seaux sociaux dans une seule vue agent. Base de connaissances, SLA, CSAT, automatisations. Votre CX, structur\u00e9e."
       },
       {
         "title": "Freddy AI",
-        "subtitle": "Intelligence artificielle",
-        "description": "Automatisation intelligente. Chatbot, suggestions d'agents, analytics prédictifs, déflexion de tickets."
+        "subtitle": "IA pour ITSM & CX",
+        "description": "Agent virtuel multilingue, suggestions intelligentes, analytics pr\u00e9dictifs. 65\u00a0% de d\u00e9flexion sur les tickets de niveau\u00a01, c\u00f4t\u00e9 IT comme c\u00f4t\u00e9 client."
       }
     ],
-    "cta": "Découvrir nos services →"
+    "cta": "D\u00e9couvrir nos services \u2192"
   },
   "metrics": {
-    "sectionTag": "Résultats prouvés",
+    "sectionTag": "Nos r\u00e9sultats",
     "items": [
       { "value": "95%", "label": "de satisfaction client" },
-      { "value": "<4 sem.", "label": "pour un déploiement" },
-      { "value": "+60%", "label": "d'adoption moyenne" },
-      { "value": "10+", "label": "projets Freshworks livrés" }
+      { "value": "<4 sem.", "label": "pour un d\u00e9ploiement" },
+      { "value": "+40%", "label": "de CSAT moyen" },
+      { "value": "10+", "label": "projets ITSM & CX livr\u00e9s" }
     ]
   },
   "services": {
     "sectionTag": "Nos services",
-    "headline": "5 piliers pour transformer votre IT",
-    "subheadline": "Chaque forfait est conçu pour livrer de la valeur mesurable. Résultats en semaines, pas en mois.",
+    "headline": "ITSM et support client, concr\u00e8tement",
+    "subheadline": "Chaque mission couvre Freshservice, Freshdesk, ou les deux. Forfaits clairs, r\u00e9sultats mesurables.",
     "cards": [
       {
         "icon": "rocket",
-        "title": "Implémentation & Lancement",
-        "description": "Déploiement Freshservice ou Freshdesk de A à Z. Configuration, workflows, portail self-service, formation.",
-        "price": "À partir de 5 000 €",
+        "title": "Impl\u00e9mentation Freshservice",
+        "description": "D\u00e9ploiement ITSM/ESM/ITAM de A \u00e0 Z. Portail, workflows, CMDB, int\u00e9grations SI (EntraID, M365, ERP), formation.",
+        "price": "\u00c0 partir de 5\u00a0000\u00a0\u20ac",
         "badge": "",
-        "features": ["Configuration ITSM/ESM", "Workflows & automatisations", "Formation équipes", "Go-live en 4 semaines"]
+        "features": ["Configuration ITSM/ESM/ITAM", "Int\u00e9grations Active Directory & Azure", "CMDB & Discovery", "Go-live en 4 semaines"]
       },
       {
         "icon": "arrow-right-left",
+        "title": "Impl\u00e9mentation Freshdesk",
+        "description": "D\u00e9ploiement support client omnicanal. Routage intelligent, SLA, base de connaissances, widget chat, int\u00e9grations CRM.",
+        "price": "\u00c0 partir de 4\u00a0000\u00a0\u20ac",
+        "badge": "",
+        "features": ["Email, chat, t\u00e9l\u00e9phone, WhatsApp", "SLA & CSAT automatis\u00e9s", "Base de connaissances bilingue", "Int\u00e9grations CRM (Salesforce, HubSpot)"]
+      },
+      {
+        "icon": "switch",
         "title": "Migration",
-        "description": "Migration depuis ServiceNow, Jira, Zendesk ou tout autre outil vers Freshworks sans perte de données.",
-        "price": "À partir de 8 000 €",
-        "badge": "Recommandé",
-        "features": ["Mapping des données", "Migration sans interruption", "Validation post-migration", "Formation au nouvel outil"]
+        "description": "Migration depuis ServiceNow, Jira, Zendesk, Intercom ou tout autre outil. Z\u00e9ro perte de donn\u00e9es, z\u00e9ro interruption.",
+        "price": "\u00c0 partir de 8\u00a0000\u00a0\u20ac",
+        "badge": "Recommand\u00e9",
+        "features": ["Mapping donn\u00e9es, CMDB & historique", "Migration tickets & contacts", "Validation post-migration", "Formation au nouvel outil"]
       },
       {
         "icon": "settings",
-        "title": "Optimisation",
-        "description": "Audit de votre instance existante. Amélioration de l'adoption, des processus et du ROI.",
-        "price": "À partir de 3 000 €",
+        "title": "Optimisation & ITAM",
+        "description": "Audit de votre instance Freshservice ou Freshdesk. Structuration CMDB/ITAM, am\u00e9lioration CSAT, adoption, ROI.",
+        "price": "\u00c0 partir de 3\u00a0000\u00a0\u20ac",
         "badge": "",
-        "features": ["Audit 360° de l'instance", "Quick wins identifiés", "Plan d'optimisation", "Suivi KPIs"]
+        "features": ["Audit 360\u00b0 ITSM ou CX", "Structuration CMDB / ITAM", "Optimisation CSAT & SLA", "Conformit\u00e9 DORA"]
       },
       {
         "icon": "users",
-        "title": "ESM — Services aux métiers",
-        "description": "Étendez Freshservice aux RH, Finance, Juridique. Onboarding, offboarding, demandes internes.",
-        "price": "À partir de 4 000 €",
+        "title": "ESM \u2014 Services aux m\u00e9tiers",
+        "description": "\u00c9tendez Freshservice aux RH, Finance, Juridique. Onboarding, offboarding, demandes internes automatis\u00e9es.",
+        "price": "\u00c0 partir de 4\u00a0000\u00a0\u20ac",
         "badge": "",
-        "features": ["Portail multi-départements", "Workflows RH/Finance", "Catalogue de services", "Reporting transversal"]
+        "features": ["Portail multi-d\u00e9partements", "Workflows RH/Finance/IT", "Catalogue de services", "Reporting transversal"]
       },
       {
         "icon": "shield-check",
         "title": "IA & Automatisation",
-        "description": "Freddy AI Agent, Copilot et Insights. Chatbot intelligent, suggestions d'agents, analytics prédictifs.",
-        "price": "À partir de 6 000 €",
+        "description": "Freddy AI pour ITSM et support client. Agent virtuel, d\u00e9flexion, analytics pr\u00e9dictifs. DORA & BPM.",
+        "price": "\u00c0 partir de 6\u00a0000\u00a0\u20ac",
         "badge": "",
-        "features": ["Freddy AI Agent & Copilot", "Déflexion de tickets 65%", "Analytics prédictifs", "Optimisation continue"]
+        "features": ["Freddy AI Agent & Copilot", "D\u00e9flexion 65\u00a0% (IT & CX)", "Analytics CSAT pr\u00e9dictifs", "Conformit\u00e9 DORA & BPM"]
       }
     ]
   },
   "caseStudies": {
     "sectionTag": "Cas clients",
-    "headline": "Des résultats, pas des promesses",
-    "challengeLabel": "Défi",
+    "headline": "Des r\u00e9sultats, pas des promesses",
+    "challengeLabel": "D\u00e9fi",
     "solutionLabel": "Solution",
     "cases": [
       {
-        "client": "ETI — Secteur industriel",
-        "challenge": "Adoption Freshservice à 30%, équipes frustrées, ROI invisible.",
-        "solution": "Audit complet, refonte des workflows, formation ciblée, portail self-service.",
+        "client": "ETI \u2014 Secteur industriel",
+        "challenge": "Freshservice d\u00e9ploy\u00e9 sans accompagnement. Adoption \u00e0 30\u00a0%, CMDB vide, aucune automatisation. La DSI ne pouvait pas justifier l\u2019investissement.",
+        "solution": "Audit complet, restructuration CMDB/ITAM, refonte des workflows, int\u00e9gration EntraID + Intune, formation cibl\u00e9e.",
         "results": [
-          { "metric": "85%", "label": "d'adoption en 6 semaines" },
+          { "metric": "85%", "label": "d\u2019adoption en 6 semaines" },
           { "metric": "-40%", "label": "de tickets manuels" },
           { "metric": "4.5/5", "label": "satisfaction utilisateurs" }
         ]
       },
       {
-        "client": "PME — Services B2B",
-        "challenge": "Migration depuis un outil legacy. Peur de la perte de données et de la résistance au changement.",
-        "solution": "Migration progressive, formation en parallèle, validation données à chaque étape.",
+        "client": "PME \u2014 E-commerce B2C",
+        "challenge": "Support client \u00e9clat\u00e9 entre email, chat et t\u00e9l\u00e9phone. Temps de premi\u00e8re r\u00e9ponse \u00e0 14h, CSAT \u00e0 62\u00a0%, pas de base de connaissances. Les clients partaient chez la concurrence.",
+        "solution": "D\u00e9ploiement Freshdesk omnicanal, base de connaissances bilingue, chatbot Freddy AI, SLA automatis\u00e9s, int\u00e9gration Shopify + Salesforce.",
         "results": [
-          { "metric": "0", "label": "données perdues" },
-          { "metric": "3 sem.", "label": "de migration complète" },
-          { "metric": "+50%", "label": "de productivité support" }
+          { "metric": "91%", "label": "de CSAT en 8 semaines" },
+          { "metric": "<2h", "label": "de temps de r\u00e9ponse" },
+          { "metric": "-55%", "label": "de volume tickets L1" }
         ]
       }
     ],
     "testimonials": [
       {
-        "quote": "Eric a transformé notre façon de travailler avec Freshservice. En 4 semaines, nos équipes l'ont adopté naturellement.",
+        "quote": "Eric a structur\u00e9 notre CMDB, automatis\u00e9 nos workflows et form\u00e9 nos \u00e9quipes. En 4 semaines, l\u2019adoption est pass\u00e9e de 30 \u00e0 85\u00a0%.",
         "author": "Sophie M.",
-        "role": "DSI — ETI industrielle"
+        "role": "DSI \u2014 ETI industrielle"
       },
       {
-        "quote": "La migration s'est faite sans accroc. Pas une seule donnée perdue, et l'équipe était autonome dès le jour 1.",
-        "author": "Marc D.",
-        "role": "Support Manager — PME B2B"
+        "quote": "Notre CSAT est pass\u00e9 de 62 \u00e0 91\u00a0% en deux mois. Le chatbot Freddy traite plus de la moiti\u00e9 des tickets de niveau\u00a01. On a enfin une vision claire de notre support.",
+        "author": "Karim L.",
+        "role": "Directeur CX \u2014 PME e-commerce"
       }
     ],
-    "cta": "Obtenez des résultats similaires"
+    "cta": "Obtenez des r\u00e9sultats similaires"
   },
   "about": {
-    "sectionTag": "À propos",
-    "headline": "L'expert qui fait la différence",
+    "sectionTag": "\u00c0 propos",
+    "headline": "Un interlocuteur unique, pas un cabinet",
     "name": "Eric Sib",
     "role": "Fondateur, What A Service",
-    "bio": "Consultant ITSM avec plus de 10 ans d'expérience dans la transformation digitale des services IT. Spécialisé Freshworks, je combine expertise technique et approche pragmatique pour livrer des résultats concrets, en semaines plutôt qu'en mois.",
+    "bio": "Plus de 10 ans dans la transformation des services IT et de l\u2019exp\u00e9rience client. Sp\u00e9cialis\u00e9 Freshworks (Freshservice + Freshdesk), je connais votre \u00e9cosyst\u00e8me\u00a0: Active Directory, EntraID, Azure, M365, CRM. Mon approche\u00a0: comprendre vos enjeux m\u00e9tier \u2014 IT comme support client \u2014 avant de toucher \u00e0 l\u2019outil.",
     "credentials": [
-      "Certifié ITIL 4 Foundation",
-      "Certifié PRINCE2 Practitioner",
-      "Professional Scrum Master (PSM I)",
-      "Professional Scrum Product Owner (PSPO I)",
+      "ITIL 4 Foundation",
+      "PRINCE2 Practitioner",
+      "DORA & BPM",
+      "Scrum Master (PSM I)",
       "Freshworks Certified Partner"
     ],
     "cta": "Discutons de votre projet"
   },
   "contact": {
-    "sectionTag": "Prêt à transformer votre IT ?",
-    "headline": "Parlons de votre projet",
-    "subheadline": "Réservez un échange de 30 minutes pour identifier vos quick wins Freshworks.",
+    "sectionTag": "Passez \u00e0 l\u2019action",
+    "headline": "30 minutes pour identifier vos quick wins",
+    "subheadline": "Un diagnostic gratuit de votre ITSM ou de votre support client. On identifie ce qui bloque et ce qu\u2019on peut d\u00e9bloquer en 4 semaines.",
     "form": {
       "name": "Nom complet",
-      "namePlaceholder": "Jean Dupont",
+      "namePlaceholder": "Pr\u00e9nom Nom",
       "email": "Email professionnel",
-      "emailPlaceholder": "jean@entreprise.fr",
+      "emailPlaceholder": "prenom@entreprise.fr",
       "company": "Entreprise",
       "companyPlaceholder": "Nom de votre entreprise",
-      "challenge": "Votre plus grand défi IT",
+      "challenge": "Votre plus grand d\u00e9fi",
       "challengeOptions": {
-        "default": "Sélectionnez un défi",
+        "default": "S\u00e9lectionnez un d\u00e9fi",
         "adoption": "Faible adoption de mon outil ITSM",
+        "cx": "Mon support client n\u2019est pas \u00e0 la hauteur",
         "tool": "Mon outil actuel est trop complexe ou cher",
-        "migration": "Je prévois une migration d'outil",
+        "migration": "Je pr\u00e9vois une migration d\u2019outil",
         "scale": "Mes processus ne suivent plus la croissance",
+        "itam": "CMDB / ITAM non structur\u00e9",
         "other": "Autre"
       },
       "submit": "Envoyer",
       "sending": "Envoi en cours...",
-      "success": "Message envoyé ! Nous vous répondrons sous 24 heures.",
-      "successCta": "Ou réservez directement un créneau →",
-      "error": "Une erreur est survenue. Réessayez ou contactez-nous par email.",
+      "success": "Message envoy\u00e9\u00a0! Nous vous r\u00e9pondrons sous 24 heures.",
+      "successCta": "Ou r\u00e9servez directement un cr\u00e9neau \u2192",
+      "error": "Une erreur est survenue. R\u00e9essayez ou contactez-nous par email.",
       "required": "Ce champ est requis",
       "invalidEmail": "Adresse email invalide"
     },
@@ -249,17 +284,17 @@
       "title": "Autres moyens de nous contacter",
       "email": "contact@whataservice.fr",
       "location": "Paris, France",
-      "response": "Réponse sous 24h"
+      "response": "R\u00e9ponse sous 24h"
     }
   },
   "footer": {
-    "description": "Consultant Freshworks pour ETI et PME. Implémentation, optimisation, migration.",
+    "description": "Consultant Freshworks pour ETI et PME. ITSM, support client omnicanal, ITAM, ESM. D\u00e9ploiement, migration, optimisation.",
     "navigation": "Navigation",
-    "legal": "Mentions légales",
+    "legal": "Mentions l\u00e9gales",
     "contact": "Contact",
     "location": "Paris, France",
     "email": "contact@whataservice.fr",
-    "rights": "© 2026 What A Service. Tous droits réservés.",
-    "madeWith": "Fait avec passion à Paris"
+    "rights": "\u00a9 2026 What A Service. Tous droits r\u00e9serv\u00e9s.",
+    "madeWith": "Fait avec passion \u00e0 Paris"
   }
 }
