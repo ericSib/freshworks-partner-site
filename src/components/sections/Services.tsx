@@ -1,14 +1,12 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
 import CheckIcon from "@/components/ui/CheckIcon";
 import { serviceIcons } from "@/components/icons/service-icons";
 
-export default function Services() {
-  const t = useTranslations("services");
+export default async function Services() {
+  const t = await getTranslations("services");
 
   const cards = [0, 1, 2, 3, 4, 5].map((i) => ({
     icon: t(`cards.${i}.icon`),

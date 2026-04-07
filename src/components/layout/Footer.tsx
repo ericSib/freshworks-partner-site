@@ -15,32 +15,33 @@ export default function Footer() {
   }));
 
   return (
-    <footer className="bg-deep border-t border-white/5 text-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <footer className="bg-navy-dark text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/images/logo-was.png"
                 alt={SITE_NAME}
-                width={32}
-                height={32}
+                width={40}
+                height={40}
                 className="rounded-full"
               />
-              <span className="font-heading font-semibold text-sm tracking-wide">
+              <span className="font-heading font-bold text-xl">
                 {SITE_NAME}
               </span>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-sm">
+            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-md">
               {t("description")}
             </p>
 
+            {/* Certifications */}
             <div className="flex flex-wrap gap-2">
               {CERT_KEYS.map((cert) => (
                 <span
                   key={cert}
-                  className="text-[11px] px-2.5 py-1 border border-white/5 rounded text-slate-600"
+                  className="text-xs px-3 py-1 bg-white/10 rounded-full text-white/70"
                 >
                   {certs(cert)}
                 </span>
@@ -50,15 +51,15 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-6 text-slate-500">
+            <h3 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/90">
               {t("navigation")}
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-slate-500 hover:text-accent transition-colors duration-300 text-sm"
+                    className="text-white/60 hover:text-orange transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -67,7 +68,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-slate-500 hover:text-accent transition-colors duration-300 text-sm"
+                  className="text-white/60 hover:text-orange transition-colors text-sm"
                 >
                   {t("legal")}
                 </a>
@@ -77,19 +78,26 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-6 text-slate-500">
+            <h3 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/90">
               {t("contact")}
-            </h4>
+            </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href={`mailto:${t("email")}`}
-                  className="text-slate-500 hover:text-accent transition-colors duration-300 text-sm"
+                  className="text-white/60 hover:text-orange transition-colors text-sm flex items-center gap-2"
                 >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
                   {t("email")}
                 </a>
               </li>
-              <li className="text-slate-600 text-sm">
+              <li className="text-white/60 text-sm flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
                 {t("location")}
               </li>
             </ul>
@@ -97,9 +105,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs">{t("rights")}</p>
-          <p className="text-slate-700 text-xs">{t("madeWith")}</p>
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/60 text-sm">{t("rights")}</p>
+          <p className="text-white/60 text-xs">{t("madeWith")}</p>
         </div>
       </div>
     </footer>

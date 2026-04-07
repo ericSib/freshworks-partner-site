@@ -1,42 +1,38 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* === WaS Premium Palette === */
-  --color-accent: #B8926A;
-  --color-accent-light: #D4B896;
-  --color-accent-dark: #9A7856;
+  /* === WaS Brand Colors === */
+  --color-orange: #f49962;
+  --color-orange-light: #f7b88e;
+  --color-orange-dark: #e07a3a;
+  --color-orange-cta: #b35d1e;
+  --color-navy: #132338;
+  --color-navy-light: #1e3a5f;
+  --color-navy-dark: #0b1520;
 
-  --color-deep: #0C1220;
-  --color-deep-light: #131B2E;
-  --color-deep-lighter: #1A2340;
-
-  --color-surface: #FAFAF8;
-  --color-surface-dim: #F2F1EE;
-  --color-surface-dark: #E8E6E1;
-
-  /* === Neutrals (Slate scale) === */
-  --color-slate-50: #F8FAFC;
-  --color-slate-100: #F1F5F9;
-  --color-slate-200: #E2E8F0;
-  --color-slate-300: #CBD5E1;
-  --color-slate-400: #94A3B8;
-  --color-slate-500: #64748B;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1E293B;
-  --color-slate-900: #0F172A;
+  /* === Neutrals === */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
 
   /* === Semantic === */
-  --color-background: #0C1220;
-  --color-foreground: #FAFAF8;
-  --color-muted: #94A3B8;
+  --color-background: #ffffff;
+  --color-foreground: #132338;
+  --color-muted: #f9fafb;
 
   /* === Typography === */
-  --font-heading: "Plus Jakarta Sans", "DM Sans", sans-serif;
-  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Jost", "Futura", sans-serif;
+  --font-body: "DM Sans", "Futura", sans-serif;
 }
 
-/* === Base === */
+/* === Base styles === */
 body {
   background: var(--color-background);
   color: var(--color-foreground);
@@ -45,26 +41,28 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 700;
 }
 
+/* === Smooth scroll === */
 html {
   scroll-behavior: smooth;
 }
 
+/* === Font heading utility (for non-heading elements needing the heading font) === */
 .font-heading {
   font-family: var(--font-heading);
 }
 
-/* === Premium Shadow System === */
+/* === Premium Shadow System (4 elevation levels) === */
 :root {
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.20), 0 8px 16px rgba(0, 0, 0, 0.10);
-  --shadow-accent-sm: 0 2px 12px rgba(184, 146, 106, 0.15);
-  --shadow-accent-md: 0 4px 20px rgba(184, 146, 106, 0.20);
-  --shadow-accent-lg: 0 8px 40px rgba(184, 146, 106, 0.25);
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 1px 3px rgba(19, 35, 56, 0.06), 0 1px 2px rgba(19, 35, 56, 0.04);
+  --shadow-md: 0 4px 12px rgba(19, 35, 56, 0.08), 0 2px 4px rgba(19, 35, 56, 0.04);
+  --shadow-lg: 0 12px 32px rgba(19, 35, 56, 0.10), 0 4px 8px rgba(19, 35, 56, 0.06);
+  --shadow-xl: 0 20px 48px rgba(19, 35, 56, 0.14), 0 8px 16px rgba(19, 35, 56, 0.08);
+  --shadow-orange-sm: 0 2px 8px rgba(244, 153, 98, 0.20);
+  --shadow-orange-md: 0 4px 16px rgba(244, 153, 98, 0.25);
+  --shadow-orange-lg: 0 8px 32px rgba(244, 153, 98, 0.30);
 }
 
 /* === Grain Texture Overlay === */
@@ -74,38 +72,55 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.022;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
-/* === Section padding (generous for premium feel) === */
+/* === Section padding utility === */
 .section-padding {
-  padding: 6rem 1rem;
+  padding: 5rem 1rem;
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding: 8rem 2rem;
+    padding: 6rem 2rem;
   }
 }
 
-/* === Premium separator line === */
-.premium-rule {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(184, 146, 106, 0.3), transparent);
-  border: none;
+/* === Hero Blob Animation === */
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -40px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(15px, 30px) scale(1.02); }
 }
 
-/* === Marquee Animation === */
+.animate-blob {
+  animation: blob 18s ease-in-out infinite;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animation-delay-8000 {
+  animation-delay: 8s;
+}
+
+.animation-delay-12000 {
+  animation-delay: 12s;
+}
+
+/* === Marquee Animation (Client Logos mobile) === */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 
 /* === Reduced Motion === */

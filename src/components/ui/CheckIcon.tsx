@@ -14,6 +14,7 @@ export default function CheckIcon({
       viewBox="0 0 24 24"
       stroke="currentColor"
       strokeWidth={strokeWidth}
+      aria-hidden="true"
     >
       <path
         strokeLinecap="round"

@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const LOGOS = [
@@ -14,49 +12,49 @@ const LOGOS = [
   { src: "/images/logos/C-MonEtiquette-Mascotte.png", alt: "C-Mon Etiquette" },
 ];
 
-export default function ClientLogos() {
-  const t = useTranslations("clientLogos");
+export default async function ClientLogos() {
+  const t = await getTranslations("clientLogos");
 
   return (
-    <section className="py-16 bg-deep border-y border-white/5">
+    <section data-testid="client-logos" className="py-12 bg-gray-50 border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll variant="fade">
-          <p className="text-center text-slate-600 text-xs uppercase tracking-[0.2em] mb-10">
+          <p className="text-center text-gray-500 text-xs uppercase tracking-widest mb-8">
             {t("title")}
           </p>
 
-          {/* Desktop */}
-          <div className="hidden md:flex items-center justify-center gap-16 flex-wrap">
+          {/* Desktop: static row */}
+          <div className="hidden md:flex items-center justify-center gap-12 flex-wrap">
             {LOGOS.map((logo) => (
               <div
                 key={logo.alt}
-                className="w-24 h-10 flex items-center justify-center grayscale opacity-25 hover:opacity-50 transition-all duration-500"
+                className="grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
                   height={36}
-                  width={96}
-                  className="max-h-8 max-w-full object-contain invert"
+                  width={120}
+                  className="h-9 w-auto object-contain"
                 />
               </div>
             ))}
           </div>
 
-          {/* Mobile marquee */}
+          {/* Mobile: scrolling marquee */}
           <div className="md:hidden overflow-hidden">
-            <div className="flex items-center gap-16 animate-marquee">
+            <div className="flex items-center gap-12 animate-marquee">
               {[...LOGOS, ...LOGOS].map((logo, i) => (
                 <div
                   key={`${logo.alt}-${i}`}
-                  className="w-20 h-8 flex items-center justify-center grayscale opacity-25 shrink-0"
+                  className="grayscale opacity-40 shrink-0"
                 >
                   <Image
                     src={logo.src}
                     alt={logo.alt}
                     height={32}
-                    width={80}
-                    className="max-h-7 max-w-full object-contain invert"
+                    width={100}
+                    className="h-8 w-auto object-contain"
                   />
                 </div>
               ))}
