@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
@@ -25,42 +25,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
-
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [isMobileOpen]);
-
-  // Close mobile menu on Escape key + focus trap
-  useEffect(() => {
-    if (!isMobileOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsMobileOpen(false);
-        hamburgerRef.current?.focus();
-        return;
-      }
-      if (e.key === "Tab" && mobileMenuRef.current) {
-        const focusable = mobileMenuRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled])'
-        );
-        if (focusable.length === 0) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isMobileOpen]);
 
   const switchLocale = () => {
@@ -87,11 +54,12 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-[var(--shadow-md)] py-3"
-          : "bg-transparent py-5"
+          ? "bg-deep/95 backdrop-blur-xl border-b border-white/5 py-3"
+          : "bg-transparent py-6"
       }`}
+      style={{ transitionTimingFunction: "var(--ease-spring)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -100,59 +68,46 @@ export default function Header() {
             <Image
               src="/images/logo-was.png"
               alt={SITE_NAME}
-              width={44}
-              height={44}
+              width={36}
+              height={36}
               className="rounded-full"
               priority
             />
-            <span
-              className={`font-heading font-bold text-lg transition-colors ${
-                isScrolled ? "text-navy" : "text-white"
-              }`}
-            >
+            <span className="font-heading font-semibold text-sm tracking-wide text-surface">
               {SITE_NAME}
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav data-testid="desktop-nav" className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`relative text-sm font-medium transition-colors hover:text-orange ${
-                  isScrolled ? "text-navy/80" : "text-white/90"
+                className={`relative text-[13px] font-medium tracking-wide transition-colors duration-300 ${
+                  activeSection === link.sectionId
+                    ? "text-accent"
+                    : "text-slate-400 hover:text-surface"
                 }`}
               >
                 {link.label}
-                {/* Active indicator */}
-                <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-orange rounded-full transition-all duration-300 ${
-                    activeSection === link.sectionId ? "w-full" : "w-0"
-                  }`}
-                />
               </a>
             ))}
 
-            {/* Language toggle — no flags (GTM directive) */}
             <button
               onClick={switchLocale}
-              className={`text-sm font-semibold px-3 py-1.5 rounded-md border transition-colors ${
-                isScrolled
-                  ? "border-navy/20 text-navy hover:bg-navy/5"
-                  : "border-white/30 text-white hover:bg-white/10"
-              }`}
+              className="text-[13px] font-medium text-slate-500 hover:text-surface transition-colors duration-300"
               aria-label={t("switchLang")}
             >
-              {locale === "fr" ? "English" : "Français"}
+              {locale === "fr" ? "EN" : "FR"}
             </button>
 
-            {/* CTA */}
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "#contact")}
-              className="bg-orange-cta text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-dark transition-all shadow-[var(--shadow-orange-sm)] hover:shadow-[var(--shadow-orange-md)] hover:translate-y-[-1px]"
+              className="text-[13px] font-semibold text-deep bg-accent px-5 py-2.5 rounded-lg hover:bg-accent-light transition-all duration-300"
+              style={{ transitionTimingFunction: "var(--ease-spring)" }}
             >
               {t("bookCall")}
             </a>
@@ -160,61 +115,44 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            ref={hamburgerRef}
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-label="Menu"
-            aria-expanded={isMobileOpen}
-            aria-controls="mobile-menu"
           >
             <span
-              className={`block w-6 h-0.5 transition-all duration-300 ${
-                isMobileOpen
-                  ? "rotate-45 translate-y-2 bg-navy"
-                  : isScrolled
-                    ? "bg-navy"
-                    : "bg-white"
+              className={`block w-5 h-[1.5px] transition-all duration-300 bg-surface ${
+                isMobileOpen ? "rotate-45 translate-y-[7.5px]" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 transition-all duration-300 ${
-                isMobileOpen
-                  ? "opacity-0"
-                  : isScrolled
-                    ? "bg-navy"
-                    : "bg-white"
+              className={`block w-5 h-[1.5px] transition-all duration-300 bg-surface ${
+                isMobileOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 transition-all duration-300 ${
-                isMobileOpen
-                  ? "-rotate-45 -translate-y-2 bg-navy"
-                  : isScrolled
-                    ? "bg-navy"
-                    : "bg-white"
+              className={`block w-5 h-[1.5px] transition-all duration-300 bg-surface ${
+                isMobileOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
               }`}
             />
           </button>
         </div>
 
-        {/* Mobile menu — animated */}
+        {/* Mobile menu */}
         <div
-          id="mobile-menu"
-          ref={mobileMenuRef}
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
-            isMobileOpen ? "max-h-[500px] opacity-100 mt-4" : "max-h-0 opacity-0"
+          className={`md:hidden overflow-hidden transition-all duration-500 ${
+            isMobileOpen ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
           }`}
-          aria-hidden={!isMobileOpen}
+          style={{ transitionTimingFunction: "var(--ease-spring)" }}
         >
-          <nav data-testid="mobile-nav" className="pb-4 border-t border-gray-200 pt-4 bg-white rounded-xl shadow-xl -mx-4 px-6">
+          <nav className="pb-6 pt-6 border-t border-white/10">
             <div className="flex flex-col gap-1">
               {navLinks.map((link, i) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-navy font-medium py-3 hover:text-orange transition-all duration-300 border-b border-gray-100 last:border-0 ${
-                    activeSection === link.sectionId ? "text-orange" : ""
+                  className={`text-surface/80 font-medium py-3 hover:text-accent transition-all duration-300 ${
+                    activeSection === link.sectionId ? "text-accent" : ""
                   }`}
                   style={{
                     transitionDelay: isMobileOpen ? `${i * 50}ms` : "0ms",
@@ -226,18 +164,14 @@ export default function Header() {
                 </a>
               ))}
               <button
-                onClick={() => {
-                  switchLocale();
-                  setIsMobileOpen(false);
-                }}
-                className="text-left text-navy font-medium py-3 hover:text-orange border-b border-gray-100 transition-colors"
-                aria-label={t("switchLang")}
+                onClick={() => { switchLocale(); setIsMobileOpen(false); }}
+                className="text-left text-slate-400 font-medium py-3 hover:text-surface transition-colors"
               >
                 {locale === "fr" ? "English" : "Français"}
               </button>
               <a
                 href="#contact"
-                className="bg-orange text-white px-5 py-3 rounded-xl text-center font-semibold hover:bg-orange-dark transition-colors mt-2"
+                className="bg-accent text-deep px-5 py-3 rounded-lg text-center font-semibold hover:bg-accent-light transition-colors mt-3"
                 onClick={(e) => handleNavClick(e, "#contact")}
               >
                 {t("bookCall")}

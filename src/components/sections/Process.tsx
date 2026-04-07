@@ -1,9 +1,12 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { useTranslations } from "next-intl";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
+import SectionTag from "@/components/ui/SectionTag";
 
-export default async function Process() {
-  const t = await getTranslations("process");
+export default function Process() {
+  const t = useTranslations("process");
 
   const steps = [0, 1, 2].map((i) => ({
     number: t(`steps.${i}.number`),
@@ -13,14 +16,12 @@ export default async function Process() {
   }));
 
   return (
-    <section data-testid="process" className="section-padding bg-white">
+    <section className="section-padding bg-deep">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade-up">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-orange/10 text-orange text-xs font-semibold uppercase tracking-widest rounded-full mb-4">
-              {t("sectionTag")}
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy">
+          <div className="mb-20">
+            <SectionTag>{t("sectionTag")}</SectionTag>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface tracking-tight leading-[1.1]">
               {t("headline")}
             </h2>
           </div>
@@ -28,59 +29,44 @@ export default async function Process() {
 
         <StaggerChildren
           staggerDelay={150}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 relative"
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16"
         >
           {steps.map((step, i) => (
-            <div key={i} className="relative">
-              {/* Connector line (desktop only) */}
-              {i < 2 && (
-                <div className="hidden md:block absolute top-12 left-[calc(50%+40px)] w-[calc(100%-40px)] h-[2px] bg-gradient-to-r from-orange/30 to-orange/10" />
-              )}
-
-              <div className="text-center p-8">
-                {/* Step number */}
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-orange to-orange-dark text-white text-xl font-bold mb-6 shadow-[var(--shadow-orange-md)]">
-                  {step.number}
-                </div>
-
-                <h3 className="text-2xl font-bold text-navy mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {step.description}
-                </p>
-
-                {/* Details */}
-                <ul className="space-y-2">
-                  {step.details.map((detail, j) => (
-                    <li
-                      key={j}
-                      className="flex items-center justify-center gap-2 text-sm text-gray-500"
-                    >
-                      <span className="w-1.5 h-1.5 bg-orange rounded-full shrink-0" />
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
+            <div key={i}>
+              <div className="text-[5rem] font-bold text-accent/10 leading-none mb-4 font-heading">
+                {step.number}
               </div>
+              <h3 className="text-xl font-semibold text-surface mb-4 tracking-tight">
+                {step.title}
+              </h3>
+              <p className="text-slate-400 leading-relaxed mb-6 text-[15px]">
+                {step.description}
+              </p>
+              <ul className="space-y-3">
+                {step.details.map((detail, j) => (
+                  <li key={j} className="flex items-start gap-3 text-sm text-slate-500">
+                    <span className="w-1 h-1 bg-accent rounded-full mt-2 shrink-0" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </StaggerChildren>
 
         <AnimateOnScroll variant="fade-up" delay={400}>
-          <div className="text-center mt-12">
+          <div className="mt-16 pt-16 border-t border-white/5">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center bg-orange text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-orange-dark transition-all duration-300 shadow-[var(--shadow-orange-md)] hover:shadow-[var(--shadow-orange-lg)] hover:translate-y-[-2px]"
+              className="group inline-flex items-center text-accent font-medium hover:text-accent-light transition-colors duration-300"
             >
               {t("cta")}
               <svg
-                className="w-5 h-5 ml-2"
+                className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2}
-                aria-hidden="true"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import SectionTag from "@/components/ui/SectionTag";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import { useCountUp } from "@/hooks/useCountUp";
 
@@ -14,7 +13,6 @@ function AnimatedMetric({
   label: string;
   delay: number;
 }) {
-  // Parse numeric value, prefix and suffix
   const match = value.match(/^([<>+]?)(\d+)(.*)/);
   const prefix = match?.[1] ?? "";
   const numericValue = parseInt(match?.[2] ?? "0", 10);
@@ -27,13 +25,14 @@ function AnimatedMetric({
   });
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="text-4xl sm:text-5xl font-bold text-orange mb-2 font-heading">
+    <div ref={ref} className="text-center py-8 lg:py-12">
+      <div className="text-5xl sm:text-6xl lg:text-7xl font-light text-deep mb-3 font-heading tracking-tight">
         {prefix}
         {count}
         {suffix}
       </div>
-      <p className="text-white/70 text-sm sm:text-base">{label}</p>
+      <div className="w-6 h-[1px] bg-accent mx-auto mb-3" />
+      <p className="text-slate-500 text-sm">{label}</p>
     </div>
   );
 }
@@ -47,24 +46,20 @@ export default function Metrics() {
   }));
 
   return (
-    <section data-testid="metrics" className="bg-navy py-20 px-4">
+    <section className="bg-surface py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade">
-          <div className="text-center mb-12">
-            <SectionTag>{t("sectionTag")}</SectionTag>
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-deep/10">
+            {items.map((item, i) => (
+              <AnimatedMetric
+                key={i}
+                value={item.value}
+                label={item.label}
+                delay={i * 150}
+              />
+            ))}
           </div>
         </AnimateOnScroll>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {items.map((item, i) => (
-            <AnimatedMetric
-              key={i}
-              value={item.value}
-              label={item.label}
-              delay={i * 150}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );
