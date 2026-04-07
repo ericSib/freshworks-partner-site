@@ -296,5 +296,32 @@
     "email": "contact@whataservice.fr",
     "rights": "\u00a9 2026 What A Service. All rights reserved.",
     "madeWith": "Made with passion in Paris"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "editor": {
+      "heading": "Site Publisher",
+      "content": "What A Service \u2014 Eric Sib, Sole Proprietor. Registered office: Paris, France. Email: contact@whataservice.fr. Publication director: Eric Sib."
+    },
+    "hosting": {
+      "heading": "Hosting",
+      "content": "This site is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States. https://vercel.com"
+    },
+    "ip": {
+      "heading": "Intellectual Property",
+      "content": "All content on this site (text, images, graphics, logos, icons) is the exclusive property of What A Service unless otherwise stated. Any reproduction, distribution, modification or use without prior authorization is prohibited."
+    },
+    "data": {
+      "heading": "Personal Data & GDPR",
+      "content": "Data collected via the contact form (name, email, company) is used solely to respond to your inquiry. It is neither shared nor sold to third parties. Under GDPR, you have the right to access, rectify and delete your data. To exercise these rights, contact us at contact@whataservice.fr."
+    },
+    "cookies": {
+      "heading": "Cookies",
+      "content": "This site does not use any tracking or advertising cookies. Only strictly necessary technical cookies may be used for the site to function."
+    },
+    "contact": {
+      "heading": "Contact",
+      "content": "For any questions regarding legal notices or data protection: contact@whataservice.fr"
+    }
   }
 }

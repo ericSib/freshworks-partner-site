@@ -296,5 +296,32 @@
     "email": "contact@whataservice.fr",
     "rights": "\u00a9 2026 What A Service. Tous droits r\u00e9serv\u00e9s.",
     "madeWith": "Fait avec passion \u00e0 Paris"
+  },
+  "legal": {
+    "title": "Mentions l\u00e9gales",
+    "editor": {
+      "heading": "\u00c9diteur du site",
+      "content": "What A Service \u2014 Eric Sib, Entrepreneur individuel. Si\u00e8ge social\u00a0: Paris, France. Email\u00a0: contact@whataservice.fr. Directeur de la publication\u00a0: Eric Sib."
+    },
+    "hosting": {
+      "heading": "H\u00e9bergement",
+      "content": "Ce site est h\u00e9berg\u00e9 par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, \u00c9tats-Unis. https://vercel.com"
+    },
+    "ip": {
+      "heading": "Propri\u00e9t\u00e9 intellectuelle",
+      "content": "L\u2019ensemble des contenus (textes, images, graphismes, logo, ic\u00f4nes) pr\u00e9sents sur ce site est la propri\u00e9t\u00e9 exclusive de What A Service, sauf mention contraire. Toute reproduction, distribution, modification ou utilisation sans autorisation pr\u00e9alable est interdite."
+    },
+    "data": {
+      "heading": "Donn\u00e9es personnelles & RGPD",
+      "content": "Les donn\u00e9es collect\u00e9es via le formulaire de contact (nom, email, entreprise) sont utilis\u00e9es uniquement pour r\u00e9pondre \u00e0 votre demande. Elles ne sont ni c\u00e9d\u00e9es ni vendues \u00e0 des tiers. Conform\u00e9ment au RGPD, vous disposez d\u2019un droit d\u2019acc\u00e8s, de rectification et de suppression de vos donn\u00e9es. Pour exercer ces droits, contactez-nous \u00e0 contact@whataservice.fr."
+    },
+    "cookies": {
+      "heading": "Cookies",
+      "content": "Ce site n\u2019utilise aucun cookie de tracking ni de publicit\u00e9. Seuls des cookies techniques strictement n\u00e9cessaires au fonctionnement du site peuvent \u00eatre utilis\u00e9s."
+    },
+    "contact": {
+      "heading": "Contact",
+      "content": "Pour toute question relative aux mentions l\u00e9gales ou \u00e0 la protection des donn\u00e9es\u00a0: contact@whataservice.fr"
+    }
   }
 }
