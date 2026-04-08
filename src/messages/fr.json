@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "What A Service \u2014 ITSM & Support Client, d\u00e9ploy\u00e9s pour performer",
-    "description": "Consultant Freshworks pour ETI et PME. Freshservice (ITSM, ITAM, ESM) et Freshdesk (support omnicanal, CX). ITIL 4, PRINCE2, DORA. R\u00e9sultats en 4 semaines."
+    "description": "Consultants Freshworks pour ETI et PME. Freshservice (ITSM, ITAM, ESM) et Freshdesk (support omnicanal, CX). ITIL 4, PRINCE2, DORA. R\u00e9sultats en 4 semaines."
   },
   "nav": {
     "services": "Services",
@@ -14,13 +14,14 @@
     "switchLangFull": "EN \u2014 English"
   },
   "hero": {
-    "tagline": "Consultant Freshworks certifi\u00e9 \u2014 ITSM & CX",
+    "tagline": "Consultants Freshworks certifi\u00e9s \u2014 ITSM & CX",
     "headline": "Vos services IT et votre support client m\u00e9ritent mieux",
     "subheadline": "Tickets mal rout\u00e9s, CSAT en chute, processus manuels, outils sous-exploit\u00e9s. Nous configurons Freshservice et Freshdesk pour que vos \u00e9quipes IT et support d\u00e9livrent enfin une exp\u00e9rience \u00e0 la hauteur.",
     "ctaPrimary": "Diagnostic gratuit en 30 min",
     "ctaSecondary": "Voir nos r\u00e9sultats clients",
     "clientsTrust": "Ils nous font confiance",
-    "trustedBy": "Certifications & Partenariats"
+    "trustedBy": "Certifications & Partenariats",
+    "imageAlt": "Équipe de consultants collaborant sur un projet de transformation IT"
   },
   "certifications": {
     "itil": "ITIL 4",
@@ -65,19 +66,22 @@
         "number": "01",
         "title": "Diagnostic",
         "description": "Audit gratuit de vos services IT et support client\u00a0: outils, processus, canaux, int\u00e9grations. On identifie les quick wins et les vrais blocages.",
-        "details": ["Cartographie ITSM & support CX", "Analyse des flux et canaux", "Recommandations prioris\u00e9es"]
+        "details": ["Cartographie ITSM & support CX", "Analyse des flux et canaux", "Recommandations prioris\u00e9es"],
+        "imageAlt": "Analyse de donn\u00e9es et audit des processus IT sur \u00e9crans"
       },
       {
         "number": "02",
         "title": "D\u00e9ploiement",
         "description": "Configuration Freshservice et/ou Freshdesk sur mesure. Int\u00e9grations SI, migration de donn\u00e9es, mise en place omnicanal. Go-live en 4 semaines.",
-        "details": ["Int\u00e9grations EntraID, M365, CRM", "Portail self-service & widget chat", "Formation hands-on"]
+        "details": ["Int\u00e9grations EntraID, M365, CRM", "Portail self-service & widget chat", "Formation hands-on"],
+        "imageAlt": "Consultant configurant une plateforme Freshworks"
       },
       {
         "number": "03",
         "title": "Pilotage",
         "description": "Automatisations Freddy AI, CMDB structur\u00e9e, dashboards CSAT/SLA/NPS. Votre performance s\u2019am\u00e9liore chaque mois.",
-        "details": ["Freddy AI Agent & Copilot", "KPIs\u00a0: CSAT, NPS, SLA, FCR", "Optimisation continue"]
+        "details": ["Freddy AI Agent & Copilot", "KPIs\u00a0: CSAT, NPS, SLA, FCR", "Optimisation continue"],
+        "imageAlt": "Tableau de bord de suivi des KPIs et performance"
       }
     ],
     "cta": "Commencer par un diagnostic gratuit"
@@ -115,17 +119,20 @@
       {
         "title": "Freshservice",
         "subtitle": "ITSM \u00b7 ESM \u00b7 ITAM",
-        "description": "Gestion des services IT et m\u00e9tier. Incidents, demandes, changements, CMDB, ITAM, portail self-service. La colonne vert\u00e9brale de votre IT interne."
+        "description": "Gestion des services IT et m\u00e9tier. Incidents, demandes, changements, CMDB, ITAM, portail self-service. La colonne vert\u00e9brale de votre IT interne.",
+        "imageAlt": "Infrastructure de serveurs et gestion de services IT"
       },
       {
         "title": "Freshdesk",
         "subtitle": "Support client omnicanal",
-        "description": "Email, chat, t\u00e9l\u00e9phone, WhatsApp, r\u00e9seaux sociaux dans une seule vue agent. Base de connaissances, SLA, CSAT, automatisations. Votre CX, structur\u00e9e."
+        "description": "Email, chat, t\u00e9l\u00e9phone, WhatsApp, r\u00e9seaux sociaux dans une seule vue agent. Base de connaissances, SLA, CSAT, automatisations. Votre CX, structur\u00e9e.",
+        "imageAlt": "Agent de support client travaillant sur plusieurs canaux"
       },
       {
         "title": "Freddy AI",
         "subtitle": "IA pour ITSM & CX",
-        "description": "Agent virtuel multilingue, suggestions intelligentes, analytics pr\u00e9dictifs. 65\u00a0% de d\u00e9flexion sur les tickets de niveau\u00a01, c\u00f4t\u00e9 IT comme c\u00f4t\u00e9 client."
+        "description": "Agent virtuel multilingue, suggestions intelligentes, analytics pr\u00e9dictifs. 65\u00a0% de d\u00e9flexion sur les tickets de niveau\u00a01, c\u00f4t\u00e9 IT comme c\u00f4t\u00e9 client.",
+        "imageAlt": "Intelligence artificielle et automatisation des processus"
       }
     ],
     "cta": "D\u00e9couvrir nos services \u2192"
@@ -143,6 +150,7 @@
     "sectionTag": "Nos services",
     "headline": "ITSM et support client, concr\u00e8tement",
     "subheadline": "Chaque mission couvre Freshservice, Freshdesk, ou les deux. Forfaits clairs, r\u00e9sultats mesurables.",
+    "imageAlt": "\u00c9quipe de consultants collaborant sur une strat\u00e9gie IT et CX",
     "cards": [
       {
         "icon": "rocket",
@@ -208,7 +216,8 @@
           { "metric": "85%", "label": "d\u2019adoption en 6 semaines" },
           { "metric": "-40%", "label": "de tickets manuels" },
           { "metric": "4.5/5", "label": "satisfaction utilisateurs" }
-        ]
+        ],
+        "imageAlt": "Environnement industriel avec gestion IT modernis\u00e9e"
       },
       {
         "client": "PME \u2014 E-commerce B2C",
@@ -218,7 +227,8 @@
           { "metric": "91%", "label": "de CSAT en 8 semaines" },
           { "metric": "<2h", "label": "de temps de r\u00e9ponse" },
           { "metric": "-55%", "label": "de volume tickets L1" }
-        ]
+        ],
+        "imageAlt": "Support client e-commerce avec exp\u00e9rience omnicanale"
       }
     ],
     "testimonials": [
@@ -238,15 +248,21 @@
   "about": {
     "sectionTag": "\u00c0 propos",
     "headline": "Un interlocuteur unique, pas un cabinet",
-    "name": "Eric Sib",
-    "role": "Fondateur, What A Service",
-    "bio": "Plus de 10 ans dans la transformation des services IT et de l\u2019exp\u00e9rience client. Sp\u00e9cialis\u00e9 Freshworks (Freshservice + Freshdesk), je connais votre \u00e9cosyst\u00e8me\u00a0: Active Directory, EntraID, Azure, M365, CRM. Mon approche\u00a0: comprendre vos enjeux m\u00e9tier \u2014 IT comme support client \u2014 avant de toucher \u00e0 l\u2019outil.",
-    "credentials": [
-      "ITIL 4 Foundation",
-      "PRINCE2 Practitioner",
-      "DORA & BPM",
-      "Scrum Master (PSM I)",
-      "Freshworks Certified Partner"
+    "headlineMultiple": "L\u2019\u00e9quipe",
+    "team": [
+      {
+        "name": "Eric Sibomana",
+        "role": "Consultant Transformation & Performance Op\u00e9rationnelle",
+        "bio": "15 ans d\u2019exp\u00e9rience professionnelle dont 5 en missions de conseil. J\u2019accompagne les directions g\u00e9n\u00e9rales et op\u00e9rationnelles dans leurs transformations complexes\u00a0: diagnostic strat\u00e9gique, refonte de processus, conduite du changement et pilotage de programmes. R\u00e9f\u00e9rence active\u00a0: transformation des services IT du Groupe Bonduelle (2\u00a0Md\u20ac\u00a0CA, 39\u00a0sites, 100\u00a0pays).",
+        "image": "/images/eric-sib.png",
+        "credentials": [
+          "ICCF@HEC Paris",
+          "ITIL 4 \u00b7 PRINCE2 \u00b7 DORA",
+          "PSM I \u00b7 PSPO I",
+          "Freshworks Advanced",
+          "CPA Executive Strategy"
+        ]
+      }
     ],
     "cta": "Discutons de votre projet"
   },
@@ -288,7 +304,7 @@
     }
   },
   "footer": {
-    "description": "Consultant Freshworks pour ETI et PME. ITSM, support client omnicanal, ITAM, ESM. D\u00e9ploiement, migration, optimisation.",
+    "description": "Consultants Freshworks pour ETI et PME. ITSM, support client omnicanal, ITAM, ESM. D\u00e9ploiement, migration, optimisation.",
     "navigation": "Navigation",
     "legal": "Mentions l\u00e9gales",
     "contact": "Contact",

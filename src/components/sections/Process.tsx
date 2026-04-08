@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
 import SectionTag from "@/components/ui/SectionTag";
+import { SECTION_IMAGES } from "@/config/images";
 
 export default function Process() {
   const t = useTranslations("process");
@@ -13,6 +15,8 @@ export default function Process() {
     title: t(`steps.${i}.title`),
     description: t(`steps.${i}.description`),
     details: [0, 1, 2].map((j) => t(`steps.${i}.details.${j}`)),
+    imageAlt: t(`steps.${i}.imageAlt`),
+    image: SECTION_IMAGES.process[i],
   }));
 
   return (
@@ -33,6 +37,23 @@ export default function Process() {
         >
           {steps.map((step, i) => (
             <div key={i}>
+              {/* Step image */}
+              <div className="relative aspect-[3/2] rounded-lg overflow-hidden mb-6 group">
+                <Image
+                  src={step.image.src}
+                  alt={step.imageAlt}
+                  width={step.image.width}
+                  height={step.image.height}
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  style={{ transitionTimingFunction: "var(--ease-spring)" }}
+                />
+                {/* Dark overlay for cohesion with dark theme */}
+                <div className="absolute inset-0 bg-deep/30 group-hover:bg-deep/10 transition-colors duration-500" />
+                {/* Accent bottom border glow */}
+                <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+              </div>
+
               <div className="text-[5rem] font-bold text-accent/10 leading-none mb-4 font-heading">
                 {step.number}
               </div>

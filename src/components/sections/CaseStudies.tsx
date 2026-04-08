@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
+import { SECTION_IMAGES } from "@/config/images";
 
 export default function CaseStudies() {
   const t = useTranslations("caseStudies");
@@ -17,6 +19,8 @@ export default function CaseStudies() {
       metric: t(`cases.${i}.results.${j}.metric`),
       label: t(`cases.${i}.results.${j}.label`),
     })),
+    imageAlt: t(`cases.${i}.imageAlt`),
+    image: SECTION_IMAGES.caseStudies[i],
   }));
 
   const testimonials = [0, 1].map((i) => ({
@@ -37,13 +41,27 @@ export default function CaseStudies() {
           {cases.map((caseStudy, i) => (
             <div
               key={i}
-              className="border border-white/5 rounded-xl overflow-hidden hover:border-accent/10 transition-colors duration-500"
+              className="border border-white/5 rounded-xl overflow-hidden hover:border-accent/10 transition-colors duration-500 group"
             >
-              {/* Client header */}
-              <div className="px-8 py-5 border-b border-white/5">
-                <span className="text-accent text-sm font-medium tracking-wider uppercase">
-                  {caseStudy.client}
-                </span>
+              {/* Case study image header */}
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <Image
+                  src={caseStudy.image.src}
+                  alt={caseStudy.imageAlt}
+                  width={caseStudy.image.width}
+                  height={caseStudy.image.height}
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  style={{ transitionTimingFunction: "var(--ease-spring)" }}
+                />
+                {/* Gradient overlay — maintains dark theme cohesion */}
+                <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
+                {/* Client label overlaid on image */}
+                <div className="absolute bottom-0 inset-x-0 px-8 py-5">
+                  <span className="text-accent text-sm font-medium tracking-wider uppercase">
+                    {caseStudy.client}
+                  </span>
+                </div>
               </div>
 
               <div className="p-8">

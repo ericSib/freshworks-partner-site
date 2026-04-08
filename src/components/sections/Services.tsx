@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
 import CheckIcon from "@/components/ui/CheckIcon";
 import { serviceIcons } from "@/components/icons/service-icons";
+import { SECTION_IMAGES } from "@/config/images";
 
 export default function Services() {
   const t = useTranslations("services");
@@ -20,8 +22,25 @@ export default function Services() {
   }));
 
   return (
-    <section id="services" className="section-padding bg-surface">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="bg-surface">
+      {/* Panoramic header image — full-bleed */}
+      <AnimateOnScroll variant="fade">
+        <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+          <Image
+            src={SECTION_IMAGES.services.src}
+            alt={t("imageAlt")}
+            width={SECTION_IMAGES.services.width}
+            height={SECTION_IMAGES.services.height}
+            className="object-cover w-full h-full"
+            sizes="100vw"
+          />
+          {/* Gradient overlays — blends into bg-surface below */}
+          <div className="absolute inset-0 bg-gradient-to-b from-surface/60 via-transparent to-surface" />
+          <div className="absolute inset-0 bg-surface/20" />
+        </div>
+      </AnimateOnScroll>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12 pb-24 lg:pb-32">
         <AnimateOnScroll variant="fade-up">
           <SectionHeader
             tag={t("sectionTag")}

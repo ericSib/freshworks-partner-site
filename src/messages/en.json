@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "What A Service \u2014 ITSM & Customer Support, deployed to perform",
-    "description": "Freshworks consultant for mid-market & SMBs. Freshservice (ITSM, ITAM, ESM) and Freshdesk (omnichannel support, CX). ITIL 4, PRINCE2, DORA. Results in 4 weeks."
+    "description": "Freshworks consultants for mid-market & SMBs. Freshservice (ITSM, ITAM, ESM) and Freshdesk (omnichannel support, CX). ITIL 4, PRINCE2, DORA. Results in 4 weeks."
   },
   "nav": {
     "services": "Services",
@@ -14,13 +14,14 @@
     "switchLangFull": "FR \u2014 Fran\u00e7ais"
   },
   "hero": {
-    "tagline": "Certified Freshworks Consultant \u2014 ITSM & CX",
+    "tagline": "Certified Freshworks Consultants \u2014 ITSM & CX",
     "headline": "Your IT services and customer support deserve better",
     "subheadline": "Misrouted tickets, dropping CSAT, manual processes, underused tools. We configure Freshservice and Freshdesk so your IT and support teams finally deliver an experience that matches your ambitions.",
     "ctaPrimary": "Free 30-min diagnostic",
     "ctaSecondary": "See our client results",
     "clientsTrust": "Trusted by",
-    "trustedBy": "Certifications & Partnerships"
+    "trustedBy": "Certifications & Partnerships",
+    "imageAlt": "Consulting team collaborating on an IT transformation project"
   },
   "certifications": {
     "itil": "ITIL 4",
@@ -65,19 +66,22 @@
         "number": "01",
         "title": "Diagnose",
         "description": "Free audit of your IT services and customer support: tools, processes, channels, integrations. We find the quick wins and the real blockers.",
-        "details": ["ITSM & CX support mapping", "Flow and channel analysis", "Prioritized recommendations"]
+        "details": ["ITSM & CX support mapping", "Flow and channel analysis", "Prioritized recommendations"],
+        "imageAlt": "Data analysis and IT process audit on screens"
       },
       {
         "number": "02",
         "title": "Deploy",
         "description": "Custom Freshservice and/or Freshdesk configuration. SI integrations, data migration, omnichannel setup. Go-live in 4 weeks.",
-        "details": ["EntraID, M365, CRM integrations", "Self-service portal & chat widget", "Hands-on training"]
+        "details": ["EntraID, M365, CRM integrations", "Self-service portal & chat widget", "Hands-on training"],
+        "imageAlt": "Consultant configuring a Freshworks platform"
       },
       {
         "number": "03",
         "title": "Steer",
         "description": "Freddy AI automations, structured CMDB, CSAT/SLA/NPS dashboards. Your performance improves every month.",
-        "details": ["Freddy AI Agent & Copilot", "KPIs: CSAT, NPS, SLA, FCR", "Continuous optimization"]
+        "details": ["Freddy AI Agent & Copilot", "KPIs: CSAT, NPS, SLA, FCR", "Continuous optimization"],
+        "imageAlt": "KPI tracking dashboard and performance monitoring"
       }
     ],
     "cta": "Start with a free diagnostic"
@@ -115,17 +119,20 @@
       {
         "title": "Freshservice",
         "subtitle": "ITSM \u00b7 ESM \u00b7 ITAM",
-        "description": "IT and business service management. Incidents, requests, changes, CMDB, ITAM, self-service portal. The backbone of your internal IT."
+        "description": "IT and business service management. Incidents, requests, changes, CMDB, ITAM, self-service portal. The backbone of your internal IT.",
+        "imageAlt": "Server infrastructure and IT service management"
       },
       {
         "title": "Freshdesk",
         "subtitle": "Omnichannel customer support",
-        "description": "Email, chat, phone, WhatsApp, social media in a single agent view. Knowledge base, SLA, CSAT, automations. Your CX, structured."
+        "description": "Email, chat, phone, WhatsApp, social media in a single agent view. Knowledge base, SLA, CSAT, automations. Your CX, structured.",
+        "imageAlt": "Customer support agent working across multiple channels"
       },
       {
         "title": "Freddy AI",
         "subtitle": "AI for ITSM & CX",
-        "description": "Multilingual virtual agent, smart suggestions, predictive analytics. 65% deflection on L1 tickets, IT-side and customer-side."
+        "description": "Multilingual virtual agent, smart suggestions, predictive analytics. 65% deflection on L1 tickets, IT-side and customer-side.",
+        "imageAlt": "Artificial intelligence and process automation"
       }
     ],
     "cta": "Discover our services \u2192"
@@ -143,6 +150,7 @@
     "sectionTag": "Our services",
     "headline": "ITSM and customer support, concretely",
     "subheadline": "Each engagement covers Freshservice, Freshdesk, or both. Clear pricing, measurable outcomes.",
+    "imageAlt": "Consulting team collaborating on IT and CX strategy",
     "cards": [
       {
         "icon": "rocket",
@@ -208,7 +216,8 @@
           { "metric": "85%", "label": "adoption in 6 weeks" },
           { "metric": "-40%", "label": "manual tickets" },
           { "metric": "4.5/5", "label": "user satisfaction" }
-        ]
+        ],
+        "imageAlt": "Industrial environment with modernized IT management"
       },
       {
         "client": "SMB \u2014 B2C E-commerce",
@@ -218,7 +227,8 @@
           { "metric": "91%", "label": "CSAT in 8 weeks" },
           { "metric": "<2h", "label": "response time" },
           { "metric": "-55%", "label": "L1 ticket volume" }
-        ]
+        ],
+        "imageAlt": "E-commerce customer support with omnichannel experience"
       }
     ],
     "testimonials": [
@@ -238,15 +248,21 @@
   "about": {
     "sectionTag": "About",
     "headline": "One point of contact, not a firm",
-    "name": "Eric Sib",
-    "role": "Founder, What A Service",
-    "bio": "Over 10 years in IT service and customer experience transformation. Specialized in Freshworks (Freshservice + Freshdesk), I know your ecosystem: Active Directory, EntraID, Azure, M365, CRM. My approach: understand your business challenges \u2014 IT and customer support alike \u2014 before touching the tool.",
-    "credentials": [
-      "ITIL 4 Foundation",
-      "PRINCE2 Practitioner",
-      "DORA & BPM",
-      "Scrum Master (PSM I)",
-      "Freshworks Certified Partner"
+    "headlineMultiple": "The team",
+    "team": [
+      {
+        "name": "Eric Sibomana",
+        "role": "Transformation & Operational Performance Consultant",
+        "bio": "15 years of professional experience including 5 in consulting. I support executive and operational leadership through complex transformations: strategic diagnostics, process redesign, change management and program steering. Active reference: IT services transformation at Bonduelle Group (\u20ac2B revenue, 39 sites, 100 countries).",
+        "image": "/images/eric-sib.png",
+        "credentials": [
+          "ICCF@HEC Paris",
+          "ITIL 4 \u00b7 PRINCE2 \u00b7 DORA",
+          "PSM I \u00b7 PSPO I",
+          "Freshworks Advanced",
+          "CPA Executive Strategy"
+        ]
+      }
     ],
     "cta": "Let\u2019s discuss your project"
   },
@@ -288,7 +304,7 @@
     }
   },
   "footer": {
-    "description": "Freshworks consultant for mid-market & SMBs. ITSM, omnichannel support, ITAM, ESM. Deployment, migration, optimization.",
+    "description": "Freshworks consultants for mid-market & SMBs. ITSM, omnichannel support, ITAM, ESM. Deployment, migration, optimization.",
     "navigation": "Navigation",
     "legal": "Legal notice",
     "contact": "Contact",

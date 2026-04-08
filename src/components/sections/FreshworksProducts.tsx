@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
 import SectionTag from "@/components/ui/SectionTag";
+import { SECTION_IMAGES } from "@/config/images";
 
 const PRODUCT_ICONS: Record<string, React.ReactNode> = {
   Freshservice: (
@@ -31,6 +33,8 @@ export default function FreshworksProducts() {
     title: t(`cards.${i}.title`),
     subtitle: t(`cards.${i}.subtitle`),
     description: t(`cards.${i}.description`),
+    imageAlt: t(`cards.${i}.imageAlt`),
+    image: SECTION_IMAGES.freshworksProducts[i],
   }));
 
   return (
@@ -52,21 +56,38 @@ export default function FreshworksProducts() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="group bg-deep-light p-8 lg:p-10 hover:bg-deep-lighter transition-colors duration-500"
+              className="group bg-deep-light hover:bg-deep-lighter transition-colors duration-500 overflow-hidden"
               style={{ transitionTimingFunction: "var(--ease-spring)" }}
             >
-              <div className="w-10 h-10 text-accent/50 mb-6 group-hover:text-accent transition-colors duration-500">
-                {PRODUCT_ICONS[card.title]}
+              {/* Product image */}
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <Image
+                  src={card.image.src}
+                  alt={card.imageAlt}
+                  width={card.image.width}
+                  height={card.image.height}
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  style={{ transitionTimingFunction: "var(--ease-spring)" }}
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-deep-light via-deep-light/20 to-transparent" />
               </div>
-              <h3 className="text-lg font-semibold text-surface mb-1 tracking-tight">
-                {card.title}
-              </h3>
-              <p className="text-accent text-sm font-medium mb-4">
-                {card.subtitle}
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                {card.description}
-              </p>
+
+              <div className="p-8 lg:p-10">
+                <div className="w-10 h-10 text-accent/50 mb-6 group-hover:text-accent transition-colors duration-500">
+                  {PRODUCT_ICONS[card.title]}
+                </div>
+                <h3 className="text-lg font-semibold text-surface mb-1 tracking-tight">
+                  {card.title}
+                </h3>
+                <p className="text-accent text-sm font-medium mb-4">
+                  {card.subtitle}
+                </p>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {card.description}
+                </p>
+              </div>
             </div>
           ))}
         </StaggerChildren>
