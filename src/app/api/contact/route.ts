@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { EMAIL_REGEX } from "@/lib/validation";
+import { upsertHubSpotContact } from "@/lib/hubspot";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+/** Lazy-instantiated Resend client — avoids build-time crash when env var is absent. */
+function getResendClient(): Resend {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const RECIPIENT_EMAIL = process.env.CONTACT_EMAIL ?? "contact@whataservice.fr";
 
@@ -19,14 +24,17 @@ export async function POST(request: Request) {
     }
 
     // Basic email format check
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!EMAIL_REGEX.test(email)) {
       return NextResponse.json(
         { error: "Invalid email format" },
         { status: 400 }
       );
     }
 
-    // If no API key, log and return success (dev mode)
+    // Sync to HubSpot CRM (fire-and-forget — never blocks the response)
+    const hubspotSync = upsertHubSpotContact({ name, email, company, challenge });
+
+    // If no Resend API key, log and return success (dev mode)
     if (!process.env.RESEND_API_KEY) {
       console.log("[Contact Form] No RESEND_API_KEY set. Submission:", {
         name,
@@ -34,44 +42,51 @@ export async function POST(request: Request) {
         company,
         challenge,
       });
+      await hubspotSync;
       return NextResponse.json({ success: true });
     }
 
-    // Send notification email to WaS
-    await resend.emails.send({
-      from: "What A Service <noreply@whataservice.fr>",
-      to: [RECIPIENT_EMAIL],
-      replyTo: email,
-      subject: `Nouvelle demande de ${name} — ${company}`,
-      text: [
-        `Nom : ${name}`,
-        `Email : ${email}`,
-        `Entreprise : ${company}`,
-        `Challenge : ${challenge}`,
-        "",
-        "---",
-        "Envoyé depuis le formulaire whataservice.fr",
-      ].join("\n"),
-    });
+    const resend = getResendClient();
 
-    // Send confirmation email to prospect
-    await resend.emails.send({
-      from: "Eric Sib — What A Service <noreply@whataservice.fr>",
-      to: [email],
-      subject: "Bien reçu — What A Service",
-      text: [
-        `Bonjour ${name},`,
-        "",
-        "Merci pour votre message. Je reviens vers vous sous 24 heures.",
-        "",
-        "Si vous souhaitez accélérer, réservez directement un créneau :",
-        "https://calendly.com/whataservice",
-        "",
-        "À très vite,",
-        "Eric Sib",
-        "What A Service",
-      ].join("\n"),
-    });
+    // Send emails + HubSpot sync in parallel
+    await Promise.all([
+      // Notification email to WaS
+      resend.emails.send({
+        from: "What A Service <noreply@whataservice.fr>",
+        to: [RECIPIENT_EMAIL],
+        replyTo: email,
+        subject: `Nouvelle demande de ${name} — ${company}`,
+        text: [
+          `Nom : ${name}`,
+          `Email : ${email}`,
+          `Entreprise : ${company}`,
+          `Challenge : ${challenge}`,
+          "",
+          "---",
+          "Envoyé depuis le formulaire whataservice.fr",
+        ].join("\n"),
+      }),
+      // Confirmation email to prospect
+      resend.emails.send({
+        from: "Eric Sib — What A Service <noreply@whataservice.fr>",
+        to: [email],
+        subject: "Bien reçu — What A Service",
+        text: [
+          `Bonjour ${name},`,
+          "",
+          "Merci pour votre message. Je reviens vers vous sous 24 heures.",
+          "",
+          "Si vous souhaitez accélérer, réservez directement un créneau :",
+          "https://calendly.com/whataservice/demo",
+          "",
+          "À très vite,",
+          "Eric Sib",
+          "What A Service",
+        ].join("\n"),
+      }),
+      // HubSpot CRM sync
+      hubspotSync,
+    ]);
 
     return NextResponse.json({ success: true });
   } catch (error) {
