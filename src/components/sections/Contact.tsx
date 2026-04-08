@@ -1,59 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import SectionTag from "@/components/ui/SectionTag";
 import { CERT_KEYS } from "@/config/certifications";
-
-type FormState = "idle" | "sending" | "success" | "error";
+import { useContactForm, CHALLENGE_KEYS } from "@/hooks/useContactForm";
+import CalendlyPopup from "@/components/ui/CalendlyPopup";
 
 export default function Contact() {
   const t = useTranslations("contact");
   const certs = useTranslations("certifications");
-  const [formState, setFormState] = useState<FormState>("idle");
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const validate = (form: FormData) => {
-    const errs: Record<string, string> = {};
-    if (!form.get("name")) errs.name = t("form.required");
-    const email = form.get("email") as string;
-    if (!email) errs.email = t("form.required");
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      errs.email = t("form.invalidEmail");
-    if (!form.get("company")) errs.company = t("form.required");
-    if (!form.get("challenge") || form.get("challenge") === "")
-      errs.challenge = t("form.required");
-    return errs;
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const errs = validate(form);
-    setErrors(errs);
-    if (Object.keys(errs).length > 0) return;
-
-    setFormState("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.get("name"),
-          email: form.get("email"),
-          company: form.get("company"),
-          challenge: form.get("challenge"),
-        }),
-      });
-      if (!res.ok) throw new Error("API error");
-      setFormState("success");
-    } catch {
-      setFormState("error");
-    }
-  };
-
-  const challengeKeys = ["adoption", "cx", "tool", "migration", "scale", "itam", "other"] as const;
+  const { formState, errors, submittedData, handleSubmit } = useContactForm(t);
 
   return (
     <section id="contact" className="section-padding bg-deep relative overflow-hidden">
@@ -83,15 +40,15 @@ export default function Contact() {
                 <p className="text-surface text-lg font-semibold mb-4">
                   {t("form.success")}
                 </p>
-                <a
-                  href="https://calendly.com/whataservice/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-accent text-deep px-6 py-3 rounded-lg text-sm font-semibold hover:bg-accent-light transition-all duration-300"
-                  style={{ transitionTimingFunction: "var(--ease-spring)" }}
-                >
-                  {t("form.successCta")}
-                </a>
+                <p className="text-slate-400 text-sm mb-6">
+                  {t("form.successSub")}
+                </p>
+                <CalendlyPopup
+                  label={t("form.successCta")}
+                  fallbackLabel={t("form.successCtaFallback")}
+                  name={submittedData?.name}
+                  email={submittedData?.email}
+                />
               </div>
             ) : (
               <form
@@ -149,7 +106,7 @@ export default function Contact() {
                     <option value="" disabled className="text-slate-900">
                       {t("form.challengeOptions.default")}
                     </option>
-                    {challengeKeys.map((key) => (
+                    {CHALLENGE_KEYS.map((key) => (
                       <option key={key} value={key} className="text-slate-900">
                         {t(`form.challengeOptions.${key}`)}
                       </option>

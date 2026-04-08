@@ -291,7 +291,9 @@
       "submit": "Envoyer",
       "sending": "Envoi en cours...",
       "success": "Message envoy\u00e9\u00a0! Nous vous r\u00e9pondrons sous 24 heures.",
-      "successCta": "Ou r\u00e9servez directement un cr\u00e9neau \u2192",
+      "successSub": "Envie d\u2019acc\u00e9l\u00e9rer\u00a0? Bloquez un cr\u00e9neau maintenant.",
+      "successCta": "R\u00e9server un cr\u00e9neau",
+      "successCtaFallback": "R\u00e9server un cr\u00e9neau \u2192",
       "error": "Une erreur est survenue. R\u00e9essayez ou contactez-nous par email.",
       "required": "Ce champ est requis",
       "invalidEmail": "Adresse email invalide"

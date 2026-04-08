@@ -291,7 +291,9 @@
       "submit": "Send",
       "sending": "Sending...",
       "success": "Message sent! We\u2019ll respond within 24 hours.",
-      "successCta": "Or book a slot directly \u2192",
+      "successSub": "Want to speed things up? Book a slot now.",
+      "successCta": "Book a slot",
+      "successCtaFallback": "Book a slot \u2192",
       "error": "Something went wrong. Try again or email us directly.",
       "required": "This field is required",
       "invalidEmail": "Invalid email address"
