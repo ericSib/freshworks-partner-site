@@ -8,7 +8,7 @@ import { SITE_NAME } from "@/config/site";
 import { NAV_LINKS } from "@/config/navigation";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
-const SECTION_IDS = ["services", "case-studies", "about", "contact"];
+const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace("#", ""));
 
 export default function Header() {
   const t = useTranslations("nav");

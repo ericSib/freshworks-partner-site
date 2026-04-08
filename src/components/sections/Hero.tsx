@@ -4,17 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { CERT_KEYS } from "@/config/certifications";
+import { CLIENT_LOGOS } from "@/config/clients";
 import { SECTION_IMAGES } from "@/config/images";
 import TextReveal from "@/components/ui/TextReveal";
-
-const CLIENT_LOGOS = [
-  { src: "/images/logos/Bonduelle.png", alt: "Groupe Bonduelle" },
-  { src: "/images/logos/logo_Assurance_Maladie.jpg", alt: "Assurance Maladie" },
-  { src: "/images/logos/Otipass-3couleurs.webp", alt: "OTIpass" },
-  { src: "/images/logos/Theremia.webp", alt: "Theremia" },
-  { src: "/images/logos/Logo-Bartle.png", alt: "Bartle" },
-  { src: "/images/logos/Logo_Cyclevia.png.webp", alt: "Cyclevia" },
-];
 
 export default function Hero() {
   const t = useTranslations("hero");

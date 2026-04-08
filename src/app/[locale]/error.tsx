@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default function Error({
   reset,
@@ -11,7 +11,7 @@ export default function Error({
   return (
     <div className="min-h-[60vh] flex items-center justify-center p-4">
       <div className="text-center max-w-md">
-        <div className="w-16 h-16 bg-orange/10 text-orange rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <div className="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
           <svg
             className="w-8 h-8"
             fill="none"
@@ -27,23 +27,23 @@ export default function Error({
             />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-navy mb-3">
+        <h2 className="text-2xl font-bold text-surface mb-3">
           Oups, quelque chose a mal tourné
         </h2>
-        <p className="text-gray-600 mb-8">
+        <p className="text-slate-400 mb-8">
           Une erreur est survenue. Vous pouvez réessayer ou revenir à
           l&apos;accueil.
         </p>
         <div className="flex gap-4 justify-center">
           <button
             onClick={() => reset()}
-            className="px-6 py-3 bg-orange text-white rounded-xl font-semibold hover:bg-orange-dark transition-colors shadow-[var(--shadow-orange-md)]"
+            className="px-6 py-3 bg-accent text-deep rounded-xl font-semibold hover:bg-accent-light transition-colors shadow-[var(--shadow-accent-md)]"
           >
             Réessayer
           </button>
           <Link
             href="/"
-            className="px-6 py-3 border border-gray-200 text-navy rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+            className="px-6 py-3 border border-white/10 text-surface rounded-xl font-semibold hover:bg-white/5 transition-colors"
           >
             Accueil
           </Link>

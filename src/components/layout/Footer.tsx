@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { SITE_NAME } from "@/config/site";
 import { NAV_LINKS } from "@/config/navigation";
