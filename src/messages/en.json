@@ -267,6 +267,36 @@
     ],
     "cta": "Let\u2019s discuss your project"
   },
+  "faq": {
+    "sectionTag": "Frequently asked questions",
+    "headline": "What our prospects ask us",
+    "items": [
+      {
+        "q": "What does a Freshworks consultant do?",
+        "a": "A Freshworks consultant is a certified expert who deploys, migrates, and optimizes Freshservice (ITSM) and Freshdesk (customer support). Unlike generalist integrators, they know ITIL best practices and product limits to deliver in 4\u00a0weeks, not 6\u00a0months."
+      },
+      {
+        "q": "How much does a Freshservice implementation cost?",
+        "a": "A Freshservice implementation starts at \u20ac5,000 for a standard ITSM scope (portal, workflows, CMDB). Cost varies with the number of integrations (EntraID, M365, ERP) and ESM departments. A free diagnostic helps define the exact budget."
+      },
+      {
+        "q": "How to migrate from ServiceNow to Freshservice?",
+        "a": "ServiceNow \u2192 Freshservice migration follows 4\u00a0steps: audit of current setup, data mapping (tickets, CMDB, workflows), incremental migration with validation, and training. Zero data loss, zero service interruption. Average duration: 6\u00a0to\u00a08\u00a0weeks."
+      },
+      {
+        "q": "How long does a Freshdesk deployment take?",
+        "a": "An omnichannel Freshdesk deployment (email, chat, phone, WhatsApp) takes 3\u00a0to\u00a05\u00a0weeks. This includes SLA configuration, smart routing, bilingual knowledge base, and CRM integrations (Salesforce, HubSpot). Go-live is guaranteed."
+      },
+      {
+        "q": "Freshservice vs ServiceNow: what are the differences?",
+        "a": "Freshservice costs 3\u20135\u00d7 less than ServiceNow for mid-market scope (500\u20132,000 users). It deploys in weeks vs.\u00a0months, without a dedicated admin team. However, ServiceNow remains relevant for enterprises (+10,000 users) with complex GRC needs."
+      },
+      {
+        "q": "How to improve ITSM tool adoption?",
+        "a": "70% of companies underuse their ITSM tool. Our 3-lever method: simplify the portal (reduce categories by 60%), automate repetitive tasks (Freddy\u00a0AI), and train agents with concrete KPIs (CSAT, SLA). Measurable results in 4\u00a0weeks."
+      }
+    ]
+  },
   "contact": {
     "sectionTag": "Take action",
     "headline": "30 minutes to find your quick wins",

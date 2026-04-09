@@ -267,6 +267,36 @@
     ],
     "cta": "Discutons de votre projet"
   },
+  "faq": {
+    "sectionTag": "Questions fr\u00e9quentes",
+    "headline": "Ce que nos prospects nous demandent",
+    "items": [
+      {
+        "q": "Qu\u2019est-ce qu\u2019un consultant Freshworks\u00a0?",
+        "a": "Un consultant Freshworks est un expert certifi\u00e9 qui d\u00e9ploie, migre et optimise Freshservice (ITSM) et Freshdesk (support client). Contrairement \u00e0 un int\u00e9grateur g\u00e9n\u00e9raliste, il conna\u00eet les meilleures pratiques ITIL et les limites produit pour livrer en 4\u00a0semaines, pas en 6\u00a0mois."
+      },
+      {
+        "q": "Combien co\u00fbte une impl\u00e9mentation Freshservice\u00a0?",
+        "a": "Une impl\u00e9mentation Freshservice d\u00e9marre \u00e0 5\u00a0000\u00a0\u20ac pour un p\u00e9rim\u00e8tre ITSM standard (portail, workflows, CMDB). Le co\u00fbt varie selon le nombre d\u2019int\u00e9grations (EntraID, M365, ERP) et de d\u00e9partements ESM. Un diagnostic gratuit permet de cadrer le budget exact."
+      },
+      {
+        "q": "Comment migrer de ServiceNow vers Freshservice\u00a0?",
+        "a": "La migration ServiceNow \u2192 Freshservice suit 4\u00a0\u00e9tapes\u00a0: audit de l\u2019existant, mapping des donn\u00e9es (tickets, CMDB, workflows), migration incr\u00e9mentale avec validation, et formation. Z\u00e9ro perte de donn\u00e9es, z\u00e9ro interruption de service. Dur\u00e9e moyenne\u00a0: 6\u00a0\u00e0\u00a08\u00a0semaines."
+      },
+      {
+        "q": "Quelle est la dur\u00e9e d\u2019un d\u00e9ploiement Freshdesk\u00a0?",
+        "a": "Un d\u00e9ploiement Freshdesk omnicanal (email, chat, t\u00e9l\u00e9phone, WhatsApp) prend 3\u00a0\u00e0\u00a05\u00a0semaines. Cela inclut la configuration des SLA, le routage intelligent, la base de connaissances bilingue et les int\u00e9grations CRM (Salesforce, HubSpot). Le go-live est garanti."
+      },
+      {
+        "q": "Freshservice vs ServiceNow\u00a0: quelles diff\u00e9rences\u00a0?",
+        "a": "Freshservice co\u00fbte 3\u00a0\u00e0\u00a05\u00d7 moins que ServiceNow pour un p\u00e9rim\u00e8tre ETI (500-2\u00a0000\u00a0utilisateurs). Il se d\u00e9ploie en semaines vs.\u00a0mois, sans \u00e9quipe admin d\u00e9di\u00e9e. En revanche, ServiceNow reste pertinent pour les grands groupes (+10\u00a0000\u00a0users) avec des besoins GRC complexes."
+      },
+      {
+        "q": "Comment am\u00e9liorer l\u2019adoption de mon outil ITSM\u00a0?",
+        "a": "70\u00a0% des entreprises sous-utilisent leur outil ITSM. Notre m\u00e9thode en 3\u00a0leviers\u00a0: simplifier le portail (r\u00e9duction des cat\u00e9gories de 60\u00a0%), automatiser les t\u00e2ches r\u00e9p\u00e9titives (Freddy\u00a0AI), et former les agents avec des KPI concrets (CSAT, SLA). R\u00e9sultats mesurables en 4\u00a0semaines."
+      }
+    ]
+  },
   "contact": {
     "sectionTag": "Passez \u00e0 l\u2019action",
     "headline": "30 minutes pour identifier vos quick wins",

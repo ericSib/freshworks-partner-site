@@ -8,6 +8,7 @@ import Services from "@/components/sections/Services";
 import CaseStudies from "@/components/sections/CaseStudies";
 import FreshworksProducts from "@/components/sections/FreshworksProducts";
 import About from "@/components/sections/About";
+import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <CaseStudies />
       <FreshworksProducts />
       <About />
+      <FAQ />
       <Contact />
     </>
   );
