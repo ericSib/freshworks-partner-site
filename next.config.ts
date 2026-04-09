@@ -20,11 +20,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://assets.calendly.com`,
+      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://assets.calendly.com https://www.googletagmanager.com`,
       "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
       "img-src 'self' data: https:",
       "font-src 'self' https://assets.calendly.com",
-      "connect-src 'self' https://calendly.com",
+      "connect-src 'self' https://calendly.com https://www.google-analytics.com https://analytics.google.com",
       "frame-src https://calendly.com",
       "frame-ancestors 'none'",
     ].join("; ") + ";",

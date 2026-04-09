@@ -342,6 +342,12 @@
       "response": "Response within 24h"
     }
   },
+  "cookies": {
+    "bannerLabel": "Cookie consent",
+    "message": "We use analytics cookies to improve your experience. No personal data is sold or shared.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
   "footer": {
     "description": "Freshworks consultants for mid-market & SMBs. ITSM, omnichannel support, ITAM, ESM. Deployment, migration, optimization.",
     "navigation": "Navigation",

@@ -342,6 +342,12 @@
       "response": "R\u00e9ponse sous 24h"
     }
   },
+  "cookies": {
+    "bannerLabel": "Consentement cookies",
+    "message": "Nous utilisons des cookies analytiques pour am\u00e9liorer votre exp\u00e9rience. Aucune donn\u00e9e personnelle n\u2019est vendue ni partag\u00e9e.",
+    "accept": "Accepter",
+    "decline": "Refuser"
+  },
   "footer": {
     "description": "Consultants Freshworks pour ETI et PME. ITSM, support client omnicanal, ITAM, ESM. D\u00e9ploiement, migration, optimisation.",
     "navigation": "Navigation",

@@ -8,6 +8,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import StructuredData from "@/components/seo/StructuredData";
+import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
+import CookieBanner from "@/components/ui/CookieBanner";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-heading",
@@ -86,10 +88,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-body)] bg-deep text-surface">
         <NextIntlClientProvider messages={messages}>
+          <GoogleAnalytics />
           <ScrollProgress />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>
