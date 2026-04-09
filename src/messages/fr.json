@@ -18,7 +18,7 @@
     "headline": "Vos services IT et votre support client m\u00e9ritent mieux",
     "subheadline": "Tickets mal rout\u00e9s, CSAT en chute, processus manuels, outils sous-exploit\u00e9s. Nous configurons Freshservice et Freshdesk pour que vos \u00e9quipes IT et support d\u00e9livrent enfin une exp\u00e9rience \u00e0 la hauteur.",
     "ctaPrimary": "Diagnostic gratuit en 30 min",
-    "ctaSecondary": "Voir nos r\u00e9sultats clients",
+    "ctaSecondary": "\u00c9valuez votre maturit\u00e9 ITSM/CX",
     "clientsTrust": "Ils nous font confiance",
     "trustedBy": "Certifications & Partenariats",
     "imageAlt": "Équipe de consultants collaborant sur un projet de transformation IT"
@@ -35,6 +35,7 @@
   "problems": {
     "sectionTag": "Ce que vivent nos clients avant de nous appeler",
     "headline": "Ces situations vous parlent\u00a0?",
+    "quizCta": "\u00c9valuez votre maturit\u00e9 en 3 minutes",
     "cards": [
       {
         "icon": "chart-down",

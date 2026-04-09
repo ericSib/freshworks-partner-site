@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { CERT_KEYS } from "@/config/certifications";
 import { CLIENT_LOGOS } from "@/config/clients";
 import { SECTION_IMAGES } from "@/config/images";
@@ -100,12 +101,12 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
-              <a
-                href="#case-studies"
+              <Link
+                href="/quiz"
                 className="inline-flex items-center justify-center border border-white/10 text-surface/80 px-8 py-4 rounded-lg text-base font-medium hover:border-accent/30 hover:text-accent transition-all duration-300"
               >
                 {t("ctaSecondary")}
-              </a>
+              </Link>
             </div>
 
             {/* Trust bar */}

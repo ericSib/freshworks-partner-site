@@ -18,7 +18,7 @@
     "headline": "Your IT services and customer support deserve better",
     "subheadline": "Misrouted tickets, dropping CSAT, manual processes, underused tools. We configure Freshservice and Freshdesk so your IT and support teams finally deliver an experience that matches your ambitions.",
     "ctaPrimary": "Free 30-min diagnostic",
-    "ctaSecondary": "See our client results",
+    "ctaSecondary": "Assess your ITSM/CX maturity",
     "clientsTrust": "Trusted by",
     "trustedBy": "Certifications & Partnerships",
     "imageAlt": "Consulting team collaborating on an IT transformation project"
@@ -35,6 +35,7 @@
   "problems": {
     "sectionTag": "What our clients face before calling us",
     "headline": "Sound familiar?",
+    "quizCta": "Assess your maturity in 3 minutes",
     "cards": [
       {
         "icon": "chart-down",

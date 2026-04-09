@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
@@ -42,6 +43,26 @@ export default function Problems() {
             </div>
           ))}
         </StaggerChildren>
+
+        <AnimateOnScroll variant="fade-up" delay={200}>
+          <div className="mt-10 text-center">
+            <Link
+              href="/quiz"
+              className="group inline-flex items-center gap-2 text-accent text-sm font-medium hover:text-accent-light transition-colors duration-300"
+            >
+              {t("quizCta")}
+              <svg
+                className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
