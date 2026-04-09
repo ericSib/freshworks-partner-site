@@ -43,5 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Legal — required but low SEO value
     bilingualEntry("/mentions-legales", 0.3, "yearly"),
+
+    // Maturity landing pages — SEO content (E18+)
+    bilingualEntry("/maturite/itsm/level-1", 0.8, "monthly"),
+    bilingualEntry("/maturite/cx/level-1", 0.8, "monthly"),
   ];
 }

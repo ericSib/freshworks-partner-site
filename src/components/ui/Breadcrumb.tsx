@@ -5,8 +5,10 @@ import { BREADCRUMB_PAGES } from "@/config/navigation";
 
 type Props = {
   locale: string;
-  /** Current page slug (e.g. "quiz", "mentions-legales") */
+  /** Current page slug (e.g. "quiz", "mentions-legales", "maturite/itsm/level-1") */
   slug: string;
+  /** Override label (for dynamic pages not in BREADCRUMB_PAGES). */
+  label?: string;
 };
 
 /**
@@ -16,19 +18,20 @@ type Props = {
  * - Accessible <nav aria-label="breadcrumb"> with <ol> list
  * - JSON-LD BreadcrumbList schema for Google Rich Results
  *
- * Only rendered on secondary pages (not homepage).
+ * Supports static pages (via BREADCRUMB_PAGES) and dynamic pages (via label prop).
  * US-22.7
  */
-export default async function Breadcrumb({ locale, slug }: Props) {
+export default async function Breadcrumb({ locale, slug, label }: Props) {
   const t = await getTranslations({ locale, namespace: "breadcrumb" });
 
   const page = BREADCRUMB_PAGES.find((p) => p.slug === slug);
-  if (!page) return null;
+  // Accept either a configured page or an explicit label
+  if (!page && !label) return null;
 
   const homeUrl = `${SITE_URL}/${locale}`;
   const currentUrl = `${SITE_URL}/${locale}/${slug}`;
   const homeLabel = t("home");
-  const currentLabel = t(page.labelKey);
+  const currentLabel = label ?? (page ? t(page.labelKey) : slug);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

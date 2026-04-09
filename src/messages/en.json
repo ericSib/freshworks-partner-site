@@ -615,5 +615,36 @@
         "proactive": "Inbound volume reduction: 20-30% | NPS +15-20 points | Predictive support = competitive advantage"
       }
     }
+  },
+  "maturity": {
+    "breadcrumbSegment": { "itsm": "ITSM", "cx": "CX" },
+    "itsm": {
+      "level-1": {
+        "meta": { "title": "ITSM Maturity Level 1 — Firefighting Mode", "description": "Your ITSM is in firefighting mode. Discover priority actions to structure your IT services with Freshservice." },
+        "sectionTag": "ITSM Maturity — Level 1",
+        "headline": "Firefighting mode: your IT services react instead of lead",
+        "intro": "An ITSM maturity score below 20/100 indicates reactive, unstructured IT processes. Incidents are handled case by case, without categorization or prioritization. There is no self-service portal or CMDB. On average, 70% of companies at this level waste 15 hours/week on manual triage.",
+        "problemsTitle": "Typical symptoms",
+        "problems": ["No self-service portal — 100% of requests come through email or phone", "No categorization or SLAs — impossible to measure performance", "No CMDB — assets are not tracked", "No automation — every ticket is processed manually"],
+        "recommendationsTitle": "Priority recommendations",
+        "recommendations": ["Deploy a Freshservice portal with a basic service catalog (5-10 categories)", "Configure SLAs by priority (P1: 1h, P2: 4h, P3: 8h, P4: 24h)", "Launch Discovery to automatically inventory assets", "Train agents on triage and routing (2 days)"],
+        "cta": "Get a free diagnostic of your ITSM",
+        "timeframe": "Visible results in 4 weeks"
+      }
+    },
+    "cx": {
+      "level-1": {
+        "meta": { "title": "CX Maturity Level 1 — Reactive Support", "description": "Your customer support is reactive and disorganized. Discover how to structure Freshdesk to improve CSAT." },
+        "sectionTag": "CX Maturity — Level 1",
+        "headline": "Reactive support: your customers wait too long",
+        "intro": "A CX score below 20/100 means your customer support operates without structure. Emails pile up, SLAs don't exist, and CSAT isn't measured. On average, companies at this level have a first response time over 24h and CSAT below 50%.",
+        "problemsTitle": "Typical symptoms",
+        "problems": ["Single channel (email) — no chat, phone, or self-service", "No SLAs configured — response times are not tracked", "No knowledge base — agents repeat the same answers", "CSAT not measured — no visibility on customer satisfaction"],
+        "recommendationsTitle": "Priority recommendations",
+        "recommendations": ["Deploy Freshdesk with 3 channels: email + chat + web form", "Configure SLAs by request type (urgent, standard, info)", "Create a knowledge base with the top 20 most frequent questions", "Enable automatic CSAT surveys post-resolution"],
+        "cta": "Get a free diagnostic of your customer support",
+        "timeframe": "Visible results in 3 weeks"
+      }
+    }
   }
 }

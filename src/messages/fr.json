@@ -615,5 +615,36 @@
         "proactive": "Réduction volume entrant : 20-30% | NPS +15-20 points | Support prédictif = avantage concurrentiel"
       }
     }
+  },
+  "maturity": {
+    "breadcrumbSegment": { "itsm": "ITSM", "cx": "CX" },
+    "itsm": {
+      "level-1": {
+        "meta": { "title": "Maturité ITSM Niveau 1 — Mode pompier", "description": "Votre ITSM est en mode pompier. Découvrez les actions prioritaires pour structurer vos services IT avec Freshservice." },
+        "sectionTag": "Maturité ITSM — Niveau 1",
+        "headline": "Mode pompier : vos services IT subissent au lieu de piloter",
+        "intro": "Un score de maturité ITSM inférieur à 20/100 indique que vos processus IT sont réactifs et non structurés. Les incidents sont traités au cas par cas, sans catégorisation ni priorisation. Il n'y a pas de portail self-service ni de CMDB. En moyenne, 70 % des entreprises à ce niveau perdent 15 heures/semaine en triage manuel.",
+        "problemsTitle": "Symptômes typiques",
+        "problems": ["Aucun portail self-service — 100 % des demandes passent par email ou téléphone", "Pas de catégorisation ni de SLA — impossible de mesurer la performance", "CMDB inexistante — les assets ne sont pas tracés", "Aucune automatisation — chaque ticket est traité manuellement"],
+        "recommendationsTitle": "Recommandations prioritaires",
+        "recommendations": ["Déployer un portail Freshservice avec catalogue de services basique (5-10 catégories)", "Configurer les SLA par priorité (P1 : 1h, P2 : 4h, P3 : 8h, P4 : 24h)", "Lancer le Discovery pour inventorier les assets automatiquement", "Former les agents sur le triage et le routage (2 jours)"],
+        "cta": "Obtenez un diagnostic gratuit de votre ITSM",
+        "timeframe": "Résultats visibles en 4 semaines"
+      }
+    },
+    "cx": {
+      "level-1": {
+        "meta": { "title": "Maturité CX Niveau 1 — Support réactif", "description": "Votre support client est réactif et désorganisé. Découvrez comment structurer Freshdesk pour améliorer la CSAT." },
+        "sectionTag": "Maturité CX — Niveau 1",
+        "headline": "Support réactif : vos clients attendent trop longtemps",
+        "intro": "Un score CX inférieur à 20/100 signifie que votre support client fonctionne sans structure. Les emails s'empilent, les SLA n'existent pas, et la CSAT n'est pas mesurée. En moyenne, les entreprises à ce niveau ont un temps de première réponse supérieur à 24h et un CSAT inférieur à 50 %.",
+        "problemsTitle": "Symptômes typiques",
+        "problems": ["Canal unique (email) — pas de chat, téléphone ni self-service", "Aucun SLA configuré — les temps de réponse ne sont pas suivis", "Pas de base de connaissances — les agents répètent les mêmes réponses", "CSAT non mesuré — aucune visibilité sur la satisfaction client"],
+        "recommendationsTitle": "Recommandations prioritaires",
+        "recommendations": ["Déployer Freshdesk avec 3 canaux : email + chat + formulaire web", "Configurer les SLA par type de demande (urgent, standard, info)", "Créer une base de connaissances avec les 20 questions les plus fréquentes", "Activer les enquêtes CSAT automatiques post-résolution"],
+        "cta": "Obtenez un diagnostic gratuit de votre support client",
+        "timeframe": "Résultats visibles en 3 semaines"
+      }
+    }
   }
 }
