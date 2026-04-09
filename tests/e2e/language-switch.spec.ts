@@ -46,13 +46,13 @@ test.describe("Language Switching — Content", () => {
     // FR CTA
     await home.goto("fr");
     await expect(
-      page.getByRole("link", { name: "Réservez une consultation" })
+      page.getByRole("link", { name: "Diagnostic gratuit en 30 min" })
     ).toBeVisible();
 
     // EN CTA
     await home.goto("en");
     await expect(
-      page.getByRole("link", { name: "Book a Consultation" })
+      page.getByRole("link", { name: "Free 30-min diagnostic" })
     ).toBeVisible();
   });
 });
