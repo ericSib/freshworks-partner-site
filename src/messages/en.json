@@ -341,5 +341,160 @@
       "heading": "Contact",
       "content": "For any questions regarding legal notices or data protection: contact@whataservice.fr"
     }
+  },
+  "quiz": {
+    "meta": {
+      "title": "ITSM & CX Maturity Score",
+      "description": "Assess your IT service and customer support maturity for free. 10 questions, instant results with radar chart and recommendations."
+    },
+    "section": "Section",
+    "of": "of",
+    "back": "Back",
+    "demographics": {
+      "title": "A few details before we begin",
+      "subtitle": "This helps us benchmark your results against similar organizations.",
+      "companySize": "Company size",
+      "industry": "Industry",
+      "role": "Your role",
+      "start": "Start the assessment",
+      "size": {
+        "50_199": "50–199 employees",
+        "200_499": "200–499 employees",
+        "500_999": "500–999 employees",
+        "1000_2000": "1,000–2,000 employees",
+        "2000_plus": "2,000+ employees"
+      },
+      "industries": {
+        "tech": "Technology / SaaS",
+        "finance": "Finance / Banking / Insurance",
+        "healthcare": "Healthcare",
+        "manufacturing": "Manufacturing / Industrial",
+        "retail": "Retail / E-commerce",
+        "education": "Education",
+        "government": "Government / Public sector",
+        "services": "Professional services",
+        "telecom": "Telecom / Media",
+        "other": "Other"
+      },
+      "roles": {
+        "itDirector": "CIO / IT Director",
+        "supportDirector": "Support / CX Director",
+        "operations": "Operations Manager",
+        "other": "Other"
+      }
+    },
+    "itsm": {
+      "dim": {
+        "incident": "Incident & request management",
+        "change": "Change & problem management",
+        "knowledge": "Knowledge management & self-service",
+        "automation": "Automation & orchestration",
+        "assets": "Asset management & CMDB",
+        "analytics": "Reporting, analytics & AI",
+        "catalog": "Service catalog",
+        "governance": "IT governance & continual improvement"
+      },
+      "q": {
+        "1a": {
+          "text": "How does your organization handle IT incidents and service requests?",
+          "opt1": "Incidents are reported via email, phone, or in person with no structured ticketing system. No consistent categorization or prioritization.",
+          "opt2": "We have a ticketing system, but categorization is inconsistent. Tickets are manually assigned and we don't always track response times.",
+          "opt3": "Tickets are auto-categorized with a priority matrix. SLAs are defined per priority level and we track compliance. Self-service handles common requests.",
+          "opt4": "AI-assisted categorization and routing. SLA compliance exceeds 95%. Trend analysis feeds problem management. CSAT measured per interaction.",
+          "opt5": "Predictive analytics identifies potential incidents before impact. Virtual agents autonomously resolve 40–60% of L1 requests."
+        },
+        "1b": {
+          "text": "What is your approximate first-contact resolution (FCR) rate?",
+          "opt1": "We don't track FCR. Issues often require multiple contacts and escalations.",
+          "opt2": "FCR is estimated at 40–55%, but tracking is informal. Reopen rate is high (>10%).",
+          "opt3": "FCR is formally tracked at 65–75%. SLA compliance is 85–92%. Average MTTR is 4–8 business hours.",
+          "opt4": "FCR exceeds 80%. Reopen rate is under 5%. We track MTTR trends and benchmark regularly.",
+          "opt5": "FCR exceeds 85% with MTTR continuously declining. Self-service and AI deflection exceeds 50%. CSAT consistently > 90%."
+        },
+        "2a": {
+          "text": "How does your organization manage IT changes and investigate recurring problems?",
+          "opt1": "Changes are made without formal approval. No CAB or change calendar. Recurring incidents are fixed each time they occur.",
+          "opt2": "We have a basic process, but not all changes go through it. Problem management is reactive.",
+          "opt3": "Change types (standard/normal/emergency) are defined. CAB meets regularly. RCA conducted for major incidents. Success rate 90–95%.",
+          "opt4": "Risk-based automated approval. Proactive problem management through trend analysis. Success rate > 97%.",
+          "opt5": "AI-assisted risk assessment integrated with CI/CD pipelines. Predictive impact analysis. Near-zero recurring incidents."
+        },
+        "3a": {
+          "text": "How mature is your knowledge base and self-service portal?",
+          "opt1": "Knowledge lives in people's heads, scattered files, or sticky notes. No formal KB or portal.",
+          "opt2": "We have a KB, but it's sparsely populated and rarely updated. Portal exists but adoption is < 15%.",
+          "opt3": "Centralized KB covering 50–70% of common issues. Self-service adoption at 30–45%. Articles reviewed quarterly. Deflection 20–30%.",
+          "opt4": "KCS principles adopted. AI suggestions during ticket handling. Adoption 50–65%. Automated freshness alerts. Deflection 40–55%.",
+          "opt5": "AI generates article drafts. Contextual NLP search. Adoption > 65%. Deflection > 55%. KM program ROI measured."
+        },
+        "4a": {
+          "text": "What level of automation exists in your IT service delivery?",
+          "opt1": "Nearly everything is manual — routing, approvals, assignments, and fulfillment all require human intervention.",
+          "opt2": "We have basic auto-routing rules and a few approval workflows, but most processes are manual.",
+          "opt3": "30–40% of repetitive tasks are automated. Auto-assignment via load balancing. Workflow templates for common scenarios.",
+          "opt4": "AI-powered intelligent routing based on skills and context. Multi-system orchestration. 50–65% of standard requests auto-fulfilled.",
+          "opt5": "Agentic AI handles autonomous resolution for defined scenarios. Multi-system orchestration. 65–80% self-service automation."
+        },
+        "5a": {
+          "text": "How does your organization track IT assets and configuration items?",
+          "opt1": "Assets are tracked in spreadsheets (if at all). No CMDB. Relationships between systems aren't documented.",
+          "opt2": "We have a basic inventory tool, but data is often outdated. No CI relationship mapping.",
+          "opt3": "CMDB implemented with key CI types. Agent-based discovery for hardware/software. CI relationships mapped. CMDB accuracy 70–85%.",
+          "opt4": "Fully automated discovery and reconciliation. Service maps linking business services to technical components. Accuracy > 90%.",
+          "opt5": "Real-time CMDB updates. Cloud assets auto-discovered. CMDB drives impact analysis, capacity planning, and cost optimization. Accuracy > 95%."
+        },
+        "6a": {
+          "text": "How does your IT organization use data and analytics?",
+          "opt1": "No dashboards or formal reporting. Decisions are based on gut feeling or anecdotal evidence.",
+          "opt2": "We generate basic reports (ticket counts) compiled manually in spreadsheets.",
+          "opt3": "Standard dashboards tracking core KPIs (incident volume, SLA compliance, backlog). Monthly reporting. Trends analyzed.",
+          "opt4": "Real-time dashboards with automated alerts. AI assists in anomaly detection. Metrics correlated with business outcomes.",
+          "opt5": "Predictive and prescriptive analytics. AIOps integration. ML models for categorization and resolution prediction."
+        },
+        "7a": {
+          "text": "How do employees request IT services?",
+          "opt1": "No service catalog. Employees email, call, or walk up. Available services aren't documented anywhere.",
+          "opt2": "We have a basic list of services, but forms are inconsistent. Fulfillment is mostly manual.",
+          "opt3": "Centralized catalog on a self-service portal with standardized forms. SLAs defined per category. 20–40% of standard requests automated.",
+          "opt4": "The catalog is the primary entry point. Over 60% of standard requests auto-fulfilled. Integrated with CMDB and HR.",
+          "opt5": "Enterprise Service Management: catalog extended beyond IT (HR, facilities, legal). AI recommendations. > 80% auto-fulfillment."
+        },
+        "8a": {
+          "text": "How does your IT organization govern services and drive improvement?",
+          "opt1": "No formal governance structure. Improvements only happen after major incidents. IT is seen as a cost center.",
+          "opt2": "Some processes are documented, but no formal service owners or CSI program.",
+          "opt3": "Governance structure with defined roles. CSI register maintained. Quarterly service reviews. CSAT surveys after resolution.",
+          "opt4": "Data-driven governance. Regular benchmarking. Executive dashboards linking IT metrics to business outcomes.",
+          "opt5": "Continual improvement is in the DNA. Full financial management. IT is a strategic partner co-creating business value."
+        }
+      },
+      "level": {
+        "1": { "label": "Firefighting", "desc": "Ad hoc, reactive, undocumented. Success depends on individual heroics.", "cta": "Book a free health check" },
+        "2": { "label": "Stabilizing", "desc": "Basic ticketing in place, repeatable processes but not standardized.", "cta": "Get your personalized roadmap" },
+        "3": { "label": "Established", "desc": "Organization-wide standards, defined processes, SLAs tracked.", "cta": "Learn how to reach Level 4" },
+        "4": { "label": "Optimized", "desc": "Data-driven governance, quantitative control, proactive management, automation at scale.", "cta": "Explore advanced optimization strategies" },
+        "5": { "label": "Leading", "desc": "Continual improvement embedded, AI-driven operations, IT as strategic partner.", "cta": "Maintain your competitive edge" }
+      },
+      "commercial": {
+        "incident": "Organizations at your maturity level typically spend 40% more on reactive incident management.",
+        "change": "Your success rate suggests a loss of X hours/month on failed changes.",
+        "knowledge": "Raising self-service from 15% to 45% typically deflects 2,000+ tickets/year.",
+        "automation": "Every manual intervention costs \u20ac15–25. Automating password resets and access requests saves 200+ hours/year.",
+        "assets": "Without accurate asset data, every change carries blind risk.",
+        "analytics": "You're collecting data but not acting on it — a pattern seen in 60% of mid-market organizations.",
+        "catalog": "A well-designed catalog reduces ticket volume by 20–30%.",
+        "governance": "The gap between ITSM ambition and reality is the number one finding in our audits."
+      },
+      "benchmark": {
+        "incident": "Average FCR: 70–75% | Target SLA: 90%+ | MTTR: 4–8 business hours",
+        "change": "Target success rate: >95% | Change-related incidents: <5%",
+        "knowledge": "Self-service: \u20ac1–4/ticket vs. \u20ac17–25 phone | Mature KB = +37% CSAT",
+        "automation": "Level 5: +40–60% productivity gains | Freddy AI: 76.6% faster",
+        "assets": "67% of SMBs still use spreadsheets for ITSM-ITAM integration",
+        "analytics": "71% consider AI important, but adoption is limited to 34%",
+        "catalog": "Level 3 portal adoption: 40–60% | ESM = maturity marker",
+        "governance": "56% see ITSM as strategic, but only 12% are mature"
+      }
+    }
   }
 }

@@ -341,5 +341,160 @@
       "heading": "Contact",
       "content": "Pour toute question relative aux mentions l\u00e9gales ou \u00e0 la protection des donn\u00e9es\u00a0: contact@whataservice.fr"
     }
+  },
+  "quiz": {
+    "meta": {
+      "title": "Score de Maturité ITSM & CX",
+      "description": "Évaluez gratuitement la maturité de vos services IT et support client. 10 questions, résultats immédiats avec radar chart et recommandations."
+    },
+    "section": "Section",
+    "of": "sur",
+    "back": "Précédent",
+    "demographics": {
+      "title": "Quelques informations avant de commencer",
+      "subtitle": "Ces données nous permettent de comparer vos résultats à des organisations similaires.",
+      "companySize": "Taille de l'entreprise",
+      "industry": "Secteur d'activité",
+      "role": "Votre rôle",
+      "start": "Démarrer l'évaluation",
+      "size": {
+        "50_199": "50–199 collaborateurs",
+        "200_499": "200–499 collaborateurs",
+        "500_999": "500–999 collaborateurs",
+        "1000_2000": "1 000–2 000 collaborateurs",
+        "2000_plus": "2 000+ collaborateurs"
+      },
+      "industries": {
+        "tech": "Technologie / SaaS",
+        "finance": "Finance / Banque / Assurance",
+        "healthcare": "Santé",
+        "manufacturing": "Industrie / Manufacturing",
+        "retail": "Retail / E-commerce",
+        "education": "Éducation",
+        "government": "Secteur public",
+        "services": "Services professionnels",
+        "telecom": "Télécoms / Médias",
+        "other": "Autre"
+      },
+      "roles": {
+        "itDirector": "DSI / Directeur IT",
+        "supportDirector": "Directeur Support / CX",
+        "operations": "Responsable Opérations",
+        "other": "Autre"
+      }
+    },
+    "itsm": {
+      "dim": {
+        "incident": "Gestion des incidents et requêtes",
+        "change": "Change et Problem management",
+        "knowledge": "Knowledge management et self-service",
+        "automation": "Automatisation et orchestration",
+        "assets": "Gestion des assets et CMDB",
+        "analytics": "Reporting, analytics et IA",
+        "catalog": "Catalogue de services",
+        "governance": "Gouvernance IT et amélioration continue"
+      },
+      "q": {
+        "1a": {
+          "text": "Comment votre organisation gère-t-elle les incidents IT et les demandes de service ?",
+          "opt1": "Les incidents sont signalés par email, téléphone ou en personne, sans système de tickets structuré. Pas de catégorisation ni de priorisation cohérente.",
+          "opt2": "Nous avons un système de tickets, mais la catégorisation est incohérente. Les tickets sont assignés manuellement et nous ne connaissons pas toujours les temps de réponse.",
+          "opt3": "Les tickets sont auto-catégorisés avec une matrice de priorité. Des SLA sont définis par niveau de priorité et nous suivons la conformité. Le self-service gère les demandes courantes.",
+          "opt4": "Catégorisation et routage assistés par IA. La conformité SLA dépasse 95%. Analyse des tendances alimentant le problem management. CSAT mesurée par interaction.",
+          "opt5": "L'analytique prédictive identifie les incidents potentiels avant impact. Les agents virtuels résolvent 40–60% des requêtes L1 de manière autonome."
+        },
+        "1b": {
+          "text": "Quel est approximativement votre taux de résolution au premier contact (FCR) ?",
+          "opt1": "Nous ne suivons pas le FCR. Les problèmes nécessitent souvent plusieurs contacts et escalades.",
+          "opt2": "Le FCR est estimé à 40–55%, mais le suivi est informel. Le taux de réouverture est élevé (>10%).",
+          "opt3": "Le FCR est formellement suivi à 65–75%. La conformité SLA est de 85–92%. Le MTTR moyen est de 4–8 heures ouvrées.",
+          "opt4": "Le FCR dépasse 80%. Le taux de réouverture est inférieur à 5%. Nous suivons les tendances MTTR et benchmarkons.",
+          "opt5": "Le FCR dépasse 85% avec un MTTR en baisse continue. La déflexion par self-service et IA dépasse 50%. CSAT constamment > 90%."
+        },
+        "2a": {
+          "text": "Comment votre organisation gère-t-elle les changements IT et investigue-t-elle les problèmes récurrents ?",
+          "opt1": "Les changements sont faits sans approbation formelle. Pas de CAB ni de calendrier. Les incidents récurrents sont corrigés à chaque fois.",
+          "opt2": "Nous avons un processus basique, mais tous les changements ne passent pas par lui. Le problem management est réactif.",
+          "opt3": "Les types de changement (standard/normal/urgence) sont définis. Le CAB se réunit régulièrement. RCA conduit pour les incidents majeurs. Taux de succès 90–95%.",
+          "opt4": "Approbation automatisée basée sur le risque. Problem management proactif par analyse de tendances. Taux de succès > 97%.",
+          "opt5": "Évaluation du risque assistée par IA intégrée aux pipelines CI/CD. Analyse d'impact prédictive. Quasi-zéro incident récurrent."
+        },
+        "3a": {
+          "text": "Quelle est la maturité de votre base de connaissances et portail self-service ?",
+          "opt1": "Les connaissances sont dans les têtes, des fichiers épars ou des Post-it. Pas de base formelle ni de portail.",
+          "opt2": "Nous avons une KB, mais peu alimentée et rarement mise à jour. Le portail existe mais l'adoption est < 15%.",
+          "opt3": "KB centralisée couvrant 50–70% des problèmes courants. Adoption self-service à 30–45%. Articles revus trimestriellement. Déflexion 20–30%.",
+          "opt4": "Principes KCS adoptés. Suggestions IA pendant le traitement. Adoption 50–65%. Alertes de fraîcheur automatiques. Déflexion 40–55%.",
+          "opt5": "L'IA génère des brouillons d'articles. Recherche NLP contextuelle. Adoption > 65%. Déflexion > 55%. ROI du programme KM mesuré."
+        },
+        "4a": {
+          "text": "Quel niveau d'automatisation existe dans votre delivery IT ?",
+          "opt1": "Presque tout est manuel — routage, approbations, assignations et exécution nécessitent une intervention humaine.",
+          "opt2": "Nous avons des règles d'auto-routage basiques et quelques workflows d'approbation, mais la plupart des processus sont manuels.",
+          "opt3": "30–40% des tâches répétitives sont automatisées. Auto-assignation par load balancing. Templates de workflow pour les scénarios courants.",
+          "opt4": "Routage intelligent par IA basé sur les compétences et le contexte. Orchestration multi-systèmes. 50–65% des demandes standard auto-traitées.",
+          "opt5": "L'IA agentique gère la résolution autonome de scénarios définis. Orchestration multi-systèmes. 65–80% d'automatisation self-service."
+        },
+        "5a": {
+          "text": "Comment votre organisation suit-elle les assets IT et les éléments de configuration ?",
+          "opt1": "Les assets sont suivis dans des tableurs (quand ils le sont). Pas de CMDB. Les relations entre systèmes ne sont pas documentées.",
+          "opt2": "Nous avons un outil d'inventaire basique, mais les données sont souvent obsolètes. Pas de mapping des relations CI.",
+          "opt3": "CMDB implémentée avec les types CI clés. Découverte agent pour le hardware/software. Relations CI mappées. Précision CMDB 70–85%.",
+          "opt4": "Découverte et réconciliation entièrement automatisées. Service maps reliant services business et composants techniques. Précision > 90%.",
+          "opt5": "Mises à jour CMDB en temps réel. Assets cloud auto-découverts. La CMDB pilote l'analyse d'impact, la capacité et l'optimisation des coûts. Précision > 95%."
+        },
+        "6a": {
+          "text": "Comment votre organisation IT utilise-t-elle les données et l'analytique ?",
+          "opt1": "Pas de tableaux de bord ni de reporting formel. Les décisions sont basées sur l'intuition ou l'anecdotique.",
+          "opt2": "Nous générons des rapports basiques (comptages de tickets) compilés manuellement dans des tableurs.",
+          "opt3": "Tableaux de bord standard suivant les KPI core (volume incidents, conformité SLA, backlog). Reporting mensuel. Tendances analysées.",
+          "opt4": "Tableaux de bord temps réel avec alertes automatiques. L'IA aide à la détection d'anomalies. Métriques corrélées aux résultats business.",
+          "opt5": "Analytique prédictive et prescriptive. Intégration AIOps. Modèles ML pour la catégorisation et la prédiction de résolution."
+        },
+        "7a": {
+          "text": "Comment les employés demandent-ils des services IT ?",
+          "opt1": "Pas de catalogue de services. Les employés envoient un email, appellent ou se déplacent. Les services disponibles ne sont documentés nulle part.",
+          "opt2": "Nous avons une liste basique de services, mais les formulaires sont incohérents. L'exécution est surtout manuelle.",
+          "opt3": "Catalogue centralisé sur un portail self-service avec formulaires standardisés. SLA définis par catégorie. 20–40% des demandes standard automatisées.",
+          "opt4": "Le catalogue est le point d'entrée principal. Plus de 60% des demandes standard auto-traitées. Intégré CMDB et RH.",
+          "opt5": "Enterprise Service Management : catalogue étendu au-delà de l'IT (RH, facilities, juridique). Recommandations IA. > 80% auto-traitement."
+        },
+        "8a": {
+          "text": "Comment votre organisation IT gouverne-t-elle les services et pilote-t-elle l'amélioration ?",
+          "opt1": "Pas de structure de gouvernance formelle. Les améliorations n'arrivent qu'après des incidents majeurs. L'IT est vu comme un centre de coût.",
+          "opt2": "Quelques processus documentés, mais pas de service owners formels ni de programme CSI.",
+          "opt3": "Structure de gouvernance avec rôles définis. Registre CSI maintenu. Revues de service trimestrielles. Enquêtes CSAT après résolution.",
+          "opt4": "Gouvernance data-driven. Benchmarking régulier. Tableaux de bord exécutifs reliant métriques IT et résultats business.",
+          "opt5": "L'amélioration continue est dans l'ADN. Management financier complet. L'IT est un partenaire stratégique co-créant de la valeur."
+        }
+      },
+      "level": {
+        "1": { "label": "Firefighting", "desc": "Ad hoc, réactif, non documenté. Le succès repose sur l'héroïsme individuel.", "cta": "Réservez un health check gratuit" },
+        "2": { "label": "Stabilizing", "desc": "Ticketing basique en place, processus reproductibles mais non standardisés.", "cta": "Obtenez votre roadmap personnalisée" },
+        "3": { "label": "Established", "desc": "Standards à l'échelle de l'organisation, processus définis, SLA suivis.", "cta": "Découvrez comment atteindre le Level 4" },
+        "4": { "label": "Optimized", "desc": "Gouvernance data-driven, contrôle quantitatif, gestion proactive, automatisation à l'échelle.", "cta": "Explorez les stratégies d'optimisation avancées" },
+        "5": { "label": "Leading", "desc": "Amélioration continue intégrée, opérations IA, IT partenaire stratégique.", "cta": "Maintenez votre avance concurrentielle" }
+      },
+      "commercial": {
+        "incident": "Les organisations à votre niveau de maturité dépensent généralement 40% de plus en gestion réactive des incidents.",
+        "change": "Votre taux de succès indique une perte de X heures/mois en changements échoués.",
+        "knowledge": "Passer le self-service de 15% à 45% dévie typiquement 2 000+ tickets/an.",
+        "automation": "Chaque intervention manuelle coûte 15–25€. Automatiser les resets de mot de passe et les demandes d'accès économise 200+ heures/an.",
+        "assets": "Sans données d'assets précises, chaque changement porte un risque aveugle.",
+        "analytics": "Vous collectez des données mais n'agissez pas dessus — un pattern vu dans 60% des organisations mid-market.",
+        "catalog": "Un catalogue bien conçu réduit le volume de tickets de 20–30%.",
+        "governance": "L'écart entre ambition ITSM et réalité est le premier constat de nos audits."
+      },
+      "benchmark": {
+        "incident": "FCR moyen : 70–75% | SLA cible : 90%+ | MTTR : 4–8h ouvrées",
+        "change": "Taux de succès cible : >95% | Incidents liés aux changements : <5%",
+        "knowledge": "Self-service : 1–4€/ticket vs. 17–25€ téléphone | KB mature = +37% CSAT",
+        "automation": "Level 5 : +40–60% de gains de productivité | Freddy AI : 76.6% plus rapide",
+        "assets": "67% des PME utilisent encore des tableurs pour l'intégration ITSM-ITAM",
+        "analytics": "71% considèrent l'IA importante, mais l'adoption est limitée à 34%",
+        "catalog": "Adoption portail Level 3 : 40–60% | ESM = marqueur de maturité",
+        "governance": "56% voient l'ITSM comme stratégique, mais seuls 12% sont matures"
+      }
+    }
   }
 }

@@ -28,7 +28,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 1: Ticket & Case Management (18%) — 2 questions
     {
       id: "cx-1a",
-      questionKey: "quiz.cx.q.1a",
+      questionKey: "quiz.cx.q.1a.text",
       dimensionId: "tickets",
       options: [
         { score: 1, labelKey: "quiz.cx.q.1a.opt1" },
@@ -40,7 +40,7 @@ export const CX_CONFIG: QuizConfig = {
     },
     {
       id: "cx-1b",
-      questionKey: "quiz.cx.q.1b",
+      questionKey: "quiz.cx.q.1b.text",
       dimensionId: "tickets",
       options: [
         { score: 1, labelKey: "quiz.cx.q.1b.opt1" },
@@ -53,7 +53,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 2: Omnichannel Experience (13%) — 1 question
     {
       id: "cx-2a",
-      questionKey: "quiz.cx.q.2a",
+      questionKey: "quiz.cx.q.2a.text",
       dimensionId: "omnichannel",
       options: [
         { score: 1, labelKey: "quiz.cx.q.2a.opt1" },
@@ -66,7 +66,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 3: Customer Self-Service (13%) — 1 question
     {
       id: "cx-3a",
-      questionKey: "quiz.cx.q.3a",
+      questionKey: "quiz.cx.q.3a.text",
       dimensionId: "selfservice",
       options: [
         { score: 1, labelKey: "quiz.cx.q.3a.opt1" },
@@ -79,7 +79,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 4: Agent Productivity & Enablement (12%) — 1 question
     {
       id: "cx-4a",
-      questionKey: "quiz.cx.q.4a",
+      questionKey: "quiz.cx.q.4a.text",
       dimensionId: "agents",
       options: [
         { score: 1, labelKey: "quiz.cx.q.4a.opt1" },
@@ -92,7 +92,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 5: Customer Satisfaction & Feedback (13%) — 1 question
     {
       id: "cx-5a",
-      questionKey: "quiz.cx.q.5a",
+      questionKey: "quiz.cx.q.5a.text",
       dimensionId: "satisfaction",
       options: [
         { score: 1, labelKey: "quiz.cx.q.5a.opt1" },
@@ -105,7 +105,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 6: Support Analytics & AI Readiness (10%) — 1 question
     {
       id: "cx-6a",
-      questionKey: "quiz.cx.q.6a",
+      questionKey: "quiz.cx.q.6a.text",
       dimensionId: "analytics",
       options: [
         { score: 1, labelKey: "quiz.cx.q.6a.opt1" },
@@ -118,7 +118,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 7: Knowledge Management for Support (11%) — 1 question
     {
       id: "cx-7a",
-      questionKey: "quiz.cx.q.7a",
+      questionKey: "quiz.cx.q.7a.text",
       dimensionId: "knowledge",
       options: [
         { score: 1, labelKey: "quiz.cx.q.7a.opt1" },
@@ -131,7 +131,7 @@ export const CX_CONFIG: QuizConfig = {
     // Dimension 8: Proactive Support & Customer Success (10%) — 1 question
     {
       id: "cx-8a",
-      questionKey: "quiz.cx.q.8a",
+      questionKey: "quiz.cx.q.8a.text",
       dimensionId: "proactive",
       options: [
         { score: 1, labelKey: "quiz.cx.q.8a.opt1" },
