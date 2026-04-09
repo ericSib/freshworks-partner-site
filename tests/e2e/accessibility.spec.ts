@@ -68,7 +68,6 @@ test.describe("Accessibility (axe-core) — Post-Interaction", () => {
     const results = await new AxeBuilder({ page })
       .include("#mobile-menu")
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
-      .disableRules(["color-contrast"]) // Nav links have transition animations that create false positives
       .analyze();
 
     const critical = results.violations.filter(
@@ -103,11 +102,9 @@ test.describe("Accessibility (axe-core) — Contact Form Errors", () => {
     const alerts = page.locator("#contact [role='alert']");
     await expect(alerts.first()).toBeVisible();
 
-    // Run axe on the contact section — exclude color-contrast (known issues with dark theme)
     const results = await new AxeBuilder({ page })
       .include("#contact")
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
-      .disableRules(["color-contrast"]) // Known: dark bg + text-white/70 labels, text-red-400 errors
       .analyze();
 
     const critical = results.violations.filter(
