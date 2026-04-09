@@ -1,7 +1,7 @@
 # Product Backlog — What A Service
 
 > **Referentiel unique** — Ce fichier est la seule source de verite pour le produit.
-> Mis a jour : 09/04/2026 — v6.0 (consolidation post Sprint 9)
+> Mis a jour : 09/04/2026 — v6.1 (ajout Epic E21 QA-E2E — 4 stories audit)
 > Product Owner : Claude Code (assist) | Stakeholder : Eric Sib, Fondateur
 
 ---
@@ -101,6 +101,7 @@ avec un CPL 10-50x inferieur au paid advertising.
 
 | Epic | Theme | Statut | Priorite |
 |------|-------|--------|----------|
+| E21 | Consolider la suite E2E (stabilite, couverture, a11y, POM) | Backlog | Haute |
 | E18+ | Pages SEO par niveau maturite (5 ITSM + 5 CX) | Backlog | Moyenne |
 | E19 | Authentification Supabase (prerequis Scanner) | Backlog | Phase 2 |
 | E20 | Scanner d'Environnement Freshservice + Freshdesk | Backlog | Phase 2 |
@@ -116,9 +117,13 @@ avec un CPL 10-50x inferieur au paid advertising.
 |---|-------|------|-----|--------|
 | 1 | US-18.7 Pages SEO par niveau maturite (5 ITSM + 5 CX, Schema markup) | E18 | 3 | Should |
 | 2 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot enrichi) | E18 | 3 | Should |
-| 3 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Should |
-| 4 | US-12.2 Core Web Vitals < seuils "Good" | E12 | 5 | Could |
-| 5 | Playwright dans GitHub Actions CI | E15 | 5 | Could |
+| 3 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Should |
+| 4 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should |
+| 5 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Should |
+| 6 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Should |
+| 7 | US-12.2 Core Web Vitals < seuils "Good" | E12 | 5 | Could |
+| 8 | Playwright dans GitHub Actions CI | E15 | 5 | Could |
+| 9 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could |
 
 ### PRIORITE 2 — Phase 2 (Scanner)
 
