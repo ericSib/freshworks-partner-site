@@ -511,6 +511,56 @@
         "catalog": "Level 3 portal adoption: 40–60% | ESM = maturity marker",
         "governance": "56% see ITSM as strategic, but only 12% are mature"
       }
+    },
+    "cx": {
+      "dim": {
+        "tickets": "Ticket management & SLA",
+        "omnichannel": "Omnichannel experience",
+        "selfservice": "Customer self-service",
+        "agents": "Agent productivity",
+        "satisfaction": "Customer satisfaction & feedback",
+        "analytics": "Support analytics & AI",
+        "knowledge": "Support knowledge base",
+        "proactive": "Proactive support"
+      },
+      "q": {
+        "1a": { "text": "How does your organization handle customer support tickets?", "opt1": "Requests come in via email with no structured system. No response time tracking or SLAs.", "opt2": "We have a basic ticketing system, but routing is manual. Response times are not consistently tracked.", "opt3": "Tickets are auto-categorized with defined SLAs. SLA compliance tracked at 85-92%. First response time < 4h.", "opt4": "AI assists triage and prioritization. SLA compliance > 95%. First response time < 1h. CSAT measured per interaction.", "opt5": "Predictive resolution. Virtual agents resolve 40-60% of L1 requests. Median resolution time < 17h. CSAT > 90%." },
+        "1b": { "text": "What is your first-contact resolution (FCR) rate?", "opt1": "We don't measure FCR. Customers often have to contact us multiple times for the same issue.", "opt2": "FCR is estimated at 50-60%, but tracking is imprecise. Reopen rate exceeds 10%.", "opt3": "FCR is tracked at 70-75%. Reopen rate < 8%. Agents have access to full customer history.", "opt4": "FCR exceeds 80%. AI suggests real-time solutions. Reopen rate < 4%.", "opt5": "FCR exceeds 85%. Single-contact resolution for 84%+ of requests. ML-optimized routing." },
+        "2a": { "text": "How many support channels do you offer and are they integrated?", "opt1": "Primarily email. Other channels (social media, chat) get inconsistent responses.", "opt2": "2-3 channels (email + phone, maybe chat) but siloed. Customers have to repeat their issue.", "opt3": "3-4 channels (email, chat, phone, social) with shared CRM and unified customer view. Consistent SLAs.", "opt4": "True omnichannel: context preserved across channels. Full history visible. AI routing by request type.", "opt5": "Seamless channel switching mid-conversation. Proactive suggestions based on customer preferences. Unified analytics." },
+        "3a": { "text": "How effective is your customer self-service ecosystem?", "opt1": "A basic FAQ page or no self-service at all. Less than 10% of customers resolve issues on their own.", "opt2": "A help center with a few articles, but search is weak and content often outdated. Deflection < 20%.", "opt3": "Structured knowledge base with search. Basic chatbot. Customer portal. Deflection 30-50%.", "opt4": "AI chatbot resolving 40-60% of queries. Active community forums. Predictive recommendations.", "opt5": "Conversational AI resolving 60%+ of queries. Automatic content gap detection. Deflection > 60%." },
+        "4a": { "text": "How equipped and productive are your support agents?", "opt1": "No canned responses, no internal KB, no productivity tools. Training limited to onboarding.", "opt2": "A few canned responses. Basic training. Manual ticket assignment.", "opt3": "Response library. Internal KB. Skill-based auto-routing. Regular training. Performance dashboards.", "opt4": "AI agent assist with real-time suggestions. Predictive workload distribution. Analytics-based coaching.", "opt5": "AI handles L1, freeing agents for complex issues. Integrated career paths. Agent satisfaction measured and optimized." },
+        "5a": { "text": "How do you measure and act on customer feedback?", "opt1": "No formal satisfaction measurement. Feedback is anecdotal, relayed by sales reps.", "opt2": "Occasional CSAT surveys with low response rate. No NPS or CES.", "opt3": "Post-interaction CSAT. Quarterly NPS. Monthly feedback review. Negative feedback followed up within 1 week.", "opt4": "Multi-metric approach (CSAT + NPS + CES). Automated closed-loop within 24h. CX metrics at executive level.", "opt5": "Real-time sentiment analysis. Predictive satisfaction modeling. CX metrics drive product roadmap." },
+        "6a": { "text": "How does your support use data and AI?", "opt1": "No dashboards. Decisions are based on intuition or gut feeling.", "opt2": "Basic reports (ticket volumes, average times) compiled manually.", "opt3": "Standard dashboards tracking KPIs (volume, SLA, backlog, CSAT). Monthly reporting. Trends analyzed.", "opt4": "Real-time dashboards with alerts. AI detects anomalies. Metrics correlated with business outcomes.", "opt5": "Predictive and prescriptive analytics. ML models for routing and resolution prediction. AIOps integration." },
+        "7a": { "text": "How do you manage knowledge for customer support?", "opt1": "Knowledge lives in agents' heads. No documented knowledge base.", "opt2": "A few basic articles, rarely updated. Agents ask colleagues for complex cases.", "opt3": "Centralized KB with 50-70% coverage. Articles reviewed quarterly. Suggestions to agents during ticket handling.", "opt4": "KCS principles adopted. AI suggests relevant articles. Stale content alerts. Coverage > 80%.", "opt5": "AI generates article drafts from resolved tickets. Contextual NLP search. KM program ROI measured." },
+        "8a": { "text": "How does your organization practice proactive support?", "opt1": "100% reactive support. We wait for the customer to report a problem.", "opt2": "Occasional manual notifications for major incidents. No proactive monitoring.", "opt3": "Automated alerts for known outages. Proactive communication on maintenance. Proactive FAQ on trending topics.", "opt4": "Proactive monitoring of customer health indicators. Automated outreach for at-risk customers. Customer health scoring.", "opt5": "Predictive support: contacting customers BEFORE they encounter a problem. AI identifies churn signals. Customer success integrated with support." }
+      },
+      "level": {
+        "1": { "label": "Reactive", "desc": "100% reactive support, no structured processes. Success relies on individual effort.", "cta": "Book a free support diagnostic" },
+        "2": { "label": "Developing", "desc": "Basic ticketing in place, a few active channels but siloed.", "cta": "Get your personalized CX roadmap" },
+        "3": { "label": "Proactive", "desc": "Defined processes, emerging omnichannel, SLAs tracked, operational analytics.", "cta": "Learn how to reach Customer-centric level" },
+        "4": { "label": "Customer-centric", "desc": "Data-driven, integrated AI, seamless omnichannel experience, NPS-driven.", "cta": "Explore advanced CX strategies" },
+        "5": { "label": "Champion", "desc": "Predictive support, autonomous AI, CX as a strategic competitive advantage.", "cta": "Maintain your CX excellence" }
+      },
+      "commercial": {
+        "tickets": "Your resolution time puts you in the bottom quartile. Freshdesk auto-triage + canned responses can cut it by 50% in 90 days.",
+        "omnichannel": "Customers who switch channels without preserved context are 4x more likely to churn.",
+        "selfservice": "Every 10% increase in self-service saves approximately \u20ac25,000\u201340,000/year in agent costs.",
+        "agents": "Agent turnover costs \u20ac10,000\u201325,000 per replacement. Mature organizations retain 10x better.",
+        "satisfaction": "You measure CSAT but not NPS or CES \u2014 you see satisfaction but not loyalty. Companies measuring all 3 grow 2.5x faster.",
+        "analytics": "You're collecting data but not acting on it \u2014 a pattern seen in 60% of support organizations.",
+        "knowledge": "Raising self-service from 15% to 45% deflects 2,000+ tickets/year. Cost: \u20ac0.50 self-service vs. \u20ac17\u201325 phone.",
+        "proactive": "Proactive support reduces inbound volume by 20-30% and increases NPS by 15-20 points."
+      },
+      "benchmark": {
+        "tickets": "Best-in-class FRT: <4h | FCR benchmark: 70-75% | Median SaaS resolution: 82h",
+        "omnichannel": "Champions: 2.1 more channels | Chat CSAT: 87% | 72% of customers prefer self-service",
+        "selfservice": "Average tech deflection: 23% | Best-in-class: 40-60%+ | Cost: \u20ac0.50\u20132 vs. \u20ac17\u201325 phone",
+        "agents": "77% of agents report increasing workload | 56% experiencing burnout | Champions: 2.4 more training days/year",
+        "satisfaction": "Average SaaS CSAT: 68% | B2B SaaS NPS: 31-41 | CES > 90% = exceptional",
+        "analytics": "71% consider AI important | Adoption limited to 34% | Freshdesk Freddy: 45%+ AI deflection",
+        "knowledge": "KB coverage Level 3: 50-70% | KCS = +37% CSAT | Self-service adoption target: 50-65%",
+        "proactive": "Inbound volume reduction: 20-30% | NPS +15-20 points | Predictive support = competitive advantage"
+      }
     }
   }
 }

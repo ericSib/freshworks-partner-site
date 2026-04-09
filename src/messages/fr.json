@@ -511,6 +511,56 @@
         "catalog": "Adoption portail Level 3 : 40–60% | ESM = marqueur de maturité",
         "governance": "56% voient l'ITSM comme stratégique, mais seuls 12% sont matures"
       }
+    },
+    "cx": {
+      "dim": {
+        "tickets": "Gestion des tickets et SLA",
+        "omnichannel": "Expérience omnicanal",
+        "selfservice": "Self-service client",
+        "agents": "Productivité des agents",
+        "satisfaction": "Satisfaction et feedback client",
+        "analytics": "Analytics support et IA",
+        "knowledge": "Knowledge base support",
+        "proactive": "Support proactif"
+      },
+      "q": {
+        "1a": { "text": "Comment votre organisation gère-t-elle les tickets de support client ?", "opt1": "Les demandes arrivent par email sans système structuré. Pas de suivi des temps de réponse ni des SLA.", "opt2": "Nous avons un système de tickets basique, mais le routage est manuel. Les temps de réponse ne sont pas systématiquement suivis.", "opt3": "Tickets auto-catégorisés avec SLA définis. Conformité SLA suivie à 85-92%. Temps de première réponse < 4h.", "opt4": "IA assiste le triage et la priorisation. Conformité SLA > 95%. Temps de première réponse < 1h. CSAT mesuré par interaction.", "opt5": "Résolution prédictive. Agents virtuels résolvent 40-60% des demandes L1. Temps de résolution médian < 17h. CSAT > 90%." },
+        "1b": { "text": "Quel est votre taux de résolution au premier contact (FCR) ?", "opt1": "Nous ne mesurons pas le FCR. Les clients doivent souvent nous recontacter plusieurs fois pour le même problème.", "opt2": "Le FCR est estimé à 50-60%, mais le suivi est imprécis. Le taux de réouverture dépasse 10%.", "opt3": "Le FCR est suivi à 70-75%. Taux de réouverture < 8%. Les agents ont accès à l'historique client.", "opt4": "Le FCR dépasse 80%. L'IA suggère des solutions en temps réel. Taux de réouverture < 4%.", "opt5": "Le FCR dépasse 85%. Résolution en un seul contact pour 84%+ des demandes. Routage optimisé par ML." },
+        "2a": { "text": "Combien de canaux support proposez-vous et sont-ils intégrés ?", "opt1": "Principalement l'email. Les autres canaux (réseaux sociaux, chat) reçoivent des réponses incohérentes.", "opt2": "2-3 canaux (email + téléphone, peut-être chat) mais en silos. Les clients doivent répéter leur problème.", "opt3": "3-4 canaux (email, chat, téléphone, social) avec CRM partagé et vue client unifiée. SLA cohérents.", "opt4": "Vrai omnicanal : contexte préservé entre canaux. Historique complet visible. Routage IA par type de demande.", "opt5": "Changement de canal transparent en cours de conversation. Suggestions proactives basées sur les préférences client. Analytics unifiés." },
+        "3a": { "text": "Quelle est l'efficacité de votre écosystème self-service client ?", "opt1": "Une page FAQ basique ou pas de self-service. Moins de 10% des clients résolvent seuls leurs problèmes.", "opt2": "Un centre d'aide avec quelques articles, mais la recherche est faible et le contenu souvent obsolète. Déflexion < 20%.", "opt3": "Base de connaissances structurée avec recherche. Chatbot basique. Portail client. Déflexion 30-50%.", "opt4": "Chatbot IA résolvant 40-60% des requêtes. Forums communautaires actifs. Recommandations prédictives.", "opt5": "IA conversationnelle résolvant 60%+ des requêtes. Détection automatique des lacunes de contenu. Déflexion > 60%." },
+        "4a": { "text": "Comment sont équipés et productifs vos agents support ?", "opt1": "Pas de réponses prédéfinies, pas de KB interne, pas d'outils de productivité. Formation limitée à l'onboarding.", "opt2": "Quelques réponses prédéfinies. Formation basique. Assignation manuelle des tickets.", "opt3": "Bibliothèque de réponses. KB interne. Auto-routage par compétence. Formation régulière. Dashboards performance.", "opt4": "IA d'assistance agent avec suggestions temps réel. Distribution prédictive de la charge. Coaching basé sur les analytics.", "opt5": "L'IA gère le L1, libérant les agents pour le complexe. Parcours de carrière intégré. Satisfaction agent mesurée et optimisée." },
+        "5a": { "text": "Comment mesurez-vous et exploitez-vous le feedback client ?", "opt1": "Pas de mesure formelle de la satisfaction. Le feedback est anecdotique, remonté par les commerciaux.", "opt2": "Enquêtes CSAT occasionnelles avec un faible taux de réponse. Pas de NPS ni de CES.", "opt3": "CSAT post-interaction. NPS trimestriel. Revue mensuelle du feedback. Suivi des feedbacks négatifs sous 1 semaine.", "opt4": "Approche multi-métriques (CSAT + NPS + CES). Boucle fermée automatisée en 24h. Métriques CX au comité de direction.", "opt5": "Analyse de sentiment temps réel. Modélisation prédictive de la satisfaction. Les métriques CX pilotent la roadmap produit." },
+        "6a": { "text": "Comment votre support utilise-t-il les données et l'IA ?", "opt1": "Pas de tableaux de bord. Les décisions sont basées sur l'intuition ou le ressenti.", "opt2": "Rapports basiques (volumes de tickets, temps moyens) compilés manuellement.", "opt3": "Dashboards standard suivant les KPI (volume, SLA, backlog, CSAT). Reporting mensuel. Tendances analysées.", "opt4": "Dashboards temps réel avec alertes. L'IA détecte les anomalies. Métriques corrélées aux résultats business.", "opt5": "Analytics prédictif et prescriptif. Modèles ML pour le routage et la prédiction de résolution. Intégration AIOps." },
+        "7a": { "text": "Comment gérez-vous les connaissances pour le support client ?", "opt1": "Les connaissances sont dans les têtes des agents. Pas de base documentée.", "opt2": "Quelques articles de base, rarement mis à jour. Les agents demandent aux collègues pour les cas complexes.", "opt3": "KB centralisée avec 50-70% de couverture. Articles revus trimestriellement. Suggestions aux agents pendant le traitement.", "opt4": "Principes KCS adoptés. L'IA suggère des articles pertinents. Alertes de contenu obsolète. Couverture > 80%.", "opt5": "L'IA génère des brouillons d'articles depuis les tickets résolus. Recherche NLP contextuelle. ROI du programme KM mesuré." },
+        "8a": { "text": "Comment votre organisation pratique-t-elle le support proactif ?", "opt1": "Support 100% réactif. On attend que le client signale un problème.", "opt2": "Notifications manuelles occasionnelles pour les incidents majeurs. Pas de monitoring proactif.", "opt3": "Alertes automatiques pour les pannes connues. Communication proactive sur les maintenances. FAQ proactive sur les sujets tendance.", "opt4": "Monitoring proactif des indicateurs de santé client. Outreach automatisé pour les clients à risque. Customer health scoring.", "opt5": "Support prédictif : contacter les clients AVANT qu'ils rencontrent un problème. IA identifie les signaux de churn. Customer success intégré au support." }
+      },
+      "level": {
+        "1": { "label": "Reactive", "desc": "Support 100% réactif, pas de processus structuré. Le succès repose sur les efforts individuels.", "cta": "Réservez un diagnostic support gratuit" },
+        "2": { "label": "Developing", "desc": "Ticketing basique en place, quelques canaux actifs mais en silos.", "cta": "Obtenez votre roadmap CX personnalisée" },
+        "3": { "label": "Proactive", "desc": "Processus définis, omnicanal émergent, SLA suivis, analytics opérationnels.", "cta": "Découvrez comment atteindre le niveau Customer-centric" },
+        "4": { "label": "Customer-centric", "desc": "Data-driven, IA intégrée, expérience omnicanal fluide, NPS piloté.", "cta": "Explorez les stratégies CX avancées" },
+        "5": { "label": "Champion", "desc": "Support prédictif, IA autonome, CX comme avantage concurrentiel stratégique.", "cta": "Maintenez votre excellence CX" }
+      },
+      "commercial": {
+        "tickets": "Votre temps de résolution vous place dans le dernier quartile. Freshdesk auto-triage + réponses prédéfinies peuvent réduire de 50% en 90 jours.",
+        "omnichannel": "Les clients qui changent de canal sans contexte préservé ont 4x plus de chances de churner.",
+        "selfservice": "Chaque augmentation de 10% du self-service économise environ 25 000–40 000 €/an en coûts agents.",
+        "agents": "Le turnover agent coûte 10 000–25 000 € par remplacement. Les organisations matures retiennent 10x mieux.",
+        "satisfaction": "Vous mesurez le CSAT mais pas le NPS ni le CES — vous voyez la satisfaction mais pas la fidélité. Les entreprises mesurant les 3 croissent 2.5x plus vite.",
+        "analytics": "Vous collectez des données mais n'agissez pas dessus — un pattern vu dans 60% des organisations support.",
+        "knowledge": "Passer le self-service de 15% à 45% dévie 2 000+ tickets/an. Coût : 0.50€ self-service vs. 17-25€ téléphone.",
+        "proactive": "Le support proactif réduit le volume entrant de 20-30% et augmente le NPS de 15-20 points."
+      },
+      "benchmark": {
+        "tickets": "FRT best-in-class : <4h | FCR benchmark : 70-75% | Résolution médiane SaaS : 82h",
+        "omnichannel": "Champions : 2.1 canaux de plus | Chat CSAT : 87% | 72% des clients préfèrent le self-service",
+        "selfservice": "Déflexion moyenne tech : 23% | Best-in-class : 40-60%+ | Coût : 0.50-2€ vs. 17-25€ téléphone",
+        "agents": "77% des agents signalent une charge croissante | 56% en burnout | Champions : 2.4j de formation en plus/an",
+        "satisfaction": "CSAT moyen SaaS : 68% | NPS B2B SaaS : 31-41 | CES > 90% = exceptionnel",
+        "analytics": "71% considèrent l'IA importante | Adoption limitée à 34% | Freshdesk Freddy : 45%+ déflexion IA",
+        "knowledge": "Couverture KB Level 3 : 50-70% | KCS = +37% CSAT | Self-service adoption cible : 50-65%",
+        "proactive": "Réduction volume entrant : 20-30% | NPS +15-20 points | Support prédictif = avantage concurrentiel"
+      }
     }
   }
 }
