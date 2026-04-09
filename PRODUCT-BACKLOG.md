@@ -1,7 +1,7 @@
 # Product Backlog — What A Service
 
 > **Referentiel unique** — Ce fichier est la seule source de verite pour le produit.
-> Mis a jour : 09/04/2026 — v7.0 (ajout Epic E22 SEO/GEO — 11 stories, 44 pts)
+> Mis a jour : 09/04/2026 — v7.2 (Sprint 10-11 DONE + Product Review + refinement Sprint 12)
 > Product Owner : Claude Code (assist) | Stakeholder : Eric Sib, Fondateur
 
 ---
@@ -97,11 +97,16 @@ avec un CPL 10-50x inferieur au paid advertising.
 | E17 | Nettoyage dette technique (Button.tsx, useReducedMotion, Calendly CSS) | DONE | 6 |
 | **E18** | **Score de Maturite ITSM+CX (quiz lead gen)** | **DONE** | **7-9** |
 
+### EN COURS
+
+| Epic | Theme | Statut | Sprints |
+|------|-------|--------|---------|
+| **E22** | **SEO/GEO Optimization (schema, E-E-A-T, GEO, meta sociaux)** | **Sprint 10 DONE, Sprint 11 EN COURS** | **10-12** |
+
 ### BACKLOG (a venir)
 
 | Epic | Theme | Statut | Priorite |
 |------|-------|--------|----------|
-| **E22** | **SEO/GEO Optimization (schema, E-E-A-T, GEO, meta sociaux)** | **Backlog** | **Haute** |
 | E21 | Consolider la suite E2E (stabilite, couverture, a11y, POM) | Backlog | Haute |
 | E18+ | Pages SEO par niveau maturite (5 ITSM + 5 CX) | Backlog | Moyenne (depend E22) |
 | E19 | Authentification Supabase (prerequis Scanner) | Backlog | Phase 2 |
@@ -112,32 +117,36 @@ avec un CPL 10-50x inferieur au paid advertising.
 
 ## 4. Backlog ordonne — Stories actives
 
-### PRIORITE 1 — Sprint 10 "Visible par les machines" (E22)
+### ~~Sprint 10~~ "Visible par les machines" — ✅ DONE (13 pts)
+
+| # | Story | Epic | Pts | Statut |
+|---|-------|------|-----|--------|
+| 1 | US-22.6 Sitemap complet + robots.txt AI crawlers | E22 | 2 | ✅ |
+| 2 | US-22.1 Schema JSON-LD Organization (site-wide) | E22 | 3 | ✅ |
+| 3 | US-22.5 Twitter Cards + og:image par defaut | E22 | 3 | ✅ |
+| 4 | US-22.2 Schema JSON-LD Person (consultant) | E22 | 2 | ✅ |
+| 5 | US-22.3 Schema JSON-LD Service (par offre) | E22 | 3 | ✅ |
+
+### ~~Sprint 11~~ "Credible et citable" — ✅ DONE (13 pts)
+
+| # | Story | Epic | Pts | Statut |
+|---|-------|------|-----|--------|
+| 1 | US-22.10 FAQ section + FAQPage JSON-LD (GEO) | E22 | 5 | ✅ |
+| 2 | US-22.7 Breadcrumbs UI + BreadcrumbList JSON-LD | E22 | 3 | ✅ |
+| 3 | US-22.9 About enrichi E-E-A-T (LinkedIn, stats) | E22 | 2 | ✅ |
+| 4 | US-22.11 Answer capsules GEO (i18n) | E22 | 3 | ✅ |
+
+### PRIORITE 1 — Sprint 12 "Mesurer et convertir" (E22 + E18+) — 13 pts
 
 | # | Story | Epic | Pts | MoSCoW |
 |---|-------|------|-----|--------|
-| 1 | US-22.6 Sitemap complet + robots.txt AI crawlers | E22 | 2 | Must |
-| 2 | US-22.1 Schema JSON-LD Organization (site-wide) | E22 | 3 | Must |
-| 3 | US-22.5 Twitter Cards + og:image par defaut | E22 | 3 | Must |
-| 4 | US-22.2 Schema JSON-LD Person (consultant) | E22 | 2 | Must |
-| 5 | US-22.3 Schema JSON-LD Service (par offre) | E22 | 3 | Should |
+| 1 | US-22.8 Analytics GA4 + cookie banner RGPD | E22 | 5 | Should |
+| 2 | US-22.12 OG image v2 (marketing) | E22 | 2 | Should |
+| 3 | US-18.7a Infra pages maturite + 2 pages pilotes (ITSM L1 + CX L1) | E18+ | 6 | Should |
 
-### PRIORITE 1bis — Sprint 11 "Credible humains + AI" (E22)
-
-| # | Story | Epic | Pts | MoSCoW |
-|---|-------|------|-----|--------|
-| 6 | US-22.10 FAQ sections sur pages cles (GEO) | E22 | 5 | Should |
-| 7 | US-22.4 Schema FAQ + BreadcrumbList | E22 | 5 | Should |
-| 8 | US-22.9 About enrichi E-E-A-T | E22 | 3 | Should |
-| 9 | US-22.7 Breadcrumbs UI | E22 | 3 | Should |
-
-### PRIORITE 1ter — Sprint 12 "Optimise extraction" (E22 + E18+)
-
-| # | Story | Epic | Pts | MoSCoW |
-|---|-------|------|-----|--------|
-| 10 | US-22.11 HTML semantique + answer capsules (GEO) | E22 | 5 | Could |
-| 11 | US-22.8 Analytics GA4 (tag minimal RGPD) | E22 | 5 | Could |
-| 12 | US-18.7 Pages SEO par niveau maturite (5 ITSM + 5 CX) | E18+ | 3 | Should |
+> GA4 ID : G-P37MDYJ5M8 (fourni par stakeholder)
+> OG image : stakeholder demande un visuel plus marketing
+> E18+ : debut de l'Epic pages SEO maturite (2 pages pilotes sur 10)
 
 ### PRIORITE 2 — QA & stabilite (E21)
 
@@ -239,21 +248,33 @@ Resend domain, security headers, error boundaries.
 | Migration images Unsplash → local (10 images, 0 requete externe) | 3 |
 | Branch protection main (pret a activer) | 1 |
 
+### Sprint 10 — "Visible par les machines" (13 pts) — LIVRE
+
+| Story | Pts |
+|-------|-----|
+| US-22.6 Sitemap complet + robots.txt AI crawlers | 2 |
+| US-22.1 Schema JSON-LD Organization (site-wide) | 3 |
+| US-22.5 Twitter Cards + og:image (1200x630) | 3 |
+| US-22.2 Schema JSON-LD Person (consultant + credentials) | 2 |
+| US-22.3 Schema JSON-LD Service x6 (i18n-driven) | 3 |
+
 ---
 
 ## 6. Metriques actuelles
 
 | Metrique | Valeur |
 |----------|--------|
-| Tests unitaires + i18n | **489** |
+| Tests unitaires + i18n + SEO | **522** |
 | Tests E2E (Playwright) | **11** (8 homepage + 3 quiz) |
 | Couverture code (logique metier) | **72.8%** |
 | Vulns critiques | **0** |
 | Images Unsplash | **0** (toutes locales) |
 | Pipeline CI | **GitHub Actions** (lint + typecheck + test + build) |
 | CSP unsafe-eval prod | **Non** (dev only) |
-| Score audit estime | **A (90+/100)** |
-| Story points cumules (Sprint 1-9) | **71+** |
+| Schemas JSON-LD | **9 types** (Org, Person, Service x6, etc.) |
+| AI crawlers autorises | **5** (GPTBot, ChatGPT-User, Perplexity, Claude, Google-Ext) |
+| Score SEO estime | **8/10** (post Sprint 10) |
+| Story points cumules (Sprint 1-10) | **84+** |
 
 ---
 
@@ -288,5 +309,5 @@ Resend domain, security headers, error boundaries.
 
 ---
 
-*PRODUCT-BACKLOG.md — Referentiel unique — v6.0*
+*PRODUCT-BACKLOG.md — Referentiel unique — v7.1*
 *What A Service — "Freshworks Consulting, Done Right."*
