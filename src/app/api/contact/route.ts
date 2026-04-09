@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { EMAIL_REGEX } from "@/lib/validation";
+import { contactFormSchema } from "@/lib/validation";
+import { checkRateLimit } from "@/lib/rate-limit";
 import { upsertHubSpotContact } from "@/lib/hubspot";
 
 /** Lazy-instantiated Resend client — avoids build-time crash when env var is absent. */
@@ -10,25 +11,53 @@ function getResendClient(): Resend {
 
 const RECIPIENT_EMAIL = process.env.CONTACT_EMAIL ?? "contact@whataservice.fr";
 
+/** Extract client IP from request headers (Vercel sets x-forwarded-for). */
+function getClientIp(request: Request): string {
+  return (
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    request.headers.get("x-real-ip") ??
+    "unknown"
+  );
+}
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { name, email, company, challenge } = body;
-
-    // Validate required fields
-    if (!name || !email || !company || !challenge) {
+    // --- Rate limiting ---
+    const ip = getClientIp(request);
+    const rateCheck = checkRateLimit(ip);
+    if (!rateCheck.allowed) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: "Too many requests" },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(Math.ceil(rateCheck.retryAfterMs / 1000)),
+          },
+        }
+      );
+    }
+
+    // --- Parse & validate with Zod ---
+    const body = await request.json();
+    const result = contactFormSchema.safeParse(body);
+
+    if (!result.success) {
+      const details = result.error.issues.map((issue) => ({
+        field: issue.path.join("."),
+        message: issue.message,
+      }));
+      return NextResponse.json(
+        { error: "Validation failed", details },
         { status: 400 }
       );
     }
 
-    // Basic email format check
-    if (!EMAIL_REGEX.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
+    const { name, email, company, challenge, website } = result.data;
+
+    // --- Honeypot check — silently reject bots ---
+    if (website) {
+      // Return 200 to not tip off the bot, but do nothing
+      return NextResponse.json({ success: true });
     }
 
     // Sync to HubSpot CRM (fire-and-forget — never blocks the response)

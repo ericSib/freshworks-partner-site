@@ -56,51 +56,63 @@ export default function Contact() {
                 className="space-y-6"
               >
                 <div>
-                  <label className="block text-slate-400 text-sm font-medium mb-2">
+                  <label htmlFor="contact-name" className="block text-slate-400 text-sm font-medium mb-2">
                     {t("form.name")}
                   </label>
                   <input
+                    id="contact-name"
                     name="name"
                     type="text"
                     placeholder={t("form.namePlaceholder")}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "contact-name-error" : undefined}
                     className="w-full bg-white/[0.03] border border-white/8 rounded-lg px-4 py-3.5 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all"
                   />
-                  {errors.name && <p className="text-red-400 text-xs mt-1.5">{errors.name}</p>}
+                  {errors.name && <p id="contact-name-error" role="alert" className="text-red-400 text-xs mt-1.5">{errors.name}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-slate-400 text-sm font-medium mb-2">
+                  <label htmlFor="contact-email" className="block text-slate-400 text-sm font-medium mb-2">
                     {t("form.email")}
                   </label>
                   <input
+                    id="contact-email"
                     name="email"
                     type="email"
                     placeholder={t("form.emailPlaceholder")}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? "contact-email-error" : undefined}
                     className="w-full bg-white/[0.03] border border-white/8 rounded-lg px-4 py-3.5 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all"
                   />
-                  {errors.email && <p className="text-red-400 text-xs mt-1.5">{errors.email}</p>}
+                  {errors.email && <p id="contact-email-error" role="alert" className="text-red-400 text-xs mt-1.5">{errors.email}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-slate-400 text-sm font-medium mb-2">
+                  <label htmlFor="contact-company" className="block text-slate-400 text-sm font-medium mb-2">
                     {t("form.company")}
                   </label>
                   <input
+                    id="contact-company"
                     name="company"
                     type="text"
                     placeholder={t("form.companyPlaceholder")}
+                    aria-invalid={!!errors.company}
+                    aria-describedby={errors.company ? "contact-company-error" : undefined}
                     className="w-full bg-white/[0.03] border border-white/8 rounded-lg px-4 py-3.5 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all"
                   />
-                  {errors.company && <p className="text-red-400 text-xs mt-1.5">{errors.company}</p>}
+                  {errors.company && <p id="contact-company-error" role="alert" className="text-red-400 text-xs mt-1.5">{errors.company}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-slate-400 text-sm font-medium mb-2">
+                  <label htmlFor="contact-challenge" className="block text-slate-400 text-sm font-medium mb-2">
                     {t("form.challenge")}
                   </label>
                   <select
+                    id="contact-challenge"
                     name="challenge"
                     defaultValue=""
+                    aria-invalid={!!errors.challenge}
+                    aria-describedby={errors.challenge ? "contact-challenge-error" : undefined}
                     className="w-full bg-white/[0.03] border border-white/8 rounded-lg px-4 py-3.5 text-surface focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all appearance-none"
                   >
                     <option value="" disabled className="text-slate-900">
@@ -112,7 +124,19 @@ export default function Contact() {
                       </option>
                     ))}
                   </select>
-                  {errors.challenge && <p className="text-red-400 text-xs mt-1.5">{errors.challenge}</p>}
+                  {errors.challenge && <p id="contact-challenge-error" role="alert" className="text-red-400 text-xs mt-1.5">{errors.challenge}</p>}
+                </div>
+
+                {/* Honeypot — invisible to humans, catches bots */}
+                <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px" }}>
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
                 </div>
 
                 <button
