@@ -25,7 +25,7 @@ interface HubSpotError {
  * "Jean Dupont" → { firstname: "Jean", lastname: "Dupont" }
  * "Jean"        → { firstname: "Jean", lastname: "" }
  */
-function splitName(fullName: string): { firstname: string; lastname: string } {
+export function splitName(fullName: string): { firstname: string; lastname: string } {
   const parts = fullName.trim().split(/\s+/);
   return {
     firstname: parts[0] ?? "",
@@ -36,7 +36,7 @@ function splitName(fullName: string): { firstname: string; lastname: string } {
 /**
  * Build the HubSpot properties object from form data.
  */
-function buildProperties(data: ContactPayload) {
+export function buildProperties(data: ContactPayload) {
   const { firstname, lastname } = splitName(data.name);
   return {
     email: data.email,
