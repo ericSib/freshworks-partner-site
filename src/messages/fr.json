@@ -98,7 +98,7 @@
   "techStack": {
     "sectionTag": "On parle votre langue",
     "headline": "Votre \u00e9cosyst\u00e8me, on le conna\u00eet",
-    "subheadline": "Freshworks ne vit pas en silo. On int\u00e8gre vos outils existants pour un SI coh\u00e9rent et une exp\u00e9rience client fluide.",
+    "subheadline": "Freshworks s\u2019int\u00e8gre nativement \u00e0 plus de 1\u00a0000\u00a0applications. Nous connectons EntraID, M365, Salesforce, HubSpot et vos outils m\u00e9tiers pour un SI coh\u00e9rent et une exp\u00e9rience client fluide \u2014 sans d\u00e9veloppement custom.",
     "categories": [
       {
         "label": "Identit\u00e9 & Endpoints",
@@ -155,7 +155,7 @@
   "services": {
     "sectionTag": "Nos services",
     "headline": "ITSM et support client, concr\u00e8tement",
-    "subheadline": "Chaque mission couvre Freshservice, Freshdesk, ou les deux. Forfaits clairs, r\u00e9sultats mesurables.",
+    "subheadline": "Un consultant Freshworks certifi\u00e9 d\u00e9ploie Freshservice (ITSM/ESM) ou Freshdesk (support omnicanal) en 4\u00a0semaines. Nos forfaits d\u00e9marrent \u00e0 3\u00a0000\u00a0\u20ac avec des r\u00e9sultats mesurables\u00a0: adoption +40\u00a0%, CSAT +15\u00a0points, d\u00e9flection IA jusqu\u2019\u00e0 65\u00a0%.",
     "imageAlt": "\u00c9quipe de consultants collaborant sur une strat\u00e9gie IT et CX",
     "cards": [
       {

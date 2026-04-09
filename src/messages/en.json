@@ -98,7 +98,7 @@
   "techStack": {
     "sectionTag": "We speak your language",
     "headline": "Your ecosystem, we know it",
-    "subheadline": "Freshworks doesn\u2019t live in a silo. We integrate your existing tools for a coherent IT landscape and seamless customer experience.",
+    "subheadline": "Freshworks natively integrates with 1,000+ applications. We connect EntraID, M365, Salesforce, HubSpot, and your business tools for a coherent IT landscape and seamless customer experience \u2014 no custom development required.",
     "categories": [
       {
         "label": "Identity & Endpoints",
@@ -155,7 +155,7 @@
   "services": {
     "sectionTag": "Our services",
     "headline": "ITSM and customer support, concretely",
-    "subheadline": "Each engagement covers Freshservice, Freshdesk, or both. Clear pricing, measurable outcomes.",
+    "subheadline": "A certified Freshworks consultant deploys Freshservice (ITSM/ESM) or Freshdesk (omnichannel support) in 4\u00a0weeks. Packages start at \u20ac3,000 with measurable results: adoption +40%, CSAT +15\u00a0points, AI deflection up to 65%.",
     "imageAlt": "Consulting team collaborating on IT and CX strategy",
     "cards": [
       {
