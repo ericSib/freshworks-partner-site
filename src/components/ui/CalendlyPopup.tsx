@@ -72,10 +72,21 @@ export default function CalendlyPopup({
         strategy="lazyOnload"
         onReady={() => setScriptReady(true)}
       />
-      {/* Calendly popup requires its own CSS for the overlay. */}
-      <link
-        rel="stylesheet"
-        href="https://assets.calendly.com/assets/external/widget.css"
+      {/* Calendly CSS loaded via next/script to avoid <link> in body */}
+      <Script
+        id="calendly-css"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+            if (!document.getElementById('calendly-widget-css')) {
+              var link = document.createElement('link');
+              link.id = 'calendly-widget-css';
+              link.rel = 'stylesheet';
+              link.href = 'https://assets.calendly.com/assets/external/widget.css';
+              document.head.appendChild(link);
+            }
+          `,
+        }}
       />
 
       {scriptReady ? (
