@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { CALENDLY_URL } from "@/config/site";
 import type { QuizResults } from "@/hooks/useQuiz";
 import type { QuizConfig } from "@/config/quiz";
+import { generateQuizPdf } from "@/lib/quiz/generate-pdf";
 import RadarChart from "./RadarChart";
 
 interface QuizResultsPreviewProps {
@@ -34,6 +35,7 @@ export default function QuizResultsPreview({
   onRestart,
 }: QuizResultsPreviewProps) {
   const t = useTranslations();
+  const locale = useLocale() as "fr" | "en";
   const [email, setEmail] = useState("");
   const [gateState, setGateState] = useState<"locked" | "sending" | "unlocked">("locked");
 
@@ -216,6 +218,20 @@ export default function QuizResultsPreview({
                 );
               })}
             </div>
+
+            {/* Download PDF button — only after gating unlocked */}
+            <button
+              type="button"
+              onClick={() =>
+                generateQuizPdf({ results, config, t, locale })
+              }
+              className="mt-6 w-full inline-flex items-center justify-center gap-2 border border-accent/30 text-accent px-6 py-3 rounded-lg text-sm font-medium hover:bg-accent/10 transition-all duration-300"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              {t("quiz.results.downloadPdf")}
+            </button>
           </div>
         )}
 

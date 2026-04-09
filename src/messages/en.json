@@ -371,7 +371,8 @@
       "gatePlaceholder": "your@email.pro",
       "gateDisclaimer": "No spam. Results only.",
       "detailedTitle": "Detailed score by dimension",
-      "restart": "Start over"
+      "restart": "Start over",
+      "downloadPdf": "Download PDF report"
     },
     "section": "Section",
     "of": "of",
