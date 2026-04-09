@@ -119,7 +119,7 @@ export default function Hero() {
                 transitionTimingFunction: "var(--ease-spring)",
               }}
             >
-              <p className="text-slate-600 text-xs uppercase tracking-[0.2em] mb-5">
+              <p className="text-slate-400 text-xs uppercase tracking-[0.2em] mb-5">
                 {t("clientsTrust")}
               </p>
               <div className="flex flex-wrap items-center gap-10 mb-10">
@@ -143,7 +143,7 @@ export default function Hero() {
                 {CERT_KEYS.map((cert) => (
                   <span
                     key={cert}
-                    className="px-3 py-1.5 border border-white/8 rounded text-slate-500 text-xs font-medium"
+                    className="px-3 py-1.5 border border-white/8 rounded text-slate-400 text-xs font-medium"
                   >
                     {certs(cert)}
                   </span>

@@ -33,7 +33,7 @@ export default function Footer() {
                 {SITE_NAME}
               </span>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-sm">
+            <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-sm">
               {t("description")}
             </p>
 
@@ -41,7 +41,7 @@ export default function Footer() {
               {CERT_KEYS.map((cert) => (
                 <span
                   key={cert}
-                  className="text-[11px] px-2.5 py-1 border border-white/5 rounded text-slate-600"
+                  className="text-[11px] px-2.5 py-1 border border-white/5 rounded text-slate-400"
                 >
                   {certs(cert)}
                 </span>
@@ -51,7 +51,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-6 text-slate-500">
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-6 text-slate-400">
               {t("navigation")}
             </h4>
             <ul className="space-y-3">
@@ -59,7 +59,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-slate-500 hover:text-accent transition-colors duration-300 text-sm"
+                    className="text-slate-400 hover:text-accent transition-colors duration-300 text-sm"
                   >
                     {link.label}
                   </a>
@@ -68,7 +68,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/mentions-legales"
-                  className="text-slate-500 hover:text-accent transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-accent transition-colors duration-300 text-sm"
                 >
                   {t("legal")}
                 </Link>
@@ -78,19 +78,19 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-6 text-slate-500">
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-6 text-slate-400">
               {t("contact")}
             </h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href={`mailto:${t("email")}`}
-                  className="text-slate-500 hover:text-accent transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-accent transition-colors duration-300 text-sm"
                 >
                   {t("email")}
                 </a>
               </li>
-              <li className="text-slate-600 text-sm">
+              <li className="text-slate-400 text-sm">
                 {t("location")}
               </li>
             </ul>
@@ -99,8 +99,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs">{t("rights")}</p>
-          <p className="text-slate-700 text-xs">{t("madeWith")}</p>
+          <p className="text-slate-400 text-xs">{t("rights")}</p>
+          <p className="text-slate-400 text-xs">{t("madeWith")}</p>
         </div>
       </div>
     </footer>

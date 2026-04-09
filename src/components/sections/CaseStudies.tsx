@@ -67,7 +67,7 @@ export default function CaseStudies() {
               <div className="p-8">
                 {/* Challenge */}
                 <div className="mb-6">
-                  <h4 className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">
+                  <h4 className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">
                     {t("challengeLabel")}
                   </h4>
                   <p className="text-slate-300 text-[15px] leading-relaxed">
@@ -77,7 +77,7 @@ export default function CaseStudies() {
 
                 {/* Solution */}
                 <div className="mb-8">
-                  <h4 className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">
+                  <h4 className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">
                     {t("solutionLabel")}
                   </h4>
                   <p className="text-slate-300 text-[15px] leading-relaxed">
@@ -92,7 +92,7 @@ export default function CaseStudies() {
                       <div className="text-2xl font-semibold text-accent font-heading mb-1">
                         {result.metric}
                       </div>
-                      <p className="text-[11px] text-slate-500 leading-tight">
+                      <p className="text-[11px] text-slate-400 leading-tight">
                         {result.label}
                       </p>
                     </div>
@@ -168,7 +168,7 @@ function TestimonialCarousel({
                   <div className="font-medium text-surface text-sm">
                     {testimonial.author}
                   </div>
-                  <div className="text-xs text-slate-500 mt-1">
+                  <div className="text-xs text-slate-400 mt-1">
                     {testimonial.role}
                   </div>
                 </div>

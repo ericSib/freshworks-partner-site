@@ -55,9 +55,11 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-deep/95 backdrop-blur-xl border-b border-white/5 py-3"
-          : "bg-transparent py-6"
+        isMobileOpen
+          ? "bg-deep border-b border-white/5 py-3"
+          : isScrolled
+            ? "bg-deep/95 backdrop-blur-xl border-b border-white/5 py-3"
+            : "bg-transparent py-6"
       }`}
       style={{ transitionTimingFunction: "var(--ease-spring)" }}
     >
@@ -97,7 +99,7 @@ export default function Header() {
 
             <button
               onClick={switchLocale}
-              className="text-[13px] font-medium text-slate-500 hover:text-surface transition-colors duration-300"
+              className="text-[13px] font-medium text-slate-400 hover:text-surface transition-colors duration-300"
               aria-label={t("switchLang")}
             >
               {locale === "fr" ? "EN" : "FR"}
@@ -146,14 +148,14 @@ export default function Header() {
           }`}
           style={{ transitionTimingFunction: "var(--ease-spring)" }}
         >
-          <nav className="pb-6 pt-6 border-t border-white/10">
+          <nav className="pb-6 pt-6 border-t border-white/10 bg-deep rounded-b-xl">
             <div className="flex flex-col gap-1">
               {navLinks.map((link, i) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-surface/80 font-medium py-3 hover:text-accent transition-all duration-300 ${
+                  className={`text-slate-300 font-medium py-3 hover:text-accent transition-all duration-300 ${
                     activeSection === link.sectionId ? "text-accent" : ""
                   }`}
                   style={{

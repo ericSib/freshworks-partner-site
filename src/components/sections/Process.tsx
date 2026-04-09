@@ -65,7 +65,7 @@ export default function Process() {
               </p>
               <ul className="space-y-3">
                 {step.details.map((detail, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-slate-500">
+                  <li key={j} className="flex items-start gap-3 text-sm text-slate-400">
                     <span className="w-1 h-1 bg-accent rounded-full mt-2 shrink-0" />
                     {detail}
                   </li>

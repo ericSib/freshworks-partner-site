@@ -172,14 +172,14 @@ export default function Contact() {
                     </svg>
                     {t("info.email")}
                   </a>
-                  <div className="flex items-center gap-3 text-slate-500 text-sm">
+                  <div className="flex items-center gap-3 text-slate-400 text-sm">
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                     </svg>
                     {t("info.location")}
                   </div>
-                  <div className="flex items-center gap-3 text-slate-500 text-sm">
+                  <div className="flex items-center gap-3 text-slate-400 text-sm">
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -193,7 +193,7 @@ export default function Contact() {
                   {CERT_KEYS.map((cert) => (
                     <span
                       key={cert}
-                      className="px-3 py-1.5 border border-white/8 rounded text-slate-500 text-xs font-medium"
+                      className="px-3 py-1.5 border border-white/8 rounded text-slate-400 text-xs font-medium"
                     >
                       {certs(cert)}
                     </span>
