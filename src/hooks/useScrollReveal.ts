@@ -1,11 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-
-function getPrefersReducedMotion() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
+import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "./useReducedMotion";
 
 interface UseScrollRevealOptions {
   threshold?: number;
@@ -17,11 +13,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>({
   once = true,
 }: UseScrollRevealOptions = {}) {
   const ref = useRef<T>(null);
-  const reducedMotion = useSyncExternalStore(
-    () => () => {},
-    getPrefersReducedMotion,
-    () => false
-  );
+  const reducedMotion = useReducedMotion();
   const [isVisible, setIsVisible] = useState(reducedMotion);
 
   useEffect(() => {

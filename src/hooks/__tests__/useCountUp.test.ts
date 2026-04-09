@@ -1,13 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { useCountUp } from "../useCountUp";
+import { mockMatchMedia } from "./test-helpers";
 
 beforeEach(() => {
   vi.restoreAllMocks();
-  vi.stubGlobal(
-    "matchMedia",
-    vi.fn().mockReturnValue({ matches: false })
-  );
+  mockMatchMedia(false);
 
   vi.stubGlobal(
     "IntersectionObserver",
@@ -26,11 +24,7 @@ describe("useCountUp", () => {
   });
 
   it("starts at end value when reduced motion is enabled", () => {
-    vi.stubGlobal(
-      "matchMedia",
-      vi.fn().mockReturnValue({ matches: true })
-    );
-
+    mockMatchMedia(true);
     const { result } = renderHook(() => useCountUp({ end: 100 }));
     expect(result.current.count).toBe(100);
   });
@@ -47,11 +41,7 @@ describe("useCountUp", () => {
   });
 
   it("starts visible and at end value with reduced motion", () => {
-    vi.stubGlobal(
-      "matchMedia",
-      vi.fn().mockReturnValue({ matches: true })
-    );
-
+    mockMatchMedia(true);
     const { result } = renderHook(() => useCountUp({ end: 42 }));
     expect(result.current.isVisible).toBe(true);
     expect(result.current.count).toBe(42);

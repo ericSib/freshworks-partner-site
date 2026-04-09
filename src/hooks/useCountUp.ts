@@ -1,12 +1,8 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import { useScrollReveal } from "./useScrollReveal";
-
-function getPrefersReducedMotion() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
+import { useReducedMotion } from "./useReducedMotion";
 
 interface UseCountUpOptions {
   end: number;
@@ -20,11 +16,7 @@ export function useCountUp<T extends HTMLElement = HTMLDivElement>({
   delay = 0,
 }: UseCountUpOptions) {
   const { ref, isVisible } = useScrollReveal<T>({ threshold: 0.3 });
-  const reducedMotion = useSyncExternalStore(
-    () => () => {},
-    getPrefersReducedMotion,
-    () => false
-  );
+  const reducedMotion = useReducedMotion();
   const [count, setCount] = useState(reducedMotion ? end : 0);
 
   useEffect(() => {
