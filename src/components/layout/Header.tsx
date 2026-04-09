@@ -79,7 +79,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav data-testid="desktop-nav" className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -139,6 +139,8 @@ export default function Header() {
 
         {/* Mobile menu */}
         <div
+          id="mobile-menu"
+          data-testid="mobile-nav"
           className={`md:hidden overflow-hidden transition-all duration-500 ${
             isMobileOpen ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
           }`}

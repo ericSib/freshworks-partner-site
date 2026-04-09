@@ -46,7 +46,7 @@ export default function Metrics() {
   }));
 
   return (
-    <section className="bg-surface py-24 px-4">
+    <section data-testid="metrics" className="bg-surface py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-deep/10">

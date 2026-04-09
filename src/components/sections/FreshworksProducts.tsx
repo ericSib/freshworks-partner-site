@@ -20,7 +20,7 @@ export default function FreshworksProducts() {
   }));
 
   return (
-    <section className="section-padding bg-deep-light">
+    <section data-testid="freshworks-products" className="section-padding bg-deep-light">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade-up">
           <div className="mb-20">

@@ -14,7 +14,7 @@ export default function TechStack() {
   }));
 
   return (
-    <section className="section-padding bg-deep-light">
+    <section data-testid="tech-stack" className="section-padding bg-deep-light">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade-up">
           <div className="mb-20">

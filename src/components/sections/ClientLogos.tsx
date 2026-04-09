@@ -18,7 +18,7 @@ export default function ClientLogos() {
   const t = useTranslations("clientLogos");
 
   return (
-    <section className="py-16 bg-deep border-y border-white/5">
+    <section data-testid="client-logos" className="py-16 bg-deep border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll variant="fade">
           <p className="text-center text-slate-600 text-xs uppercase tracking-[0.2em] mb-10">

@@ -20,7 +20,7 @@ export default function Process() {
   }));
 
   return (
-    <section className="section-padding bg-deep">
+    <section data-testid="process" className="section-padding bg-deep">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade-up">
           <div className="mb-20">
