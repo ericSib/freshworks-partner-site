@@ -1,6 +1,6 @@
 # Cadrage Product Owner — What A Service (whataservice.fr)
 
-> **Date** : 2026-04-05 (v2 — intégration Charte Graphique + GTM)
+> **Date** : 2026-04-09 (v3 — refinement E2E Quality post-audit)
 > **Product Owner** : Claude Code (assist)
 > **Stakeholder** : Eric Sib — Fondateur, What A Service
 > **Sources** : Charte_Graphique_WaS.pdf + GTM Framework (compass artifact)
@@ -859,49 +859,201 @@ Scénario : Robots.txt
 
 ---
 
-## Backlog ordonné — Priorisation MoSCoW (v2)
+### EPIC 6 : Quality & Couverture E2E
 
-> Timebox : 2 semaines. Scope élargi → MoSCoW plus agressif sur les Must.
+> Consolider la suite de tests E2E pour garantir la non-régression sur toutes les routes, éliminer les sources de flakiness CI, et assurer l'accessibilité automatisée sur chaque parcours. Source : Audit E2E Health Check du 2026-04-09 (score 7.5/10).
 
-| # | ID | User Story | Pts | MoSCoW | Sprint |
-|---|----|-----------|-----|--------|--------|
-| 1 | US-1.1 | Design system Tailwind (charte graphique) | 2 | **Must** | Sprint 1 |
-| 2 | US-2.1 | Header + navigation + toggle langue | 5 | **Must** | Sprint 1 |
-| 3 | US-2.2 | Architecture i18n Next.js (scaffold FR) | 5 | **Must** | Sprint 1 |
-| 4 | US-3.1 | Hero + trust bar certifications | 3 | **Must** | Sprint 1 |
-| 5 | US-3.2 | Problem agitation (4 pain points) | 2 | **Must** | Sprint 1 |
-| 6 | US-3.3 | Chiffres clés / social proof | 1 | **Must** | Sprint 1 |
-| 7 | US-3.4 | 5 piliers de services + "Starting at" | 5 | **Must** | Sprint 1 |
-| 8 | US-3.5 | Cas clients + témoignages | 3 | **Must** | Sprint 1 |
-| 9 | US-3.8 | Section À propos + confiance | 2 | **Must** | Sprint 1 |
-| 10 | US-2.3 | Footer (coordonnées, nav, certifications, langue) | 2 | **Must** | Sprint 1 |
-| 11 | US-5.1 | SEO on-page + hreflang | 3 | **Must** | Sprint 1 |
-| 12 | US-5.2 | Sitemap bilingue + robots.txt | 1 | **Must** | Sprint 1 |
-| — | — | **Total Sprint 1** | **34** | — | — |
-| 13 | US-4.1 | Formulaire contact optimisé (4 champs + dropdown) | 5 | **Must** | Sprint 2 |
-| 14 | US-4.2 | Intégration Calendly inline | 2 | **Must** | Sprint 2 |
-| 15 | US-4.3 | CTA intermédiaire (bandeau conversion) | 1 | **Must** | Sprint 2 |
-| 16 | US-3.6 | Quiz ITSM Maturity (lead magnet) | 8 | **Should** | Sprint 2 |
-| 17 | US-2.4 | Mentions légales | 1 | **Should** | Sprint 2 |
-| 18 | US-4.4 | Intégration HubSpot CRM | 3 | **Could** | Sprint 2 |
-| 19 | US-4.5 | Widget Freshchat | 2 | **Could** | Sprint 2 |
-| 20 | US-3.7 | Blog preview (3 articles) | 3 | **Could** | Sprint 2 |
-| — | — | **Total Sprint 2** | **25** | — | — |
-| — | — | **TOTAL PROJET (2 sprints)** | **59** | — | — |
+#### US-6.1 : Éliminer les waits hardcodés dans le quiz E2E
 
-### Backlog post-MVP (Release 3+)
+```
+En tant que développeur QA,
+je veux remplacer les waitForTimeout(500) du quiz par des waits explicites,
+afin d'éliminer une source de flakiness en CI.
+```
 
-| ID | User Story | Pts | Priorité |
-|----|-----------|-----|----------|
-| US-B.1 | Contenu EN complet (traduction native) | 8 | Haute |
-| US-B.2 | Pages services dédiées (1 par pilier) | 5 | Haute |
-| US-B.3 | ROI Calculator interactif (lead magnet #2) | 8 | Haute |
-| US-B.4 | Blog engine (MDX ou CMS headless) | 5 | Moyenne |
-| US-B.5 | Pillar pages SEO (5 x 2000-5000 mots) | 13 | Moyenne |
-| US-B.6 | Page pricing dédiée (3 tiers + FAQ) | 5 | Moyenne |
-| US-B.7 | Pages cas clients détaillées | 3 | Moyenne |
-| US-B.8 | Animations scroll (Framer Motion) | 3 | Basse |
-| US-B.9 | Analytics dashboard (GA4 + Vercel) | 2 | Basse |
+**Critères d'acceptation :**
+
+```gherkin
+Scénario 1 : Auto-advance après réponse
+  Étant donné que l'utilisateur a cliqué sur une option de réponse
+  Quand l'animation d'auto-advance se termine
+  Alors les boutons de la question suivante sont visibles
+    ET aucun waitForTimeout n'est utilisé dans le fichier quiz.spec.ts
+
+Scénario 2 : Les 3 tests quiz passent sans timeout hardcodé
+  Étant donné la suite quiz.spec.ts sans aucun waitForTimeout
+  Quand on exécute npx playwright test quiz.spec.ts
+  Alors les 3 tests passent en vert sur chromium ET mobile-chrome
+
+Scénario 3 : Stabilité sous exécution répétée
+  Étant donné la suite quiz.spec.ts corrigée
+  Quand on exécute les tests 5 fois consécutives (--repeat-each=5)
+  Alors le taux de succès est de 100%
+```
+
+**Story Points : 1** | **MoSCoW : Must** | **WSJF : Élevé** (CoD élevé — chaque build CI est à risque / Job Size petit)
+
+**Fichiers impactés :** `tests/e2e/quiz.spec.ts` L31, L82
+
+---
+
+#### US-6.2 : Test E2E smoke + a11y pour /mentions-legales
+
+```
+En tant que développeur QA,
+je veux ajouter un test E2E et un scan axe-core pour la page mentions légales,
+afin de couvrir la seule route du site actuellement sans aucun test.
+```
+
+**Critères d'acceptation :**
+
+```gherkin
+Scénario 1 : La page mentions légales charge en FR
+  Étant donné un navigateur sur /fr/mentions-legales
+  Quand la page a fini de charger
+  Alors le titre H1 contient le texte traduit (clé legal.title)
+    ET les 6 sections (éditeur, hébergement, PI, données, cookies, contact) sont attachées au DOM
+
+Scénario 2 : La page mentions légales charge en EN
+  Étant donné un navigateur sur /en/mentions-legales
+  Quand la page a fini de charger
+  Alors le titre H1 contient le texte anglais
+    ET les 6 sections sont attachées au DOM
+
+Scénario 3 : Aucune violation a11y critique
+  Étant donné un navigateur sur /fr/mentions-legales
+  Quand on exécute un scan axe-core (wcag2a, wcag2aa, wcag21a, wcag21aa)
+  Alors zéro violation d'impact critical ou serious
+```
+
+**Story Points : 2** | **MoSCoW : Should** | **WSJF : Moyen-haut** (CoD moyen — gap de couverture / Job Size petit)
+
+**Fichiers à créer :** `tests/e2e/mentions-legales.spec.ts`
+
+---
+
+#### US-6.3 : Scan axe-core pour la page /quiz
+
+```
+En tant que développeur QA,
+je veux ajouter des scans axe-core sur la page quiz à différents états d'interaction,
+afin de garantir l'accessibilité d'une page interactive complexe.
+```
+
+**Critères d'acceptation :**
+
+```gherkin
+Scénario 1 : Page quiz au chargement initial (sélecteur de segment)
+  Étant donné un navigateur sur /fr/quiz
+  Quand la page a fini de charger (écran sélecteur visible)
+  Alors un scan axe-core ne révèle aucune violation critical ou serious
+
+Scénario 2 : Écran des résultats du quiz
+  Étant donné un quiz ITSM complété (9 réponses données)
+  Quand l'écran de résultats s'affiche (score /100 visible)
+  Alors un scan axe-core ne révèle aucune violation critical ou serious
+    ET le radar chart SVG a un role="img" avec un label accessible
+
+Scénario 3 : Formulaire email gate
+  Étant donné l'écran de résultats affiché
+  Quand le formulaire d'email gate est visible
+  Alors le champ email a un label associé
+    ET le bouton de soumission est accessible au clavier
+```
+
+**Story Points : 3** | **MoSCoW : Should** | **WSJF : Moyen** (CoD moyen — risque a11y sur parcours critique / Job Size moyen)
+
+**Fichiers impactés :** `tests/e2e/accessibility.spec.ts` (ajout de tests) ou nouveau fichier `tests/e2e/quiz-a11y.spec.ts`
+
+---
+
+#### US-6.4 : Créer QuizPage Page Object Model
+
+```
+En tant que développeur QA,
+je veux centraliser les sélecteurs du quiz dans un Page Object Model QuizPage.ts,
+afin de faciliter la maintenance quand les tests quiz évolueront.
+```
+
+**Critères d'acceptation :**
+
+```gherkin
+Scénario 1 : Le POM QuizPage expose les locators clés
+  Étant donné le fichier tests/e2e/pages/QuizPage.ts créé
+  Quand on inspecte la classe QuizPage
+  Alors elle expose les locators : segmentSelector (ITSM, CX),
+    demographicsForm (3 selects + start button), questionOptions,
+    resultsScore, radarChart, emailGateInput, restartButton
+
+Scénario 2 : Quiz.spec.ts utilise le POM
+  Étant donné quiz.spec.ts refactoré pour utiliser QuizPage
+  Quand on exécute npx playwright test quiz.spec.ts
+  Alors les 3 tests passent identiquement
+
+Scénario 3 : Les tests a11y quiz (US-6.3) utilisent le POM
+  Étant donné les tests a11y quiz écrits avec QuizPage
+  Quand on modifie un sélecteur quiz dans le composant React
+  Alors seul QuizPage.ts nécessite une mise à jour (pas les spec files)
+```
+
+**Story Points : 3** | **MoSCoW : Could** | **WSJF : Bas** (CoD faible — maintenabilité long terme / Job Size moyen)
+
+**Fichiers à créer :** `tests/e2e/pages/QuizPage.ts`
+**Fichiers impactés :** `tests/e2e/quiz.spec.ts` (refactoring sélecteurs)
+
+---
+
+## Backlog ordonné — Priorisation MoSCoW (v3 — post-refinement 2026-04-09)
+
+> Sprints 1-2 livrés. Sprint 3 ajouté suite à l'audit E2E du 2026-04-09.
+
+| # | ID | User Story | Pts | MoSCoW | Sprint | Statut |
+|---|----|-----------|-----|--------|--------|--------|
+| 1 | US-1.1 | Design system Tailwind (charte graphique) | 2 | **Must** | Sprint 1 | Done |
+| 2 | US-2.1 | Header + navigation + toggle langue | 5 | **Must** | Sprint 1 | Done |
+| 3 | US-2.2 | Architecture i18n Next.js (scaffold FR) | 5 | **Must** | Sprint 1 | Done |
+| 4 | US-3.1 | Hero + trust bar certifications | 3 | **Must** | Sprint 1 | Done |
+| 5 | US-3.2 | Problem agitation (4 pain points) | 2 | **Must** | Sprint 1 | Done |
+| 6 | US-3.3 | Chiffres clés / social proof | 1 | **Must** | Sprint 1 | Done |
+| 7 | US-3.4 | 5 piliers de services + "Starting at" | 5 | **Must** | Sprint 1 | Done |
+| 8 | US-3.5 | Cas clients + témoignages | 3 | **Must** | Sprint 1 | Done |
+| 9 | US-3.8 | Section À propos + confiance | 2 | **Must** | Sprint 1 | Done |
+| 10 | US-2.3 | Footer (coordonnées, nav, certifications, langue) | 2 | **Must** | Sprint 1 | Done |
+| 11 | US-5.1 | SEO on-page + hreflang | 3 | **Must** | Sprint 1 | Done |
+| 12 | US-5.2 | Sitemap bilingue + robots.txt | 1 | **Must** | Sprint 1 | Done |
+| — | — | **Total Sprint 1** | **34** | — | — | **Done** |
+| 13 | US-4.1 | Formulaire contact optimisé (4 champs + dropdown) | 5 | **Must** | Sprint 2 | Done |
+| 14 | US-4.2 | Intégration Calendly inline | 2 | **Must** | Sprint 2 | Done |
+| 15 | US-4.3 | CTA intermédiaire (bandeau conversion) | 1 | **Must** | Sprint 2 | Done |
+| 16 | US-3.6 | Quiz ITSM Maturity (lead magnet) | 8 | **Should** | Sprint 2 | Done |
+| 17 | US-2.4 | Mentions légales | 1 | **Should** | Sprint 2 | Done |
+| 18 | US-4.4 | Intégration HubSpot CRM | 3 | **Could** | Sprint 2 | Backlog |
+| 19 | US-4.5 | Widget Freshchat | 2 | **Could** | Sprint 2 | Backlog |
+| 20 | US-3.7 | Blog preview (3 articles) | 3 | **Could** | Sprint 2 | Backlog |
+| — | — | **Total Sprint 2** | **25** | — | — | — |
+| 21 | US-6.1 | Éliminer waitForTimeout quiz E2E | 1 | **Must** | Sprint 3 | Ready |
+| 22 | US-6.2 | Test E2E smoke + a11y /mentions-legales | 2 | **Should** | Sprint 3 | Ready |
+| 23 | US-6.3 | Scan axe-core page /quiz | 3 | **Should** | Sprint 3 | Ready |
+| 24 | US-6.4 | QuizPage Page Object Model | 3 | **Could** | Sprint 3 | Ready |
+| — | — | **Total Sprint 3** | **9** | — | — | — |
+| — | — | **TOTAL PROJET (3 sprints)** | **68** | — | — | — |
+
+### Backlog post-MVP (Release 4+)
+
+| ID | User Story | Pts | Priorité | Statut |
+|----|-----------|-----|----------|--------|
+| US-B.1 | Contenu EN complet (traduction native) | 8 | Haute | Backlog |
+| US-B.2 | Pages services dédiées (1 par pilier) | 5 | Haute | Backlog |
+| US-B.3 | ROI Calculator interactif (lead magnet #2) | 8 | Haute | Backlog |
+| US-B.4 | Blog engine (MDX ou CMS headless) | 5 | Moyenne | Backlog |
+| US-B.5 | Pillar pages SEO (5 x 2000-5000 mots) | 13 | Moyenne | Backlog |
+| US-B.6 | Page pricing dédiée (3 tiers + FAQ) | 5 | Moyenne | Backlog |
+| US-B.7 | Pages cas clients détaillées | 3 | Moyenne | Backlog |
+| US-B.8 | Animations scroll (Framer Motion) | 3 | Basse | Backlog |
+| US-B.9 | Analytics dashboard (GA4 + Vercel) | 2 | Basse | Backlog |
+| US-4.4 | Intégration HubSpot CRM | 3 | Moyenne | Reporté Sprint 2 |
+| US-4.5 | Widget Freshchat | 2 | Basse | Reporté Sprint 2 |
+| US-3.7 | Blog preview (3 articles) | 3 | Moyenne | Reporté Sprint 2 |
 
 ---
 
@@ -947,6 +1099,34 @@ pour commencer à générer des leads qualifiés.
 | J5 | US-4.4 (HubSpot) ou US-4.5 (Freshchat) ou US-3.7 (Blog preview) + Tests E2E | Intégrations + stabilisation |
 
 **Livrable fin Sprint 2** : formulaire fonctionnel + Calendly + quiz ITSM live + site prêt pour la promotion LinkedIn.
+
+---
+
+### Sprint 3 — "Quality & E2E Coverage" (2026-04-09)
+
+```
+SPRINT GOAL : Atteindre 100% de couverture E2E et a11y sur toutes les routes
+du site, avec zéro source de flakiness identifiée, pour sécuriser
+le pipeline CI avant les développements de Release 4.
+```
+
+**Forecast : 9 points** (sprint court — dette technique QA)
+
+**Source :** Audit E2E Health Check du 2026-04-09 (score 7.5/10 → cible 9/10)
+
+| Ordre | Story | Pts | Focus |
+|-------|-------|-----|-------|
+| 1 | US-6.1 (Éliminer waitForTimeout quiz) | 1 | Stabilité CI — quick win |
+| 2 | US-6.2 (E2E + a11y /mentions-legales) | 2 | Couverture route manquante |
+| 3 | US-6.3 (axe-core /quiz) | 3 | a11y sur parcours critique |
+| 4 | US-6.4 (QuizPage POM) | 3 | Maintenabilité — si capacité restante |
+
+**Critère de succès Sprint 3 :**
+- Les 3 routes (`/`, `/quiz`, `/mentions-legales`) ont chacune au minimum un test E2E smoke + un scan axe-core
+- `npx playwright test --repeat-each=5` passe à 100% (zéro flaky)
+- Zéro `waitForTimeout` dans la suite E2E
+
+**Livrable fin Sprint 3** : suite E2E stabilisée (score santé 9/10), couverture 100% des routes, a11y automatisée sur tous les parcours.
 
 ---
 
@@ -1031,4 +1211,11 @@ pour commencer à générer des leads qualifiés.
 
 ## Prochaine étape
 
-> **Action immédiate** : Valider ce cadrage v2 avec le stakeholder, puis lancer le Sprint 1 en commençant par le setup technique (Next.js + Tailwind + next-intl + charte graphique).
+> **Action immédiate** : Lancer le Sprint 3 "Quality & E2E Coverage" en commençant par US-6.1 (éliminer les waitForTimeout dans quiz.spec.ts — quick win 1 SP).
+
+### Historique des refinements
+
+| Date | Version | Changements |
+|------|---------|-------------|
+| 2026-04-05 | v2 | Intégration charte graphique + GTM, 5 Epics, 20 stories |
+| 2026-04-09 | v3 | Ajout EPIC 6 (Quality & E2E), 4 stories (US-6.1→6.4), Sprint 3 planifié. Source : audit E2E Health Check. Sprint 1-2 marqués Done. US-4.4, US-4.5, US-3.7 reportés au backlog post-MVP. |
