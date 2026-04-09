@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { CALENDLY_URL } from "@/config/site";
 import type { QuizResults } from "@/hooks/useQuiz";
 import type { QuizConfig } from "@/config/quiz";
 import RadarChart from "./RadarChart";
@@ -113,7 +115,7 @@ export default function QuizResultsPreview({
         {/* Quick wins — FREE (always visible) */}
         <div className="mb-16">
           <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-slate-500 mb-6">
-            {"Quick wins — vos axes d'amélioration prioritaires"}
+            {t("quiz.results.quickWinsTitle")}
           </h3>
 
           <div className="space-y-4">
@@ -149,17 +151,17 @@ export default function QuizResultsPreview({
         {gateState !== "unlocked" ? (
           <div className="mb-16 border border-white/10 rounded-xl p-8 text-center">
             <h3 className="text-lg font-heading font-semibold text-surface mb-2">
-              {"Recevez le rapport détaillé"}
+              {t("quiz.results.gateTitle")}
             </h3>
             <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
-              {"Score par dimension, benchmarks sectoriels, et recommandations personnalisées — directement dans votre boîte mail."}
+              {t("quiz.results.gateSubtitle")}
             </p>
             <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="votre@email.pro"
+                placeholder={t("quiz.results.gatePlaceholder")}
                 required
                 className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all text-sm"
               />
@@ -169,18 +171,18 @@ export default function QuizResultsPreview({
                 className="bg-accent text-deep px-6 py-3 rounded-lg text-sm font-semibold hover:bg-accent-light transition-all duration-300 shadow-[var(--shadow-accent-md)] disabled:opacity-50 shrink-0"
                 style={{ transitionTimingFunction: "var(--ease-spring)" }}
               >
-                {gateState === "sending" ? "..." : "Débloquer"}
+                {gateState === "sending" ? "..." : t("quiz.results.gateUnlock")}
               </button>
             </form>
             <p className="text-slate-600 text-xs mt-3">
-              {"Pas de spam. Résultats uniquement."}
+              {t("quiz.results.gateDisclaimer")}
             </p>
           </div>
         ) : (
           /* UNLOCKED — Detailed dimension breakdown with benchmarks */
           <div className="mb-16">
             <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-slate-500 mb-6">
-              {"Score détaillé par dimension"}
+              {t("quiz.results.detailedTitle")}
             </h3>
 
             <div className="space-y-6">
@@ -220,7 +222,9 @@ export default function QuizResultsPreview({
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <a
-            href="#contact"
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center bg-accent text-deep px-8 py-4 rounded-lg text-base font-semibold hover:bg-accent-light transition-all duration-300 shadow-[var(--shadow-accent-md)] hover:shadow-[var(--shadow-accent-lg)]"
             style={{ transitionTimingFunction: "var(--ease-spring)" }}
           >
@@ -232,7 +236,7 @@ export default function QuizResultsPreview({
             onClick={onRestart}
             className="w-full sm:w-auto inline-flex items-center justify-center border border-white/10 text-slate-400 px-8 py-4 rounded-lg text-base font-medium hover:border-accent/30 hover:text-accent transition-all duration-300"
           >
-            {"Recommencer"}
+            {t("quiz.results.restart")}
           </button>
         </div>
       </div>

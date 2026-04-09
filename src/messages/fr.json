@@ -363,6 +363,16 @@
       "start": "Démarrer l'évaluation",
       "timeEstimate": "~3 minutes • 10 questions • Résultats immédiats"
     },
+    "results": {
+      "quickWinsTitle": "Quick wins — vos axes d'amélioration prioritaires",
+      "gateTitle": "Recevez le rapport détaillé",
+      "gateSubtitle": "Score par dimension, benchmarks sectoriels, et recommandations personnalisées — directement dans votre boîte mail.",
+      "gateUnlock": "Débloquer",
+      "gatePlaceholder": "votre@email.pro",
+      "gateDisclaimer": "Pas de spam. Résultats uniquement.",
+      "detailedTitle": "Score détaillé par dimension",
+      "restart": "Recommencer"
+    },
     "section": "Section",
     "of": "sur",
     "back": "Précédent",
