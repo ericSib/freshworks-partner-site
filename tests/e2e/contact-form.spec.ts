@@ -70,6 +70,17 @@ test.describe("Contact Form — Validation", () => {
 });
 
 test.describe("Contact Form — Submission", () => {
+  // Mock the contact API to avoid depending on real Resend/HubSpot keys
+  test.beforeEach(async ({ page }) => {
+    await page.route("**/api/contact", (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ success: true }),
+      })
+    );
+  });
+
   test("shows success message after valid submission", async ({ page }) => {
     const home = new HomePage(page);
     await home.goto("fr");
@@ -83,12 +94,9 @@ test.describe("Contact Form — Submission", () => {
     });
     await home.submitContactForm();
 
-    // Button should show sending state
-    await expect(home.submitButton).toBeDisabled();
-
-    // Wait for success state (simulated 1.2s delay)
+    // Wait for success state (mocked API responds immediately)
     const successArea = page.locator("#contact").getByRole("link", {
-      name: /réservez|book a slot/i,
+      name: /réserver|book a slot/i,
     });
     await expect(successArea).toBeVisible({ timeout: 5000 });
 
@@ -111,7 +119,7 @@ test.describe("Contact Form — Submission", () => {
 
     // Wait for success
     const successArea = page.locator("#contact").getByRole("link", {
-      name: /réservez|book a slot/i,
+      name: /réserver|book a slot/i,
     });
     await expect(successArea).toBeVisible({ timeout: 5000 });
   });
