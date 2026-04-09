@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME } from "@/config/site";
 import QuizFlow from "@/components/quiz/QuizFlow";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -31,6 +32,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  * 3. Questions (auto-advance)
  * 4. Results (future sprint)
  */
-export default function QuizPage() {
-  return <QuizFlow />;
+export default async function QuizPage({ params }: Props) {
+  const { locale } = await params;
+
+  return (
+    <>
+      <Breadcrumb locale={locale} slug="quiz" />
+      <QuizFlow />
+    </>
+  );
 }

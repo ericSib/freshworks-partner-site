@@ -1,47 +1,17 @@
-import { useTranslations } from "next-intl";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import LegalContent from "./LegalContent";
 
-export default function MentionsLegales() {
-  const t = useTranslations("legal");
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function MentionsLegales({ params }: Props) {
+  const { locale } = await params;
 
   return (
-    <section className="section-padding bg-deep min-h-[100dvh] pt-32">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-surface tracking-tight mb-12">
-          {t("title")}
-        </h1>
-
-        <div className="space-y-10 text-slate-400 text-[15px] leading-relaxed">
-          <div>
-            <h2 className="text-surface font-semibold text-lg mb-3">{t("editor.heading")}</h2>
-            <p>{t("editor.content")}</p>
-          </div>
-
-          <div>
-            <h2 className="text-surface font-semibold text-lg mb-3">{t("hosting.heading")}</h2>
-            <p>{t("hosting.content")}</p>
-          </div>
-
-          <div>
-            <h2 className="text-surface font-semibold text-lg mb-3">{t("ip.heading")}</h2>
-            <p>{t("ip.content")}</p>
-          </div>
-
-          <div>
-            <h2 className="text-surface font-semibold text-lg mb-3">{t("data.heading")}</h2>
-            <p>{t("data.content")}</p>
-          </div>
-
-          <div>
-            <h2 className="text-surface font-semibold text-lg mb-3">{t("cookies.heading")}</h2>
-            <p>{t("cookies.content")}</p>
-          </div>
-
-          <div>
-            <h2 className="text-surface font-semibold text-lg mb-3">{t("contact.heading")}</h2>
-            <p>{t("contact.content")}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <>
+      <Breadcrumb locale={locale} slug="mentions-legales" />
+      <LegalContent />
+    </>
   );
 }

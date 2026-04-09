@@ -3,6 +3,11 @@
     "title": "What A Service \u2014 ITSM & Support Client, d\u00e9ploy\u00e9s pour performer",
     "description": "Consultants Freshworks pour ETI et PME. Freshservice (ITSM, ITAM, ESM) et Freshdesk (support omnicanal, CX). ITIL 4, PRINCE2, DORA. R\u00e9sultats en 4 semaines."
   },
+  "breadcrumb": {
+    "home": "Accueil",
+    "quiz": "Quiz Maturit\u00e9",
+    "legal": "Mentions l\u00e9gales"
+  },
   "nav": {
     "services": "Services",
     "caseStudies": "Cas clients",

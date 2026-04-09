@@ -3,6 +3,11 @@
     "title": "What A Service \u2014 ITSM & Customer Support, deployed to perform",
     "description": "Freshworks consultants for mid-market & SMBs. Freshservice (ITSM, ITAM, ESM) and Freshdesk (omnichannel support, CX). ITIL 4, PRINCE2, DORA. Results in 4 weeks."
   },
+  "breadcrumb": {
+    "home": "Home",
+    "quiz": "Maturity Quiz",
+    "legal": "Legal Notice"
+  },
   "nav": {
     "services": "Services",
     "caseStudies": "Case Studies",
