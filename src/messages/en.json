@@ -348,6 +348,21 @@
       "title": "ITSM & CX Maturity Score",
       "description": "Assess your IT service and customer support maturity for free. 10 questions, instant results with radar chart and recommendations."
     },
+    "selector": {
+      "tagline": "Free assessment — 3 minutes",
+      "headline": "How mature are your services?",
+      "subheadline": "Choose the track that matches your challenge. Each assessment covers 8 key dimensions with specific recommendations.",
+      "itsm": {
+        "title": "IT Services (ITSM)",
+        "description": "Assess your IT service maturity: incident management, change management, CMDB, automation, service catalog, and governance."
+      },
+      "cx": {
+        "title": "Customer Support (CX)",
+        "description": "Assess your customer support maturity: ticket management, omnichannel, self-service, satisfaction, analytics, and proactive support."
+      },
+      "start": "Start assessment",
+      "timeEstimate": "~3 minutes • 10 questions • Instant results"
+    },
     "section": "Section",
     "of": "of",
     "back": "Back",
