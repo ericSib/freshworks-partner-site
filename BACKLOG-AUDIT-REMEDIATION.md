@@ -1183,23 +1183,148 @@ Scenario : Le champ honeypot est inclus dans le payload
 
 ---
 
-# Backlog futur (hors scope remediation)
+# Backlog produit ordonne — v5.1 Post Blueprint Specs (09/04/2026)
 
-| Story | Points | Epic origine | Priorite |
-|-------|--------|-------------|----------|
-| US-10.1 Tests E2E complementaires (parcours critique) | 3 | E10 | Haute |
-| US-10.2 Audit accessibilite complet axe-core | 3 | E10 | Haute |
-| US-12.1 Optimisation images (blur placeholders) | 3 | E12 | Haute |
-| US-16.2 Grain texture perf (spike: mesurer avant d'optimiser) | 1 | E16 | Moyenne |
-| US-11.1 ITSM Maturity Quiz (lead magnet) | 13 | E11 | Moyenne |
-| US-12.2 Core Web Vitals < seuils "Good" | 5 | E12 | Moyenne |
-| Tests E2E en CI (Playwright dans GitHub Actions) | 5 | E15 | Moyenne |
-| Structured logging (pino/winston) | 3 | E8 | Basse |
-| Analytics GA4/GTM implementation | 2 | E8 | Basse |
+> Inputs : Note de valeur business v2, Architecture auth Compass, Blueprint quiz complet, Sprint 5+6 remediation
+> US-11.1 REQUALIFIEE : eclatee en Epic E18 (Score Maturite ITSM+CX) — 8 stories
+> Blueprint : 8 dimensions/parcours (etait 6), 10 questions scorees + 3 demo, descriptive choice, hybrid gating
+> Epics E19 (Auth Supabase) et E20 (Scanner) en backlog Phase 2
+>
+> REGLE D'INTEGRATION : zero modification des composants existants. Quiz = sous-arbre isole.
+> GATE DE NON-REGRESSION : les 79 tests existants doivent passer a chaque commit.
+
+## PRIORITE 1 — Lead Generation Engine Phase 1 (Sprint 7-11)
+
+| # | Story | Epic | Pts | WSJF | MoSCoW |
+|---|-------|------|-----|------|--------|
+| 1 | **US-18.0** Config quiz — types + donnees ITSM + CX (8 dim. × 2) | E18 | 3 | 18.0 | Must |
+| 2 | **US-18.1** Moteur de scoring (formule blueprint, TDD, edge cases) | E18 | 5 | 16.0 | Must |
+| 3 | **US-18.2** Parcours ITSM (8 dim., 10 questions, i18n FR+EN) | E18 | 5 | 13.0 | Must |
+| 4 | **US-18.3** Parcours CX (8 dim., 10 questions, i18n FR+EN) | E18 | 5 | 13.0 | Must |
+| 5 | **US-18.4** UX Quiz — descriptive choice, auto-advance, mobile-first, demographics | E18 | 5 | 10.0 | Must |
+| 6 | **US-18.5** Resultats — hybrid gating, radar chart, free+gated, HubSpot segment | E18 | 8 | 9.5 | Must |
+| 7 | **US-18.6** Rapport PDF genere (bilingue, brande WaS, envoye par email) | E18 | 5 | 7.0 | Should |
+| 8 | **US-18.7** Pages SEO par niveau de maturite (5 ITSM + 5 CX, Schema markup) | E18 | 3 | 6.0 | Could |
+| | **Sous-total Phase 1** | | **39** | | |
+
+## PRIORITE 2 — Qualite & Performance (residuel remediation)
+
+| # | Story | Epic | Pts | WSJF | MoSCoW |
+|---|-------|------|-----|------|--------|
+| 7 | US-16.1 Migration images Unsplash → local WebP | E16 | 3 | 6.0 | Should |
+| 8 | US-10.1 Tests E2E complementaires (parcours critique) | E10 | 3 | 5.0 | Should |
+| 9 | US-10.2 Audit accessibilite complet axe-core | E10 | 3 | 5.0 | Should |
+| 10 | US-12.1 Optimisation images (blur placeholders) | E12 | 3 | 4.0 | Could |
+| 11 | US-12.2 Core Web Vitals < seuils "Good" | E12 | 5 | 3.0 | Could |
+| 12 | Tests E2E en CI (Playwright dans GitHub Actions) | E15 | 5 | 3.0 | Could |
+
+## PRIORITE 3 — Lead Generation Engine Phase 2 (Sprint 11+)
+
+| # | Story | Epic | Pts | WSJF | MoSCoW |
+|---|-------|------|-----|------|--------|
+| 13 | US-19.1 Spike Supabase (auth + schema + middleware) | E19 | 5 | 4.8 | Should |
+| 14 | US-19.2 Magic link + OAuth Microsoft + Google | E19 | 5 | 4.5 | Should |
+| 15 | US-19.3 Middleware auth + route groups (public/authenticated) | E19 | 3 | 4.0 | Should |
+| 16 | US-20.1 Scanner Freshservice API v2 (8 dimensions) | E20 | 8 | 3.3 | Should |
+| 17 | US-20.2 Scanner Freshdesk API v2 (8 dimensions) | E20 | 8 | 3.3 | Should |
+| 18 | US-20.3 Health Score + rapport differencies | E20 | 5 | 3.0 | Should |
+| 19 | US-20.4 Cles API ephemeres + UX securite | E20 | 3 | 3.0 | Must |
+| | **Sous-total Phase 2** | | **37** | | |
+
+## PRIORITE 4 — Backlog lointain
+
+| # | Story | Pts | Priorite |
+|---|-------|-----|----------|
+| US-16.2 Grain texture perf (spike) | 1 | Basse |
+| Structured logging (pino/winston) | 3 | Basse |
+| Analytics GA4/GTM implementation | 2 | Basse |
+| Score cards virales LinkedIn (Phase 4 note business) | 5 | Basse |
+| Cross-tool nurture ITSM+CX | 5 | Basse |
+| Benchmark DB agregee | 8 | Basse |
 
 ---
 
-*Backlog v4.1 — Remediation Audit — Post-retro Sprint 5 — 09/04/2026*
-*3 Amigos : PO (business value) + Dev (faisabilite) + QA (testabilite)*
-*Sprint 5 : Securiser & Tester (20 pts DONE) — Sprint 6 : Industrialiser & Consolider (11-16 pts)*
-*Objectif : Score audit B (70) → A- (85) en 2 semaines*
+## Sprint Planning suggere — Phase 1 (Score Maturite) — v5.1
+
+### Sprint 7 — "Fondations : Config + Moteur + Parcours ITSM" (Semaine 1-2)
+
+```
+SPRINT GOAL : La configuration quiz est complete (8 dim. × 2 parcours), le moteur
+de scoring est fonctionnel et teste a >95% de couverture, et le parcours ITSM complet
+(10 questions, 8 dimensions) est jouable en FR avec descriptive choice.
+```
+
+| Story | Points | MoSCoW |
+|-------|--------|--------|
+| US-18.0 Config quiz (types + donnees ITSM+CX) | 3 | Must |
+| US-18.1 Moteur de scoring (TDD, formule blueprint) | 5 | Must |
+| US-18.2 Parcours ITSM (8 dim., 10 questions, i18n) | 5 | Must |
+| **Total** | **13** | |
+
+**Gate de non-regression** : `npm run test` (79 tests existants) passe a chaque commit.
+
+### Sprint 8 — "UX Quiz + Parcours CX" (Semaine 3-4)
+
+```
+SPRINT GOAL : L'UX quiz est mobile-first avec auto-advance et descriptive choice,
+le parcours CX est complet, et l'aiguillage ITSM/CX est fonctionnel.
+```
+
+| Story | Points | MoSCoW |
+|-------|--------|--------|
+| US-18.4 UX Quiz (auto-advance, descriptive choice, demographics) | 5 | Must |
+| US-18.3 Parcours CX (8 dim., 10 questions, i18n) | 5 | Must |
+| **Total** | **10** | |
+
+### Sprint 9 — "Resultats + Radar + Gating" (Semaine 5-6)
+
+```
+SPRINT GOAL : Les resultats hybrid (free + gated) sont fonctionnels avec radar chart,
+gating email, sync HubSpot segment, et les recommandations par dimension.
+```
+
+| Story | Points | MoSCoW |
+|-------|--------|--------|
+| US-18.5 Resultats + hybrid gating + radar chart + HubSpot | 8 | Must |
+| **Total** | **8** | |
+
+### Sprint 10 — "PDF + SEO + Launch" (Semaine 7-8)
+
+```
+SPRINT GOAL : Le quiz est deployable en production avec rapport PDF,
+pages SEO par niveau, tests E2E, et contenu EN verifie.
+```
+
+| Story | Points | MoSCoW |
+|-------|--------|--------|
+| US-18.6 Rapport PDF (bilingue, brande WaS) | 5 | Should |
+| US-18.7 Pages SEO par niveau de maturite | 3 | Could |
+| Tests E2E parcours quiz complet (ITSM + CX) | 3 | Must |
+| **Total** | **8-11** | |
+
+**Total Phase 1 : 39 points sur 8 semaines (4 sprints de 2 semaines)**
+
+---
+
+## Matrice de protection de l'existant (Integration Non-Regression)
+
+| Composant existant | Fichiers touches ? | Protection |
+|--------------------|--------------------|-----------|
+| 11 sections homepage | NON | 79 tests unitaires + build |
+| Route /api/contact | NON | Tests API existants |
+| i18n (211 cles) | AJOUT namespace `quiz` | Cles existantes intactes |
+| Design system (globals.css) | NON | Tokens reutilises, pas modifies |
+| HubSpot (hubspot.ts) | EXTENSION (nouvelle fonction) | Tests existants + nouveau test |
+| Pipeline CI | NON | Gate automatique chaque PR |
+| CSP headers | PEUT-ETRE (si CDN chart) | Build + preview verification |
+
+**Regle** : Si `npm run test` echoue → le commit ne passe pas. C'est le Sprint 5-6 qui protege le Sprint 7+.
+
+---
+
+*Backlog v5.1 — Post-blueprint quiz specs — 09/04/2026*
+*3 Amigos : PO (valeur business) + Dev (faisabilite) + QA (testabilite + non-regression)*
+*Phase 1 : Score Maturite ITSM+CX (39 pts, 8 semaines, 4 sprints)*
+*Phase 2 : Scanner + Auth Supabase (37 pts, TBD apres spike)*
+*Total pipeline : 76 points sur ~5 mois*
+*Protection existant : 79 tests + CI pipeline + zero modification composants*
