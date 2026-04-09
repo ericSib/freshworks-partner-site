@@ -33,12 +33,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
+    // All images served locally — no remote patterns needed.
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
