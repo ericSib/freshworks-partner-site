@@ -1,33 +1,47 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config/site";
 
+/**
+ * Dynamic sitemap — lists all public routes with i18n alternates.
+ *
+ * Every route is declared once (FR canonical) with language alternates.
+ * Priority reflects business value: homepage > quiz > legal.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
+  const lastModified = new Date();
+
+  /** Helper to build a bilingual sitemap entry */
+  function bilingualEntry(
+    path: string,
+    priority: number,
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]
+  ): MetadataRoute.Sitemap[number] {
+    const frUrl = `${baseUrl}/fr${path}`;
+    const enUrl = `${baseUrl}/en${path}`;
+    return {
+      url: frUrl,
+      lastModified,
+      changeFrequency,
+      priority,
+      alternates: {
+        languages: {
+          fr: frUrl,
+          en: enUrl,
+          "x-default": frUrl,
+        },
+      },
+    };
+  }
 
   return [
-    {
-      url: `${baseUrl}/fr`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-      alternates: {
-        languages: {
-          fr: `${baseUrl}/fr`,
-          en: `${baseUrl}/en`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-      alternates: {
-        languages: {
-          fr: `${baseUrl}/fr`,
-          en: `${baseUrl}/en`,
-        },
-      },
-    },
+    // Homepage — highest priority
+    bilingualEntry("", 1.0, "weekly"),
+
+    // Quiz — lead generation funnel, high value
+    bilingualEntry("/quiz", 0.9, "monthly"),
+
+    // Legal — required but low SEO value
+    bilingualEntry("/mentions-legales", 0.3, "yearly"),
   ];
 }

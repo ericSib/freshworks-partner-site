@@ -7,6 +7,7 @@ import { SITE_URL, SITE_NAME, OG_LOCALES } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import StructuredData from "@/components/seo/StructuredData";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-heading",
@@ -49,6 +50,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: SITE_NAME,
       locale: OG_LOCALES[locale] ?? "fr_FR",
       type: "website",
+      images: [
+        {
+          url: `${SITE_URL}/images/og-default.png`,
+          width: 1200,
+          height: 630,
+          alt: `${SITE_NAME} — Freshworks Consulting Partner`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: [`${SITE_URL}/images/og-default.png`],
     },
   };
 }
@@ -66,6 +81,9 @@ export default async function LocaleLayout({ children, params }: Props) {
       lang={locale}
       className={`${plusJakarta.variable} ${dmSans.variable} h-full antialiased`}
     >
+      <head>
+        <StructuredData locale={locale} />
+      </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-body)] bg-deep text-surface">
         <NextIntlClientProvider messages={messages}>
           <ScrollProgress />

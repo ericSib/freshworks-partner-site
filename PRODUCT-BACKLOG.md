@@ -1,7 +1,7 @@
 # Product Backlog — What A Service
 
 > **Referentiel unique** — Ce fichier est la seule source de verite pour le produit.
-> Mis a jour : 09/04/2026 — v6.1 (ajout Epic E21 QA-E2E — 4 stories audit)
+> Mis a jour : 09/04/2026 — v7.0 (ajout Epic E22 SEO/GEO — 11 stories, 44 pts)
 > Product Owner : Claude Code (assist) | Stakeholder : Eric Sib, Fondateur
 
 ---
@@ -101,29 +101,55 @@ avec un CPL 10-50x inferieur au paid advertising.
 
 | Epic | Theme | Statut | Priorite |
 |------|-------|--------|----------|
+| **E22** | **SEO/GEO Optimization (schema, E-E-A-T, GEO, meta sociaux)** | **Backlog** | **Haute** |
 | E21 | Consolider la suite E2E (stabilite, couverture, a11y, POM) | Backlog | Haute |
-| E18+ | Pages SEO par niveau maturite (5 ITSM + 5 CX) | Backlog | Moyenne |
+| E18+ | Pages SEO par niveau maturite (5 ITSM + 5 CX) | Backlog | Moyenne (depend E22) |
 | E19 | Authentification Supabase (prerequis Scanner) | Backlog | Phase 2 |
 | E20 | Scanner d'Environnement Freshservice + Freshdesk | Backlog | Phase 2 |
-| E11 | Blog / Ressources (pillar-cluster SEO) | Backlog | Phase 3 |
+| E11 | Blog / Ressources (pillar-cluster SEO) | Backlog | Phase 3 (depend E22) |
 
 ---
 
 ## 4. Backlog ordonne — Stories actives
 
-### PRIORITE 1 — Prochains sprints
+### PRIORITE 1 — Sprint 10 "Visible par les machines" (E22)
 
 | # | Story | Epic | Pts | MoSCoW |
 |---|-------|------|-----|--------|
-| 1 | US-18.7 Pages SEO par niveau maturite (5 ITSM + 5 CX, Schema markup) | E18 | 3 | Should |
-| 2 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot enrichi) | E18 | 3 | Should |
-| 3 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Should |
-| 4 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should |
-| 5 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Should |
-| 6 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Should |
-| 7 | US-12.2 Core Web Vitals < seuils "Good" | E12 | 5 | Could |
-| 8 | Playwright dans GitHub Actions CI | E15 | 5 | Could |
-| 9 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could |
+| 1 | US-22.6 Sitemap complet + robots.txt AI crawlers | E22 | 2 | Must |
+| 2 | US-22.1 Schema JSON-LD Organization (site-wide) | E22 | 3 | Must |
+| 3 | US-22.5 Twitter Cards + og:image par defaut | E22 | 3 | Must |
+| 4 | US-22.2 Schema JSON-LD Person (consultant) | E22 | 2 | Must |
+| 5 | US-22.3 Schema JSON-LD Service (par offre) | E22 | 3 | Should |
+
+### PRIORITE 1bis — Sprint 11 "Credible humains + AI" (E22)
+
+| # | Story | Epic | Pts | MoSCoW |
+|---|-------|------|-----|--------|
+| 6 | US-22.10 FAQ sections sur pages cles (GEO) | E22 | 5 | Should |
+| 7 | US-22.4 Schema FAQ + BreadcrumbList | E22 | 5 | Should |
+| 8 | US-22.9 About enrichi E-E-A-T | E22 | 3 | Should |
+| 9 | US-22.7 Breadcrumbs UI | E22 | 3 | Should |
+
+### PRIORITE 1ter — Sprint 12 "Optimise extraction" (E22 + E18+)
+
+| # | Story | Epic | Pts | MoSCoW |
+|---|-------|------|-----|--------|
+| 10 | US-22.11 HTML semantique + answer capsules (GEO) | E22 | 5 | Could |
+| 11 | US-22.8 Analytics GA4 (tag minimal RGPD) | E22 | 5 | Could |
+| 12 | US-18.7 Pages SEO par niveau maturite (5 ITSM + 5 CX) | E18+ | 3 | Should |
+
+### PRIORITE 2 — QA & stabilite (E21)
+
+| # | Story | Epic | Pts | MoSCoW |
+|---|-------|------|-----|--------|
+| 13 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot) | E18 | 3 | Should |
+| 14 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Should |
+| 15 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should |
+| 16 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Should |
+| 17 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Should |
+| 18 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could |
+| 19 | Playwright dans GitHub Actions CI | E15 | 5 | Could |
 
 ### PRIORITE 2 — Phase 2 (Scanner)
 
@@ -137,17 +163,18 @@ avec un CPL 10-50x inferieur au paid advertising.
 | 11 | US-20.3 Health Score + rapport differencies | E20 | 5 | Should |
 | 12 | US-20.4 Cles API ephemeres + UX securite | E20 | 3 | Must |
 
-### PRIORITE 3 — Backlog lointain
+### PRIORITE 4 — Backlog lointain
 
-| # | Story | Pts |
-|---|-------|-----|
-| Blog engine (MDX ou CMS headless) | 5 |
-| Pillar pages SEO (5 × 2000-5000 mots) | 13 |
-| Score cards virales LinkedIn | 5 |
-| Cross-tool nurture ITSM+CX | 5 |
-| Benchmark DB agregee | 8 |
-| Analytics GA4/GTM implementation | 2 |
-| Structured logging (pino/winston) | 3 |
+| # | Story | Pts | Notes |
+|---|-------|-----|-------|
+| Blog engine (MDX ou CMS headless) | 5 | Depend E22 (schema Article) |
+| Pillar pages SEO (5 × 2000-5000 mots) | 13 | Depend E22 (GEO architecture) |
+| Score cards virales LinkedIn | 5 | |
+| Cross-tool nurture ITSM+CX | 5 | |
+| Benchmark DB agregee | 8 | |
+| Structured logging (pino/winston) | 3 | |
+
+> **Note** : US-12.2 (Core Web Vitals) absorbe dans E22. Analytics GA4/GTM absorbe dans US-22.8.
 
 ---
 
