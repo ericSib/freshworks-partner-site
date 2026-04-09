@@ -29,7 +29,10 @@ export default function QuizFlow() {
 
   return (
     <section className="relative">
-      <QuizContainer config={config} />
+      <QuizContainer
+        config={config}
+        onRestart={() => setSelectedSegment(null)}
+      />
     </section>
   );
 }

@@ -6,9 +6,11 @@ import { useQuiz } from "@/hooks/useQuiz";
 import QuizProgress from "./QuizProgress";
 import QuizDemographics from "./QuizDemographics";
 import QuizQuestion from "./QuizQuestion";
+import QuizResultsPreview from "./QuizResultsPreview";
 
 interface QuizContainerProps {
   config: QuizConfig;
+  onRestart?: () => void;
 }
 
 /**
@@ -18,7 +20,7 @@ interface QuizContainerProps {
  * Results rendering is handled by the parent page (not this component)
  * to support the hybrid gating flow (US-18.5).
  */
-export default function QuizContainer({ config }: QuizContainerProps) {
+export default function QuizContainer({ config, onRestart }: QuizContainerProps) {
   const t = useTranslations();
   const quiz = useQuiz(config);
 
@@ -34,16 +36,13 @@ export default function QuizContainer({ config }: QuizContainerProps) {
     ? config.dimensions.indexOf(currentDimension) + 1
     : 0;
 
-  // If results are ready, expose them via a callback or render nothing
-  // (the parent page handles the results phase)
+  // Results phase — show score, dimension breakdown, and quick wins
   if (quiz.phase === "results" && quiz.results) {
-    // Results phase — parent page should render QuizResults
-    // We store results in a data attribute for the parent to read
     return (
-      <div
-        data-quiz-results={JSON.stringify(quiz.results)}
-        data-testid="quiz-results-data"
-        className="hidden"
+      <QuizResultsPreview
+        results={quiz.results}
+        config={config}
+        onRestart={onRestart ?? quiz.reset}
       />
     );
   }
