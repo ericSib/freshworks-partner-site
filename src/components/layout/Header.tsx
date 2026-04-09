@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
@@ -18,6 +18,53 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const activeSection = useScrollSpy(SECTION_IDS, 120);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Escape key closes mobile menu and returns focus to hamburger
+  const handleEscape = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape" && isMobileOpen) {
+      setIsMobileOpen(false);
+      hamburgerRef.current?.focus();
+    }
+  }, [isMobileOpen]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [handleEscape]);
+
+  // Focus trap inside mobile menu
+  useEffect(() => {
+    if (!isMobileOpen || !mobileMenuRef.current) return;
+
+    const menu = mobileMenuRef.current;
+    const focusable = menu.querySelectorAll<HTMLElement>(
+      "a[href], button:not([disabled])"
+    );
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    function trapTab(e: KeyboardEvent) {
+      if (e.key !== "Tab") return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    menu.addEventListener("keydown", trapTab);
+    return () => menu.removeEventListener("keydown", trapTab);
+  }, [isMobileOpen]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -117,9 +164,12 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
+            ref={hamburgerRef}
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-label="Menu"
+            aria-expanded={isMobileOpen}
+            aria-controls="mobile-menu"
           >
             <span
               className={`block w-5 h-[1.5px] transition-all duration-300 bg-surface ${
@@ -141,8 +191,10 @@ export default function Header() {
 
         {/* Mobile menu */}
         <div
+          ref={mobileMenuRef}
           id="mobile-menu"
           data-testid="mobile-nav"
+          aria-hidden={!isMobileOpen}
           className={`md:hidden overflow-hidden transition-all duration-500 ${
             isMobileOpen ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
           }`}
