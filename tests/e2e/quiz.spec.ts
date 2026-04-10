@@ -22,13 +22,21 @@ test.describe("Quiz — Full ITSM Flow", () => {
     await startBtn.click();
 
     // Step 3: Answer 9 questions (always pick the 3rd option = score 3)
+    //
+    // Auto-advance detection (US-21.1): we wait for an observable state change
+    // instead of a fixed delay, to keep the suite deterministic:
+    //   - Questions 1..8 → the step label increments ("1 / 9" → "2 / 9", ...)
+    //   - Question 9     → handled by the expect(getByText("/100")) below
     for (let i = 0; i < 9; i++) {
       const options = page.locator("button[aria-pressed]");
       await expect(options.first()).toBeVisible({ timeout: 3000 });
       // Click 3rd option (index 2) = score 3 "Established"
       await options.nth(2).click();
-      // Wait for auto-advance animation
-      await page.waitForTimeout(500);
+      if (i < 8) {
+        await expect(
+          page.getByText(`${i + 2} / 9`, { exact: true })
+        ).toBeVisible({ timeout: 2000 });
+      }
     }
 
     // Step 4: Results should be visible (not blank!)
@@ -74,12 +82,16 @@ test.describe("Quiz — Full ITSM Flow", () => {
     await page.selectOption("#quiz-role", "itDirector");
     await page.getByRole("button", { name: /marrer/i }).click();
 
-    // Answer all 9 questions
+    // Answer all 9 questions (see US-21.1 — auto-advance via step label change)
     for (let i = 0; i < 9; i++) {
       const options = page.locator("button[aria-pressed]");
       await expect(options.first()).toBeVisible({ timeout: 3000 });
       await options.nth(0).click(); // Pick first option each time
-      await page.waitForTimeout(500);
+      if (i < 8) {
+        await expect(
+          page.getByText(`${i + 2} / 9`, { exact: true })
+        ).toBeVisible({ timeout: 2000 });
+      }
     }
 
     // Wait for results

@@ -56,16 +56,33 @@ test.describe("Accessibility (axe-core) — Post-Interaction", () => {
   test("mobile menu open has no critical a11y violations", async ({
     page,
   }) => {
-    const home = new HomePage(page);
-    await home.goto("fr");
+    // Navigate with domcontentloaded (instead of the default "load" event)
+    // because mobile viewport + third-party assets (Calendly, analytics)
+    // can delay the load event beyond the default test timeout.
+    await page.goto("/fr", { waitUntil: "domcontentloaded" });
 
-    // Open mobile menu and wait for all animations to settle
-    await home.openMobileMenu();
-    const mobileLinks = home.getMobileNavLinks();
+    // US-21.1: deterministic wait on the React-driven aria-expanded flip,
+    // instead of a fixed delay waiting for the bg-deep CSS transition to
+    // complete. We do not depend on the visual transition here because
+    // color-contrast is disabled on the mobile menu scan below.
+    //
+    // Click + assert inside toPass() handles the React hydration race: the
+    // <button> is rendered by SSR and visible immediately, but its onClick
+    // handler only attaches after hydration. If the first click fires
+    // before hydration, the event is lost; the retry clicks again until
+    // aria-expanded flips to "true".
+    const hamburger = page.getByRole("button", { name: "Menu" });
+    await expect(hamburger).toHaveAttribute("aria-expanded", "false");
+
+    await expect(async () => {
+      await hamburger.click();
+      await expect(hamburger).toHaveAttribute("aria-expanded", "true", {
+        timeout: 500,
+      });
+    }).toPass({ timeout: 5000 });
+
+    const mobileLinks = page.locator("#mobile-menu a");
     await expect(mobileLinks.last()).toBeVisible({ timeout: 2000 });
-
-    // Wait for bg-deep transition to complete (header becomes opaque when menu opens)
-    await page.waitForTimeout(600);
 
     // Scan the mobile menu — disable color-contrast because axe-core
     // miscomputes oklch colors behind backdrop-blur/opacity parents
