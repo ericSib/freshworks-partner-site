@@ -1,7 +1,7 @@
 # Product Backlog — What A Service
 
 > **Referentiel unique** — Ce fichier est la seule source de verite pour le produit.
-> Mis a jour : 10/04/2026 — v7.5 (refinement post-audit : US-21.5 hotfix Sprint 13 + Sprint 14 propose)
+> Mis a jour : 11/04/2026 — v7.7 (cloture Sprint 13 + activation Sprint 14 + D13 tranchee)
 > Product Owner : Claude Code (assist) | Stakeholder : Eric Sib, Fondateur
 
 ---
@@ -112,67 +112,56 @@ avec un CPL 10-50x inferieur au paid advertising.
 
 ## 4. Backlog ordonne — Stories actives
 
-> Derniers sprints livres : Sprint 10 (SEO machines), Sprint 11 (SEO humains), Sprint 12 (GA4 + pages maturite).
+> Derniers sprints livres : Sprint 10 (SEO machines), Sprint 11 (SEO humains), Sprint 12 (GA4 + pages maturite), **Sprint 13 (quiz fiabilise + CI Playwright + bug HubSpot corrige)**.
 > Details dans section 5 "Historique des Sprints".
 
-### PRIORITE 1 — Sprint 13 "Fiabiliser et couvrir" (E21 + E18 + E15) — 15 pts + hotfix
+### PRIORITE 1 — Sprint 14 "Consolider la qualite interne" — **SPRINT ACTIF** — 10 pts
 
-> Sprint Goal : *Fiabiliser le quiz en production et couvrir les trous de qualite post-audit.*
-> **Etat DoR** : ✅ **5/5 stories Ready (15 pts)** + **1 hotfix Ready (2 pts)** — voir `docs/stories-ready/`.
-> **Capacity** : cible initiale 13 pts → 15 pts (depassement +15%) suite a D3 Option A retenue.
-> **Decouverte** : bug critique quiz (validation Zod `/api/contact` echoue silencieusement — voir US-18.9).
-
-| Ordre | Story | Epic | Pts | MoSCoW | DoR |
-|-------|-------|------|-----|--------|-----|
-| 1 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.1.md)) |
-| 2 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.2.md)) |
-| 3 | US-21.3 Scan axe-core quiz (5 etats : selecteur, demographics, question, resultats, email gate) | E21 | 3 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.3.md)) |
-| 4 | US-15.4 Playwright dans GitHub Actions CI (workflow dedie + cache + artefacts) | E15 | 5 | **Must (D4 ✅)** | ✅ Ready ([AC](./docs/stories-ready/US-15.4.md)) |
-| 5 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot + fix bug) | E18 | 4 | **Must (D3 ✅ Option A)** | ✅ Ready ([AC](./docs/stories-ready/US-18.9.md)) |
-| **HOT** | **US-21.5 Tests unitaires generate-pdf.ts (remboursement dette Sprint 9)** | **E21** | **2** | **Must (D7 ✅)** | ✅ Ready ([AC](./docs/stories-ready/US-21.5.md)) |
-
-> **Decisions tranchees** :
-> - ✅ **D3** : Option A — endpoint dedie `/api/quiz/submit` (US-18.9 = 4 pts, +1 vs initial)
-> - ✅ **D4** : Playwright CI en Must (US-15.4 integree au Sprint 13)
-> - 🕐 D5 : Pages maturite L2-L5 vs blog — en attente (hors Sprint 13)
-> - 🕐 D6 : Scope US-10.1 — en attente (US-10.1 reste Could, a clarifier ou archiver)
-> - ✅ **D7** : US-21.5 en **hotfix hors-velocite** (remboursement dette Sprint 9, quality gate cov 38% → >=60%)
->
-> **Ordre d'implementation recommande** : US-21.5 (hotfix, debloque CI) → US-21.1 → US-21.2 → US-21.3 → US-15.4 → US-18.9.
-> La CI (US-15.4) est positionnee **avant** US-18.9 pour que cette derniere beneficie
-> du filet de securite e2e des son developpement.
-> US-21.5 est **hors-velocite** : remboursement de dette introduite par le commit `8112cd9`
-> (feat PDF, Sprint 9). Ne compte pas dans les 15 pts du Sprint Goal.
-
-### PRIORITE 2 — Sprint 14 "Consolider la qualite interne" (propose)
-
-> Sprint Goal propose : *Rembourser la dette qualite post-audit et preparer le terrain pour les features E20.*
-> **Etat DoR** : ✅ 2/5 stories Ready (US-21.6, US-21.7). Les autres en refinement.
-> **Capacite cible** : 10-13 pts (coherent vitesse historique).
+> Sprint Goal : *Rembourser la dette de tests sur les 3 modules sous-couverts critiques (analytics, hubspot contact, useQuiz) et decomposer QuizResultsPreview en sous-composants testables, pour que le funnel lead magnet beneficie d'un filet de securite bout-en-bout.*
+> **Etat DoR** : ✅ **5/5 stories Ready (10 pts)** — refinement complet post-QA 10/04 + recadrage post-Sprint 13.
+> **Capacite cible** : 10-13 pts (bas de fourchette apres S13 a 15 pts). **Engagement : 10 pts.**
+> **Demarrage** : 11/04/2026.
 
 | Ordre | Story | Epic | Pts | MoSCoW | DoR | WSJF |
 |-------|-------|------|-----|--------|-----|------|
 | 1 | **US-21.6 Completer tests analytics.ts (100% trackers)** | E21 | 1 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.6.md)) | 5.0 |
-| 2 | **US-21.7 Refacto QuizResultsPreview (4 sous-composants)** | E21 | 3 | Should | ✅ Ready ([AC](./docs/stories-ready/US-21.7.md)) | 2.0 |
-| 3 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could | 🕐 Refinement | 1.3 |
-| 4 | **Structured logging (pino/winston)** — promu de Priorite 4 (D8) | E?? | 3 | Could | 🕐 Refinement | 1.7 |
-| 5 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Could (D6) | 🕐 Refinement | 1.0 |
+| 2 | **US-21.8 Tests unit hubspot.ts (mapping + error paths)** | E21 | 2 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.8.md)) — recadre 11/04 | 4.5 |
+| 3 | **US-21.11 Test E2E mobile menu keyboard nav (fix 28a8186)** | E21 | 1 | Should | ✅ Ready ([AC](./docs/stories-ready/US-21.11.md)) — piege hydratation note | 3.0 |
+| 4 | **US-21.9 Tests unit useQuiz hook (state machine)** | E21 | 3 | Should | ✅ Ready ([AC](./docs/stories-ready/US-21.9.md)) | 2.5 |
+| 5 | **US-21.7 Refacto QuizResultsPreview (4 sous-composants)** | E21 | 3 | Should | ✅ Ready ([AC](./docs/stories-ready/US-21.7.md)) | 2.0 |
 
-> **Decisions ouvertes Sprint 14** :
-> - 🕐 **D8** : Structured logging promu Sprint 14 (finding #7 audit) OU rester Priorite 4 ? Reco PO : rester lointain (volume actuel ne le justifie pas).
-> - 🕐 **D9** : US-21.7 refacto avant OU apres features A/B test gating (US-18.10+) ? Reco PO : avant (coût refacto posterior >> anterior).
+> **Ordre d'implementation recommande** :
+> 1. **US-21.6** (1 pt) — quick win analytics
+> 2. **US-21.8** (2 pts) — aligner `src/lib/hubspot.ts` historique sur le niveau de `quiz/hubspot.ts` deja livre par US-18.9
+> 3. **US-21.11** (1 pt) — quick win, filet a11y hors-sprint (commit `28a8186`)
+> 4. **US-21.9** (3 pts) — **prerequis obligatoire** avant US-21.7 (jamais de refacto sans filet)
+> 5. **US-21.7** (3 pts) — refacto beneficiant du filet US-21.9
 
-> **Notes avancement E21 (hors-sprint 10/04/2026)** :
-> - `096cb5b` fix(a11y): WCAG 2 AA color-contrast — couvre partiellement US-21.3 (a rattacher explicitement)
-> - `28a8186` fix(a11y): keyboard nav mobile menu (Escape + focus trap) — dette hors US, a backlogger si recurrent
-> - `a300a20` fix(e2e): mock contact API + CTA regex — hardening non attribue
-> - `05a2749` fix(e2e): CTA text expectations language-switch — hardening non attribue
-> - `waitForTimeout` residuels : `tests/e2e/quiz.spec.ts:31,82` + `tests/e2e/accessibility.spec.ts:68` (US-21.1)
+> **Decisions tranchees Sprint 14** :
+> - ✅ **D13 tranchee 11/04** : apres livraison de US-21.6 + US-21.8 + US-21.9, remonter le seuil vitest **60% → 70%** via un commit `chore(ci)` **hors velocite** en fin de sprint. Cible finale 80% en Sprint 16. Rationale : coverage global attendu post-S14 ~82%, donc le seuil 70% devient "gratuit". Incrementale pour eviter les explosions de gates.
+> - 🕐 **D5** : Pages maturite L2-L5 vs blog — en attente stakeholder (hors Sprint 14)
+> - ✅ **D6** : US-10.1 E2E homepage complementaires → **backlog lointain** (archive si couverture homepage suffisante post-US-15.4)
+> - ✅ **D8** : Structured logging pino/winston → **backlog lointain** (volume actuel ne le justifie pas)
 
-> **Chores immediats (hors story, hors velocite)** issus du quality gate 10/04 :
-> - `chore(ci): add coverage/ to .eslintignore` — finding #6 (2 min)
-> - Import mort `Link` dans QuizResultsPreview.tsx:5 — absorbe dans US-21.7 (finding #2)
-> - Note retro : convention commit — assets binaires seuls = `chore(seo)` pas `feat(seo)` (finding #8)
+> **Stories deferees (hors Sprint 14)** :
+> - US-21.4 QuizPage POM (3 pts, Could) → **Sprint 15** — non prioritaire tant que US-21.9 protege le contrat du hook
+> - US-21.10 Stryker mutation testing (3 pts, Could) → **Sprint 15** — pre-requis modules critiques a 80%+
+
+> **Chores immediats (hors story, hors velocite)** :
+> - ✅ `b0faa47 chore(ci): ignore coverage/ in ESLint` — finding #6 (10/04)
+> - 🟡 En attente fin Sprint 14 : `chore(ci): raise vitest coverage threshold to 70%` (D13 tranchee)
+
+### PRIORITE 2 — Sprint 15 "Qualite avancee" (propose)
+
+> Sprint Goal propose : *Installer les outils de mesure qualite avancee (mutation testing) et finaliser la maintenabilite E2E (POM).*
+> **Etat DoR** : ✅ 1/2 stories Ready. **Pre-requis** : au moins 3/3 stories coverage de Sprint 14 livrees (US-21.6 + US-21.8 + US-21.9), sans quoi le mutation testing manque de signal.
+> **Capacite cible** : 6-10 pts (sprint allege).
+
+| Ordre | Story | Epic | Pts | MoSCoW | DoR | WSJF |
+|-------|-------|------|-----|--------|-----|------|
+| 1 | **US-21.10 Stryker mutation testing + CI** | E21 | 3 | Could | ✅ Ready ([AC](./docs/stories-ready/US-21.10.md)) | 1.5 |
+| 2 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could | 🕐 Refinement | 1.3 |
+| 3 | Chore `chore(ci): raise vitest coverage 70% → 80%` (suite D13) | E21 | hors velocite | — | — | — |
 
 ### PRIORITE 3 — Phase 2 (Scanner) — Backlog lointain
 
@@ -206,7 +195,8 @@ avec un CPL 10-50x inferieur au paid advertising.
 | Score cards virales LinkedIn | 5 | |
 | Cross-tool nurture ITSM+CX | 5 | |
 | Benchmark DB agregee | 8 | |
-| Structured logging (pino/winston) | 3 | **Candidat Sprint 14 (D8 a trancher)** — finding #7 audit |
+| Structured logging (pino/winston) | 3 | **D8 arbitree** : reste lointain (volume actuel ne le justifie pas) |
+| US-10.1 Tests E2E complementaires homepage | 3 | **D6 arbitree** : archiver ou re-evaluer post-US-15.4 |
 
 > **Notes** :
 > - US-12.2 (Core Web Vitals) absorbe dans E22. Analytics GA4/GTM absorbe dans US-22.8.
@@ -310,26 +300,59 @@ Resend domain, security headers, error boundaries.
 > - `05a2749` fix(e2e): CTA text expectations language-switch test
 > - `f56c73a` docs(config): consolidation backlogs Sprint 10-12
 
+### Sprint 13 — "Fiabiliser et couvrir" (15 pts + 2 hotfix) — LIVRE (11/04/2026)
+
+| Story | Pts | Commit | Note |
+|-------|-----|--------|------|
+| **US-21.5** Tests unitaires generate-pdf.ts (hotfix hors-velocite) | **2** | `788cd8f` | Coverage 38% 🔴 → 75.31% ✅ |
+| **US-21.1** Eliminer waitForTimeout E2E | 1 | `5168a96` | `grep waitForTimeout tests/e2e/` = 0 match, 15/15 green × 5 repeats |
+| **US-21.2** Smoke + a11y /mentions-legales (FR+EN) | 2 | `ca5d2d1` | 5 tests E2E, 0 violation WCAG 2.1 AA |
+| **US-21.3** Scan axe-core quiz (5 etats) | 3 | `1287a91` + `da42ccc` | 1 fix a11y `text-slate-400` + 5 tests, < seuil US-21.3b |
+| **US-15.4** Playwright CI GitHub Actions | 5 | `6f4f8c6` | Workflow `.github/workflows/e2e.yml` + cache browsers + artefacts |
+| **US-18.9** API quiz dediee `/api/quiz/submit` (bug critique fixe) | 4 | `9d1228e` | 19 nouveaux tests, route.ts 100% lines/funcs, 11 props HubSpot |
+
+> **Sprint Goal** : *Fiabiliser le quiz en production et couvrir les trous de qualite post-audit.* ✅ **100% atteint.**
+> **Engagement 15 pts → Livre 15 pts in-sprint + 2 pts hotfix — 0 spillover.**
+>
+> **Decisions tranchees durant le sprint** :
+> - ✅ **D3** : Option A — endpoint dedie `/api/quiz/submit` (vs mutualisation contact)
+> - ✅ **D4** : Playwright CI en Must (ex-Could)
+> - ✅ **D7** : US-21.5 en hotfix hors-velocite
+>
+> **Bug critique corrige** : la validation Zod `/api/contact` rejetait silencieusement `challenge: "quiz-itsm"` / `"quiz-cx"` depuis Sprint 7. Aucun lead quiz n'etait capture dans HubSpot. Corrige par US-18.9 (endpoint dedie + 11 proprietes custom).
+>
+> **Actions stakeholder post-merge** :
+> 1. 🔴 Bloquant merge prod : creer les 11 proprietes HubSpot custom (runbook dans commit `9d1228e`)
+> 2. 🟡 Recommande : activer Branch Protection "Require status checks → e2e" sur `main`
+> 3. 🟢 Monitorer les leads `quiz_segment=itsm|cx` sur 7 jours post-merge
+
 ---
 
-## 6. Metriques actuelles
+## 6. Metriques actuelles (post Sprint 13 — 11/04/2026)
 
 | Metrique | Valeur |
 |----------|--------|
-| Tests unitaires + i18n + SEO | **566** (audit 10/04 : +44 vs derniere mesure) |
-| Tests E2E (Playwright) | **11** (8 homepage + 3 quiz) |
-| Couverture code (logique metier) | 🔴 **38.03% lines / 58.33% funcs** (seuil 60%) — **quality gate rouge** apres commit `8112cd9`. Remediation : US-21.5 hotfix (2 pts). |
+| Tests unitaires + i18n + SEO | **609** (+21 vs post-US-21.5 : +8 `quiz/hubspot` + +13 `quiz/submit/route`) |
+| Tests E2E (Playwright) | **21** chromium (8 homepage + 3 quiz + 5 mentions-legales + 5 quiz-a11y) — Sprint 14 ajoutera +4 (US-21.11) |
+| Couverture code globale | ✅ **~74% lines / ~63% funcs / ~73% stmts / ~63% branches** (seuil 60/60/60/50 GREEN) |
+| Couverture `quiz/submit/route.ts` | ✅ **100% lines / 100% funcs / 76.92% branches** (livre US-18.9) |
+| Couverture `quiz/hubspot.ts` | ✅ **~78% lines / 100% funcs** (livre US-18.9) |
+| Modules sous-testes restants (Sprint 14 scope) | `hubspot.ts` 28% (US-21.8), `useQuiz.ts` 0% (US-21.9), `analytics.ts` 37.5% (US-21.6) |
+| Mutation score | 🔴 **Non mesure** (US-21.10 Sprint 15) |
 | Vulns critiques | **0** |
 | Images Unsplash | **0** (toutes locales) |
 | Pipeline CI | **GitHub Actions** (lint + typecheck + test + build) |
-| Playwright en CI | **Non** (US-15.4 backlog Sprint 13) |
+| Playwright en CI | ✅ **Oui** — workflow `.github/workflows/e2e.yml` (livre US-15.4, Sprint 13) |
+| Bug capture leads quiz | ✅ **Fixe** (US-18.9 Sprint 13) — endpoint dedie `/api/quiz/submit` avec 11 props HubSpot |
+| `waitForTimeout` residuels E2E | ✅ **0** (US-21.1 Sprint 13) |
 | CSP unsafe-eval prod | **Non** (dev only) |
 | Schemas JSON-LD | **10+ types** (Org, Person, Service x6, FAQPage, BreadcrumbList) |
 | AI crawlers autorises | **5** (GPTBot, ChatGPT-User, Perplexity, Claude, Google-Ext) |
 | Analytics | **GA4 (G-P37MDYJ5M8)** + cookie banner RGPD |
 | Pages maturite | **2/10** (ITSM L1 + CX L1 pilotes) |
 | Score SEO estime | **9/10** (post Sprint 12, E22 DONE) |
-| Story points cumules (Sprint 1-12) | **~110+** |
+| Story points cumules (Sprint 1-13 + hotfix US-21.5) | **~129** (+17 Sprint 13 = 15 in-sprint + 2 hotfix) |
+| **Rapport tracabilite QA** | Prochain run : fin Sprint 14 (scheduled task `acceptance-traceability-check`) |
 
 ---
 
@@ -364,5 +387,104 @@ Resend domain, security headers, error boundaries.
 
 ---
 
-*PRODUCT-BACKLOG.md — Referentiel unique — v7.4*
+*PRODUCT-BACKLOG.md — Referentiel unique — v7.7 (cloture Sprint 13 + activation Sprint 14 + D13 tranchee — 11/04/2026)*
 *What A Service — "Freshworks Consulting, Done Right."*
+
+---
+
+## Changelog v7.7 (cloture Sprint 13 + activation Sprint 14 — 11/04/2026)
+
+**Declencheur** : Sprint 13 livre a 100% (15 pts in-sprint + 2 pts hotfix, 0 spillover). Sprint 14 active.
+
+### Sprint 13 cloture
+
+- **6/6 stories DONE** : US-21.5, 21.1, 21.2, 21.3, 15.4, 18.9
+- **Bug critique** capture leads quiz : corrige par US-18.9 (endpoint dedie + 11 props HubSpot)
+- **CI Playwright** activee : workflow `.github/workflows/e2e.yml` (US-15.4)
+- **Coverage nouvelle** `quiz/submit/route.ts` = 100% lines/funcs, `quiz/hubspot.ts` = 100% funcs
+- **0 flakiness E2E** : `waitForTimeout` elimines (US-21.1)
+- **Pattern reutilisable** : `expect.toPass()` pour absorber race hydratation React SSR
+- **1 fix a11y** quiz (`text-slate-400` sur 3 composants, < seuil US-21.3b)
+
+### Sprint 14 activation
+
+- **5/5 stories Ready** (10 pts engagement, bas de fourchette 10-13)
+- **Ordre** : US-21.6 → US-21.8 → US-21.11 → US-21.9 → US-21.7
+- **Refinement post-Sprint 13** :
+  - US-21.8 recadree : scope recentre sur `src/lib/hubspot.ts` (historique) uniquement, `quiz/hubspot.ts` deja livre par US-18.9
+  - US-21.11 : note "piege hydratation SSR" ajoutee avec pattern `expect.toPass` de reference
+
+### Decisions tranchees (nouvelles)
+
+- ✅ **D13** : remontee seuil coverage vitest **60% → 70%** en fin de Sprint 14, commit `chore(ci)` hors velocite. Cible 80% en Sprint 16. Coverage global attendu post-S14 ~82%.
+- ✅ **D6** : US-10.1 (E2E homepage) → backlog lointain
+- ✅ **D8** : Structured logging → backlog lointain
+
+### Metriques mises a jour
+
+- Tests unit : 588 → **609** (+21)
+- Tests E2E chromium : 11 → **21** (+10)
+- Couverture globale : 75.31% → ~74% (stable, nouveaux modules couverts 100%)
+- Story points cumules : ~112 → **~129** (+17)
+- Pipeline : `Playwright en CI = Non` → ✅ **Oui**
+- Bug capture leads quiz : 🔴 non fixe → ✅ **fixe**
+
+### Prochaine etape
+
+- **11/04** : demarrage implementation Sprint 14 dans l'ordre US-21.6 → 21.8 → 21.11 → 21.9 → 21.7
+- **Fin Sprint 14** : application D13 via commit `chore(ci): raise vitest coverage threshold to 70%`
+- **Sprint Planning Sprint 15** : evaluer US-21.10 (Stryker) en fonction du coverage atteint
+
+---
+
+## Changelog v7.6 (refinement post-QA 10/04/2026)
+
+**Declencheur** : rapport de tracabilite AC→Tests du 10/04 22:00 (scheduled task `acceptance-traceability-check`).
+
+### Nouvelles stories Ready (4)
+
+- **US-21.8** Tests unit hubspot.ts (mapping + error paths) — 2 pts Must Sprint 14 — gap B2 QA
+- **US-21.9** Tests unit useQuiz hook (state machine) — 3 pts Should Sprint 14 — gap B3 QA
+- **US-21.10** Stryker mutation testing + CI — 3 pts Could Sprint 15 — gap B5 QA (DoD mutation score)
+- **US-21.11** Test E2E mobile menu keyboard nav — 1 pt Should Sprint 14 — gap B4 QA (fix hors-sprint 28a8186)
+
+### Decisions tranchees (4)
+
+- **D9** : US-21.7 refacto QuizResultsPreview **avant** A/B test gating (coût refacto posterior >> anterior)
+- **D10** : Tests hubspot.ts en **story dediee** (US-21.8) plutot qu'integres a US-18.9 (INVEST respect)
+- **D11** : Tests useQuiz hook en **unit prioritaire** (US-21.9) plutot qu'E2E seul (cout 10x + protege refacto)
+- **D12** : Mutation testing Stryker **Sprint 15** (differe 1 sprint, pre-requis : modules critiques remontes a 80%+ coverage)
+
+### Decisions ouvertes promues
+
+- **D13** : Remontee progressive du seuil coverage vitest (60% → 70% → 80%) — a trancher Sprint Planning Sprint 15
+
+### Sprint 14 refinement
+
+- Etait : 2/5 Ready (4 pts) — US-21.6 + US-21.7
+- Devient : **5/5 Ready (10 pts)** — US-21.6 + US-21.8 + US-21.11 + US-21.7 + US-21.9
+- Capacite cible 10-13 pts → consommation 10 pts (bas de la fourchette)
+- Stories deferees : US-21.4 → Sprint 15, Structured logging + US-10.1 → backlog lointain (D6/D8 arbitrees)
+
+### Sprint 15 propose
+
+- Nouveau sprint **"Qualite avancee"** avec US-21.10 (Stryker) + US-21.4 (POM) + D13 seuil coverage
+- Capacite allegee 6-10 pts pour absorber spillover Sprint 13-14
+
+### Traceabilite fixes hors-sprint rattachee
+
+- `096cb5b` (a11y contrast) → US-21.3 Sprint 13 pour le quiz
+- `28a8186` (keyboard nav) → US-21.11 Sprint 14 (**nouveau**)
+- `a300a20` + `05a2749` (e2e hardening) → absorbe dans US-15.4 Sprint 13
+
+### Metriques mises a jour
+
+- Tests 566 → **588** (post-US-21.5 hotfix)
+- Coverage lines 38% 🔴 → **75.31% ✅** (post-US-21.5 hotfix)
+- Story points cumules ~110+ → **~112**
+
+### Prochaine etape
+
+- **Lun 13/04** : demarrage implementation Sprint 13 dans l'ordre US-21.5 ✅ → 21.1 → 21.2 → 21.3 → 15.4 → 18.9
+- **Fin Sprint 13 (17/04)** : prochain check tracabilite automatise
+- **Sprint Planning Sprint 14** : arbitrer D13 (seuil coverage)
