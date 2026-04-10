@@ -26,9 +26,13 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: "npm run dev",
+    // In CI, run the production build to get faithful end-to-end
+    // coverage of the app that actually ships. Locally, stick with
+    // the dev server so a running instance can be reused.
+    command: process.env.CI ? "npm run start" : "npm run dev",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
-    timeout: 30_000,
+    // Prod start can take longer to bind than dev (especially cold).
+    timeout: process.env.CI ? 120_000 : 30_000,
   },
 });
