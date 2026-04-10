@@ -55,26 +55,33 @@ export default function QuizResultsPreview({
 
   const radarLabels = config.dimensions.map((dim) => t(dim.nameKey));
 
-  /** Submit email to unlock detailed results + sync HubSpot. */
+  /** Submit the full quiz payload to unlock detailed results + sync HubSpot. */
   async function handleEmailSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email || gateState === "sending") return;
 
     setGateState("sending");
     try {
-      await fetch("/api/contact", {
+      await fetch("/api/quiz/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: email.split("@")[0],
           email,
-          company: results.demographics.industry || "—",
-          challenge: `quiz-${results.segment}`,
-          website: "",
+          segment: results.segment,
+          overallScore: results.overallScore,
+          maturityLevel: results.maturityLevel,
+          dimensionScores: results.dimensionScores,
+          demographics: results.demographics,
+          weakestDimensions: results.weakestDimensions.map((d) => ({
+            id: d.id,
+            score: d.score,
+            nameKey: d.nameKey,
+            commercialAngleKey: d.commercialAngleKey,
+          })),
         }),
       });
     } catch {
-      // Fire-and-forget — don't block the user
+      // Fire-and-forget — never block the user from seeing their results
     }
     setGateState("unlocked");
   }
