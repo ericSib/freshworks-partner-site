@@ -52,15 +52,26 @@ Backlog (one-liner) --> [3-Amigos refinement] --> docs/stories-ready/US-XX.Y.md 
 
 ## Stories actuellement Ready
 
-| Ordre | Story | Pts | Sprint cible | Statut DoR | Fichier |
-|-------|-------|-----|--------------|------------|---------|
-| 1 | US-21.1 Eliminer waitForTimeout quiz | 1 | Sprint 13 | ✅ Ready | [US-21.1.md](./US-21.1.md) |
-| 2 | US-21.2 Smoke + a11y /mentions-legales | 2 | Sprint 13 | ✅ Ready | [US-21.2.md](./US-21.2.md) |
-| 3 | US-21.3 Scan axe-core quiz (5 etats) | 3 | Sprint 13 | ✅ Ready | [US-21.3.md](./US-21.3.md) |
-| 4 | US-15.4 Playwright dans GitHub Actions CI | 5 | Sprint 13 | ✅ Ready | [US-15.4.md](./US-15.4.md) |
-| 5 | US-18.9 API quiz dediee /api/quiz/submit | 4 | Sprint 13 | ✅ Ready | [US-18.9.md](./US-18.9.md) |
+### Sprint 13 "Fiabiliser et couvrir" (15 pts + 2 pts hotfix)
 
-**Total Ready : 15 pts** (5 stories, 100% du Sprint 13)
+| Ordre | Story | Pts | Statut DoR | Fichier |
+|-------|-------|-----|------------|---------|
+| 1 | US-21.1 Eliminer waitForTimeout quiz | 1 | ✅ Ready | [US-21.1.md](./US-21.1.md) |
+| 2 | US-21.2 Smoke + a11y /mentions-legales | 2 | ✅ Ready | [US-21.2.md](./US-21.2.md) |
+| 3 | US-21.3 Scan axe-core quiz (5 etats) | 3 | ✅ Ready | [US-21.3.md](./US-21.3.md) |
+| 4 | US-15.4 Playwright dans GitHub Actions CI | 5 | ✅ Ready | [US-15.4.md](./US-15.4.md) |
+| 5 | US-18.9 API quiz dediee /api/quiz/submit | 4 | ✅ Ready | [US-18.9.md](./US-18.9.md) |
+| **HOT** | **US-21.5 Tests unitaires generate-pdf.ts** (hors-velocite) | **2** | ✅ Ready | [US-21.5.md](./US-21.5.md) |
+
+### Sprint 14 "Consolider la qualite interne" (propose)
+
+| Ordre | Story | Pts | Statut DoR | Fichier |
+|-------|-------|-----|------------|---------|
+| 1 | US-21.6 Completer tests analytics.ts | 1 | ✅ Ready | [US-21.6.md](./US-21.6.md) |
+| 2 | US-21.7 Refacto QuizResultsPreview (4 sous-composants) | 3 | ✅ Ready | [US-21.7.md](./US-21.7.md) |
+
+**Total Ready Sprint 13** : 15 pts in-sprint + 2 pts hotfix (US-21.5)
+**Total Ready Sprint 14** : 4 pts (2/5 stories — US-21.4, logger, US-10.1 en refinement)
 
 > **Note capacity** : cible initiale 13 pts → 15 pts apres passage de US-18.9
 > de 3 a 4 pts (D3 Option A retenue). Depassement de 2 pts (+15%) acceptable
@@ -84,6 +95,9 @@ Backlog (one-liner) --> [3-Amigos refinement] --> docs/stories-ready/US-XX.Y.md 
 | **D4** : Priorite Playwright CI | ✅ **Must** (ex-Could) | US-15.4 integree Sprint 13 |
 | **D5** : Pages maturite L2-L5 vs blog/pilliers | 🕐 En attente | Impact backlog post-Sprint 13 |
 | **D6** : Scope US-10.1 "E2E complementaires" | 🕐 En attente | US-10.1 reste Could, a clarifier ou archiver |
+| **D7** : US-21.5 hotfix hors-sprint vs intra-sprint | ✅ **Hors-velocite** (remboursement dette Sprint 9) | Sprint Goal 13 preserve |
+| **D8** : Structured logging Sprint 14 vs lointain | 🕐 En attente | Finding #7 audit, reco PO : rester lointain |
+| **D9** : Refacto QuizResultsPreview avant/apres A/B test | 🕐 En attente | Reco PO : avant (US-21.7 Sprint 14) |
 
 ---
 
@@ -97,4 +111,4 @@ bloquent pas le demarrage du sprint.
 ---
 
 *docs/stories-ready/README.md — cree le 10/04/2026, mis a jour le 10/04/2026
-(Phase 2 refinement, 5/5 stories Ready)*
+(Phase 3 refinement post-audit : +US-21.5 hotfix Sprint 13 + US-21.6/US-21.7 Sprint 14 propose)*

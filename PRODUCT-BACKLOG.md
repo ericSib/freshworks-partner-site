@@ -1,7 +1,7 @@
 # Product Backlog — What A Service
 
 > **Referentiel unique** — Ce fichier est la seule source de verite pour le produit.
-> Mis a jour : 10/04/2026 — v7.4 (D3+D4 tranchees, 5/5 stories Sprint 13 Ready, 15 pts)
+> Mis a jour : 10/04/2026 — v7.5 (refinement post-audit : US-21.5 hotfix Sprint 13 + Sprint 14 propose)
 > Product Owner : Claude Code (assist) | Stakeholder : Eric Sib, Fondateur
 
 ---
@@ -115,10 +115,10 @@ avec un CPL 10-50x inferieur au paid advertising.
 > Derniers sprints livres : Sprint 10 (SEO machines), Sprint 11 (SEO humains), Sprint 12 (GA4 + pages maturite).
 > Details dans section 5 "Historique des Sprints".
 
-### PRIORITE 1 — Sprint 13 "Fiabiliser et couvrir" (E21 + E18 + E15) — 15 pts
+### PRIORITE 1 — Sprint 13 "Fiabiliser et couvrir" (E21 + E18 + E15) — 15 pts + hotfix
 
 > Sprint Goal : *Fiabiliser le quiz en production et couvrir les trous de qualite post-audit.*
-> **Etat DoR** : ✅ **5/5 stories Ready (15 pts)** — voir `docs/stories-ready/`.
+> **Etat DoR** : ✅ **5/5 stories Ready (15 pts)** + **1 hotfix Ready (2 pts)** — voir `docs/stories-ready/`.
 > **Capacity** : cible initiale 13 pts → 15 pts (depassement +15%) suite a D3 Option A retenue.
 > **Decouverte** : bug critique quiz (validation Zod `/api/contact` echoue silencieusement — voir US-18.9).
 
@@ -129,23 +129,38 @@ avec un CPL 10-50x inferieur au paid advertising.
 | 3 | US-21.3 Scan axe-core quiz (5 etats : selecteur, demographics, question, resultats, email gate) | E21 | 3 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.3.md)) |
 | 4 | US-15.4 Playwright dans GitHub Actions CI (workflow dedie + cache + artefacts) | E15 | 5 | **Must (D4 ✅)** | ✅ Ready ([AC](./docs/stories-ready/US-15.4.md)) |
 | 5 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot + fix bug) | E18 | 4 | **Must (D3 ✅ Option A)** | ✅ Ready ([AC](./docs/stories-ready/US-18.9.md)) |
+| **HOT** | **US-21.5 Tests unitaires generate-pdf.ts (remboursement dette Sprint 9)** | **E21** | **2** | **Must (D7 ✅)** | ✅ Ready ([AC](./docs/stories-ready/US-21.5.md)) |
 
 > **Decisions tranchees** :
 > - ✅ **D3** : Option A — endpoint dedie `/api/quiz/submit` (US-18.9 = 4 pts, +1 vs initial)
 > - ✅ **D4** : Playwright CI en Must (US-15.4 integree au Sprint 13)
 > - 🕐 D5 : Pages maturite L2-L5 vs blog — en attente (hors Sprint 13)
 > - 🕐 D6 : Scope US-10.1 — en attente (US-10.1 reste Could, a clarifier ou archiver)
+> - ✅ **D7** : US-21.5 en **hotfix hors-velocite** (remboursement dette Sprint 9, quality gate cov 38% → >=60%)
 >
-> **Ordre d'implementation recommande** : US-21.1 → US-21.2 → US-21.3 → US-15.4 → US-18.9.
+> **Ordre d'implementation recommande** : US-21.5 (hotfix, debloque CI) → US-21.1 → US-21.2 → US-21.3 → US-15.4 → US-18.9.
 > La CI (US-15.4) est positionnee **avant** US-18.9 pour que cette derniere beneficie
 > du filet de securite e2e des son developpement.
+> US-21.5 est **hors-velocite** : remboursement de dette introduite par le commit `8112cd9`
+> (feat PDF, Sprint 9). Ne compte pas dans les 15 pts du Sprint Goal.
 
-### PRIORITE 2 — QA & stabilite — backlog E21 restant (post Sprint 13)
+### PRIORITE 2 — Sprint 14 "Consolider la qualite interne" (propose)
 
-| # | Story | Epic | Pts | MoSCoW |
-|---|-------|------|-----|--------|
-| 1 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Could (D6) |
-| 2 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could |
+> Sprint Goal propose : *Rembourser la dette qualite post-audit et preparer le terrain pour les features E20.*
+> **Etat DoR** : ✅ 2/5 stories Ready (US-21.6, US-21.7). Les autres en refinement.
+> **Capacite cible** : 10-13 pts (coherent vitesse historique).
+
+| Ordre | Story | Epic | Pts | MoSCoW | DoR | WSJF |
+|-------|-------|------|-----|--------|-----|------|
+| 1 | **US-21.6 Completer tests analytics.ts (100% trackers)** | E21 | 1 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.6.md)) | 5.0 |
+| 2 | **US-21.7 Refacto QuizResultsPreview (4 sous-composants)** | E21 | 3 | Should | ✅ Ready ([AC](./docs/stories-ready/US-21.7.md)) | 2.0 |
+| 3 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could | 🕐 Refinement | 1.3 |
+| 4 | **Structured logging (pino/winston)** — promu de Priorite 4 (D8) | E?? | 3 | Could | 🕐 Refinement | 1.7 |
+| 5 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Could (D6) | 🕐 Refinement | 1.0 |
+
+> **Decisions ouvertes Sprint 14** :
+> - 🕐 **D8** : Structured logging promu Sprint 14 (finding #7 audit) OU rester Priorite 4 ? Reco PO : rester lointain (volume actuel ne le justifie pas).
+> - 🕐 **D9** : US-21.7 refacto avant OU apres features A/B test gating (US-18.10+) ? Reco PO : avant (coût refacto posterior >> anterior).
 
 > **Notes avancement E21 (hors-sprint 10/04/2026)** :
 > - `096cb5b` fix(a11y): WCAG 2 AA color-contrast — couvre partiellement US-21.3 (a rattacher explicitement)
@@ -153,6 +168,11 @@ avec un CPL 10-50x inferieur au paid advertising.
 > - `a300a20` fix(e2e): mock contact API + CTA regex — hardening non attribue
 > - `05a2749` fix(e2e): CTA text expectations language-switch — hardening non attribue
 > - `waitForTimeout` residuels : `tests/e2e/quiz.spec.ts:31,82` + `tests/e2e/accessibility.spec.ts:68` (US-21.1)
+
+> **Chores immediats (hors story, hors velocite)** issus du quality gate 10/04 :
+> - `chore(ci): add coverage/ to .eslintignore` — finding #6 (2 min)
+> - Import mort `Link` dans QuizResultsPreview.tsx:5 — absorbe dans US-21.7 (finding #2)
+> - Note retro : convention commit — assets binaires seuls = `chore(seo)` pas `feat(seo)` (finding #8)
 
 ### PRIORITE 3 — Phase 2 (Scanner) — Backlog lointain
 
@@ -186,7 +206,7 @@ avec un CPL 10-50x inferieur au paid advertising.
 | Score cards virales LinkedIn | 5 | |
 | Cross-tool nurture ITSM+CX | 5 | |
 | Benchmark DB agregee | 8 | |
-| Structured logging (pino/winston) | 3 | |
+| Structured logging (pino/winston) | 3 | **Candidat Sprint 14 (D8 a trancher)** — finding #7 audit |
 
 > **Notes** :
 > - US-12.2 (Core Web Vitals) absorbe dans E22. Analytics GA4/GTM absorbe dans US-22.8.
@@ -296,9 +316,9 @@ Resend domain, security headers, error boundaries.
 
 | Metrique | Valeur |
 |----------|--------|
-| Tests unitaires + i18n + SEO | **522+** (ajout test maturity) |
+| Tests unitaires + i18n + SEO | **566** (audit 10/04 : +44 vs derniere mesure) |
 | Tests E2E (Playwright) | **11** (8 homepage + 3 quiz) |
-| Couverture code (logique metier) | **72.8%** |
+| Couverture code (logique metier) | 🔴 **38.03% lines / 58.33% funcs** (seuil 60%) — **quality gate rouge** apres commit `8112cd9`. Remediation : US-21.5 hotfix (2 pts). |
 | Vulns critiques | **0** |
 | Images Unsplash | **0** (toutes locales) |
 | Pipeline CI | **GitHub Actions** (lint + typecheck + test + build) |
