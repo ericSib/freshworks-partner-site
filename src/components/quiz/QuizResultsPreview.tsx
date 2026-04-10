@@ -116,7 +116,7 @@ export default function QuizResultsPreview({
 
         {/* Quick wins — FREE (always visible) */}
         <div className="mb-16">
-          <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-slate-500 mb-6">
+          <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-slate-400 mb-6">
             {t("quiz.results.quickWinsTitle")}
           </h3>
 
@@ -135,7 +135,7 @@ export default function QuizResultsPreview({
                   <div>
                     <h4 className="text-surface font-medium text-sm mb-1">
                       {t(dim.nameKey)}{" "}
-                      <span className="text-slate-500">
+                      <span className="text-slate-400">
                         — {dim.score.toFixed(1)}/5
                       </span>
                     </h4>
@@ -176,14 +176,14 @@ export default function QuizResultsPreview({
                 {gateState === "sending" ? "..." : t("quiz.results.gateUnlock")}
               </button>
             </form>
-            <p className="text-slate-600 text-xs mt-3">
+            <p className="text-slate-400 text-xs mt-3">
               {t("quiz.results.gateDisclaimer")}
             </p>
           </div>
         ) : (
           /* UNLOCKED — Detailed dimension breakdown with benchmarks */
           <div className="mb-16">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-slate-500 mb-6">
+            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-slate-400 mb-6">
               {t("quiz.results.detailedTitle")}
             </h3>
 

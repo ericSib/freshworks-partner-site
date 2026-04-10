@@ -65,7 +65,7 @@ export default function QuizSelector({ onSelect }: QuizSelectorProps) {
               {["Freshservice", "ITSM", "ITAM", "ESM"].map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] px-2.5 py-1 border border-white/8 rounded text-slate-500"
+                  className="text-[11px] px-2.5 py-1 border border-white/8 rounded text-slate-400"
                 >
                   {tag}
                 </span>
@@ -113,7 +113,7 @@ export default function QuizSelector({ onSelect }: QuizSelectorProps) {
               {["Freshdesk", "Support", "CX", "Omnicanal"].map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] px-2.5 py-1 border border-white/8 rounded text-slate-500"
+                  className="text-[11px] px-2.5 py-1 border border-white/8 rounded text-slate-400"
                 >
                   {tag}
                 </span>
@@ -137,7 +137,7 @@ export default function QuizSelector({ onSelect }: QuizSelectorProps) {
         </div>
 
         {/* Time estimate */}
-        <p className="text-slate-600 text-xs text-center mt-8">
+        <p className="text-slate-400 text-xs text-center mt-8">
           {t("selector.timeEstimate")}
         </p>
       </div>

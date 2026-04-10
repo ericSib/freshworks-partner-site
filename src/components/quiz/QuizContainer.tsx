@@ -85,7 +85,7 @@ export default function QuizContainer({ config, onRestart }: QuizContainerProps)
             <div className="max-w-2xl mx-auto mt-8">
               <button
                 onClick={quiz.goBack}
-                className="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-300 flex items-center gap-1.5"
+                className="text-slate-400 hover:text-slate-300 text-sm transition-colors duration-300 flex items-center gap-1.5"
               >
                 <svg
                   className="w-3.5 h-3.5"
