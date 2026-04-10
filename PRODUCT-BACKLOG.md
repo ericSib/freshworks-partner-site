@@ -1,7 +1,7 @@
 # Product Backlog — What A Service
 
 > **Referentiel unique** — Ce fichier est la seule source de verite pour le produit.
-> Mis a jour : 10/04/2026 — v7.3 (Sprint 12 DONE + E22 closed + backlog cleanup post-refinement)
+> Mis a jour : 10/04/2026 — v7.4 (D3+D4 tranchees, 5/5 stories Sprint 13 Ready, 15 pts)
 > Product Owner : Claude Code (assist) | Stakeholder : Eric Sib, Fondateur
 
 ---
@@ -115,26 +115,30 @@ avec un CPL 10-50x inferieur au paid advertising.
 > Derniers sprints livres : Sprint 10 (SEO machines), Sprint 11 (SEO humains), Sprint 12 (GA4 + pages maturite).
 > Details dans section 5 "Historique des Sprints".
 
-### PRIORITE 1 — Sprint 13 "Fiabiliser et couvrir" (E21 + E18) — cible 13 pts
+### PRIORITE 1 — Sprint 13 "Fiabiliser et couvrir" (E21 + E18 + E15) — 15 pts
 
-> Sprint Goal propose : *Fiabiliser le quiz en production et couvrir les trous de qualite post-audit.*
-> **Etat DoR** : 3/5 stories Ready (6/14 pts) — voir `docs/stories-ready/`.
+> Sprint Goal : *Fiabiliser le quiz en production et couvrir les trous de qualite post-audit.*
+> **Etat DoR** : ✅ **5/5 stories Ready (15 pts)** — voir `docs/stories-ready/`.
+> **Capacity** : cible initiale 13 pts → 15 pts (depassement +15%) suite a D3 Option A retenue.
+> **Decouverte** : bug critique quiz (validation Zod `/api/contact` echoue silencieusement — voir US-18.9).
 
-| # | Story | Epic | Pts | MoSCoW | DoR |
-|---|-------|------|-----|--------|-----|
+| Ordre | Story | Epic | Pts | MoSCoW | DoR |
+|-------|-------|------|-----|--------|-----|
 | 1 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.1.md)) |
-| 2 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot) | E18 | 3 | Must | 🔴 Non Ready (D3 archi) |
-| 3 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.3.md)) |
-| 4 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should | ✅ Ready ([AC](./docs/stories-ready/US-21.2.md)) |
-| 5 | US-15.4 Playwright dans GitHub Actions CI (ex-Could, remontee Must) | E15 | 5 | Must (D4) | 🔴 Non Ready |
+| 2 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.2.md)) |
+| 3 | US-21.3 Scan axe-core quiz (5 etats : selecteur, demographics, question, resultats, email gate) | E21 | 3 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.3.md)) |
+| 4 | US-15.4 Playwright dans GitHub Actions CI (workflow dedie + cache + artefacts) | E15 | 5 | **Must (D4 ✅)** | ✅ Ready ([AC](./docs/stories-ready/US-15.4.md)) |
+| 5 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot + fix bug) | E18 | 4 | **Must (D3 ✅ Option A)** | ✅ Ready ([AC](./docs/stories-ready/US-18.9.md)) |
 
-> **Decisions bloquantes Sprint 13** :
-> - D3 : Archi API quiz — endpoint dedie vs. mutualisation /api/contact ?
-> - D4 : Playwright CI en Must ou Could ?
-> - D6 : Scope US-10.1 "E2E complementaires" a clarifier (sinon archivee)
+> **Decisions tranchees** :
+> - ✅ **D3** : Option A — endpoint dedie `/api/quiz/submit` (US-18.9 = 4 pts, +1 vs initial)
+> - ✅ **D4** : Playwright CI en Must (US-15.4 integree au Sprint 13)
+> - 🕐 D5 : Pages maturite L2-L5 vs blog — en attente (hors Sprint 13)
+> - 🕐 D6 : Scope US-10.1 — en attente (US-10.1 reste Could, a clarifier ou archiver)
 >
-> **Note** : 3 stories E21 (US-21.1, US-21.2, US-21.3 = 6 pts) sont deja Ready
-> et peuvent demarrer des le debut du Sprint 13 sans attendre D3/D4.
+> **Ordre d'implementation recommande** : US-21.1 → US-21.2 → US-21.3 → US-15.4 → US-18.9.
+> La CI (US-15.4) est positionnee **avant** US-18.9 pour que cette derniere beneficie
+> du filet de securite e2e des son developpement.
 
 ### PRIORITE 2 — QA & stabilite — backlog E21 restant (post Sprint 13)
 
@@ -340,5 +344,5 @@ Resend domain, security headers, error boundaries.
 
 ---
 
-*PRODUCT-BACKLOG.md — Referentiel unique — v7.3*
+*PRODUCT-BACKLOG.md — Referentiel unique — v7.4*
 *What A Service — "Freshworks Consulting, Done Right."*
