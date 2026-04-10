@@ -118,20 +118,23 @@ avec un CPL 10-50x inferieur au paid advertising.
 ### PRIORITE 1 — Sprint 13 "Fiabiliser et couvrir" (E21 + E18) — cible 13 pts
 
 > Sprint Goal propose : *Fiabiliser le quiz en production et couvrir les trous de qualite post-audit.*
-> **Etat DoR** : 0/5 stories Ready — voir `docs/stories-ready/` (a creer).
+> **Etat DoR** : 3/5 stories Ready (6/14 pts) — voir `docs/stories-ready/`.
 
 | # | Story | Epic | Pts | MoSCoW | DoR |
 |---|-------|------|-----|--------|-----|
-| 1 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Must | Partiel |
-| 2 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot) | E18 | 3 | Must | Non Ready (D3 archi) |
-| 3 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Must | Partiel |
-| 4 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should | Partiel |
-| 5 | US-15.4 Playwright dans GitHub Actions CI (ex-Could, remontee Must) | E15 | 5 | Must (D4) | Non Ready |
+| 1 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.1.md)) |
+| 2 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot) | E18 | 3 | Must | 🔴 Non Ready (D3 archi) |
+| 3 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Must | ✅ Ready ([AC](./docs/stories-ready/US-21.3.md)) |
+| 4 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should | ✅ Ready ([AC](./docs/stories-ready/US-21.2.md)) |
+| 5 | US-15.4 Playwright dans GitHub Actions CI (ex-Could, remontee Must) | E15 | 5 | Must (D4) | 🔴 Non Ready |
 
 > **Decisions bloquantes Sprint 13** :
 > - D3 : Archi API quiz — endpoint dedie vs. mutualisation /api/contact ?
 > - D4 : Playwright CI en Must ou Could ?
 > - D6 : Scope US-10.1 "E2E complementaires" a clarifier (sinon archivee)
+>
+> **Note** : 3 stories E21 (US-21.1, US-21.2, US-21.3 = 6 pts) sont deja Ready
+> et peuvent demarrer des le debut du Sprint 13 sans attendre D3/D4.
 
 ### PRIORITE 2 — QA & stabilite — backlog E21 restant (post Sprint 13)
 

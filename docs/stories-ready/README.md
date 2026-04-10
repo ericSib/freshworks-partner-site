@@ -52,9 +52,13 @@ Backlog (one-liner) --> [3-Amigos refinement] --> docs/stories-ready/US-XX.Y.md 
 
 ## Stories actuellement Ready
 
-| Story | Pts | Sprint cible | Statut DoR |
-|-------|-----|--------------|------------|
-| *(aucune pour l'instant — a rediger pour Sprint 13)* | — | — | — |
+| Story | Pts | Sprint cible | Statut DoR | Fichier |
+|-------|-----|--------------|------------|---------|
+| US-21.1 Eliminer waitForTimeout quiz | 1 | Sprint 13 | ✅ Ready | [US-21.1.md](./US-21.1.md) |
+| US-21.2 Smoke + a11y /mentions-legales | 2 | Sprint 13 | ✅ Ready | [US-21.2.md](./US-21.2.md) |
+| US-21.3 Scan axe-core quiz (5 etats) | 3 | Sprint 13 | ✅ Ready | [US-21.3.md](./US-21.3.md) |
+
+**Total Ready : 6 pts** (3 stories / 5 prevues pour le Sprint 13)
 
 ---
 
@@ -62,11 +66,14 @@ Backlog (one-liner) --> [3-Amigos refinement] --> docs/stories-ready/US-XX.Y.md 
 
 | Story | Pts | Blocage DoR |
 |-------|-----|-------------|
-| US-21.1 Eliminer waitForTimeout | 1 | AC Gherkin + criteres flakiness |
-| US-18.9 API quiz dediee /api/quiz/submit | 3 | D3 archi a trancher |
-| US-21.3 Scan axe-core quiz | 3 | Seuil axe-core + bypass email gate |
-| US-21.2 Smoke + a11y /mentions-legales | 2 | AC Gherkin + liste smoke checks |
-| US-15.4 Playwright dans CI | 5 | D4 priorisation + strategie cache |
+| US-18.9 API quiz dediee /api/quiz/submit | 3 | **D3** — archi endpoint dedie vs. mutualisation /api/contact |
+| US-15.4 Playwright dans CI | 5 | **D4** — priorisation Must vs. Could + strategie cache npm |
+
+**Decisions a trancher par le stakeholder pour debloquer la redaction** :
+- **D3** : Architecture API quiz (impact US-18.9)
+- **D4** : Priorite Playwright CI (impact US-15.4)
+- **D5** : Pages maturite L2-L5 vs. blog/pilliers (impact backlog post-Sprint 13)
+- **D6** : Scope US-10.1 "E2E complementaires" (sinon archivee)
 
 ---
 
