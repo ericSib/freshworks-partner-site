@@ -1,7 +1,7 @@
 # Product Backlog — What A Service
 
 > **Referentiel unique** — Ce fichier est la seule source de verite pour le produit.
-> Mis a jour : 09/04/2026 — v7.2 (Sprint 10-11 DONE + Product Review + refinement Sprint 12)
+> Mis a jour : 10/04/2026 — v7.3 (Sprint 12 DONE + E22 closed + backlog cleanup post-refinement)
 > Product Owner : Claude Code (assist) | Stakeholder : Eric Sib, Fondateur
 
 ---
@@ -76,7 +76,7 @@ avec un CPL 10-50x inferieur au paid advertising.
 
 ## 3. Epics — Vue d'ensemble
 
-### LIVRES (Sprint 1-9)
+### LIVRES (Sprint 1-12)
 
 | Epic | Theme | Statut | Sprints |
 |------|-------|--------|---------|
@@ -96,19 +96,14 @@ avec un CPL 10-50x inferieur au paid advertising.
 | E16 | Performance (images locales, CSP durcie) | DONE | 6, 9 |
 | E17 | Nettoyage dette technique (Button.tsx, useReducedMotion, Calendly CSS) | DONE | 6 |
 | **E18** | **Score de Maturite ITSM+CX (quiz lead gen)** | **DONE** | **7-9** |
-
-### EN COURS
-
-| Epic | Theme | Statut | Sprints |
-|------|-------|--------|---------|
-| **E22** | **SEO/GEO Optimization (schema, E-E-A-T, GEO, meta sociaux)** | **Sprint 10 DONE, Sprint 11 EN COURS** | **10-12** |
+| **E22** | **SEO/GEO Optimization (schema, E-E-A-T, GEO, meta sociaux, GA4)** | **DONE** | **10-12** |
 
 ### BACKLOG (a venir)
 
 | Epic | Theme | Statut | Priorite |
 |------|-------|--------|----------|
-| E21 | Consolider la suite E2E (stabilite, couverture, a11y, POM) | Backlog | Haute |
-| E18+ | Pages SEO par niveau maturite (5 ITSM + 5 CX) | Backlog | Moyenne (depend E22) |
+| E21 | Consolider la suite E2E (stabilite, couverture, a11y, POM) | Partiellement commence (voir notes) | Haute |
+| E18+ | Pages SEO par niveau maturite (8 pages L2-L5 restantes) | Backlog (2 pilotes L1 livres Sprint 12) | Moyenne |
 | E19 | Authentification Supabase (prerequis Scanner) | Backlog | Phase 2 |
 | E20 | Scanner d'Environnement Freshservice + Freshdesk | Backlog | Phase 2 |
 | E11 | Blog / Ressources (pillar-cluster SEO) | Backlog | Phase 3 (depend E22) |
@@ -117,73 +112,78 @@ avec un CPL 10-50x inferieur au paid advertising.
 
 ## 4. Backlog ordonne — Stories actives
 
-### ~~Sprint 10~~ "Visible par les machines" — ✅ DONE (13 pts)
+> Derniers sprints livres : Sprint 10 (SEO machines), Sprint 11 (SEO humains), Sprint 12 (GA4 + pages maturite).
+> Details dans section 5 "Historique des Sprints".
 
-| # | Story | Epic | Pts | Statut |
-|---|-------|------|-----|--------|
-| 1 | US-22.6 Sitemap complet + robots.txt AI crawlers | E22 | 2 | ✅ |
-| 2 | US-22.1 Schema JSON-LD Organization (site-wide) | E22 | 3 | ✅ |
-| 3 | US-22.5 Twitter Cards + og:image par defaut | E22 | 3 | ✅ |
-| 4 | US-22.2 Schema JSON-LD Person (consultant) | E22 | 2 | ✅ |
-| 5 | US-22.3 Schema JSON-LD Service (par offre) | E22 | 3 | ✅ |
+### PRIORITE 1 — Sprint 13 "Fiabiliser et couvrir" (E21 + E18) — cible 13 pts
 
-### ~~Sprint 11~~ "Credible et citable" — ✅ DONE (13 pts)
+> Sprint Goal propose : *Fiabiliser le quiz en production et couvrir les trous de qualite post-audit.*
+> **Etat DoR** : 0/5 stories Ready — voir `docs/stories-ready/` (a creer).
 
-| # | Story | Epic | Pts | Statut |
-|---|-------|------|-----|--------|
-| 1 | US-22.10 FAQ section + FAQPage JSON-LD (GEO) | E22 | 5 | ✅ |
-| 2 | US-22.7 Breadcrumbs UI + BreadcrumbList JSON-LD | E22 | 3 | ✅ |
-| 3 | US-22.9 About enrichi E-E-A-T (LinkedIn, stats) | E22 | 2 | ✅ |
-| 4 | US-22.11 Answer capsules GEO (i18n) | E22 | 3 | ✅ |
+| # | Story | Epic | Pts | MoSCoW | DoR |
+|---|-------|------|-----|--------|-----|
+| 1 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Must | Partiel |
+| 2 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot) | E18 | 3 | Must | Non Ready (D3 archi) |
+| 3 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Must | Partiel |
+| 4 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should | Partiel |
+| 5 | US-15.4 Playwright dans GitHub Actions CI (ex-Could, remontee Must) | E15 | 5 | Must (D4) | Non Ready |
 
-### PRIORITE 1 — Sprint 12 "Mesurer et convertir" (E22 + E18+) — 13 pts
+> **Decisions bloquantes Sprint 13** :
+> - D3 : Archi API quiz — endpoint dedie vs. mutualisation /api/contact ?
+> - D4 : Playwright CI en Must ou Could ?
+> - D6 : Scope US-10.1 "E2E complementaires" a clarifier (sinon archivee)
 
-| # | Story | Epic | Pts | MoSCoW |
-|---|-------|------|-----|--------|
-| 1 | US-22.8 Analytics GA4 + cookie banner RGPD | E22 | 5 | Should |
-| 2 | US-22.12 OG image v2 (marketing) | E22 | 2 | Should |
-| 3 | US-18.7a Infra pages maturite + 2 pages pilotes (ITSM L1 + CX L1) | E18+ | 6 | Should |
-
-> GA4 ID : G-P37MDYJ5M8 (fourni par stakeholder)
-> OG image : stakeholder demande un visuel plus marketing
-> E18+ : debut de l'Epic pages SEO maturite (2 pages pilotes sur 10)
-
-### PRIORITE 2 — QA & stabilite (E21)
+### PRIORITE 2 — QA & stabilite — backlog E21 restant (post Sprint 13)
 
 | # | Story | Epic | Pts | MoSCoW |
 |---|-------|------|-----|--------|
-| 13 | US-18.9 API quiz dediee /api/quiz/submit (endpoint + Zod + HubSpot) | E18 | 3 | Should |
-| 14 | US-21.1 Eliminer waitForTimeout quiz (waits explicites, 0 flakiness CI) | E21 | 1 | Should |
-| 15 | US-21.2 Test E2E smoke + a11y /mentions-legales (FR+EN, axe-core) | E21 | 2 | Should |
-| 16 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Should |
-| 17 | US-21.3 Scan axe-core quiz (chargement, resultats, email gate) | E21 | 3 | Should |
-| 18 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could |
-| 19 | Playwright dans GitHub Actions CI | E15 | 5 | Could |
+| 1 | US-10.1 Tests E2E complementaires (parcours critique homepage) | E10 | 3 | Could (D6) |
+| 2 | US-21.4 QuizPage POM (centraliser selecteurs, maintenabilite) | E21 | 3 | Could |
 
-### PRIORITE 2 — Phase 2 (Scanner)
+> **Notes avancement E21 (hors-sprint 10/04/2026)** :
+> - `096cb5b` fix(a11y): WCAG 2 AA color-contrast — couvre partiellement US-21.3 (a rattacher explicitement)
+> - `28a8186` fix(a11y): keyboard nav mobile menu (Escape + focus trap) — dette hors US, a backlogger si recurrent
+> - `a300a20` fix(e2e): mock contact API + CTA regex — hardening non attribue
+> - `05a2749` fix(e2e): CTA text expectations language-switch — hardening non attribue
+> - `waitForTimeout` residuels : `tests/e2e/quiz.spec.ts:31,82` + `tests/e2e/accessibility.spec.ts:68` (US-21.1)
+
+### PRIORITE 3 — Phase 2 (Scanner) — Backlog lointain
+
+> **Note refinement** : US-20.1 / US-20.2 a 8 pts sont a la limite du seuil SPIDR.
+> Decoupage propose : separer API read-only (5 pts) de la restitution Health Score (3 pts).
+> Dependance bloquante : US-19.1 (Spike Supabase) requis avant tout travail E20.
 
 | # | Story | Epic | Pts | MoSCoW |
 |---|-------|------|-----|--------|
 | 6 | US-19.1 Spike Supabase (auth + schema + middleware coexistence) | E19 | 5 | Should |
 | 7 | US-19.2 Magic link + OAuth Microsoft + Google | E19 | 5 | Should |
 | 8 | US-19.3 Middleware auth + route groups (public/authenticated) | E19 | 3 | Should |
-| 9 | US-20.1 Scanner Freshservice API v2 (8 dimensions) | E20 | 8 | Should |
-| 10 | US-20.2 Scanner Freshdesk API v2 (8 dimensions) | E20 | 8 | Should |
+| 9 | US-20.1 Scanner Freshservice API v2 (8 dimensions) — decoupage SPIDR a faire | E20 | 8 | Should |
+| 10 | US-20.2 Scanner Freshdesk API v2 (8 dimensions) — decoupage SPIDR a faire | E20 | 8 | Should |
 | 11 | US-20.3 Health Score + rapport differencies | E20 | 5 | Should |
 | 12 | US-20.4 Cles API ephemeres + UX securite | E20 | 3 | Must |
 
 ### PRIORITE 4 — Backlog lointain
 
+> **Note refinement** : "Pillar pages SEO" a 13 pts est un epic deguise.
+> Decoupage SPIDR propose : Spike MDX vs CMS (2) + 2 piliers pilotes (2x5) + cross-linking (3) = E11.1.
+
 | # | Story | Pts | Notes |
 |---|-------|-----|-------|
-| Blog engine (MDX ou CMS headless) | 5 | Depend E22 (schema Article) |
-| Pillar pages SEO (5 × 2000-5000 mots) | 13 | Depend E22 (GEO architecture) |
+| US-18.7b Pages maturite ITSM L2-L3 | 3 | Depend de l'infra livree Sprint 12 |
+| US-18.7c Pages maturite ITSM L4-L5 | 3 | Depend de l'infra livree Sprint 12 |
+| US-18.7d Pages maturite CX L2-L3 | 3 | Depend de l'infra livree Sprint 12 |
+| US-18.7e Pages maturite CX L4-L5 | 3 | Depend de l'infra livree Sprint 12 |
+| Blog engine (MDX ou CMS headless) | 5 | Depend E22 (schema Article) — **D5 a trancher** |
+| Pillar pages SEO (5 × 2000-5000 mots) | 13 | **A decouper SPIDR** — Epic E11.1 propose |
 | Score cards virales LinkedIn | 5 | |
 | Cross-tool nurture ITSM+CX | 5 | |
 | Benchmark DB agregee | 8 | |
 | Structured logging (pino/winston) | 3 | |
 
-> **Note** : US-12.2 (Core Web Vitals) absorbe dans E22. Analytics GA4/GTM absorbe dans US-22.8.
+> **Notes** :
+> - US-12.2 (Core Web Vitals) absorbe dans E22. Analytics GA4/GTM absorbe dans US-22.8.
+> - **D5 (decision stakeholder)** : investir dans les 4 nouvelles US pages maturite (12 pts) OU pivoter vers le blog/pilliers (13+ pts) ?
 
 ---
 
@@ -258,23 +258,51 @@ Resend domain, security headers, error boundaries.
 | US-22.2 Schema JSON-LD Person (consultant + credentials) | 2 |
 | US-22.3 Schema JSON-LD Service x6 (i18n-driven) | 3 |
 
+### Sprint 11 — "Credible et citable" (13 pts) — LIVRE
+
+| Story | Pts |
+|-------|-----|
+| US-22.10 FAQ section + FAQPage JSON-LD (GEO) | 5 |
+| US-22.7 Breadcrumbs UI + BreadcrumbList JSON-LD | 3 |
+| US-22.9 About enrichi E-E-A-T (LinkedIn, stats) | 2 |
+| US-22.11 Answer capsules GEO (i18n FR+EN) | 3 |
+
+### Sprint 12 — "Mesurer et convertir" (13 pts) — LIVRE (09/04/2026)
+
+| Story | Pts | Commit |
+|-------|-----|--------|
+| US-22.8 Analytics GA4 + cookie banner RGPD (GA4 ID G-P37MDYJ5M8) | 5 | `38620ae` |
+| US-22.12 OG image v2 (marketing visuals) | 2 | `528bbac` |
+| US-18.7a Infra pages maturite + 2 pages pilotes (ITSM L1 + CX L1) | 6 | `f98c81f` |
+
+> **Cloture** : E22 (SEO/GEO Optimization) entierement DONE apres Sprint 12 (3 sprints, 39 pts, 13 US).
+> **Bonus hors-sprint** (hardening post-audit, non attribues a une US) :
+> - `096cb5b` fix(a11y): WCAG 2 AA color-contrast violations
+> - `28a8186` fix(a11y): keyboard nav mobile menu (Escape + focus trap)
+> - `a300a20` fix(e2e): mock contact API + CTA regex form tests
+> - `05a2749` fix(e2e): CTA text expectations language-switch test
+> - `f56c73a` docs(config): consolidation backlogs Sprint 10-12
+
 ---
 
 ## 6. Metriques actuelles
 
 | Metrique | Valeur |
 |----------|--------|
-| Tests unitaires + i18n + SEO | **522** |
+| Tests unitaires + i18n + SEO | **522+** (ajout test maturity) |
 | Tests E2E (Playwright) | **11** (8 homepage + 3 quiz) |
 | Couverture code (logique metier) | **72.8%** |
 | Vulns critiques | **0** |
 | Images Unsplash | **0** (toutes locales) |
 | Pipeline CI | **GitHub Actions** (lint + typecheck + test + build) |
+| Playwright en CI | **Non** (US-15.4 backlog Sprint 13) |
 | CSP unsafe-eval prod | **Non** (dev only) |
-| Schemas JSON-LD | **9 types** (Org, Person, Service x6, etc.) |
+| Schemas JSON-LD | **10+ types** (Org, Person, Service x6, FAQPage, BreadcrumbList) |
 | AI crawlers autorises | **5** (GPTBot, ChatGPT-User, Perplexity, Claude, Google-Ext) |
-| Score SEO estime | **8/10** (post Sprint 10) |
-| Story points cumules (Sprint 1-10) | **84+** |
+| Analytics | **GA4 (G-P37MDYJ5M8)** + cookie banner RGPD |
+| Pages maturite | **2/10** (ITSM L1 + CX L1 pilotes) |
+| Score SEO estime | **9/10** (post Sprint 12, E22 DONE) |
+| Story points cumules (Sprint 1-12) | **~110+** |
 
 ---
 
@@ -309,5 +337,5 @@ Resend domain, security headers, error boundaries.
 
 ---
 
-*PRODUCT-BACKLOG.md — Referentiel unique — v7.1*
+*PRODUCT-BACKLOG.md — Referentiel unique — v7.3*
 *What A Service — "Freshworks Consulting, Done Right."*
