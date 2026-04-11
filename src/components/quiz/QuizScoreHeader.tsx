@@ -5,28 +5,34 @@ import type { MaturityLevel } from "@/config/quiz";
 interface QuizScoreHeaderProps {
   overallScore: number;
   maturityLevel: MaturityLevel;
-  /** CSS classes computed from the urgency level by the parent. */
-  badgeClass: string;
   /** next-intl translator from the parent (top-level namespace). */
   t: (key: string) => string;
 }
 
+/** Urgency → Tailwind classes mapping for the level badge. */
+const URGENCY_BADGE_CLASSES: Record<MaturityLevel["urgency"], string> = {
+  critical: "text-red-400 border-red-400/30 bg-red-400/10",
+  high: "text-orange-400 border-orange-400/30 bg-orange-400/10",
+  medium: "text-accent border-accent/30 bg-accent/10",
+  low: "text-emerald-400 border-emerald-400/30 bg-emerald-400/10",
+};
+
 /**
  * Score header block for the quiz results screen.
  *
- * Pure presentational component — renders:
- *   - big score (N/100)
- *   - "Level X — Label" badge with urgency-based colors
- *   - maturity level description
- *
- * Extracted from QuizResultsPreview (US-21.7, Sprint 14).
+ * Pure presentational component — renders the score, the urgency-coloured
+ * level badge and the maturity level description. Extracted from
+ * QuizResultsPreview (US-21.7, Sprint 14).
  */
 export default function QuizScoreHeader({
   overallScore,
   maturityLevel,
-  badgeClass,
   t,
 }: QuizScoreHeaderProps) {
+  const badgeClass =
+    URGENCY_BADGE_CLASSES[maturityLevel.urgency] ??
+    URGENCY_BADGE_CLASSES.medium;
+
   return (
     <div className="text-center mb-12">
       <div className="mb-6">
