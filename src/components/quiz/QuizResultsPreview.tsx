@@ -8,6 +8,7 @@ import type { QuizResults } from "@/hooks/useQuiz";
 import type { QuizConfig } from "@/config/quiz";
 import { generateQuizPdf } from "@/lib/quiz/generate-pdf";
 import RadarChart from "./RadarChart";
+import QuizScoreHeader from "./QuizScoreHeader";
 
 interface QuizResultsPreviewProps {
   results: QuizResults;
@@ -90,26 +91,12 @@ export default function QuizResultsPreview({
     <div className="min-h-[100dvh] bg-deep">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         {/* Score header */}
-        <div className="text-center mb-12">
-          <div className="mb-6">
-            <span className="text-6xl sm:text-7xl font-heading font-bold text-surface">
-              {overallScore}
-            </span>
-            <span className="text-2xl text-slate-500 font-heading">/100</span>
-          </div>
-
-          <div
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium mb-4 ${badgeClass}`}
-          >
-            <span>Level {maturityLevel.level}</span>
-            <span className="opacity-60">—</span>
-            <span>{t(maturityLevel.labelKey)}</span>
-          </div>
-
-          <p className="text-slate-400 text-base max-w-lg mx-auto">
-            {t(maturityLevel.descriptionKey)}
-          </p>
-        </div>
+        <QuizScoreHeader
+          overallScore={overallScore}
+          maturityLevel={maturityLevel}
+          badgeClass={badgeClass}
+          t={t}
+        />
 
         {/* Radar chart — FREE (always visible) */}
         <div className="mb-16">
