@@ -3,8 +3,15 @@
  * US-22.8
  */
 
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { hasConsent, setConsent, CONSENT_KEY } from "@/lib/analytics";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import {
+  hasConsent,
+  setConsent,
+  CONSENT_KEY,
+  trackEvent,
+  trackQuizComplete,
+  trackContactSubmit,
+} from "@/lib/analytics";
 import frMessages from "@/messages/fr.json";
 import enMessages from "@/messages/en.json";
 
@@ -67,5 +74,146 @@ describe("Cookie banner i18n (US-22.8)", () => {
     expect(enMessages.cookies.message).toBeTruthy();
     expect(enMessages.cookies.accept).toBeTruthy();
     expect(enMessages.cookies.decline).toBeTruthy();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// US-21.6 — GA4 trackers coverage
+// ---------------------------------------------------------------------------
+
+describe("Analytics trackers (US-21.6)", () => {
+  const gtagMock = vi.fn();
+
+  /**
+   * Grant consent without going through `setConsent()` — that helper calls
+   * `gtag("consent", "update", ...)` on granted and would pollute our
+   * assertions on tracker call counts. For these tests we only care about
+   * the tracker side-effects, not the consent-update gtag call (already
+   * covered by the "Analytics consent (US-22.8)" describe above).
+   */
+  function grantConsent(): void {
+    store[CONSENT_KEY] = "granted";
+  }
+
+  beforeEach(() => {
+    localStorageMock.clear();
+    vi.clearAllMocks();
+    vi.stubGlobal("gtag", gtagMock);
+    // Also mirror it onto `window` since the module reads `window.gtag`.
+    (window as unknown as { gtag: typeof gtagMock }).gtag = gtagMock;
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    delete (window as unknown as { gtag?: unknown }).gtag;
+  });
+
+  describe("trackEvent", () => {
+    it("is a no-op when consent is not granted (scenario 1)", () => {
+      // hasConsent() === false (no decision stored)
+      trackEvent({ action: "test_action" });
+
+      expect(gtagMock).not.toHaveBeenCalled();
+    });
+
+    it("is a no-op when consent is denied", () => {
+      setConsent(false);
+      trackEvent({ action: "test_action" });
+
+      expect(gtagMock).not.toHaveBeenCalled();
+    });
+
+    it("does not throw when gtag is absent on the window (scenario 2)", () => {
+      grantConsent();
+      // Simulate gtag blocked by adblocker or not yet loaded
+      delete (window as unknown as { gtag?: unknown }).gtag;
+      vi.unstubAllGlobals();
+
+      expect(() => trackEvent({ action: "test" })).not.toThrow();
+    });
+
+    it("forwards the full payload to gtag when consent is granted (scenario 3)", () => {
+      grantConsent();
+
+      trackEvent({
+        action: "click",
+        category: "nav",
+        label: "header",
+        value: 1,
+      });
+
+      expect(gtagMock).toHaveBeenCalledTimes(1);
+      expect(gtagMock).toHaveBeenCalledWith("event", "click", {
+        event_category: "nav",
+        event_label: "header",
+        value: 1,
+      });
+    });
+
+    it("forwards undefined fields for minimal payloads", () => {
+      grantConsent();
+
+      trackEvent({ action: "ping" });
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "ping", {
+        event_category: undefined,
+        event_label: undefined,
+        value: undefined,
+      });
+    });
+  });
+
+  describe("trackQuizComplete", () => {
+    it("emits quiz_complete with rounded score and segment label (scenario 4)", () => {
+      grantConsent();
+
+      trackQuizComplete("itsm", 72.4);
+
+      expect(gtagMock).toHaveBeenCalledTimes(1);
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_complete", {
+        event_category: "engagement",
+        event_label: "itsm",
+        value: 72,
+      });
+    });
+
+    it("rounds 72.6 up to 73", () => {
+      grantConsent();
+
+      trackQuizComplete("cx", 72.6);
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_complete", {
+        event_category: "engagement",
+        event_label: "cx",
+        value: 73,
+      });
+    });
+
+    it("is a no-op when consent is missing", () => {
+      trackQuizComplete("itsm", 80);
+
+      expect(gtagMock).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("trackContactSubmit", () => {
+    it("emits contact_submit under the conversion category (scenario 5)", () => {
+      grantConsent();
+
+      trackContactSubmit();
+
+      expect(gtagMock).toHaveBeenCalledTimes(1);
+      expect(gtagMock).toHaveBeenCalledWith("event", "contact_submit", {
+        event_category: "conversion",
+        event_label: undefined,
+        value: undefined,
+      });
+    });
+
+    it("is a no-op when consent is missing", () => {
+      trackContactSubmit();
+
+      expect(gtagMock).not.toHaveBeenCalled();
+    });
   });
 });
