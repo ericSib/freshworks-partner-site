@@ -9,6 +9,7 @@ import type { QuizConfig } from "@/config/quiz";
 import { generateQuizPdf } from "@/lib/quiz/generate-pdf";
 import RadarChart from "./RadarChart";
 import QuizScoreHeader from "./QuizScoreHeader";
+import QuizQuickWins from "./QuizQuickWins";
 
 interface QuizResultsPreviewProps {
   results: QuizResults;
@@ -109,39 +110,7 @@ export default function QuizResultsPreview({
         </div>
 
         {/* Quick wins — FREE (always visible) */}
-        <div className="mb-16">
-          <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-slate-400 mb-6">
-            {t("quiz.results.quickWinsTitle")}
-          </h3>
-
-          <div className="space-y-4">
-            {weakestDimensions.map((dim, i) => (
-              <div
-                key={dim.id}
-                className="border border-white/5 rounded-lg p-5 hover:border-accent/20 transition-colors duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                    <span className="text-accent text-sm font-semibold">
-                      {i + 1}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="text-surface font-medium text-sm mb-1">
-                      {t(dim.nameKey)}{" "}
-                      <span className="text-slate-400">
-                        — {dim.score.toFixed(1)}/5
-                      </span>
-                    </h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                      {t(dim.commercialAngleKey)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <QuizQuickWins weakestDimensions={weakestDimensions} t={t} />
 
         {/* EMAIL GATE — Unlock detailed results */}
         {gateState !== "unlocked" ? (
