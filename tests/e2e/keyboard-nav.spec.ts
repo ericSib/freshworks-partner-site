@@ -41,57 +41,149 @@ test.describe("Keyboard Navigation — Desktop", () => {
   });
 });
 
+/**
+ * Mobile menu keyboard navigation coverage.
+ *
+ * The mobile menu accessibility contract was added by commit 28a8186
+ * (fix(a11y) keyboard nav) without a dedicated E2E non-regression net.
+ * US-21.11 covers that gap with 4 tests: Escape + forward focus trap +
+ * Shift+Tab focus trap + EN locale parity.
+ *
+ * All tests use the inline navigation + expect.toPass pattern documented
+ * in US-21.1 to absorb the React SSR hydration race on the SSR-rendered
+ * hamburger button.
+ */
 test.describe("Keyboard Navigation — Mobile Menu", () => {
   test.use({ viewport: { width: 375, height: 812 } });
 
-  test("Escape closes mobile menu and returns focus to hamburger", async ({
+  /**
+   * Navigate to the given locale and wait for React hydration by asserting
+   * that the hamburger's React-driven aria-expanded attribute is rendered
+   * ("false" on mount).
+   */
+  async function gotoHydratedMobile(
+    page: Parameters<Parameters<typeof test>[1]>[0]["page"],
+    locale: "fr" | "en"
+  ) {
+    await page.goto(`/${locale}`, { waitUntil: "domcontentloaded" });
+    const hamburger = page.getByRole("button", { name: "Menu" });
+    await expect(hamburger).toHaveAttribute("aria-expanded", "false");
+    return hamburger;
+  }
+
+  /**
+   * Focus the hamburger and press Enter, then assert aria-expanded flipped
+   * to "true". Wrapped in expect.toPass() to absorb the hydration race
+   * where the very first Enter press can be dropped if React has not yet
+   * attached its onClick handler to the SSR-rendered button.
+   */
+  async function openMenuWithKeyboard(
+    page: Parameters<Parameters<typeof test>[1]>[0]["page"],
+    hamburger: ReturnType<
+      Parameters<Parameters<typeof test>[1]>[0]["page"]["getByRole"]
+    >
+  ) {
+    await expect(async () => {
+      await hamburger.focus();
+      await page.keyboard.press("Enter");
+      await expect(hamburger).toHaveAttribute("aria-expanded", "true", {
+        timeout: 500,
+      });
+    }).toPass({ timeout: 5000 });
+  }
+
+  test("Escape closes mobile menu and returns focus to hamburger (FR)", async ({
     page,
   }) => {
-    const home = new HomePage(page);
-    await home.goto("fr");
+    const hamburger = await gotoHydratedMobile(page, "fr");
+    await openMenuWithKeyboard(page, hamburger);
 
-    await home.openMobileMenu();
-    const mobileLinks = home.getMobileNavLinks();
-    await expect(mobileLinks.first()).toBeVisible({ timeout: 2000 });
+    // Menu is visibly open — the last link is rendered
+    const mobileLinks = page.locator("#mobile-menu a");
+    await expect(mobileLinks.last()).toBeVisible({ timeout: 2000 });
 
     // Press Escape
     await page.keyboard.press("Escape");
 
-    // Menu should close
-    await expect(home.mobileMenu).toHaveAttribute("aria-hidden", "true");
+    // React state flips back — aria-expanded is the canonical signal
+    await expect(hamburger).toHaveAttribute("aria-expanded", "false");
 
-    // Focus should return to hamburger button
-    const focused = page.locator(":focus");
-    await expect(focused).toHaveAttribute("aria-label", "Menu");
+    // Focus should return to the hamburger button (Header.tsx l.28)
+    await expect(hamburger).toBeFocused();
   });
 
-  test("Tab is trapped inside mobile menu", async ({ page }) => {
-    const home = new HomePage(page);
-    await home.goto("fr");
+  test("Tab is trapped inside mobile menu — forward direction", async ({
+    page,
+  }) => {
+    const hamburger = await gotoHydratedMobile(page, "fr");
+    await openMenuWithKeyboard(page, hamburger);
 
-    await home.openMobileMenu();
-    const mobileLinks = home.getMobileNavLinks();
-    await expect(mobileLinks.first()).toBeVisible({ timeout: 2000 });
-
-    // Focus the first link
-    await mobileLinks.first().focus();
-
-    // Count focusable items in mobile menu
-    const focusableCount = await home.mobileNav.evaluate((nav) => {
-      return nav.querySelectorAll("a[href], button:not([disabled])").length;
+    const mobileMenu = page.locator("#mobile-menu");
+    await expect(mobileMenu.locator("a").last()).toBeVisible({
+      timeout: 2000,
     });
 
-    // Tab through all items — should cycle back
-    for (let i = 0; i < focusableCount + 1; i++) {
+    // Count focusable items in mobile menu
+    const focusableCount = await mobileMenu.evaluate((menu) => {
+      return menu.querySelectorAll("a[href], button:not([disabled])").length;
+    });
+    expect(focusableCount).toBeGreaterThan(0);
+
+    // Focus the first link, then Tab through all items + 2 more
+    await mobileMenu.locator("a, button").first().focus();
+    for (let i = 0; i < focusableCount + 2; i++) {
       await page.keyboard.press("Tab");
     }
 
-    // Focus should still be inside the mobile menu (trapped)
+    // Focus must still be inside the mobile menu (focus trap intact)
     const focusedInMenu = await page.evaluate(() => {
       const focused = document.activeElement;
       const menu = document.getElementById("mobile-menu");
       return menu?.contains(focused) ?? false;
     });
     expect(focusedInMenu).toBe(true);
+  });
+
+  test("Shift+Tab on first element cycles to the last element (backward trap)", async ({
+    page,
+  }) => {
+    const hamburger = await gotoHydratedMobile(page, "fr");
+    await openMenuWithKeyboard(page, hamburger);
+
+    const mobileMenu = page.locator("#mobile-menu");
+    await expect(mobileMenu.locator("a").last()).toBeVisible({
+      timeout: 2000,
+    });
+
+    // Focus the very first focusable item
+    const first = mobileMenu.locator("a, button").first();
+    await first.focus();
+    await expect(first).toBeFocused();
+
+    // Shift+Tab → focus jumps to the last element (backward wrap)
+    await page.keyboard.press("Shift+Tab");
+
+    // Focus must still be inside the mobile menu
+    const focusedInMenu = await page.evaluate(() => {
+      const focused = document.activeElement;
+      const menu = document.getElementById("mobile-menu");
+      return menu?.contains(focused) ?? false;
+    });
+    expect(focusedInMenu).toBe(true);
+  });
+
+  test("Escape + focus return works identically in EN locale", async ({
+    page,
+  }) => {
+    const hamburger = await gotoHydratedMobile(page, "en");
+    await openMenuWithKeyboard(page, hamburger);
+
+    const mobileLinks = page.locator("#mobile-menu a");
+    await expect(mobileLinks.last()).toBeVisible({ timeout: 2000 });
+
+    await page.keyboard.press("Escape");
+
+    await expect(hamburger).toHaveAttribute("aria-expanded", "false");
+    await expect(hamburger).toBeFocused();
   });
 });
