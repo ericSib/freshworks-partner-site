@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { CALENDLY_URL } from "@/config/site";
 import type { QuizResults } from "@/hooks/useQuiz";
 import type { QuizConfig } from "@/config/quiz";
+import { useQuizSubmit } from "@/hooks/useQuizSubmit";
 import { generateQuizPdf } from "@/lib/quiz/generate-pdf";
 import RadarChart from "./RadarChart";
 import QuizScoreHeader from "./QuizScoreHeader";
@@ -39,8 +39,8 @@ export default function QuizResultsPreview({
 }: QuizResultsPreviewProps) {
   const t = useTranslations();
   const locale = useLocale() as "fr" | "en";
-  const [email, setEmail] = useState("");
-  const [gateState, setGateState] = useState<"locked" | "sending" | "unlocked">("locked");
+  const { email, setEmail, gateState, submit: handleEmailSubmit } =
+    useQuizSubmit(results);
 
   const { overallScore, maturityLevel, dimensionScores, weakestDimensions } =
     results;
@@ -57,37 +57,6 @@ export default function QuizResultsPreview({
     urgencyColors[maturityLevel.urgency] ?? urgencyColors.medium;
 
   const radarLabels = config.dimensions.map((dim) => t(dim.nameKey));
-
-  /** Submit the full quiz payload to unlock detailed results + sync HubSpot. */
-  async function handleEmailSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email || gateState === "sending") return;
-
-    setGateState("sending");
-    try {
-      await fetch("/api/quiz/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          segment: results.segment,
-          overallScore: results.overallScore,
-          maturityLevel: results.maturityLevel,
-          dimensionScores: results.dimensionScores,
-          demographics: results.demographics,
-          weakestDimensions: results.weakestDimensions.map((d) => ({
-            id: d.id,
-            score: d.score,
-            nameKey: d.nameKey,
-            commercialAngleKey: d.commercialAngleKey,
-          })),
-        }),
-      });
-    } catch {
-      // Fire-and-forget — never block the user from seeing their results
-    }
-    setGateState("unlocked");
-  }
 
   return (
     <div className="min-h-[100dvh] bg-deep">
