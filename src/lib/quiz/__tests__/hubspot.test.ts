@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
-import { buildQuizProperties } from "@/lib/quiz/hubspot";
+import { describe, it, expect, vi, beforeEach, afterEach, type Mock } from "vitest";
+import { buildQuizProperties, upsertHubSpotQuizLead } from "@/lib/quiz/hubspot";
 import type { QuizSubmitPayload } from "@/lib/validation";
 
 function validPayload(
@@ -135,5 +135,143 @@ describe("buildQuizProperties", () => {
     expect(props.quiz_maturity_label).toBe(
       "quiz.itsm.levels.established.label"
     );
+  });
+});
+
+// ---------------------------------------------------------------------------
+// upsertHubSpotQuizLead — T5 Sprint 15 (network + error branch coverage)
+// Same pattern as src/lib/__tests__/hubspot.test.ts (US-21.8)
+// ---------------------------------------------------------------------------
+
+describe("upsertHubSpotQuizLead — env + network branches (T5)", () => {
+  let fetchMock: Mock;
+  let logSpy: ReturnType<typeof vi.spyOn>;
+  let errorSpy: ReturnType<typeof vi.spyOn>;
+
+  beforeEach(() => {
+    fetchMock = vi.fn();
+    global.fetch = fetchMock as unknown as typeof fetch;
+    logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+    errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+
+  it("skips silently when HUBSPOT_ACCESS_TOKEN is not set", async () => {
+    vi.stubEnv("HUBSPOT_ACCESS_TOKEN", "");
+
+    await expect(upsertHubSpotQuizLead(validPayload())).resolves.toBeUndefined();
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(logSpy).toHaveBeenCalledWith(
+      expect.stringContaining("No HUBSPOT_ACCESS_TOKEN")
+    );
+  });
+
+  it("creates a new quiz lead when none exists (search → 0 → create)", async () => {
+    vi.stubEnv("HUBSPOT_ACCESS_TOKEN", "fake-token-123");
+
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ total: 0, results: [] }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ id: "new-quiz-lead" }),
+      });
+
+    await upsertHubSpotQuizLead(validPayload());
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+
+    // First call → search
+    const [searchUrl, searchInit] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(searchUrl).toContain("/crm/v3/objects/contacts/search");
+    expect(searchInit.method).toBe("POST");
+
+    // Second call → create
+    const [createUrl, createInit] = fetchMock.mock.calls[1] as [string, RequestInit];
+    expect(createUrl).toMatch(/\/crm\/v3\/objects\/contacts$/);
+    expect(createInit.method).toBe("POST");
+    expect(String(createInit.body)).toContain('"quiz_segment":"itsm"');
+    expect(String(createInit.body)).toContain('"quiz_score":"62"');
+
+    expect(logSpy).toHaveBeenCalledWith(
+      expect.stringContaining("Created quiz lead new-quiz-lead")
+    );
+  });
+
+  it("updates an existing contact when search returns a hit", async () => {
+    vi.stubEnv("HUBSPOT_ACCESS_TOKEN", "fake-token-123");
+
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ total: 1, results: [{ id: "existing-99" }] }),
+      })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({}) });
+
+    await upsertHubSpotQuizLead(validPayload());
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+
+    const [updateUrl, updateInit] = fetchMock.mock.calls[1] as [string, RequestInit];
+    expect(updateUrl).toContain("/crm/v3/objects/contacts/existing-99");
+    expect(updateInit.method).toBe("PATCH");
+
+    expect(logSpy).toHaveBeenCalledWith(
+      expect.stringContaining("Updated quiz lead existing-99")
+    );
+  });
+
+  it("logs and resolves silently when search returns 5xx", async () => {
+    vi.stubEnv("HUBSPOT_ACCESS_TOKEN", "fake-token-123");
+
+    // search fails → findContactByEmail returns null → create attempted
+    fetchMock
+      .mockResolvedValueOnce({ ok: false, json: async () => ({}) })
+      .mockResolvedValueOnce({
+        ok: false,
+        json: async () => ({ status: "error", message: "Create failed", category: "RATE_LIMITS" }),
+      });
+
+    await expect(upsertHubSpotQuizLead(validPayload())).resolves.toBeUndefined();
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringContaining("Quiz lead sync failed"),
+      expect.any(Error)
+    );
+  });
+
+  it("logs and resolves silently when PATCH returns 5xx", async () => {
+    vi.stubEnv("HUBSPOT_ACCESS_TOKEN", "fake-token-123");
+
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ total: 1, results: [{ id: "existing-42" }] }),
+      })
+      .mockResolvedValueOnce({
+        ok: false,
+        json: async () => ({ status: "error", message: "Internal error", category: "INTERNAL_ERROR" }),
+      });
+
+    await expect(upsertHubSpotQuizLead(validPayload())).resolves.toBeUndefined();
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringContaining("Quiz lead sync failed"),
+      expect.any(Error)
+    );
+  });
+
+  it("never throws — the quiz submit flow is always unblocked", async () => {
+    vi.stubEnv("HUBSPOT_ACCESS_TOKEN", "fake-token-123");
+
+    fetchMock.mockRejectedValue(new Error("total outage"));
+
+    await expect(upsertHubSpotQuizLead(validPayload())).resolves.toBeUndefined();
+    expect(errorSpy).toHaveBeenCalled();
   });
 });
