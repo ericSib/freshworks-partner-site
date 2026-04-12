@@ -12,13 +12,12 @@ const config = {
     "src/hooks/useQuizSubmit.ts",
   ],
   reporters: ["clear-text", "html"],
-  // Initial baseline: 56.04% (Sprint 14). Ratchet +5% per sprint.
-  // hubspot.ts drags the score (26%) — infra wrappers are hard to
-  // mutation-test without a real HTTP client mock.
+  // Sprint 14 baseline: 56.04%. Sprint 15: 71.43% after hubspot.ts tests.
+  // Ratchet +5% per sprint.
   thresholds: {
     high: 80,
-    low: 55,
-    break: 55,
+    low: 60,
+    break: 60,
   },
   concurrency: 2,
   timeoutMS: 30000,
