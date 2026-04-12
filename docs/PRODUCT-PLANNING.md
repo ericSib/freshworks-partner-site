@@ -117,33 +117,45 @@ Les 3 backlogs existants sont **significativement obsoletes** :
 | Seuil coverage CI → 80% | 1 |
 | Domaine custom freshworks.whataservice.fr (D14) | 1 |
 
-### Sprint 17 — "Pages services + pricing" (10 pts)
+### Sprint 17 — "Refonte homepage : catalogue 8 offres complexity-first" (12 pts)
 
-> **Goal** : Deployer les 6 pages services dediees + page pricing "sur devis".
-
-| Story | Pts |
-|---|---|
-| Pages services dediees (6 pages) | 8 |
-| Page pricing "Sur devis" (D12) | 1 |
-| Ops : branch protection | 1 |
-
-### Sprint 18 — "Spike Ghost + Blog foundations" (10 pts)
-
-> **Goal** : Evaluer Ghost comme CMS headless, poser l'infrastructure blog si Go.
+> **Goal** : Refondre le contenu homepage avec le nouveau catalogue d'offres, le narratif PAS, les personas Thomas/Mathieu/Nadia, et le pricing "a partir de".
 
 | Story | Pts |
 |---|---|
-| Spike Ghost CMS (4h) : integration Next.js, API, hosting, cout (D10) | 2 |
-| Blog infrastructure (Ghost API ou MDX fallback, listing, categories) | 8 |
+| Refonte config catalogue (8 offres, tiers, pricing "a partir de") | 3 |
+| Refonte i18n hero + problems + services (narratif PAS, complexity-first) | 5 |
+| Refonte section Services (premium "sur devis" + implement "a partir de") | 3 |
+| CTA sticky persistant au scroll | 1 |
 
-### Sprint 19 — "Premiers contenus blog" (8 pts)
+### Sprint 18 — "Refonte quiz → Service Maturity Index™" (8 pts)
 
-> **Goal** : Publier les 3 premiers articles pillar pour le SEO organique.
+> **Goal** : Renommer et re-brander le quiz en SMI™, ajouter routing initial, ROI estime, PDF brande, mapping maturite → offres.
 
 | Story | Pts |
 |---|---|
-| 3 articles pillar (ITSM, CX, migration) | 5 |
-| Schema Article JSON-LD + tests | 3 |
+| Renommage quiz → SMI™ (i18n, composants, config) | 2 |
+| Routing initial par contexte (ITSM/CX/ESM) | 3 |
+| ROI estime dans resultats + mapping maturite → offre WaS | 3 |
+
+### Sprint 19 — "Pages services dediees + SEO" (10 pts)
+
+> **Goal** : Deployer les 4 pages services dediees avec contenu detaille, SEO, et tests.
+
+| Story | Pts |
+|---|---|
+| Route dynamique /services/[slug] + config + nav + breadcrumbs | 3 |
+| Contenu 4 pages FR+EN (Transformation, Migration, Freddy AI, Managed) | 5 |
+| Schema Service JSON-LD + machine-readable summary + tests | 2 |
+
+### Sprint 20 — "Blog + thought leadership" (10 pts)
+
+> **Goal** : Lancer le blog avec 3 articles pillar sur les themes 2026.
+
+| Story | Pts |
+|---|---|
+| Spike Ghost CMS (D10) + infrastructure blog | 5 |
+| 3 articles pillar (IA agentique, Freshdesk vs Zendesk, ESM) | 5 |
 
 ---
 

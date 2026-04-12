@@ -179,6 +179,10 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-12 | D12 | **Page pricing : "Sur devis"** — pas d'affichage de prix | Positionnement |
 | 2026-04-12 | D13 | **Resend DNS configure** — domaine verifie | Ops done |
 | 2026-04-12 | D14 | **Domaine custom : freshworks.whataservice.fr** — remplace le domaine Vercel par defaut | Ops a configurer |
+| 2026-04-12 | D15 | **Pricing "A partir de"** sur toutes les offres — remplace D12 "sur devis" | Refonte contenu |
+| 2026-04-12 | D16 | **Quiz renomme Service Maturity Index™** — garde 5 dimensions (pas de dim IA) | Refonte quiz |
+| 2026-04-12 | D17 | **Personas : Thomas (DSI), Mathieu (Lead Transfo), Nadia (DRH ESM)** — remplacent Sophie/Marc/Karim | Refonte narratif |
+| 2026-04-12 | D18 | **8 offres complexity-first** — CX/ESM Transfo, Migration, Freddy AI, Freshservice, Freshdesk, ESM Sprints, Audit, Managed Services | Refonte catalogue |
 
 ---
 

@@ -1,9 +1,20 @@
-# Sprint 17 — "Pages services + pricing"
+# Sprint 17 — "Refonte homepage : catalogue 8 offres complexity-first"
 
-> **Sprint Goal** : Deployer les 6 pages services dediees + page pricing "sur devis" pour la longue traine SEO.
+> **Sprint Goal** : Refondre le contenu homepage avec le nouveau catalogue d'offres (8 offres, complexity-first), le narratif PAS, les personas Thomas/Mathieu/Nadia, et le pricing "a partir de".
 > **Debut** : 12 avril 2026
 > **Fin** : 18 avril 2026
-> **Capacite** : 20 pts (forecast 12 pts — T1-v2 verifie, 0 fantome)
+> **Capacite** : 20 pts (forecast 12 pts)
+
+---
+
+## Decisions actees (D15-D18)
+
+| ID | Decision |
+|---|---|
+| D15 | Pricing "A partir de" sur toutes les offres (remplace D12 "sur devis") |
+| D16 | Quiz renomme Service Maturity Index™ — garde 5 dimensions, pas de dim IA |
+| D17 | Personas : Thomas (DSI ETI), Mathieu (Lead Transfo), Nadia (DRH ESM) |
+| D18 | 8 offres complexity-first : CX/ESM Transfo, Migration, Freddy AI, Freshservice, Freshdesk, ESM Sprints, Audit, Managed Services |
 
 ---
 
@@ -11,11 +22,10 @@
 
 | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|
-| T14 | Ratchet coverage 85% + mutation 70% | 1 | Must | Committed |
-| T12 | Lighthouse CI dans e2e.yml | 1 | Should | Committed |
-| Pricing | Page pricing "Sur devis" (D12) | 1 | Must | Committed |
-| Services | Pages services dediees (6 pages dynamiques) | 8 | Must | Committed |
-| Branch-prot | Branch protection main (ops GitHub) | 1 | Could | Committed |
+| S17-1 | Refonte config catalogue (8 offres, tiers, pricing) | 3 | Must | Committed |
+| S17-2 | Refonte i18n hero + problems + services (narratif PAS, personas) | 5 | Must | Committed |
+| S17-3 | Refonte section Services (premium + implement, complexity-first) | 3 | Must | Committed |
+| S17-4 | CTA sticky persistant au scroll | 1 | Should | Committed |
 
 **Total engage** : 12 pts / 20 pts capacite
 
@@ -23,13 +33,12 @@
 
 ## Ordre de travail
 
-1. T14 (1 pt) — ratchet configs — Jour 1
-2. T12 (1 pt) — Lighthouse CI step — Jour 1
-3. Pricing (1 pt) — page statique "sur devis" — Jour 1-2
-4. Services (8 pts) — Jour 2-7
-   - 4a. Framework : route dynamique, config slugs, nav, breadcrumbs
-   - 4b. Contenu : 6 pages FR + EN (generation + review)
-   - 4c. SEO : JSON-LD Service schema, meta tags
-   - 4d. Homepage : service cards → Link vers pages dediees
-   - 4e. Tests : rendering, a11y, E2E
-5. Branch-prot (1 pt) — ops GitHub — Jour 7
+1. S17-1 (3 pts) — config catalogue : 8 offres, tiers, pricing, slugs — Jour 1-2
+2. S17-2 (5 pts) — i18n : hero rewrite (PAS), problems (Thomas/Mathieu/Nadia), services (8 offres FR+EN) — Jour 2-5
+3. S17-3 (3 pts) — composant Services refonde (2 groupes, complexity-first, cartes premium) — Jour 5-6
+4. S17-4 (1 pt) — CTA sticky — Jour 7
+
+## Sources contenu
+
+- Compass artifact : plateforme de marque, narratif PAS, 7 arguments-cles
+- Rapport strategie offres : 8 offres detaillees, pricing, modele financier
