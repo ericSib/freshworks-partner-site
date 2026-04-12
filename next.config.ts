@@ -20,13 +20,19 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
+      // unsafe-inline required by Next.js inline scripts + Calendly widget
       `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://assets.calendly.com https://www.googletagmanager.com`,
+      // unsafe-inline required by Tailwind v4 runtime + Calendly CSS
       "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
-      "img-src 'self' data: https:",
-      "font-src 'self' https://assets.calendly.com",
-      "connect-src 'self' https://calendly.com https://www.google-analytics.com https://analytics.google.com",
+      // Tightened: only self, data URIs, and specific trusted origins
+      "img-src 'self' data: https://assets.calendly.com https://www.googletagmanager.com",
+      "font-src 'self' https://assets.calendly.com https://fonts.gstatic.com",
+      "connect-src 'self' https://calendly.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
       "frame-src https://calendly.com",
       "frame-ancestors 'none'",
+      // Hardening: restrict base URI and form targets
+      "base-uri 'self'",
+      "form-action 'self'",
     ].join("; ") + ";",
   },
 ];
