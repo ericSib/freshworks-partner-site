@@ -67,7 +67,16 @@ html {
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* === Grain Texture Overlay === */
+/* === Grain Texture Overlay ===
+ * Uses a static PNG tile instead of an inline SVG feTurbulence filter.
+ * The SVG filter forced the browser to decode + rasterize on every frame,
+ * creating a permanent compositing layer that caused jank on mobile.
+ *
+ * The static tile is decoded once, cached, and composited efficiently.
+ * Disabled entirely for users who prefer reduced motion.
+ *
+ * Refs: T12 Sprint 16
+ */
 body::before {
   content: "";
   position: fixed;
@@ -78,6 +87,14 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
+  will-change: transform;
+  contain: strict;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    display: none;
+  }
 }
 
 /* === Section padding (generous for premium feel) === */
