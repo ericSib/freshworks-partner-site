@@ -123,14 +123,7 @@ export interface ServiceDefinition {
 }
 
 /**
- * Service index map — maps to services.cards[] in messages.
- * The names/descriptions come from i18n at render time.
+ * Service slugs for JSON-LD schema generation.
+ * Re-exported from the canonical offers config (D18).
  */
-export const SERVICE_SLUGS = [
-  "implementation-freshservice",
-  "implementation-freshdesk",
-  "migration",
-  "optimisation-itam",
-  "esm",
-  "ia-automatisation",
-] as const;
+export { OFFER_SLUGS as SERVICE_SLUGS } from "./offers";

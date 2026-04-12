@@ -121,9 +121,9 @@ describe("Person schema (US-22.2)", () => {
 // US-22.3 — Service Definitions
 // ---------------------------------------------------------------------------
 
-describe("Service definitions (US-22.3)", () => {
-  it("has 6 service slugs matching the 6 service cards", () => {
-    expect(SERVICE_SLUGS.length).toBe(6);
+describe("Service definitions (D18 — 8 offers complexity-first)", () => {
+  it("has 8 service slugs matching the 8 offers", () => {
+    expect(SERVICE_SLUGS.length).toBe(8);
   });
 
   it("all slugs are kebab-case strings", () => {
@@ -135,6 +135,12 @@ describe("Service definitions (US-22.3)", () => {
   it("includes core services", () => {
     expect(SERVICE_SLUGS).toContain("implementation-freshservice");
     expect(SERVICE_SLUGS).toContain("implementation-freshdesk");
-    expect(SERVICE_SLUGS).toContain("migration");
+    expect(SERVICE_SLUGS).toContain("migration-strategique");
+  });
+
+  it("includes premium offers first (complexity-first)", () => {
+    expect(SERVICE_SLUGS[0]).toBe("transformation-cx-esm");
+    expect(SERVICE_SLUGS[1]).toBe("migration-strategique");
+    expect(SERVICE_SLUGS[2]).toBe("freddy-ai");
   });
 });
