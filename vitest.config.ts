@@ -11,15 +11,15 @@ export default defineConfig({
       provider: "v8",
       include: ["src/hooks/**", "src/lib/**", "src/app/api/**"],
       reporter: ["text", "lcov"],
-      // D13 — incremental ratchet of the coverage gate: +10 pts per sprint.
-      // Sprint 14: 60 → 70 (branches 50 → 60). Sprint 16 cible 80.
-      // Current post-Sprint 14 snapshot:
-      //   lines 86.12% / branches 75.40% / functions 83.11% / statements 85.24%
+      // D13 — incremental ratchet of the coverage gate.
+      // Sprint 13→14: 70 → 75 (branches 60 → 65). Sprint 16 cible 80.
+      // Current post-Sprint 13 snapshot:
+      //   lines 88.40% / branches 77.54% / functions 87.01% / statements 87.57%
       thresholds: {
-        lines: 70,
-        branches: 60,
-        functions: 70,
-        statements: 70,
+        lines: 75,
+        branches: 65,
+        functions: 75,
+        statements: 75,
       },
     },
   },
