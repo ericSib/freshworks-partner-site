@@ -1,9 +1,9 @@
-# Sprint 14 — "Industrialiser la qualite et poser les fondations SEO"
+# Sprint 15 — "Assainir et consolider"
 
-> **Sprint Goal** : Industrialiser la qualite (mutation testing, coverage 75%, commitlint aligne) et poser les fondations SEO (FAQ schema JSON-LD, 50+ tests SEO).
-> **Debut** : 19 avril 2026
-> **Fin** : 25 avril 2026
-> **Capacite** : 20 pts (forecast conservateur 10 pts)
+> **Sprint Goal** : Assainir les backlogs, monter le mutation score a 60%, et consolider les derniers gaps de qualite.
+> **Debut** : 12 avril 2026
+> **Fin** : 18 avril 2026
+> **Capacite** : 20 pts (forecast 9 pts — T1-v2 verifie, 0 story fantome)
 
 ---
 
@@ -11,40 +11,35 @@
 
 | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|
-| T2+T3 | Aligner commitlint scopes + monter seuil coverage 75% | 1 | Must | Committed |
-| US-17.1 | Cleanup Button.tsx mort | 1 | Could | Committed |
-| US-22.SEO | Atteindre 50+ tests SEO (actuellement 33) | 2 | Should | Committed |
-| US-21.10 | Setup Stryker mutation testing + CI | 3 | Should | Committed |
-| US-22.6 | FAQ schema JSON-LD + rich snippets | 3 | Should | Committed |
+| T7 | Audit et archivage backlogs obsoletes | 1 | Must | Committed |
+| T5 | Tests hubspot.ts quiz wrappers (mock fetch) | 2 | Must | Committed |
+| T6 | Ratchet mutation score break: 60% | 1 | Must | Committed |
+| A11y-contrast | Verifier false positive oklch color-contrast | 1 | Should | Committed |
+| CSP | CSP hardening (tighten policies + reporting) | 2 | Should | Committed |
+| Hooks-cov | Coverage useCountUp + useScrollReveal ≥ 80% | 2 | Should | Committed |
 
-**Total engage** : 10 pts / 20 pts capacite
-
----
-
-## Metriques qualite de depart (fin Sprint 13)
-
-| Metrique | Valeur | Seuil actuel | Seuil cible S14 |
-|---|---|---|---|
-| Statements | 87.57% | 70% | 75% |
-| Branches | 77.54% | 60% | 65% |
-| Functions | 87.01% | 70% | 75% |
-| Lines | 88.40% | 70% | 75% |
-| Tests unitaires | 645 pass / 0 fail | 100% pass | 100% pass |
-| Tests E2E | 95 pass / 0 fail | 100% pass | 100% pass |
-| Mutation score | N/A | N/A | >= 60% (5 modules) |
-| Tests SEO | 33 | — | 50+ |
-| Commitlint warnings | 1 (scope quiz) | 0 | 0 |
+**Total engage** : 9 pts / 20 pts capacite
 
 ---
 
-## Sprint Planning (12/04/2026)
+## T1-v2 — Verification au Sprint Planning (0 story fantome)
 
-**Sprint Goal valide** : Industrialiser la qualite et poser les fondations SEO.
+Chaque candidate a ete verifiee en direct :
+- T7 : archive existe mais root copies non-committed → TRAVAIL REEL
+- T5 : 4 fonctions hubspot quiz non testees (59 mutants no-coverage) → TRAVAIL REEL
+- T6 : score 56.04%, seuil 55%, depend de T5 → TRAVAIL REEL
+- A11y : 1 seule occurrence, false positive documente → TRAVAIL REEL (verification)
+- CSP : Calendly deja whiteliste, hardening broad policies → TRAVAIL REEL
+- Hooks : useCountUp 39%, useScrollReveal 60%, mocks en place → TRAVAIL REEL
 
-**Test du Goal** : npm run test:mutation passe >= 60%, seuil CI coverage a 75%, commitlint 0 warning, schema FAQ JSON-LD valide.
+---
+
+## Sprint Planning
 
 **Ordre de travail** :
-1. T2+T3 (1 pt) + US-17.1 (1 pt) — Jour 1
-2. US-22.SEO (2 pts) — Jour 2-3
-3. US-21.10 (3 pts) — Jour 3-5
-4. US-22.6 (3 pts) — Jour 5-7
+1. T7 (1 pt) — audit backlogs — Jour 1
+2. T5 (2 pts) — tests hubspot.ts wrappers — Jour 1-2
+3. T6 (1 pt) — ratchet mutation 60% — Jour 2 (apres T5)
+4. Hooks-cov (2 pts) — useCountUp + useScrollReveal — Jour 3-4
+5. A11y-contrast (1 pt) — verification false positive — Jour 4
+6. CSP (2 pts) — hardening — Jour 5-6
