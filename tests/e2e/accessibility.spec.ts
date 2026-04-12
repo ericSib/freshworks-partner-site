@@ -86,7 +86,9 @@ test.describe("Accessibility (axe-core) — Post-Interaction", () => {
 
     // Scan the mobile menu — disable color-contrast because axe-core
     // miscomputes oklch colors behind backdrop-blur/opacity parents
-    // (known false positive with Tailwind v4 oklch + axe 4.x)
+    // (known false positive with Tailwind v4 oklch + axe 4.x).
+    // Manually verified: slate-300 (#CBD5E1) on deep (#0C1220) = 12.59:1
+    // contrast ratio, well above WCAG AA 4.5:1 threshold (Sprint 15).
     const results = await new AxeBuilder({ page })
       .include("#mobile-menu")
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
