@@ -12,12 +12,12 @@ const config = {
     "src/hooks/useQuizSubmit.ts",
   ],
   reporters: ["clear-text", "html"],
-  // Sprint 14 baseline: 56.04%. Sprint 15: 71.43% after hubspot.ts tests.
+  // Sprint 15: 71.43%. Sprint 16 ratchet to 65%.
   // Ratchet +5% per sprint.
   thresholds: {
     high: 80,
-    low: 60,
-    break: 60,
+    low: 65,
+    break: 65,
   },
   concurrency: 2,
   timeoutMS: 30000,
