@@ -10,6 +10,7 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import StructuredData from "@/components/seo/StructuredData";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import CookieBanner from "@/components/ui/CookieBanner";
+import StickyCtaBanner from "@/components/ui/StickyCtaBanner";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-heading",
@@ -93,6 +94,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <StickyCtaBanner />
           <CookieBanner />
         </NextIntlClientProvider>
       </body>
