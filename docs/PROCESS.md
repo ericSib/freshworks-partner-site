@@ -240,8 +240,9 @@ Inbox → Redigee → Raffinee → Ready → Committed → In Progress → In Re
 **Sequence** :
 1. Formuler le Sprint Goal (outcome-focused, pas une liste de PBIs)
 2. Selectionner les stories qui contribuent au Sprint Goal
-3. Verifier que chaque story est Ready (DoR)
-4. Decomposer en tasks techniques
+3. **Verifier l'etat reel de chaque story (T1-v2)** — pour chaque candidate, executer les tests existants et lire le code source. Si le code est deja ecrit → story ecartee immediatement. Ne jamais engager une story sans cette verification.
+4. Verifier que chaque story retenue est Ready (DoR)
+5. Decomposer en tasks techniques
 **Output** : `docs/backlog/sprint-current.md` mis a jour
 
 **Regle cardinale** : le Sprint Goal engage, la liste de stories est un forecast.
