@@ -12,12 +12,17 @@
 | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|
 | US-21.1 | Eliminer waitForTimeout dans les tests E2E | 1 | Must | Done |
-| US-21.2 | Test E2E smoke + a11y /mentions-legales FR+EN | 2 | Must | Committed |
-| US-21.3 | Scan axe-core quiz (5 etats cles) | 3 | Must | Committed |
-| US-18.9 | API dediee /api/quiz/submit (endpoint + Zod + HubSpot + refactor client) | 4 | Must | Committed |
-| US-15.4 | Playwright dans GitHub Actions CI | 5 | Must | Committed |
+| US-21.2 | Test E2E smoke + a11y /mentions-legales FR+EN | 2 | Must | Done |
+| US-21.3 | Scan axe-core quiz (5 etats cles) | 3 | Must | Done |
+| US-18.9 | API dediee /api/quiz/submit (endpoint + Zod + HubSpot + refactor client) | 4 | Must | Done |
+| US-15.4 | Playwright dans GitHub Actions CI | 5 | Must | Done |
 
-**Total engage** : 15 pts / 15 pts capacite
+| US-21.6 | Completer les tests analytics.ts (100% trackers) | 1 | Must | Done |
+| US-21.11 | Test E2E non-regression mobile menu keyboard nav | 1 | Should | Done |
+| US-21.8 | Tests unitaires hubspot.ts (mapping + error paths) | 2 | Must | Done |
+| US-21.5 | Tests unitaires generate-pdf.ts (hotfix quality gate) | 2 | Must | Done |
+
+**Total engage** : 20 pts / 20 pts capacite (forecast etendu valide le 12/04)
 
 ---
 
@@ -67,6 +72,7 @@
 | D-S13-1 | US-21.1 marquee Done (waitForTimeout deja elimines) | 12/04/2026 |
 | D-S13-2 | Les 2 fails E2E a11y mobile seront adressees par US-21.2/US-21.3 | 12/04/2026 |
 | D-S13-3 | data-testid a instrumenter au debut de US-21.2 et US-21.3 | 12/04/2026 |
+| D-S13-4 | Forecast etendu +6 pts (US-21.6, US-21.11, US-21.8, US-21.5) — Goal atteint en avance | 12/04/2026 |
 
 ---
 
