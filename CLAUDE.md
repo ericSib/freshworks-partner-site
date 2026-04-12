@@ -173,6 +173,12 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-12 | D6 | Resend domaine verifie + cle API en GitHub Actions secrets | Email transactionnel |
 | 2026-04-12 | D7 | GA4 Measurement ID en GitHub Actions secrets | Analytics |
 | 2026-04-12 | D8 | Adoption framework agile complet (Manifeste, boucle universelle, TDD strict) | Gouvernance projet |
+| 2026-04-12 | D9 | **Pas de Freshchat** — pas d'integration chat sur le site | Scope reduit |
+| 2026-04-12 | D10 | **Blog : Ghost a explorer** — spike CMS headless avant implementation | Architecture blog |
+| 2026-04-12 | D11 | **Pas de ROI Calculator** — le quiz suffit comme lead magnet unique | Scope reduit |
+| 2026-04-12 | D12 | **Page pricing : "Sur devis"** — pas d'affichage de prix | Positionnement |
+| 2026-04-12 | D13 | **Resend DNS configure** — domaine verifie | Ops done |
+| 2026-04-12 | D14 | **Domaine custom : freshworks.whataservice.fr** — remplace le domaine Vercel par defaut | Ops a configurer |
 
 ---
 

@@ -115,34 +115,35 @@ Les 3 backlogs existants sont **significativement obsoletes** :
 | Grain texture GPU perf | 1 |
 | useReducedMotion fix | 2 |
 | Seuil coverage CI → 80% | 1 |
-| Freshchat widget integration | 1 |
+| Domaine custom freshworks.whataservice.fr (D14) | 1 |
 
-### Sprint 17 — "Pages services" (10 pts)
+### Sprint 17 — "Pages services + pricing" (10 pts)
 
-> **Goal** : Deployer les 6 pages services dediees pour la longue traine SEO.
+> **Goal** : Deployer les 6 pages services dediees + page pricing "sur devis".
 
 | Story | Pts |
 |---|---|
 | Pages services dediees (6 pages) | 8 |
+| Page pricing "Sur devis" (D12) | 1 |
 | Ops : branch protection | 1 |
-| Ops : Resend DNS verification | 1 |
 
-### Sprint 18-19 — "Blog & Content" (13 pts)
+### Sprint 18 — "Spike Ghost + Blog foundations" (10 pts)
 
-> **Goal** : Lancer le blog avec structure pillar-cluster pour le SEO organique.
-
-| Story | Pts |
-|---|---|
-| Blog infrastructure (MDX, listing, categories) | 8 |
-| 3 premiers articles pillar (ITSM, CX, migration) | 5 |
-
-### Sprint 20 — "Lead magnets avances" (8 pts)
-
-> **Goal** : Deployer le ROI Calculator comme 2e lead magnet.
+> **Goal** : Evaluer Ghost comme CMS headless, poser l'infrastructure blog si Go.
 
 | Story | Pts |
 |---|---|
-| ROI Calculator | 8 |
+| Spike Ghost CMS (4h) : integration Next.js, API, hosting, cout (D10) | 2 |
+| Blog infrastructure (Ghost API ou MDX fallback, listing, categories) | 8 |
+
+### Sprint 19 — "Premiers contenus blog" (8 pts)
+
+> **Goal** : Publier les 3 premiers articles pillar pour le SEO organique.
+
+| Story | Pts |
+|---|---|
+| 3 articles pillar (ITSM, CX, migration) | 5 |
+| Schema Article JSON-LD + tests | 3 |
 
 ---
 
@@ -162,15 +163,16 @@ Les 3 backlogs existants sont **significativement obsoletes** :
 
 ---
 
-## 6 · Decisions strategiques en attente
+## 6 · Decisions strategiques — arbitrees le 12/04/2026
 
-| ID | Question | Impact | Owner |
-|---|---|---|---|
-| D9 | Freshchat : integration ou pas ? Coherence ecosysteme vs cout | UX, conversion | PO |
-| D10 | Blog : MDX local ou CMS headless (Contentlayer, Sanity) ? | Architecture, maintenance | PO + Dev |
-| D11 | ROI Calculator : outil standalone ou extension quiz ? | UX, dev effort | PO |
-| D12 | Page pricing : afficher les tarifs ou "sur devis" ? | Conversion, positionnement | PO |
-| D13 | Resend domaine : DNS a configurer — quand ? | Emails production | PO (ops) |
+| ID | Decision | Statut |
+|---|---|---|
+| D9 | **Pas de Freshchat.** Pas d'integration chat sur le site. | Tranchee |
+| D10 | **Blog : Ghost a explorer** (CMS headless). Spike a planifier avant implementation. | A instruire |
+| D11 | **Pas de ROI Calculator.** Le quiz ITSM/CX suffit comme lead magnet unique. | Tranchee |
+| D12 | **Page pricing : "Sur devis".** Pas d'affichage de prix. | Tranchee |
+| D13 | **Resend DNS : configure.** Domaine verifie. | Tranchee |
+| D14 | **Domaine custom Vercel : freshworks.whataservice.fr** au lieu du domaine Vercel par defaut. A configurer dans Vercel dashboard. | A configurer |
 
 ---
 
