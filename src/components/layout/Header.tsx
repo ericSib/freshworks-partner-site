@@ -195,6 +195,7 @@ export default function Header() {
           id="mobile-menu"
           data-testid="mobile-nav"
           aria-hidden={!isMobileOpen}
+          inert={!isMobileOpen ? true : undefined}
           className={`md:hidden overflow-hidden transition-all duration-500 ${
             isMobileOpen ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
           }`}
