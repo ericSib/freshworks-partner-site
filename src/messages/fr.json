@@ -1,29 +1,29 @@
 {
   "metadata": {
-    "title": "What A Service \u2014 ITSM & Support Client, d\u00e9ploy\u00e9s pour performer",
-    "description": "Consultants Freshworks pour ETI et PME. Freshservice (ITSM, ITAM, ESM) et Freshdesk (support omnicanal, CX). ITIL 4, PRINCE2, DORA. R\u00e9sultats en 4 semaines."
+    "title": "What A Service — Transformez votre investissement Freshworks en avantage compétitif",
+    "description": "Cabinet de conseil spécialiste Freshworks pour ETI et grands comptes. Freshservice (ITSM, ESM, ITAM), Freshdesk (CX omnicanal), Freddy AI. ITIL 4, PRINCE2, DORA. Déploiement, migration, optimisation. Résultats en 90 jours."
   },
   "breadcrumb": {
     "home": "Accueil",
-    "quiz": "Quiz Maturit\u00e9",
-    "legal": "Mentions l\u00e9gales"
+    "quiz": "Quiz Maturité",
+    "legal": "Mentions légales"
   },
   "nav": {
     "services": "Services",
     "caseStudies": "Cas clients",
-    "about": "\u00c0 propos",
+    "about": "À propos",
     "contact": "Contact",
-    "bookCall": "R\u00e9server un appel",
+    "bookCall": "Réserver un appel",
     "switchLang": "Switch to English",
     "switchLangShort": "EN",
-    "switchLangFull": "EN \u2014 English"
+    "switchLangFull": "EN — English"
   },
   "hero": {
-    "tagline": "Consultants Freshworks certifi\u00e9s \u2014 ITSM & CX",
-    "headline": "Vos services IT et votre support client m\u00e9ritent mieux",
-    "subheadline": "Tickets mal rout\u00e9s, CSAT en chute, processus manuels, outils sous-exploit\u00e9s. Nous configurons Freshservice et Freshdesk pour que vos \u00e9quipes IT et support d\u00e9livrent enfin une exp\u00e9rience \u00e0 la hauteur.",
-    "ctaPrimary": "Diagnostic gratuit en 30 min",
-    "ctaSecondary": "\u00c9valuez votre maturit\u00e9 ITSM/CX",
+    "tagline": "Spécialiste Freshworks — ITSM · CX · ESM · IA agentique",
+    "headline": "Transformez votre investissement Freshworks en avantage compétitif",
+    "subheadline": "Votre équipe IT passe 70 % de son temps sur des demandes répétitives. Vos outils sont là mais sous-exploités. Nous déployons l’expertise plateforme et le delivery orienté résultats pour libérer une efficience que votre organisation ne soupçonnait pas.",
+    "ctaPrimary": "Réserver un appel stratégie",
+    "ctaSecondary": "Évaluez votre maturité service",
     "clientsTrust": "Ils nous font confiance",
     "trustedBy": "Certifications & Partenariats",
     "imageAlt": "Équipe de consultants collaborant sur un projet de transformation IT"
@@ -38,55 +38,67 @@
     "freshworks": "Freshworks Partner"
   },
   "problems": {
-    "sectionTag": "Ce que vivent nos clients avant de nous appeler",
-    "headline": "Ces situations vous parlent\u00a0?",
-    "quizCta": "\u00c9valuez votre maturit\u00e9 en 3 minutes",
+    "sectionTag": "Ces situations vous parlent ?",
+    "headline": "Freshworks est facile à acheter. Difficile à optimiser.",
+    "quizCta": "Évaluez votre maturité en 3 minutes",
     "cards": [
       {
         "icon": "chart-down",
-        "title": "Votre ITSM ne d\u00e9livre pas",
-        "description": "Adoption \u00e0 30\u00a0%, CMDB vide, SLA explos\u00e9s. L\u2019outil est d\u00e9ploy\u00e9 mais personne ne l\u2019utilise vraiment. La DSI ne peut pas justifier l\u2019investissement."
+        "title": "Thomas : « On paie cher pour un outil à 30 % »",
+        "description": "Adoption faible, CMDB vide, SLA explosés. Freshservice est déployé mais sous-exploité. Le COMEX demande le ROI — et vous n’avez pas les chiffres. Chaque mois d’inaction coûte en crédibilité."
       },
       {
         "icon": "cog",
-        "title": "Votre support client s\u2019essouffle",
-        "description": "Temps de r\u00e9ponse qui d\u00e9rapent, CSAT en baisse, canaux fragment\u00e9s. Vos agents jonglent entre email, chat et t\u00e9l\u00e9phone sans vue unifi\u00e9e."
+        "title": "Mathieu : « L’IA agentique n’est pas un bouton »",
+        "description": "Freddy AI a des capacités impressionnantes, mais atteindre 60-80 % de déflexion nécessite une stratégie de connaissance, un design de workflows et une mesure continue. La technologie sans la méthode ne produit pas de résultat."
       },
       {
         "icon": "switch",
-        "title": "Migrer sans tout casser",
-        "description": "ServiceNow trop lourd, Zendesk trop cher, outil maison trop rigide. Changer sans perdre l\u2019historique ni perturber la production\u00a0: c\u2019est le vrai d\u00e9fi."
+        "title": "DSI : « La migration précédente a échoué »",
+        "description": "12+ ans de customisation accumulée chez ServiceNow. Migrer vers Freshworks sans perdre l’historique ni perturber la production — chaque migration réussie économise 500K€+, mais le risque paralyse la décision."
       },
       {
         "icon": "spreadsheet",
-        "title": "Excel, emails, bricolage",
-        "description": "Onboarding, ITAM, demandes internes, suivi client\u00a0: tout passe encore par des fichiers partag\u00e9s. Pas de tra\u00e7abilit\u00e9, pas de reporting, pas de visibilit\u00e9."
+        "title": "Nadia : « L’onboarding est encore géré par email »",
+        "description": "RH, juridique, facilities — tout passe par des fichiers partagés et des emails. 75 % des entreprises sous-exploitent l’ESM. Le potentiel d’extension au-delà de l’IT est massif — et inexploité."
       }
     ]
   },
   "process": {
-    "sectionTag": "Notre m\u00e9thode",
-    "headline": "3 \u00e9tapes, z\u00e9ro surprise",
+    "sectionTag": "Notre méthode",
+    "headline": "3 étapes, zéro surprise",
     "steps": [
       {
         "number": "01",
         "title": "Diagnostic",
-        "description": "Audit gratuit de vos services IT et support client\u00a0: outils, processus, canaux, int\u00e9grations. On identifie les quick wins et les vrais blocages.",
-        "details": ["Cartographie ITSM & support CX", "Analyse des flux et canaux", "Recommandations prioris\u00e9es"],
-        "imageAlt": "Analyse de donn\u00e9es et audit des processus IT sur \u00e9crans"
+        "description": "Audit gratuit de vos services IT et support client : outils, processus, canaux, intégrations. On identifie les quick wins et les vrais blocages.",
+        "details": [
+          "Cartographie ITSM & support CX",
+          "Analyse des flux et canaux",
+          "Recommandations priorisées"
+        ],
+        "imageAlt": "Analyse de données et audit des processus IT sur écrans"
       },
       {
         "number": "02",
-        "title": "D\u00e9ploiement",
-        "description": "Configuration Freshservice et/ou Freshdesk sur mesure. Int\u00e9grations SI, migration de donn\u00e9es, mise en place omnicanal. Go-live en 4 semaines.",
-        "details": ["Int\u00e9grations EntraID, M365, CRM", "Portail self-service & widget chat", "Formation hands-on"],
+        "title": "Déploiement",
+        "description": "Configuration Freshservice et/ou Freshdesk sur mesure. Intégrations SI, migration de données, mise en place omnicanal. Go-live en 4 semaines.",
+        "details": [
+          "Intégrations EntraID, M365, CRM",
+          "Portail self-service & widget chat",
+          "Formation hands-on"
+        ],
         "imageAlt": "Consultant configurant une plateforme Freshworks"
       },
       {
         "number": "03",
         "title": "Pilotage",
-        "description": "Automatisations Freddy AI, CMDB structur\u00e9e, dashboards CSAT/SLA/NPS. Votre performance s\u2019am\u00e9liore chaque mois.",
-        "details": ["Freddy AI Agent & Copilot", "KPIs\u00a0: CSAT, NPS, SLA, FCR", "Optimisation continue"],
+        "description": "Automatisations Freddy AI, CMDB structurée, dashboards CSAT/SLA/NPS. Votre performance s’améliore chaque mois.",
+        "details": [
+          "Freddy AI Agent & Copilot",
+          "KPIs : CSAT, NPS, SLA, FCR",
+          "Optimisation continue"
+        ],
         "imageAlt": "Tableau de bord de suivi des KPIs et performance"
       }
     ],
@@ -97,175 +109,281 @@
   },
   "techStack": {
     "sectionTag": "On parle votre langue",
-    "headline": "Votre \u00e9cosyst\u00e8me, on le conna\u00eet",
-    "subheadline": "Freshworks s\u2019int\u00e8gre nativement \u00e0 plus de 1\u00a0000\u00a0applications. Nous connectons EntraID, M365, Salesforce, HubSpot et vos outils m\u00e9tiers pour un SI coh\u00e9rent et une exp\u00e9rience client fluide \u2014 sans d\u00e9veloppement custom.",
+    "headline": "Votre écosystème, on le connaît",
+    "subheadline": "Freshworks s’intègre nativement à plus de 1 000 applications. Nous connectons EntraID, M365, Salesforce, HubSpot et vos outils métiers pour un SI cohérent et une expérience client fluide — sans développement custom.",
     "categories": [
       {
-        "label": "Identit\u00e9 & Endpoints",
-        "items": ["EntraID", "Intune", "Active Directory", "Azure Cloud"]
+        "label": "Identité & Endpoints",
+        "items": [
+          "EntraID",
+          "Intune",
+          "Active Directory",
+          "Azure Cloud"
+        ]
       },
       {
         "label": "Collaboration & CX",
-        "items": ["Microsoft 365", "Google Workspace", "Slack", "WhatsApp Business"]
+        "items": [
+          "Microsoft 365",
+          "Google Workspace",
+          "Slack",
+          "WhatsApp Business"
+        ]
       },
       {
-        "label": "D\u00e9veloppement & Ops",
-        "items": ["Jira", "GitHub", "GitLab", "Terraform"]
+        "label": "Développement & Ops",
+        "items": [
+          "Jira",
+          "GitHub",
+          "GitLab",
+          "Terraform"
+        ]
       },
       {
         "label": "ERP, CRM & ITAM",
-        "items": ["SAP", "Sage", "Salesforce", "Device42"]
+        "items": [
+          "SAP",
+          "Sage",
+          "Salesforce",
+          "Device42"
+        ]
       }
     ]
   },
   "freshworksProducts": {
-    "sectionTag": "\u00c9cosyst\u00e8me Freshworks",
+    "sectionTag": "Écosystème Freshworks",
     "headline": "Deux plateformes, un seul partenaire",
     "cards": [
       {
         "title": "Freshservice",
-        "subtitle": "ITSM \u00b7 ESM \u00b7 ITAM",
-        "description": "Gestion des services IT et m\u00e9tier. Incidents, demandes, changements, CMDB, ITAM, portail self-service. La colonne vert\u00e9brale de votre IT interne.",
+        "subtitle": "ITSM · ESM · ITAM",
+        "description": "Gestion des services IT et métier. Incidents, demandes, changements, CMDB, ITAM, portail self-service. La colonne vertébrale de votre IT interne.",
         "imageAlt": "Infrastructure de serveurs et gestion de services IT"
       },
       {
         "title": "Freshdesk",
         "subtitle": "Support client omnicanal",
-        "description": "Email, chat, t\u00e9l\u00e9phone, WhatsApp, r\u00e9seaux sociaux dans une seule vue agent. Base de connaissances, SLA, CSAT, automatisations. Votre CX, structur\u00e9e.",
+        "description": "Email, chat, téléphone, WhatsApp, réseaux sociaux dans une seule vue agent. Base de connaissances, SLA, CSAT, automatisations. Votre CX, structurée.",
         "imageAlt": "Agent de support client travaillant sur plusieurs canaux"
       },
       {
         "title": "Freddy AI",
         "subtitle": "IA pour ITSM & CX",
-        "description": "Agent virtuel multilingue, suggestions intelligentes, analytics pr\u00e9dictifs. 65\u00a0% de d\u00e9flexion sur les tickets de niveau\u00a01, c\u00f4t\u00e9 IT comme c\u00f4t\u00e9 client.",
+        "description": "Agent virtuel multilingue, suggestions intelligentes, analytics prédictifs. 65 % de déflexion sur les tickets de niveau 1, côté IT comme côté client.",
         "imageAlt": "Intelligence artificielle et automatisation des processus"
       }
     ],
-    "cta": "D\u00e9couvrir nos services \u2192"
+    "cta": "Découvrir nos services →"
   },
   "metrics": {
-    "sectionTag": "Nos r\u00e9sultats",
+    "sectionTag": "Nos résultats",
     "items": [
-      { "value": "95%", "label": "de satisfaction client" },
-      { "value": "<4 sem.", "label": "pour un d\u00e9ploiement" },
-      { "value": "+40%", "label": "de CSAT moyen" },
-      { "value": "10+", "label": "projets ITSM & CX livr\u00e9s" }
+      {
+        "value": "95%",
+        "label": "de satisfaction client"
+      },
+      {
+        "value": "<4 sem.",
+        "label": "pour un déploiement"
+      },
+      {
+        "value": "+40%",
+        "label": "de CSAT moyen"
+      },
+      {
+        "value": "10+",
+        "label": "projets ITSM & CX livrés"
+      }
     ]
   },
   "services": {
-    "sectionTag": "Nos services",
-    "headline": "ITSM et support client, concr\u00e8tement",
-    "subheadline": "Un consultant Freshworks certifi\u00e9 d\u00e9ploie Freshservice (ITSM/ESM) ou Freshdesk (support omnicanal) en 4\u00a0semaines. Nos forfaits d\u00e9marrent \u00e0 3\u00a0000\u00a0\u20ac avec des r\u00e9sultats mesurables\u00a0: adoption +40\u00a0%, CSAT +15\u00a0points, d\u00e9flection IA jusqu\u2019\u00e0 65\u00a0%.",
-    "imageAlt": "\u00c9quipe de consultants collaborant sur une strat\u00e9gie IT et CX",
+    "sectionTag": "Nos offres",
+    "headline": "Nous commençons par les sujets que les autres évitent",
+    "subheadline": "Transformation, architecture multi-produits, migration SI complexe, gouvernance IA — puis implémentation, optimisation et managed services. Expertise radicale, pas catalogue généraliste.",
+    "imageAlt": "Équipe de consultants collaborant sur une stratégie IT et CX",
     "cards": [
       {
-        "icon": "rocket",
-        "title": "Impl\u00e9mentation Freshservice",
-        "description": "D\u00e9ploiement ITSM/ESM/ITAM de A \u00e0 Z. Portail, workflows, CMDB, int\u00e9grations SI (EntraID, M365, ERP), formation.",
-        "price": "\u00c0 partir de 5\u00a0000\u00a0\u20ac",
+        "icon": "transformation",
+        "title": "CX & ESM Transformation",
+        "description": "Stratégie de transformation CX/ESM, architecture multi-produits Freshdesk + Freshservice + Freshchat, gouvernance et change management.",
+        "price": "À partir de 40 000 €",
         "badge": "",
-        "features": ["Configuration ITSM/ESM/ITAM", "Int\u00e9grations Active Directory & Azure", "CMDB & Discovery", "Go-live en 4 semaines"]
+        "features": [
+          "Architecture multi-entités et multi-marques",
+          "Gouvernance et conduite du changement",
+          "Stratégie ESM au-delà de l’IT",
+          "ROI documenté pour le COMEX"
+        ]
       },
       {
-        "icon": "arrow-right-left",
-        "title": "Impl\u00e9mentation Freshdesk",
-        "description": "D\u00e9ploiement support client omnicanal. Routage intelligent, SLA, base de connaissances, widget chat, int\u00e9grations CRM.",
-        "price": "\u00c0 partir de 4\u00a0000\u00a0\u20ac",
-        "badge": "",
-        "features": ["Email, chat, t\u00e9l\u00e9phone, WhatsApp", "SLA & CSAT automatis\u00e9s", "Base de connaissances bilingue", "Int\u00e9grations CRM (Salesforce, HubSpot)"]
+        "icon": "migration",
+        "title": "Migration stratégique",
+        "description": "Migration complète depuis ServiceNow, Zendesk ou JSM vers Freshworks. Inventaire, traduction des business rules, migration CMDB, change management.",
+        "price": "À partir de 10 000 €",
+        "badge": "Recommandé",
+        "features": [
+          "Inventaire exhaustif et plan de migration",
+          "Traduction des business rules et workflows",
+          "Migration CMDB et historique",
+          "Go-live sans disruption de service"
+        ]
       },
       {
-        "icon": "switch",
-        "title": "Migration",
-        "description": "Migration depuis ServiceNow, Jira, Zendesk, Intercom ou tout autre outil. Z\u00e9ro perte de donn\u00e9es, z\u00e9ro interruption.",
-        "price": "\u00c0 partir de 8\u00a0000\u00a0\u20ac",
-        "badge": "Recommand\u00e9",
-        "features": ["Mapping donn\u00e9es, CMDB & historique", "Migration tickets & contacts", "Validation post-migration", "Formation au nouvel outil"]
+        "icon": "ia",
+        "title": "Freddy AI Mastery",
+        "description": "Déploiement Freddy AI Agent, AI Copilot et Agent Studio. Déflexion 60-80 % des tickets L1. Stratégie self-service et gouvernance IA.",
+        "price": "À partir de 8 000 €",
+        "badge": "Nouveau",
+        "features": [
+          "Déploiement Freddy AI Agent Studio",
+          "Base de connaissances optimisée",
+          "Déflexion 60-80 % des tickets L1",
+          "Gouvernance et mesure continue"
+        ]
       },
       {
-        "icon": "settings",
-        "title": "Optimisation & ITAM",
-        "description": "Audit de votre instance Freshservice ou Freshdesk. Structuration CMDB/ITAM, am\u00e9lioration CSAT, adoption, ROI.",
-        "price": "\u00c0 partir de 3\u00a0000\u00a0\u20ac",
+        "icon": "freshservice",
+        "title": "Implémentation Freshservice",
+        "description": "Déploiement complet aligné ITIL 4. Portail self-service, workflows automatisés, CMDB, intégrations SI. 3 tiers : QuickStart, Professional, Enterprise.",
+        "price": "À partir de 5 000 €",
         "badge": "",
-        "features": ["Audit 360\u00b0 ITSM ou CX", "Structuration CMDB / ITAM", "Optimisation CSAT & SLA", "Conformit\u00e9 DORA"]
+        "features": [
+          "Portail self-service et catalogue",
+          "Workflows automatisés ITIL 4",
+          "CMDB et découverte d’assets",
+          "Intégrations SI (AD, Azure, M365)"
+        ]
       },
       {
-        "icon": "users",
-        "title": "ESM \u2014 Services aux m\u00e9tiers",
-        "description": "\u00c9tendez Freshservice aux RH, Finance, Juridique. Onboarding, offboarding, demandes internes automatis\u00e9es.",
-        "price": "\u00c0 partir de 4\u00a0000\u00a0\u20ac",
+        "icon": "freshdesk",
+        "title": "Implémentation Freshdesk",
+        "description": "Suite omnicanale : email, chat, téléphone, WhatsApp. Freshdesk Command Center, Omniroute, base de connaissances bilingue.",
+        "price": "À partir de 4 000 €",
         "badge": "",
-        "features": ["Portail multi-d\u00e9partements", "Workflows RH/Finance/IT", "Catalogue de services", "Reporting transversal"]
+        "features": [
+          "Omnicanal unifié (email, chat, phone, WhatsApp)",
+          "Routage intelligent Omniroute",
+          "Base de connaissances FR + EN",
+          "SLA et rapports CSAT"
+        ]
       },
       {
-        "icon": "shield-check",
-        "title": "IA & Automatisation",
-        "description": "Freddy AI pour ITSM et support client. Agent virtuel, d\u00e9flexion, analytics pr\u00e9dictifs. DORA & BPM.",
-        "price": "\u00c0 partir de 6\u00a0000\u00a0\u20ac",
+        "icon": "esm",
+        "title": "ESM Expansion Sprints",
+        "description": "Extension Freshservice au-delà de l’IT par sprints de 4-6 semaines. RH, Finance, Juridique, Facilities.",
+        "price": "À partir de 5 000 €",
         "badge": "",
-        "features": ["Freddy AI Agent & Copilot", "D\u00e9flexion 65\u00a0% (IT & CX)", "Analytics CSAT pr\u00e9dictifs", "Conformit\u00e9 DORA & BPM"]
+        "features": [
+          "Sprint 4-6 semaines par département",
+          "Portails dédiés RH, Finance, Legal",
+          "Workflows d’onboarding automatisés",
+          "Réplicable à tous les départements"
+        ]
+      },
+      {
+        "icon": "optimisation",
+        "title": "Audit & Optimisation",
+        "description": "Diagnostic 360°, roadmap priorisée, ROI estimé. CMDB/ITAM, CSAT, SLA, conformité DORA.",
+        "price": "À partir de 3 000 €",
+        "badge": "",
+        "features": [
+          "Diagnostic 360° de la plateforme",
+          "Roadmap priorisée à 12 mois",
+          "Estimation ROI quantifiée",
+          "Quick wins implémentables immédiatement"
+        ]
+      },
+      {
+        "icon": "managed",
+        "title": "Managed Excellence Service",
+        "description": "Abonnement mensuel : optimisation continue, monitoring, support prioritaire, rapports mensuels de valeur.",
+        "price": "À partir de 2 000 €/mois",
+        "badge": "",
+        "features": [
+          "Optimisation continue de la plateforme",
+          "Monitoring et alertes proactives",
+          "Support prioritaire et expertise dédiée",
+          "Rapports mensuels de valeur pour le COMEX"
+        ]
       }
     ]
   },
   "caseStudies": {
     "sectionTag": "Cas clients",
-    "headline": "Des r\u00e9sultats, pas des promesses",
-    "challengeLabel": "D\u00e9fi",
+    "headline": "Des résultats, pas des promesses",
+    "challengeLabel": "Défi",
     "solutionLabel": "Solution",
     "cases": [
       {
-        "client": "ETI \u2014 Secteur industriel",
-        "challenge": "Freshservice d\u00e9ploy\u00e9 sans accompagnement. Adoption \u00e0 30\u00a0%, CMDB vide, aucune automatisation. La DSI ne pouvait pas justifier l\u2019investissement.",
-        "solution": "Audit complet, restructuration CMDB/ITAM, refonte des workflows, int\u00e9gration EntraID + Intune, formation cibl\u00e9e.",
+        "client": "ETI — Secteur industriel",
+        "challenge": "Freshservice déployé sans accompagnement. Adoption à 30 %, CMDB vide, aucune automatisation. La DSI ne pouvait pas justifier l’investissement.",
+        "solution": "Audit complet, restructuration CMDB/ITAM, refonte des workflows, intégration EntraID + Intune, formation ciblée.",
         "results": [
-          { "metric": "85%", "label": "d\u2019adoption en 6 semaines" },
-          { "metric": "-40%", "label": "de tickets manuels" },
-          { "metric": "4.5/5", "label": "satisfaction utilisateurs" }
+          {
+            "metric": "85%",
+            "label": "d’adoption en 6 semaines"
+          },
+          {
+            "metric": "-40%",
+            "label": "de tickets manuels"
+          },
+          {
+            "metric": "4.5/5",
+            "label": "satisfaction utilisateurs"
+          }
         ],
-        "imageAlt": "Environnement industriel avec gestion IT modernis\u00e9e"
+        "imageAlt": "Environnement industriel avec gestion IT modernisée"
       },
       {
-        "client": "PME \u2014 E-commerce B2C",
-        "challenge": "Support client \u00e9clat\u00e9 entre email, chat et t\u00e9l\u00e9phone. Temps de premi\u00e8re r\u00e9ponse \u00e0 14h, CSAT \u00e0 62\u00a0%, pas de base de connaissances. Les clients partaient chez la concurrence.",
-        "solution": "D\u00e9ploiement Freshdesk omnicanal, base de connaissances bilingue, chatbot Freddy AI, SLA automatis\u00e9s, int\u00e9gration Shopify + Salesforce.",
+        "client": "PME — E-commerce B2C",
+        "challenge": "Support client éclaté entre email, chat et téléphone. Temps de première réponse à 14h, CSAT à 62 %, pas de base de connaissances. Les clients partaient chez la concurrence.",
+        "solution": "Déploiement Freshdesk omnicanal, base de connaissances bilingue, chatbot Freddy AI, SLA automatisés, intégration Shopify + Salesforce.",
         "results": [
-          { "metric": "91%", "label": "de CSAT en 8 semaines" },
-          { "metric": "<2h", "label": "de temps de r\u00e9ponse" },
-          { "metric": "-55%", "label": "de volume tickets L1" }
+          {
+            "metric": "91%",
+            "label": "de CSAT en 8 semaines"
+          },
+          {
+            "metric": "<2h",
+            "label": "de temps de réponse"
+          },
+          {
+            "metric": "-55%",
+            "label": "de volume tickets L1"
+          }
         ],
-        "imageAlt": "Support client e-commerce avec exp\u00e9rience omnicanale"
+        "imageAlt": "Support client e-commerce avec expérience omnicanale"
       }
     ],
     "testimonials": [
       {
-        "quote": "Eric a structur\u00e9 notre CMDB, automatis\u00e9 nos workflows et form\u00e9 nos \u00e9quipes. En 4 semaines, l\u2019adoption est pass\u00e9e de 30 \u00e0 85\u00a0%.",
+        "quote": "Eric a structuré notre CMDB, automatisé nos workflows et formé nos équipes. En 4 semaines, l’adoption est passée de 30 à 85 %.",
         "author": "Sophie M.",
-        "role": "DSI \u2014 ETI industrielle"
+        "role": "DSI — ETI industrielle"
       },
       {
-        "quote": "Notre CSAT est pass\u00e9 de 62 \u00e0 91\u00a0% en deux mois. Le chatbot Freddy traite plus de la moiti\u00e9 des tickets de niveau\u00a01. On a enfin une vision claire de notre support.",
+        "quote": "Notre CSAT est passé de 62 à 91 % en deux mois. Le chatbot Freddy traite plus de la moitié des tickets de niveau 1. On a enfin une vision claire de notre support.",
         "author": "Karim L.",
-        "role": "Directeur CX \u2014 PME e-commerce"
+        "role": "Directeur CX — PME e-commerce"
       }
     ],
-    "cta": "Obtenez des r\u00e9sultats similaires"
+    "cta": "Obtenez des résultats similaires"
   },
   "about": {
-    "sectionTag": "\u00c0 propos",
+    "sectionTag": "À propos",
     "headline": "Un interlocuteur unique, pas un cabinet",
-    "headlineMultiple": "L\u2019\u00e9quipe",
+    "headlineMultiple": "L’équipe",
     "team": [
       {
         "name": "Eric Sibomana",
-        "role": "Consultant Transformation & Performance Op\u00e9rationnelle",
-        "bio": "15\u00a0ans d\u2019exp\u00e9rience professionnelle dont 5 en missions de conseil, 40+\u00a0projets de transformation men\u00e9s \u00e0 terme. J\u2019accompagne les directions g\u00e9n\u00e9rales et op\u00e9rationnelles dans leurs transformations complexes\u00a0: diagnostic strat\u00e9gique, refonte de processus, conduite du changement et pilotage de programmes. R\u00e9f\u00e9rence active\u00a0: transformation des services IT du Groupe Bonduelle (2\u00a0Md\u20ac\u00a0CA, 39\u00a0sites, 100\u00a0pays). Chaque mission livre des r\u00e9sultats mesurables en 4\u00a0semaines.",
+        "role": "Consultant Transformation & Performance Opérationnelle",
+        "bio": "15 ans d’expérience professionnelle dont 5 en missions de conseil, 40+ projets de transformation menés à terme. J’accompagne les directions générales et opérationnelles dans leurs transformations complexes : diagnostic stratégique, refonte de processus, conduite du changement et pilotage de programmes. Référence active : transformation des services IT du Groupe Bonduelle (2 Md€ CA, 39 sites, 100 pays). Chaque mission livre des résultats mesurables en 4 semaines.",
         "image": "/images/eric-sib.png",
         "linkedin": "https://www.linkedin.com/in/ericsibomana/",
         "credentials": [
           "ICCF@HEC Paris",
-          "ITIL 4 \u00b7 PRINCE2 \u00b7 DORA",
-          "PSM I \u00b7 PSPO I",
+          "ITIL 4 · PRINCE2 · DORA",
+          "PSM I · PSPO I",
           "Freshworks Advanced",
           "CPA Executive Strategy"
         ]
@@ -274,64 +392,64 @@
     "cta": "Discutons de votre projet"
   },
   "faq": {
-    "sectionTag": "Questions fr\u00e9quentes",
+    "sectionTag": "Questions fréquentes",
     "headline": "Ce que nos prospects nous demandent",
     "items": [
       {
-        "q": "Qu\u2019est-ce qu\u2019un consultant Freshworks\u00a0?",
-        "a": "Un consultant Freshworks est un expert certifi\u00e9 qui d\u00e9ploie, migre et optimise Freshservice (ITSM) et Freshdesk (support client). Contrairement \u00e0 un int\u00e9grateur g\u00e9n\u00e9raliste, il conna\u00eet les meilleures pratiques ITIL et les limites produit pour livrer en 4\u00a0semaines, pas en 6\u00a0mois."
+        "q": "Qu’est-ce qu’un consultant Freshworks ?",
+        "a": "Un consultant Freshworks est un expert certifié qui déploie, migre et optimise Freshservice (ITSM) et Freshdesk (support client). Contrairement à un intégrateur généraliste, il connaît les meilleures pratiques ITIL et les limites produit pour livrer en 4 semaines, pas en 6 mois."
       },
       {
-        "q": "Combien co\u00fbte une impl\u00e9mentation Freshservice\u00a0?",
-        "a": "Une impl\u00e9mentation Freshservice d\u00e9marre \u00e0 5\u00a0000\u00a0\u20ac pour un p\u00e9rim\u00e8tre ITSM standard (portail, workflows, CMDB). Le co\u00fbt varie selon le nombre d\u2019int\u00e9grations (EntraID, M365, ERP) et de d\u00e9partements ESM. Un diagnostic gratuit permet de cadrer le budget exact."
+        "q": "Combien coûte une implémentation Freshservice ?",
+        "a": "Une implémentation Freshservice démarre à 5 000 € pour un périmètre ITSM standard (portail, workflows, CMDB). Le coût varie selon le nombre d’intégrations (EntraID, M365, ERP) et de départements ESM. Un diagnostic gratuit permet de cadrer le budget exact."
       },
       {
-        "q": "Comment migrer de ServiceNow vers Freshservice\u00a0?",
-        "a": "La migration ServiceNow \u2192 Freshservice suit 4\u00a0\u00e9tapes\u00a0: audit de l\u2019existant, mapping des donn\u00e9es (tickets, CMDB, workflows), migration incr\u00e9mentale avec validation, et formation. Z\u00e9ro perte de donn\u00e9es, z\u00e9ro interruption de service. Dur\u00e9e moyenne\u00a0: 6\u00a0\u00e0\u00a08\u00a0semaines."
+        "q": "Comment migrer de ServiceNow vers Freshservice ?",
+        "a": "La migration ServiceNow → Freshservice suit 4 étapes : audit de l’existant, mapping des données (tickets, CMDB, workflows), migration incrémentale avec validation, et formation. Zéro perte de données, zéro interruption de service. Durée moyenne : 6 à 8 semaines."
       },
       {
-        "q": "Quelle est la dur\u00e9e d\u2019un d\u00e9ploiement Freshdesk\u00a0?",
-        "a": "Un d\u00e9ploiement Freshdesk omnicanal (email, chat, t\u00e9l\u00e9phone, WhatsApp) prend 3\u00a0\u00e0\u00a05\u00a0semaines. Cela inclut la configuration des SLA, le routage intelligent, la base de connaissances bilingue et les int\u00e9grations CRM (Salesforce, HubSpot). Le go-live est garanti."
+        "q": "Quelle est la durée d’un déploiement Freshdesk ?",
+        "a": "Un déploiement Freshdesk omnicanal (email, chat, téléphone, WhatsApp) prend 3 à 5 semaines. Cela inclut la configuration des SLA, le routage intelligent, la base de connaissances bilingue et les intégrations CRM (Salesforce, HubSpot). Le go-live est garanti."
       },
       {
-        "q": "Freshservice vs ServiceNow\u00a0: quelles diff\u00e9rences\u00a0?",
-        "a": "Freshservice co\u00fbte 3\u00a0\u00e0\u00a05\u00d7 moins que ServiceNow pour un p\u00e9rim\u00e8tre ETI (500-2\u00a0000\u00a0utilisateurs). Il se d\u00e9ploie en semaines vs.\u00a0mois, sans \u00e9quipe admin d\u00e9di\u00e9e. En revanche, ServiceNow reste pertinent pour les grands groupes (+10\u00a0000\u00a0users) avec des besoins GRC complexes."
+        "q": "Freshservice vs ServiceNow : quelles différences ?",
+        "a": "Freshservice coûte 3 à 5× moins que ServiceNow pour un périmètre ETI (500-2 000 utilisateurs). Il se déploie en semaines vs. mois, sans équipe admin dédiée. En revanche, ServiceNow reste pertinent pour les grands groupes (+10 000 users) avec des besoins GRC complexes."
       },
       {
-        "q": "Comment am\u00e9liorer l\u2019adoption de mon outil ITSM\u00a0?",
-        "a": "70\u00a0% des entreprises sous-utilisent leur outil ITSM. Notre m\u00e9thode en 3\u00a0leviers\u00a0: simplifier le portail (r\u00e9duction des cat\u00e9gories de 60\u00a0%), automatiser les t\u00e2ches r\u00e9p\u00e9titives (Freddy\u00a0AI), et former les agents avec des KPI concrets (CSAT, SLA). R\u00e9sultats mesurables en 4\u00a0semaines."
+        "q": "Comment améliorer l’adoption de mon outil ITSM ?",
+        "a": "70 % des entreprises sous-utilisent leur outil ITSM. Notre méthode en 3 leviers : simplifier le portail (réduction des catégories de 60 %), automatiser les tâches répétitives (Freddy AI), et former les agents avec des KPI concrets (CSAT, SLA). Résultats mesurables en 4 semaines."
       }
     ]
   },
   "contact": {
-    "sectionTag": "Passez \u00e0 l\u2019action",
+    "sectionTag": "Passez à l’action",
     "headline": "30 minutes pour identifier vos quick wins",
-    "subheadline": "Un diagnostic gratuit de votre ITSM ou de votre support client. On identifie ce qui bloque et ce qu\u2019on peut d\u00e9bloquer en 4 semaines.",
+    "subheadline": "Un diagnostic gratuit de votre ITSM ou de votre support client. On identifie ce qui bloque et ce qu’on peut débloquer en 4 semaines.",
     "form": {
       "name": "Nom complet",
-      "namePlaceholder": "Pr\u00e9nom Nom",
+      "namePlaceholder": "Prénom Nom",
       "email": "Email professionnel",
       "emailPlaceholder": "prenom@entreprise.fr",
       "company": "Entreprise",
       "companyPlaceholder": "Nom de votre entreprise",
-      "challenge": "Votre plus grand d\u00e9fi",
+      "challenge": "Votre plus grand défi",
       "challengeOptions": {
-        "default": "S\u00e9lectionnez un d\u00e9fi",
+        "default": "Sélectionnez un défi",
         "adoption": "Faible adoption de mon outil ITSM",
-        "cx": "Mon support client n\u2019est pas \u00e0 la hauteur",
+        "cx": "Mon support client n’est pas à la hauteur",
         "tool": "Mon outil actuel est trop complexe ou cher",
-        "migration": "Je pr\u00e9vois une migration d\u2019outil",
+        "migration": "Je prévois une migration d’outil",
         "scale": "Mes processus ne suivent plus la croissance",
-        "itam": "CMDB / ITAM non structur\u00e9",
+        "itam": "CMDB / ITAM non structuré",
         "other": "Autre"
       },
       "submit": "Envoyer",
       "sending": "Envoi en cours...",
-      "success": "Message envoy\u00e9\u00a0! Nous vous r\u00e9pondrons sous 24 heures.",
-      "successSub": "Envie d\u2019acc\u00e9l\u00e9rer\u00a0? Bloquez un cr\u00e9neau maintenant.",
-      "successCta": "R\u00e9server un cr\u00e9neau",
-      "successCtaFallback": "R\u00e9server un cr\u00e9neau \u2192",
-      "error": "Une erreur est survenue. R\u00e9essayez ou contactez-nous par email.",
+      "success": "Message envoyé ! Nous vous répondrons sous 24 heures.",
+      "successSub": "Envie d’accélérer ? Bloquez un créneau maintenant.",
+      "successCta": "Réserver un créneau",
+      "successCtaFallback": "Réserver un créneau →",
+      "error": "Une erreur est survenue. Réessayez ou contactez-nous par email.",
       "required": "Ce champ est requis",
       "invalidEmail": "Adresse email invalide"
     },
@@ -339,50 +457,50 @@
       "title": "Autres moyens de nous contacter",
       "email": "contact@whataservice.fr",
       "location": "Paris, France",
-      "response": "R\u00e9ponse sous 24h"
+      "response": "Réponse sous 24h"
     }
   },
   "cookies": {
     "bannerLabel": "Consentement cookies",
-    "message": "Nous utilisons des cookies analytiques pour am\u00e9liorer votre exp\u00e9rience. Aucune donn\u00e9e personnelle n\u2019est vendue ni partag\u00e9e.",
+    "message": "Nous utilisons des cookies analytiques pour améliorer votre expérience. Aucune donnée personnelle n’est vendue ni partagée.",
     "accept": "Accepter",
     "decline": "Refuser"
   },
   "footer": {
-    "description": "Consultants Freshworks pour ETI et PME. ITSM, support client omnicanal, ITAM, ESM. D\u00e9ploiement, migration, optimisation.",
+    "description": "Consultants Freshworks pour ETI et PME. ITSM, support client omnicanal, ITAM, ESM. Déploiement, migration, optimisation.",
     "navigation": "Navigation",
-    "legal": "Mentions l\u00e9gales",
+    "legal": "Mentions légales",
     "contact": "Contact",
     "location": "Paris, France",
     "email": "contact@whataservice.fr",
-    "rights": "\u00a9 2026 What A Service. Tous droits r\u00e9serv\u00e9s.",
-    "madeWith": "Fait avec passion \u00e0 Paris"
+    "rights": "© 2026 What A Service. Tous droits réservés.",
+    "madeWith": "Fait avec passion à Paris"
   },
   "legal": {
-    "title": "Mentions l\u00e9gales",
+    "title": "Mentions légales",
     "editor": {
-      "heading": "\u00c9diteur du site",
-      "content": "What A Service \u2014 Eric Sib, Entrepreneur individuel. Si\u00e8ge social\u00a0: Paris, France. Email\u00a0: contact@whataservice.fr. Directeur de la publication\u00a0: Eric Sib."
+      "heading": "Éditeur du site",
+      "content": "What A Service — Eric Sib, Entrepreneur individuel. Siège social : Paris, France. Email : contact@whataservice.fr. Directeur de la publication : Eric Sib."
     },
     "hosting": {
-      "heading": "H\u00e9bergement",
-      "content": "Ce site est h\u00e9berg\u00e9 par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, \u00c9tats-Unis. https://vercel.com"
+      "heading": "Hébergement",
+      "content": "Ce site est hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis. https://vercel.com"
     },
     "ip": {
-      "heading": "Propri\u00e9t\u00e9 intellectuelle",
-      "content": "L\u2019ensemble des contenus (textes, images, graphismes, logo, ic\u00f4nes) pr\u00e9sents sur ce site est la propri\u00e9t\u00e9 exclusive de What A Service, sauf mention contraire. Toute reproduction, distribution, modification ou utilisation sans autorisation pr\u00e9alable est interdite."
+      "heading": "Propriété intellectuelle",
+      "content": "L’ensemble des contenus (textes, images, graphismes, logo, icônes) présents sur ce site est la propriété exclusive de What A Service, sauf mention contraire. Toute reproduction, distribution, modification ou utilisation sans autorisation préalable est interdite."
     },
     "data": {
-      "heading": "Donn\u00e9es personnelles & RGPD",
-      "content": "Les donn\u00e9es collect\u00e9es via le formulaire de contact (nom, email, entreprise) sont utilis\u00e9es uniquement pour r\u00e9pondre \u00e0 votre demande. Elles ne sont ni c\u00e9d\u00e9es ni vendues \u00e0 des tiers. Conform\u00e9ment au RGPD, vous disposez d\u2019un droit d\u2019acc\u00e8s, de rectification et de suppression de vos donn\u00e9es. Pour exercer ces droits, contactez-nous \u00e0 contact@whataservice.fr."
+      "heading": "Données personnelles & RGPD",
+      "content": "Les données collectées via le formulaire de contact (nom, email, entreprise) sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni vendues à des tiers. Conformément au RGPD, vous disposez d’un droit d’accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à contact@whataservice.fr."
     },
     "cookies": {
       "heading": "Cookies",
-      "content": "Ce site n\u2019utilise aucun cookie de tracking ni de publicit\u00e9. Seuls des cookies techniques strictement n\u00e9cessaires au fonctionnement du site peuvent \u00eatre utilis\u00e9s."
+      "content": "Ce site n’utilise aucun cookie de tracking ni de publicité. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."
     },
     "contact": {
       "heading": "Contact",
-      "content": "Pour toute question relative aux mentions l\u00e9gales ou \u00e0 la protection des donn\u00e9es\u00a0: contact@whataservice.fr"
+      "content": "Pour toute question relative aux mentions légales ou à la protection des données : contact@whataservice.fr"
     }
   },
   "quiz": {
@@ -538,11 +656,31 @@
         }
       },
       "level": {
-        "1": { "label": "Firefighting", "desc": "Ad hoc, réactif, non documenté. Le succès repose sur l'héroïsme individuel.", "cta": "Réservez un health check gratuit" },
-        "2": { "label": "Stabilizing", "desc": "Ticketing basique en place, processus reproductibles mais non standardisés.", "cta": "Obtenez votre roadmap personnalisée" },
-        "3": { "label": "Established", "desc": "Standards à l'échelle de l'organisation, processus définis, SLA suivis.", "cta": "Découvrez comment atteindre le Level 4" },
-        "4": { "label": "Optimized", "desc": "Gouvernance data-driven, contrôle quantitatif, gestion proactive, automatisation à l'échelle.", "cta": "Explorez les stratégies d'optimisation avancées" },
-        "5": { "label": "Leading", "desc": "Amélioration continue intégrée, opérations IA, IT partenaire stratégique.", "cta": "Maintenez votre avance concurrentielle" }
+        "1": {
+          "label": "Firefighting",
+          "desc": "Ad hoc, réactif, non documenté. Le succès repose sur l'héroïsme individuel.",
+          "cta": "Réservez un health check gratuit"
+        },
+        "2": {
+          "label": "Stabilizing",
+          "desc": "Ticketing basique en place, processus reproductibles mais non standardisés.",
+          "cta": "Obtenez votre roadmap personnalisée"
+        },
+        "3": {
+          "label": "Established",
+          "desc": "Standards à l'échelle de l'organisation, processus définis, SLA suivis.",
+          "cta": "Découvrez comment atteindre le Level 4"
+        },
+        "4": {
+          "label": "Optimized",
+          "desc": "Gouvernance data-driven, contrôle quantitatif, gestion proactive, automatisation à l'échelle.",
+          "cta": "Explorez les stratégies d'optimisation avancées"
+        },
+        "5": {
+          "label": "Leading",
+          "desc": "Amélioration continue intégrée, opérations IA, IT partenaire stratégique.",
+          "cta": "Maintenez votre avance concurrentielle"
+        }
       },
       "commercial": {
         "incident": "Les organisations à votre niveau de maturité dépensent généralement 40% de plus en gestion réactive des incidents.",
@@ -577,22 +715,105 @@
         "proactive": "Support proactif"
       },
       "q": {
-        "1a": { "text": "Comment votre organisation gère-t-elle les tickets de support client ?", "opt1": "Les demandes arrivent par email sans système structuré. Pas de suivi des temps de réponse ni des SLA.", "opt2": "Nous avons un système de tickets basique, mais le routage est manuel. Les temps de réponse ne sont pas systématiquement suivis.", "opt3": "Tickets auto-catégorisés avec SLA définis. Conformité SLA suivie à 85-92%. Temps de première réponse < 4h.", "opt4": "IA assiste le triage et la priorisation. Conformité SLA > 95%. Temps de première réponse < 1h. CSAT mesuré par interaction.", "opt5": "Résolution prédictive. Agents virtuels résolvent 40-60% des demandes L1. Temps de résolution médian < 17h. CSAT > 90%." },
-        "1b": { "text": "Quel est votre taux de résolution au premier contact (FCR) ?", "opt1": "Nous ne mesurons pas le FCR. Les clients doivent souvent nous recontacter plusieurs fois pour le même problème.", "opt2": "Le FCR est estimé à 50-60%, mais le suivi est imprécis. Le taux de réouverture dépasse 10%.", "opt3": "Le FCR est suivi à 70-75%. Taux de réouverture < 8%. Les agents ont accès à l'historique client.", "opt4": "Le FCR dépasse 80%. L'IA suggère des solutions en temps réel. Taux de réouverture < 4%.", "opt5": "Le FCR dépasse 85%. Résolution en un seul contact pour 84%+ des demandes. Routage optimisé par ML." },
-        "2a": { "text": "Combien de canaux support proposez-vous et sont-ils intégrés ?", "opt1": "Principalement l'email. Les autres canaux (réseaux sociaux, chat) reçoivent des réponses incohérentes.", "opt2": "2-3 canaux (email + téléphone, peut-être chat) mais en silos. Les clients doivent répéter leur problème.", "opt3": "3-4 canaux (email, chat, téléphone, social) avec CRM partagé et vue client unifiée. SLA cohérents.", "opt4": "Vrai omnicanal : contexte préservé entre canaux. Historique complet visible. Routage IA par type de demande.", "opt5": "Changement de canal transparent en cours de conversation. Suggestions proactives basées sur les préférences client. Analytics unifiés." },
-        "3a": { "text": "Quelle est l'efficacité de votre écosystème self-service client ?", "opt1": "Une page FAQ basique ou pas de self-service. Moins de 10% des clients résolvent seuls leurs problèmes.", "opt2": "Un centre d'aide avec quelques articles, mais la recherche est faible et le contenu souvent obsolète. Déflexion < 20%.", "opt3": "Base de connaissances structurée avec recherche. Chatbot basique. Portail client. Déflexion 30-50%.", "opt4": "Chatbot IA résolvant 40-60% des requêtes. Forums communautaires actifs. Recommandations prédictives.", "opt5": "IA conversationnelle résolvant 60%+ des requêtes. Détection automatique des lacunes de contenu. Déflexion > 60%." },
-        "4a": { "text": "Comment sont équipés et productifs vos agents support ?", "opt1": "Pas de réponses prédéfinies, pas de KB interne, pas d'outils de productivité. Formation limitée à l'onboarding.", "opt2": "Quelques réponses prédéfinies. Formation basique. Assignation manuelle des tickets.", "opt3": "Bibliothèque de réponses. KB interne. Auto-routage par compétence. Formation régulière. Dashboards performance.", "opt4": "IA d'assistance agent avec suggestions temps réel. Distribution prédictive de la charge. Coaching basé sur les analytics.", "opt5": "L'IA gère le L1, libérant les agents pour le complexe. Parcours de carrière intégré. Satisfaction agent mesurée et optimisée." },
-        "5a": { "text": "Comment mesurez-vous et exploitez-vous le feedback client ?", "opt1": "Pas de mesure formelle de la satisfaction. Le feedback est anecdotique, remonté par les commerciaux.", "opt2": "Enquêtes CSAT occasionnelles avec un faible taux de réponse. Pas de NPS ni de CES.", "opt3": "CSAT post-interaction. NPS trimestriel. Revue mensuelle du feedback. Suivi des feedbacks négatifs sous 1 semaine.", "opt4": "Approche multi-métriques (CSAT + NPS + CES). Boucle fermée automatisée en 24h. Métriques CX au comité de direction.", "opt5": "Analyse de sentiment temps réel. Modélisation prédictive de la satisfaction. Les métriques CX pilotent la roadmap produit." },
-        "6a": { "text": "Comment votre support utilise-t-il les données et l'IA ?", "opt1": "Pas de tableaux de bord. Les décisions sont basées sur l'intuition ou le ressenti.", "opt2": "Rapports basiques (volumes de tickets, temps moyens) compilés manuellement.", "opt3": "Dashboards standard suivant les KPI (volume, SLA, backlog, CSAT). Reporting mensuel. Tendances analysées.", "opt4": "Dashboards temps réel avec alertes. L'IA détecte les anomalies. Métriques corrélées aux résultats business.", "opt5": "Analytics prédictif et prescriptif. Modèles ML pour le routage et la prédiction de résolution. Intégration AIOps." },
-        "7a": { "text": "Comment gérez-vous les connaissances pour le support client ?", "opt1": "Les connaissances sont dans les têtes des agents. Pas de base documentée.", "opt2": "Quelques articles de base, rarement mis à jour. Les agents demandent aux collègues pour les cas complexes.", "opt3": "KB centralisée avec 50-70% de couverture. Articles revus trimestriellement. Suggestions aux agents pendant le traitement.", "opt4": "Principes KCS adoptés. L'IA suggère des articles pertinents. Alertes de contenu obsolète. Couverture > 80%.", "opt5": "L'IA génère des brouillons d'articles depuis les tickets résolus. Recherche NLP contextuelle. ROI du programme KM mesuré." },
-        "8a": { "text": "Comment votre organisation pratique-t-elle le support proactif ?", "opt1": "Support 100% réactif. On attend que le client signale un problème.", "opt2": "Notifications manuelles occasionnelles pour les incidents majeurs. Pas de monitoring proactif.", "opt3": "Alertes automatiques pour les pannes connues. Communication proactive sur les maintenances. FAQ proactive sur les sujets tendance.", "opt4": "Monitoring proactif des indicateurs de santé client. Outreach automatisé pour les clients à risque. Customer health scoring.", "opt5": "Support prédictif : contacter les clients AVANT qu'ils rencontrent un problème. IA identifie les signaux de churn. Customer success intégré au support." }
+        "1a": {
+          "text": "Comment votre organisation gère-t-elle les tickets de support client ?",
+          "opt1": "Les demandes arrivent par email sans système structuré. Pas de suivi des temps de réponse ni des SLA.",
+          "opt2": "Nous avons un système de tickets basique, mais le routage est manuel. Les temps de réponse ne sont pas systématiquement suivis.",
+          "opt3": "Tickets auto-catégorisés avec SLA définis. Conformité SLA suivie à 85-92%. Temps de première réponse < 4h.",
+          "opt4": "IA assiste le triage et la priorisation. Conformité SLA > 95%. Temps de première réponse < 1h. CSAT mesuré par interaction.",
+          "opt5": "Résolution prédictive. Agents virtuels résolvent 40-60% des demandes L1. Temps de résolution médian < 17h. CSAT > 90%."
+        },
+        "1b": {
+          "text": "Quel est votre taux de résolution au premier contact (FCR) ?",
+          "opt1": "Nous ne mesurons pas le FCR. Les clients doivent souvent nous recontacter plusieurs fois pour le même problème.",
+          "opt2": "Le FCR est estimé à 50-60%, mais le suivi est imprécis. Le taux de réouverture dépasse 10%.",
+          "opt3": "Le FCR est suivi à 70-75%. Taux de réouverture < 8%. Les agents ont accès à l'historique client.",
+          "opt4": "Le FCR dépasse 80%. L'IA suggère des solutions en temps réel. Taux de réouverture < 4%.",
+          "opt5": "Le FCR dépasse 85%. Résolution en un seul contact pour 84%+ des demandes. Routage optimisé par ML."
+        },
+        "2a": {
+          "text": "Combien de canaux support proposez-vous et sont-ils intégrés ?",
+          "opt1": "Principalement l'email. Les autres canaux (réseaux sociaux, chat) reçoivent des réponses incohérentes.",
+          "opt2": "2-3 canaux (email + téléphone, peut-être chat) mais en silos. Les clients doivent répéter leur problème.",
+          "opt3": "3-4 canaux (email, chat, téléphone, social) avec CRM partagé et vue client unifiée. SLA cohérents.",
+          "opt4": "Vrai omnicanal : contexte préservé entre canaux. Historique complet visible. Routage IA par type de demande.",
+          "opt5": "Changement de canal transparent en cours de conversation. Suggestions proactives basées sur les préférences client. Analytics unifiés."
+        },
+        "3a": {
+          "text": "Quelle est l'efficacité de votre écosystème self-service client ?",
+          "opt1": "Une page FAQ basique ou pas de self-service. Moins de 10% des clients résolvent seuls leurs problèmes.",
+          "opt2": "Un centre d'aide avec quelques articles, mais la recherche est faible et le contenu souvent obsolète. Déflexion < 20%.",
+          "opt3": "Base de connaissances structurée avec recherche. Chatbot basique. Portail client. Déflexion 30-50%.",
+          "opt4": "Chatbot IA résolvant 40-60% des requêtes. Forums communautaires actifs. Recommandations prédictives.",
+          "opt5": "IA conversationnelle résolvant 60%+ des requêtes. Détection automatique des lacunes de contenu. Déflexion > 60%."
+        },
+        "4a": {
+          "text": "Comment sont équipés et productifs vos agents support ?",
+          "opt1": "Pas de réponses prédéfinies, pas de KB interne, pas d'outils de productivité. Formation limitée à l'onboarding.",
+          "opt2": "Quelques réponses prédéfinies. Formation basique. Assignation manuelle des tickets.",
+          "opt3": "Bibliothèque de réponses. KB interne. Auto-routage par compétence. Formation régulière. Dashboards performance.",
+          "opt4": "IA d'assistance agent avec suggestions temps réel. Distribution prédictive de la charge. Coaching basé sur les analytics.",
+          "opt5": "L'IA gère le L1, libérant les agents pour le complexe. Parcours de carrière intégré. Satisfaction agent mesurée et optimisée."
+        },
+        "5a": {
+          "text": "Comment mesurez-vous et exploitez-vous le feedback client ?",
+          "opt1": "Pas de mesure formelle de la satisfaction. Le feedback est anecdotique, remonté par les commerciaux.",
+          "opt2": "Enquêtes CSAT occasionnelles avec un faible taux de réponse. Pas de NPS ni de CES.",
+          "opt3": "CSAT post-interaction. NPS trimestriel. Revue mensuelle du feedback. Suivi des feedbacks négatifs sous 1 semaine.",
+          "opt4": "Approche multi-métriques (CSAT + NPS + CES). Boucle fermée automatisée en 24h. Métriques CX au comité de direction.",
+          "opt5": "Analyse de sentiment temps réel. Modélisation prédictive de la satisfaction. Les métriques CX pilotent la roadmap produit."
+        },
+        "6a": {
+          "text": "Comment votre support utilise-t-il les données et l'IA ?",
+          "opt1": "Pas de tableaux de bord. Les décisions sont basées sur l'intuition ou le ressenti.",
+          "opt2": "Rapports basiques (volumes de tickets, temps moyens) compilés manuellement.",
+          "opt3": "Dashboards standard suivant les KPI (volume, SLA, backlog, CSAT). Reporting mensuel. Tendances analysées.",
+          "opt4": "Dashboards temps réel avec alertes. L'IA détecte les anomalies. Métriques corrélées aux résultats business.",
+          "opt5": "Analytics prédictif et prescriptif. Modèles ML pour le routage et la prédiction de résolution. Intégration AIOps."
+        },
+        "7a": {
+          "text": "Comment gérez-vous les connaissances pour le support client ?",
+          "opt1": "Les connaissances sont dans les têtes des agents. Pas de base documentée.",
+          "opt2": "Quelques articles de base, rarement mis à jour. Les agents demandent aux collègues pour les cas complexes.",
+          "opt3": "KB centralisée avec 50-70% de couverture. Articles revus trimestriellement. Suggestions aux agents pendant le traitement.",
+          "opt4": "Principes KCS adoptés. L'IA suggère des articles pertinents. Alertes de contenu obsolète. Couverture > 80%.",
+          "opt5": "L'IA génère des brouillons d'articles depuis les tickets résolus. Recherche NLP contextuelle. ROI du programme KM mesuré."
+        },
+        "8a": {
+          "text": "Comment votre organisation pratique-t-elle le support proactif ?",
+          "opt1": "Support 100% réactif. On attend que le client signale un problème.",
+          "opt2": "Notifications manuelles occasionnelles pour les incidents majeurs. Pas de monitoring proactif.",
+          "opt3": "Alertes automatiques pour les pannes connues. Communication proactive sur les maintenances. FAQ proactive sur les sujets tendance.",
+          "opt4": "Monitoring proactif des indicateurs de santé client. Outreach automatisé pour les clients à risque. Customer health scoring.",
+          "opt5": "Support prédictif : contacter les clients AVANT qu'ils rencontrent un problème. IA identifie les signaux de churn. Customer success intégré au support."
+        }
       },
       "level": {
-        "1": { "label": "Reactive", "desc": "Support 100% réactif, pas de processus structuré. Le succès repose sur les efforts individuels.", "cta": "Réservez un diagnostic support gratuit" },
-        "2": { "label": "Developing", "desc": "Ticketing basique en place, quelques canaux actifs mais en silos.", "cta": "Obtenez votre roadmap CX personnalisée" },
-        "3": { "label": "Proactive", "desc": "Processus définis, omnicanal émergent, SLA suivis, analytics opérationnels.", "cta": "Découvrez comment atteindre le niveau Customer-centric" },
-        "4": { "label": "Customer-centric", "desc": "Data-driven, IA intégrée, expérience omnicanal fluide, NPS piloté.", "cta": "Explorez les stratégies CX avancées" },
-        "5": { "label": "Champion", "desc": "Support prédictif, IA autonome, CX comme avantage concurrentiel stratégique.", "cta": "Maintenez votre excellence CX" }
+        "1": {
+          "label": "Reactive",
+          "desc": "Support 100% réactif, pas de processus structuré. Le succès repose sur les efforts individuels.",
+          "cta": "Réservez un diagnostic support gratuit"
+        },
+        "2": {
+          "label": "Developing",
+          "desc": "Ticketing basique en place, quelques canaux actifs mais en silos.",
+          "cta": "Obtenez votre roadmap CX personnalisée"
+        },
+        "3": {
+          "label": "Proactive",
+          "desc": "Processus définis, omnicanal émergent, SLA suivis, analytics opérationnels.",
+          "cta": "Découvrez comment atteindre le niveau Customer-centric"
+        },
+        "4": {
+          "label": "Customer-centric",
+          "desc": "Data-driven, IA intégrée, expérience omnicanal fluide, NPS piloté.",
+          "cta": "Explorez les stratégies CX avancées"
+        },
+        "5": {
+          "label": "Champion",
+          "desc": "Support prédictif, IA autonome, CX comme avantage concurrentiel stratégique.",
+          "cta": "Maintenez votre excellence CX"
+        }
       },
       "commercial": {
         "tickets": "Votre temps de résolution vous place dans le dernier quartile. Freshdesk auto-triage + réponses prédéfinies peuvent réduire de 50% en 90 jours.",
@@ -617,31 +838,60 @@
     }
   },
   "maturity": {
-    "breadcrumbSegment": { "itsm": "ITSM", "cx": "CX" },
+    "breadcrumbSegment": {
+      "itsm": "ITSM",
+      "cx": "CX"
+    },
     "itsm": {
       "level-1": {
-        "meta": { "title": "Maturité ITSM Niveau 1 — Mode pompier", "description": "Votre ITSM est en mode pompier. Découvrez les actions prioritaires pour structurer vos services IT avec Freshservice." },
+        "meta": {
+          "title": "Maturité ITSM Niveau 1 — Mode pompier",
+          "description": "Votre ITSM est en mode pompier. Découvrez les actions prioritaires pour structurer vos services IT avec Freshservice."
+        },
         "sectionTag": "Maturité ITSM — Niveau 1",
         "headline": "Mode pompier : vos services IT subissent au lieu de piloter",
         "intro": "Un score de maturité ITSM inférieur à 20/100 indique que vos processus IT sont réactifs et non structurés. Les incidents sont traités au cas par cas, sans catégorisation ni priorisation. Il n'y a pas de portail self-service ni de CMDB. En moyenne, 70 % des entreprises à ce niveau perdent 15 heures/semaine en triage manuel.",
         "problemsTitle": "Symptômes typiques",
-        "problems": ["Aucun portail self-service — 100 % des demandes passent par email ou téléphone", "Pas de catégorisation ni de SLA — impossible de mesurer la performance", "CMDB inexistante — les assets ne sont pas tracés", "Aucune automatisation — chaque ticket est traité manuellement"],
+        "problems": [
+          "Aucun portail self-service — 100 % des demandes passent par email ou téléphone",
+          "Pas de catégorisation ni de SLA — impossible de mesurer la performance",
+          "CMDB inexistante — les assets ne sont pas tracés",
+          "Aucune automatisation — chaque ticket est traité manuellement"
+        ],
         "recommendationsTitle": "Recommandations prioritaires",
-        "recommendations": ["Déployer un portail Freshservice avec catalogue de services basique (5-10 catégories)", "Configurer les SLA par priorité (P1 : 1h, P2 : 4h, P3 : 8h, P4 : 24h)", "Lancer le Discovery pour inventorier les assets automatiquement", "Former les agents sur le triage et le routage (2 jours)"],
+        "recommendations": [
+          "Déployer un portail Freshservice avec catalogue de services basique (5-10 catégories)",
+          "Configurer les SLA par priorité (P1 : 1h, P2 : 4h, P3 : 8h, P4 : 24h)",
+          "Lancer le Discovery pour inventorier les assets automatiquement",
+          "Former les agents sur le triage et le routage (2 jours)"
+        ],
         "cta": "Obtenez un diagnostic gratuit de votre ITSM",
         "timeframe": "Résultats visibles en 4 semaines"
       }
     },
     "cx": {
       "level-1": {
-        "meta": { "title": "Maturité CX Niveau 1 — Support réactif", "description": "Votre support client est réactif et désorganisé. Découvrez comment structurer Freshdesk pour améliorer la CSAT." },
+        "meta": {
+          "title": "Maturité CX Niveau 1 — Support réactif",
+          "description": "Votre support client est réactif et désorganisé. Découvrez comment structurer Freshdesk pour améliorer la CSAT."
+        },
         "sectionTag": "Maturité CX — Niveau 1",
         "headline": "Support réactif : vos clients attendent trop longtemps",
         "intro": "Un score CX inférieur à 20/100 signifie que votre support client fonctionne sans structure. Les emails s'empilent, les SLA n'existent pas, et la CSAT n'est pas mesurée. En moyenne, les entreprises à ce niveau ont un temps de première réponse supérieur à 24h et un CSAT inférieur à 50 %.",
         "problemsTitle": "Symptômes typiques",
-        "problems": ["Canal unique (email) — pas de chat, téléphone ni self-service", "Aucun SLA configuré — les temps de réponse ne sont pas suivis", "Pas de base de connaissances — les agents répètent les mêmes réponses", "CSAT non mesuré — aucune visibilité sur la satisfaction client"],
+        "problems": [
+          "Canal unique (email) — pas de chat, téléphone ni self-service",
+          "Aucun SLA configuré — les temps de réponse ne sont pas suivis",
+          "Pas de base de connaissances — les agents répètent les mêmes réponses",
+          "CSAT non mesuré — aucune visibilité sur la satisfaction client"
+        ],
         "recommendationsTitle": "Recommandations prioritaires",
-        "recommendations": ["Déployer Freshdesk avec 3 canaux : email + chat + formulaire web", "Configurer les SLA par type de demande (urgent, standard, info)", "Créer une base de connaissances avec les 20 questions les plus fréquentes", "Activer les enquêtes CSAT automatiques post-résolution"],
+        "recommendations": [
+          "Déployer Freshdesk avec 3 canaux : email + chat + formulaire web",
+          "Configurer les SLA par type de demande (urgent, standard, info)",
+          "Créer une base de connaissances avec les 20 questions les plus fréquentes",
+          "Activer les enquêtes CSAT automatiques post-résolution"
+        ],
         "cta": "Obtenez un diagnostic gratuit de votre support client",
         "timeframe": "Résultats visibles en 3 semaines"
       }

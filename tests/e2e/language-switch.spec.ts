@@ -43,16 +43,16 @@ test.describe("Language Switching — Content", () => {
   test("CTA text changes with locale", async ({ page }) => {
     const home = new HomePage(page);
 
-    // FR CTA
+    // FR CTA (D15 — updated hero CTAs)
     await home.goto("fr");
     await expect(
-      page.getByRole("link", { name: "Diagnostic gratuit en 30 min" })
+      page.getByRole("link", { name: /R\u00e9server un appel strat\u00e9gie/i })
     ).toBeVisible();
 
     // EN CTA
     await home.goto("en");
     await expect(
-      page.getByRole("link", { name: "Free 30-min diagnostic" })
+      page.getByRole("link", { name: /Book a Strategy Call/i })
     ).toBeVisible();
   });
 });
