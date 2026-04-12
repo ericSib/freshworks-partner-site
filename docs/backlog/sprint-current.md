@@ -1,9 +1,9 @@
-# Sprint 16 — "Core Web Vitals & Performance"
+# Sprint 17 — "Pages services + pricing"
 
-> **Sprint Goal** : Atteindre Lighthouse 90+ sur les 4 categories, optimiser la performance mobile, verrouiller les seuils qualite.
+> **Sprint Goal** : Deployer les 6 pages services dediees + page pricing "sur devis" pour la longue traine SEO.
 > **Debut** : 12 avril 2026
 > **Fin** : 18 avril 2026
-> **Capacite** : 20 pts (forecast 11 pts — T1-v2 verifie, 0 fantome)
+> **Capacite** : 20 pts (forecast 12 pts — T1-v2 verifie, 0 fantome)
 
 ---
 
@@ -11,28 +11,25 @@
 
 | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|
-| T8 | Institutionnaliser T1-v2 dans PROCESS.md | 1 | Must | Committed |
-| T10+T11 | Ratchet coverage 80% + mutation 65% | 1 | Must | Committed |
-| T9 | Domaine custom freshworks.whataservice.fr (D14) | 1 | Must | Committed |
-| T13 | Tests useReducedMotion (0% → ≥ 80%) | 2 | Should | Committed |
-| T12 | Grain texture GPU perf (static tile) | 1 | Should | Committed |
-| CWV | Core Web Vitals audit pass (Lighthouse ≥ 90) | 5 | Must | Committed |
+| T14 | Ratchet coverage 85% + mutation 70% | 1 | Must | Committed |
+| T12 | Lighthouse CI dans e2e.yml | 1 | Should | Committed |
+| Pricing | Page pricing "Sur devis" (D12) | 1 | Must | Committed |
+| Services | Pages services dediees (6 pages dynamiques) | 8 | Must | Committed |
+| Branch-prot | Branch protection main (ops GitHub) | 1 | Could | Committed |
 
-**Total engage** : 11 pts / 20 pts capacite
-
----
-
-## T1-v2 — 0 fantome (3eme sprint consecutif)
-
-7 candidates verifiees. Toutes necessitent du travail reel.
+**Total engage** : 12 pts / 20 pts capacite
 
 ---
 
 ## Ordre de travail
 
-1. T8 (1 pt) — PROCESS.md edit — Jour 1
-2. T10+T11 (1 pt) — ratchet configs — Jour 1
-3. T13 (2 pts) — tests useReducedMotion — Jour 1-2
-4. T12 (1 pt) — grain texture static tile — Jour 2
-5. T9 (1 pt) — domaine custom site.ts — Jour 2
-6. CWV (5 pts) — Lighthouse audit + fixes — Jour 3-7
+1. T14 (1 pt) — ratchet configs — Jour 1
+2. T12 (1 pt) — Lighthouse CI step — Jour 1
+3. Pricing (1 pt) — page statique "sur devis" — Jour 1-2
+4. Services (8 pts) — Jour 2-7
+   - 4a. Framework : route dynamique, config slugs, nav, breadcrumbs
+   - 4b. Contenu : 6 pages FR + EN (generation + review)
+   - 4c. SEO : JSON-LD Service schema, meta tags
+   - 4d. Homepage : service cards → Link vers pages dediees
+   - 4e. Tests : rendering, a11y, E2E
+5. Branch-prot (1 pt) — ops GitHub — Jour 7
