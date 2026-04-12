@@ -5,7 +5,7 @@
   },
   "breadcrumb": {
     "home": "Home",
-    "quiz": "Maturity Quiz",
+    "quiz": "Service Maturity Index™",
     "legal": "Legal Notice"
   },
   "nav": {
@@ -16,7 +16,8 @@
     "bookCall": "Book a Call",
     "switchLang": "Passer en français",
     "switchLangShort": "FR",
-    "switchLangFull": "FR — Français"
+    "switchLangFull": "FR — Français",
+    "quiz": "Service Maturity Index™"
   },
   "hero": {
     "tagline": "Freshworks Specialist — ITSM · CX · ESM · Agentic AI",
@@ -505,11 +506,11 @@
   },
   "quiz": {
     "meta": {
-      "title": "ITSM & CX Maturity Score",
-      "description": "Assess your IT service and customer support maturity for free. 10 questions, instant results with radar chart and recommendations."
+      "title": "Service Maturity Index™ — Assess Your Service Maturity",
+      "description": "Free assessment of your IT service, customer support and ESM maturity. 10 questions, instant results, personalized recommendations."
     },
     "selector": {
-      "tagline": "Free assessment — 3 minutes",
+      "tagline": "Service Maturity Index™ — Free, 3 minutes",
       "headline": "How mature are your services?",
       "subheadline": "Choose the track that matches your challenge. Each assessment covers 8 key dimensions with specific recommendations.",
       "itsm": {

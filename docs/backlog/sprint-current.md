@@ -1,20 +1,9 @@
-# Sprint 17 — "Refonte homepage : catalogue 8 offres complexity-first"
+# Sprint 18 — "Refonte quiz → Service Maturity Index™"
 
-> **Sprint Goal** : Refondre le contenu homepage avec le nouveau catalogue d'offres (8 offres, complexity-first), le narratif PAS, les personas Thomas/Mathieu/Nadia, et le pricing "a partir de".
+> **Sprint Goal** : Transformer le quiz en Service Maturity Index™ avec 3 parcours (ITSM/CX/ESM), ROI estime et mapping maturite → offres.
 > **Debut** : 12 avril 2026
 > **Fin** : 18 avril 2026
-> **Capacite** : 20 pts (forecast 12 pts)
-
----
-
-## Decisions actees (D15-D18)
-
-| ID | Decision |
-|---|---|
-| D15 | Pricing "A partir de" sur toutes les offres (remplace D12 "sur devis") |
-| D16 | Quiz renomme Service Maturity Index™ — garde 5 dimensions, pas de dim IA |
-| D17 | Personas : Thomas (DSI ETI), Mathieu (Lead Transfo), Nadia (DRH ESM) |
-| D18 | 8 offres complexity-first : CX/ESM Transfo, Migration, Freddy AI, Freshservice, Freshdesk, ESM Sprints, Audit, Managed Services |
+> **Capacite** : 20 pts (forecast 13 pts — T1-v2 verifie, 0 fantome)
 
 ---
 
@@ -22,23 +11,20 @@
 
 | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|
-| S17-1 | Refonte config catalogue (8 offres, tiers, pricing) | 3 | Must | Committed |
-| S17-2 | Refonte i18n hero + problems + services (narratif PAS, personas) | 5 | Must | Committed |
-| S17-3 | Refonte section Services (premium + implement, complexity-first) | 3 | Must | Committed |
-| S17-4 | CTA sticky persistant au scroll | 1 | Should | Committed |
+| T16 | Test coherence i18n FR/EN (recursive deep compare) | 1 | Must | Committed |
+| SMI-rename | Renommage quiz → Service Maturity Index™ | 2 | Must | Committed |
+| SMI-esm | Full ESM path (config + questions + dimensions + i18n) | 6 | Must | Committed |
+| SMI-roi | ROI estime dans resultats (benchmarks Freshworks) | 2 | Should | Committed |
+| SMI-offers | Mapping maturite → offre WaS recommandee | 2 | Should | Committed |
 
-**Total engage** : 12 pts / 20 pts capacite
+**Total engage** : 13 pts / 20 pts capacite
 
 ---
 
 ## Ordre de travail
 
-1. S17-1 (3 pts) — config catalogue : 8 offres, tiers, pricing, slugs — Jour 1-2
-2. S17-2 (5 pts) — i18n : hero rewrite (PAS), problems (Thomas/Mathieu/Nadia), services (8 offres FR+EN) — Jour 2-5
-3. S17-3 (3 pts) — composant Services refonde (2 groupes, complexity-first, cartes premium) — Jour 5-6
-4. S17-4 (1 pt) — CTA sticky — Jour 7
-
-## Sources contenu
-
-- Compass artifact : plateforme de marque, narratif PAS, 7 arguments-cles
-- Rapport strategie offres : 8 offres detaillees, pricing, modele financier
+1. T16 (1 pt) — test i18n coherence — Jour 1
+2. SMI-rename (2 pts) — renommage strings — Jour 1
+3. SMI-esm (6 pts) — ESM config + questions + dimensions + i18n — Jour 2-5
+4. SMI-roi (2 pts) — ROI estimation engine + UI — Jour 5-6
+5. SMI-offers (2 pts) — mapping maturite → offre + UI — Jour 6-7
