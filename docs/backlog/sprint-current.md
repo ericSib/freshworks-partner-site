@@ -1,9 +1,9 @@
-# Sprint 13 — "Fiabiliser et couvrir"
+# Sprint 14 — "Industrialiser la qualite et poser les fondations SEO"
 
-> **Sprint Goal** : Fiabiliser le quiz lead magnet en production et securiser main par la CI.
-> **Debut** : 12 avril 2026
-> **Fin** : 18 avril 2026
-> **Capacite** : 15 pts
+> **Sprint Goal** : Industrialiser la qualite (mutation testing, coverage 75%, commitlint aligne) et poser les fondations SEO (FAQ schema JSON-LD, 50+ tests SEO).
+> **Debut** : 19 avril 2026
+> **Fin** : 25 avril 2026
+> **Capacite** : 20 pts (forecast conservateur 10 pts)
 
 ---
 
@@ -11,88 +11,40 @@
 
 | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|
-| US-21.1 | Eliminer waitForTimeout dans les tests E2E | 1 | Must | Done |
-| US-21.2 | Test E2E smoke + a11y /mentions-legales FR+EN | 2 | Must | Done |
-| US-21.3 | Scan axe-core quiz (5 etats cles) | 3 | Must | Done |
-| US-18.9 | API dediee /api/quiz/submit (endpoint + Zod + HubSpot + refactor client) | 4 | Must | Done |
-| US-15.4 | Playwright dans GitHub Actions CI | 5 | Must | Done |
+| T2+T3 | Aligner commitlint scopes + monter seuil coverage 75% | 1 | Must | Committed |
+| US-17.1 | Cleanup Button.tsx mort | 1 | Could | Committed |
+| US-22.SEO | Atteindre 50+ tests SEO (actuellement 33) | 2 | Should | Committed |
+| US-21.10 | Setup Stryker mutation testing + CI | 3 | Should | Committed |
+| US-22.6 | FAQ schema JSON-LD + rich snippets | 3 | Should | Committed |
 
-| US-21.6 | Completer les tests analytics.ts (100% trackers) | 1 | Must | Done |
-| US-21.11 | Test E2E non-regression mobile menu keyboard nav | 1 | Should | Done |
-| US-21.8 | Tests unitaires hubspot.ts (mapping + error paths) | 2 | Must | Done |
-| US-21.5 | Tests unitaires generate-pdf.ts (hotfix quality gate) | 2 | Must | Done |
-
-**Total engage** : 20 pts / 20 pts capacite (forecast etendu valide le 12/04)
+**Total engage** : 10 pts / 20 pts capacite
 
 ---
 
-## Metriques qualite de depart
+## Metriques qualite de depart (fin Sprint 13)
 
-| Metrique | Valeur | Seuil |
-|---|---|---|
-| Statements | 85.24% | 70% |
-| Lines | 86.12% | 70% |
-| Functions | 83.11% | 70% |
-| Branches | 75.40% | 70% |
-| Tests unitaires | 638 pass / 0 fail | 100% pass |
-| Tests E2E | 93 pass / 2 fail / 9 skip | 100% pass |
-
----
-
-## Health check 3 Amigos (12/04/2026)
-
-### PO — ALL GREEN
-
-- HubSpot token : `HUBSPOT_ACCESS_TOKEN` utilise dans `src/lib/hubspot.ts:144`
-- Resend / GA4 : env vars correctement referencees
-- Bug quiz : **deja corrige** — `useQuizSubmit.ts` envoie `"itsm"/"cx"` (lowercase), Zod accepte
-- 11 proprietes HubSpot : toutes mappees dans `src/lib/quiz/hubspot.ts:56-66`
-
-### Dev — 1 RED
-
-- Build : OK
-- Lint : OK (0 erreurs, 2 warnings non-bloquants)
-- Tests : 638 pass, coverage stable
-- waitForTimeout : **0 occurrence** (US-21.1 deja done)
-- `useQuizSubmit.ts` : **0% coverage** — 58 lignes non couvertes, gain potentiel +11% Stmts
-
-### QA — 3 RED
-
-- Suite E2E : 104 tests, **2 failures** (axe-core mentions-legales mobile-chrome)
-- Tests flaky : aucun (suite propre)
-- data-testid mentions-legales : **0** — manquant pour US-21.2
-- data-testid quiz : **0** sur 13 composants — manquant pour US-21.3
-
----
-
-## Decisions sprint
-
-| ID | Decision | Date |
-|---|---|---|
-| D-S13-1 | US-21.1 marquee Done (waitForTimeout deja elimines) | 12/04/2026 |
-| D-S13-2 | Les 2 fails E2E a11y mobile seront adressees par US-21.2/US-21.3 | 12/04/2026 |
-| D-S13-3 | data-testid a instrumenter au debut de US-21.2 et US-21.3 | 12/04/2026 |
-| D-S13-4 | Forecast etendu +6 pts (US-21.6, US-21.11, US-21.8, US-21.5) — Goal atteint en avance | 12/04/2026 |
-
----
-
-## Notes
-
-- Bug critique quiz (segment Zod mismatch) initialement rapporte : **non confirme** — le code est correct.
-- `useQuizSubmit.ts` a 0% coverage est une dette identifiee, a traiter dans un sprint futur ou en complement de US-18.9.
+| Metrique | Valeur | Seuil actuel | Seuil cible S14 |
+|---|---|---|---|
+| Statements | 87.57% | 70% | 75% |
+| Branches | 77.54% | 60% | 65% |
+| Functions | 87.01% | 70% | 75% |
+| Lines | 88.40% | 70% | 75% |
+| Tests unitaires | 645 pass / 0 fail | 100% pass | 100% pass |
+| Tests E2E | 95 pass / 0 fail | 100% pass | 100% pass |
+| Mutation score | N/A | N/A | >= 60% (5 modules) |
+| Tests SEO | 33 | — | 50+ |
+| Commitlint warnings | 1 (scope quiz) | 0 | 0 |
 
 ---
 
 ## Sprint Planning (12/04/2026)
 
-**Sprint Goal valide** : Fiabiliser le quiz lead magnet en production et securiser main par la CI.
+**Sprint Goal valide** : Industrialiser la qualite et poser les fondations SEO.
 
-**Test du Goal** : La suite E2E complete passe en vert en CI GitHub Actions, incluant scans axe-core sur /mentions-legales et quiz, et le quiz produit des leads structures dans HubSpot via /api/quiz/submit.
+**Test du Goal** : npm run test:mutation passe >= 60%, seuil CI coverage a 75%, commitlint 0 warning, schema FAQ JSON-LD valide.
 
 **Ordre de travail** :
-1. US-21.2 (2 pts) — Jour 1-2
-2. US-21.3 (3 pts) — Jour 2-3
-3. US-18.9 (4 pts) — Jour 3-5
-4. US-15.4 (5 pts) — Jour 5-7
-
-**Note** : US-18.9 avancee avant US-15.4 car le refactor client quiz est un prerequis pour que les tests E2E soient stables en CI.
+1. T2+T3 (1 pt) + US-17.1 (1 pt) — Jour 1
+2. US-22.SEO (2 pts) — Jour 2-3
+3. US-21.10 (3 pts) — Jour 3-5
+4. US-22.6 (3 pts) — Jour 5-7
