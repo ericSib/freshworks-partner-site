@@ -3,6 +3,8 @@ import { Resend } from "resend";
 import { contactFormSchema } from "@/lib/validation";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { upsertHubSpotContact } from "@/lib/hubspot";
+import { createLogger } from "@/lib/logger";
+import { getRequestId, REQUEST_ID_HEADER } from "@/lib/request-id";
 
 /** Lazy-instantiated Resend client — avoids build-time crash when env var is absent. */
 function getResendClient(): Resend {
@@ -21,6 +23,9 @@ function getClientIp(request: Request): string {
 }
 
 export async function POST(request: Request) {
+  const requestId = getRequestId(request);
+  const log = createLogger("ContactForm", requestId);
+
   try {
     // --- Rate limiting ---
     const ip = getClientIp(request);
@@ -32,6 +37,7 @@ export async function POST(request: Request) {
           status: 429,
           headers: {
             "Retry-After": String(Math.ceil(rateCheck.retryAfterMs / 1000)),
+            [REQUEST_ID_HEADER]: requestId,
           },
         }
       );
@@ -48,7 +54,7 @@ export async function POST(request: Request) {
       }));
       return NextResponse.json(
         { error: "Validation failed", details },
-        { status: 400 }
+        { status: 400, headers: { [REQUEST_ID_HEADER]: requestId } }
       );
     }
 
@@ -65,14 +71,15 @@ export async function POST(request: Request) {
 
     // If no Resend API key, log and return success (dev mode)
     if (!process.env.RESEND_API_KEY) {
-      console.log("[Contact Form] No RESEND_API_KEY set. Submission:", {
-        name,
+      log.info("No RESEND_API_KEY set — dev mode submission", {
         email,
         company,
-        challenge,
       });
       await hubspotSync;
-      return NextResponse.json({ success: true });
+      return NextResponse.json(
+        { success: true },
+        { headers: { [REQUEST_ID_HEADER]: requestId } }
+      );
     }
 
     const resend = getResendClient();
@@ -117,12 +124,16 @@ export async function POST(request: Request) {
       hubspotSync,
     ]);
 
-    return NextResponse.json({ success: true });
+    log.info("Contact form submitted", { email, company });
+    return NextResponse.json(
+      { success: true },
+      { headers: { [REQUEST_ID_HEADER]: requestId } }
+    );
   } catch (error) {
-    console.error("[Contact Form] Error:", error);
+    log.error("Contact form failed", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500, headers: { [REQUEST_ID_HEADER]: requestId } }
     );
   }
 }

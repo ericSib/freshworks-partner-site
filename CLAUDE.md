@@ -183,6 +183,7 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-12 | D16 | **Quiz renomme Service Maturity Index™** — garde 5 dimensions (pas de dim IA) | Refonte quiz |
 | 2026-04-12 | D17 | **Personas : Thomas (DSI), Mathieu (Lead Transfo), Nadia (DRH ESM)** — remplacent Sophie/Marc/Karim | Refonte narratif |
 | 2026-04-12 | D18 | **8 offres complexity-first** — CX/ESM Transfo, Migration, Freddy AI, Freshservice, Freshdesk, ESM Sprints, Audit, Managed Services | Refonte catalogue |
+| 2026-04-13 | D19 | **Observabilite API** — structured JSON logger, correlation ID (x-request-id), health check enrichi (?deep=1) | Ops / DevOps |
 
 ---
 

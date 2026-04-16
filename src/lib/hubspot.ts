@@ -5,7 +5,10 @@
  * The token is read from `HUBSPOT_ACCESS_TOKEN` env var (never bundled client-side).
  */
 
+import { createLogger } from "@/lib/logger";
+
 const HUBSPOT_API = "https://api.hubapi.com";
+const log = createLogger("HubSpot");
 
 interface ContactPayload {
   name: string;
@@ -144,7 +147,7 @@ export async function upsertHubSpotContact(
   const token = process.env.HUBSPOT_ACCESS_TOKEN;
 
   if (!token) {
-    console.log("[HubSpot] No HUBSPOT_ACCESS_TOKEN set — skipping CRM sync.");
+    log.info("No HUBSPOT_ACCESS_TOKEN set — skipping CRM sync");
     return;
   }
 
@@ -154,15 +157,13 @@ export async function upsertHubSpotContact(
 
     if (existingId) {
       await updateContact(existingId, properties, token);
-      console.log(`[HubSpot] Updated contact ${existingId} (${data.email})`);
+      log.info("Updated contact", { contactId: existingId, email: data.email });
     } else {
       const created = await createContact(properties, token);
-      console.log(
-        `[HubSpot] Created contact ${created.id} (${data.email})`
-      );
+      log.info("Created contact", { contactId: created.id, email: data.email });
     }
   } catch (error) {
     // Never block form submission because of a CRM error.
-    console.error("[HubSpot] CRM sync failed:", error);
+    log.error("CRM sync failed", error, { email: data.email });
   }
 }

@@ -133,7 +133,7 @@ describe("upsertHubSpotContact — env + network branches (US-21.8)", () => {
 
     expect(fetchMock).not.toHaveBeenCalled();
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringContaining("No HUBSPOT_ACCESS_TOKEN")
+      expect.stringContaining("No HUBSPOT_ACCESS_TOKEN set")
     );
   });
 
@@ -175,7 +175,7 @@ describe("upsertHubSpotContact — env + network branches (US-21.8)", () => {
     expect(String(createInit.body)).toContain('"lastname":"Dupont"');
 
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringContaining("Created contact new-contact-id")
+      expect.stringContaining("new-contact-id")
     );
   });
 
@@ -207,7 +207,7 @@ describe("upsertHubSpotContact — env + network branches (US-21.8)", () => {
     expect(String(updateInit.body)).toContain(validPayload.email);
 
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringContaining("Updated contact existing-42")
+      expect.stringContaining("existing-42")
     );
   });
 
@@ -233,8 +233,7 @@ describe("upsertHubSpotContact — env + network branches (US-21.8)", () => {
     await expect(upsertHubSpotContact(validPayload)).resolves.toBeUndefined();
 
     expect(errorSpy).toHaveBeenCalledWith(
-      expect.stringContaining("CRM sync failed"),
-      expect.any(Error)
+      expect.stringContaining("CRM sync failed")
     );
   });
 
@@ -261,8 +260,7 @@ describe("upsertHubSpotContact — env + network branches (US-21.8)", () => {
     await expect(upsertHubSpotContact(validPayload)).resolves.toBeUndefined();
 
     expect(errorSpy).toHaveBeenCalledWith(
-      expect.stringContaining("CRM sync failed"),
-      expect.any(Error)
+      expect.stringContaining("CRM sync failed")
     );
   });
 

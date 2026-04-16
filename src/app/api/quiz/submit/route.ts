@@ -3,6 +3,8 @@ import { Resend } from "resend";
 import { quizSubmitSchema, type QuizSubmitPayload } from "@/lib/validation";
 import { quizRateLimiter } from "@/lib/rate-limit";
 import { upsertHubSpotQuizLead } from "@/lib/quiz/hubspot";
+import { createLogger } from "@/lib/logger";
+import { getRequestId, REQUEST_ID_HEADER } from "@/lib/request-id";
 
 /** Lazy Resend client — avoid build-time crash when the env var is absent. */
 function getResendClient(): Resend {
@@ -20,22 +22,20 @@ function getClientIp(request: Request): string {
   );
 }
 
-/** Structured log line for successful submissions (JSON one-liner). */
-function logQuizSubmit(payload: QuizSubmitPayload): void {
-  console.log(
-    JSON.stringify({
-      event: "quiz_submit_ok",
-      timestamp: new Date().toISOString(),
-      segment: payload.segment,
-      overallScore: payload.overallScore,
-      level: payload.maturityLevel.level,
-      // Hash-free: we log the domain only, to respect RGPD in production logs.
-      emailDomain: payload.email.split("@")[1] ?? "unknown",
-    })
-  );
+/** Structured log data for quiz submissions. */
+function quizLogData(payload: QuizSubmitPayload): Record<string, unknown> {
+  return {
+    segment: payload.segment,
+    overallScore: payload.overallScore,
+    level: payload.maturityLevel.level,
+    emailDomain: payload.email.split("@")[1] ?? "unknown",
+  };
 }
 
 export async function POST(request: Request) {
+  const requestId = getRequestId(request);
+  const log = createLogger("QuizSubmit", requestId);
+
   try {
     // --- Rate limiting (independent from /api/contact bucket) ---
     const ip = getClientIp(request);
@@ -47,6 +47,7 @@ export async function POST(request: Request) {
           status: 429,
           headers: {
             "Retry-After": String(Math.ceil(rateCheck.retryAfterMs / 1000)),
+            [REQUEST_ID_HEADER]: requestId,
           },
         }
       );
@@ -63,7 +64,7 @@ export async function POST(request: Request) {
       }));
       return NextResponse.json(
         { error: "Validation failed", details },
-        { status: 400 }
+        { status: 400, headers: { [REQUEST_ID_HEADER]: requestId } }
       );
     }
 
@@ -74,15 +75,12 @@ export async function POST(request: Request) {
 
     // --- Resend emails (optional — dev mode skips if no API key) ---
     if (!process.env.RESEND_API_KEY) {
-      console.log(
-        "[Quiz Submit] No RESEND_API_KEY set. Submission:",
-        payload.email,
-        payload.segment,
-        payload.overallScore
-      );
+      log.info("No RESEND_API_KEY set — dev mode submission", quizLogData(payload));
       await hubspotSync;
-      logQuizSubmit(payload);
-      return NextResponse.json({ success: true });
+      return NextResponse.json(
+        { success: true },
+        { headers: { [REQUEST_ID_HEADER]: requestId } }
+      );
     }
 
     const resend = getResendClient();
@@ -137,13 +135,16 @@ export async function POST(request: Request) {
       hubspotSync,
     ]);
 
-    logQuizSubmit(payload);
-    return NextResponse.json({ success: true });
+    log.info("Quiz submitted", quizLogData(payload));
+    return NextResponse.json(
+      { success: true },
+      { headers: { [REQUEST_ID_HEADER]: requestId } }
+    );
   } catch (error) {
-    console.error("[Quiz Submit] Error:", error);
+    log.error("Quiz submission failed", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500, headers: { [REQUEST_ID_HEADER]: requestId } }
     );
   }
 }

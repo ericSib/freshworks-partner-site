@@ -11,8 +11,10 @@
  */
 
 import type { QuizSubmitPayload } from "@/lib/validation";
+import { createLogger } from "@/lib/logger";
 
 const HUBSPOT_API = "https://api.hubapi.com";
+const log = createLogger("HubSpotQuiz");
 
 interface HubSpotError {
   status: string;
@@ -155,7 +157,7 @@ export async function upsertHubSpotQuizLead(
   const token = process.env.HUBSPOT_ACCESS_TOKEN;
 
   if (!token) {
-    console.log("[HubSpot] No HUBSPOT_ACCESS_TOKEN set — skipping quiz CRM sync.");
+    log.info("No HUBSPOT_ACCESS_TOKEN set — skipping quiz CRM sync");
     return;
   }
 
@@ -165,16 +167,12 @@ export async function upsertHubSpotQuizLead(
 
     if (existingId) {
       await updateContact(existingId, properties, token);
-      console.log(
-        `[HubSpot] Updated quiz lead ${existingId} (${payload.email})`
-      );
+      log.info("Updated quiz lead", { contactId: existingId, email: payload.email });
     } else {
       const created = await createContact(properties, token);
-      console.log(
-        `[HubSpot] Created quiz lead ${created.id} (${payload.email})`
-      );
+      log.info("Created quiz lead", { contactId: created.id, email: payload.email });
     }
   } catch (error) {
-    console.error("[HubSpot] Quiz lead sync failed:", error);
+    log.error("Quiz lead sync failed", error, { email: payload.email });
   }
 }

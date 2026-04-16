@@ -167,7 +167,7 @@ describe("upsertHubSpotQuizLead — env + network branches (T5)", () => {
 
     expect(fetchMock).not.toHaveBeenCalled();
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringContaining("No HUBSPOT_ACCESS_TOKEN")
+      expect.stringContaining("No HUBSPOT_ACCESS_TOKEN set")
     );
   });
 
@@ -201,7 +201,7 @@ describe("upsertHubSpotQuizLead — env + network branches (T5)", () => {
     expect(String(createInit.body)).toContain('"quiz_score":"62"');
 
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringContaining("Created quiz lead new-quiz-lead")
+      expect.stringContaining("new-quiz-lead")
     );
   });
 
@@ -224,7 +224,7 @@ describe("upsertHubSpotQuizLead — env + network branches (T5)", () => {
     expect(updateInit.method).toBe("PATCH");
 
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringContaining("Updated quiz lead existing-99")
+      expect.stringContaining("existing-99")
     );
   });
 
@@ -241,8 +241,7 @@ describe("upsertHubSpotQuizLead — env + network branches (T5)", () => {
 
     await expect(upsertHubSpotQuizLead(validPayload())).resolves.toBeUndefined();
     expect(errorSpy).toHaveBeenCalledWith(
-      expect.stringContaining("Quiz lead sync failed"),
-      expect.any(Error)
+      expect.stringContaining("Quiz lead sync failed")
     );
   });
 
@@ -261,8 +260,7 @@ describe("upsertHubSpotQuizLead — env + network branches (T5)", () => {
 
     await expect(upsertHubSpotQuizLead(validPayload())).resolves.toBeUndefined();
     expect(errorSpy).toHaveBeenCalledWith(
-      expect.stringContaining("Quiz lead sync failed"),
-      expect.any(Error)
+      expect.stringContaining("Quiz lead sync failed")
     );
   });
 
