@@ -1,8 +1,9 @@
 # Product Planning — What A Service (whataservice.fr)
 
-> **Date** : 12 avril 2026
+> **Date** : 16 avril 2026 (derniere mise a jour)
 > **Product Owner** : Eric Sib
-> **Horizon** : Sprints 15-20 (5 semaines)
+> **Horizon** : Sprints 18-22 (5 semaines)
+> **Sprint actif** : Sprint 18 — en cours (J5/7)
 
 ---
 
@@ -17,12 +18,13 @@
 | **Composants** | 43 composants | 13 sections, 14 quiz, 2 layout, 3 SEO, 11 UI |
 | **i18n** | Bilingue FR/EN | next-intl, 2 fichiers messages |
 | **Integrations** | 4/5 operationnelles | Resend, HubSpot, GA4, Calendly. Freshchat : non configure |
-| **Tests unitaires** | 645 tests, 23 fichiers | Coverage : 87.57% Stmts, 77.54% Branches |
+| **Tests unitaires** | 684 tests, 27 fichiers | Coverage : 92.03% Stmts, 83.42% Branches |
 | **Tests E2E** | 95 tests, 10 spec files | 0 fail, 0 flaky |
-| **Mutation testing** | 56.04% (5 modules) | Stryker operationnel |
+| **Mutation testing** | 71.43% (5 modules) | Stryker operationnel, threshold 65% |
 | **CI** | 2 workflows | ci.yml (lint+test+build), e2e.yml (Playwright) |
 | **SEO** | 83 tests, 9 schemas JSON-LD | FAQ, Organization, Person, Service, Breadcrumb |
-| **Commits** | 92 sur main | 8 jours de dev (5-12 avril) |
+| **Observabilite** | Logger JSON + X-Request-ID + deep health | D19, livre S18 |
+| **Commits** | ~100 sur main | 11 jours de dev (5-16 avril) |
 
 ### Integrations
 
@@ -117,26 +119,33 @@ Les 3 backlogs existants sont **significativement obsoletes** :
 | Seuil coverage CI → 80% | 1 |
 | Domaine custom freshworks.whataservice.fr (D14) | 1 |
 
-### Sprint 17 — "Refonte homepage : catalogue 8 offres complexity-first" (12 pts)
+### Sprint 17 — "Refonte homepage : catalogue 8 offres complexity-first" (12 pts) — ✅ **LIVRE 12/04/2026**
 
 > **Goal** : Refondre le contenu homepage avec le nouveau catalogue d'offres, le narratif PAS, les personas Thomas/Mathieu/Nadia, et le pricing "a partir de".
+> **Resultat** : Sprint Goal ATTEINT. Commits `513afe5`, `a7d5e7a`, `6f0e21b`, `31f9d87`.
 
-| Story | Pts |
-|---|---|
-| Refonte config catalogue (8 offres, tiers, pricing "a partir de") | 3 |
-| Refonte i18n hero + problems + services (narratif PAS, complexity-first) | 5 |
-| Refonte section Services (premium "sur devis" + implement "a partir de") | 3 |
-| CTA sticky persistant au scroll | 1 |
+| Story | Pts | Statut |
+|---|---|---|
+| Refonte config catalogue (8 offres, tiers, pricing "a partir de") | 3 | ✅ `513afe5` |
+| Refonte i18n hero + problems + services (narratif PAS, complexity-first) | 5 | ✅ `a7d5e7a` |
+| Refonte section Services (premium "sur devis" + implement "a partir de") | 3 | ✅ `6f0e21b` |
+| CTA sticky persistant au scroll | 1 | ✅ `31f9d87` |
 
-### Sprint 18 — "Refonte quiz → Service Maturity Index™" (8 pts)
+### Sprint 18 — "Refonte quiz → Service Maturity Index™" (14 pts engages) — 🔄 **EN COURS** (J5/7)
 
-> **Goal** : Renommer et re-brander le quiz en SMI™, ajouter routing initial, ROI estime, PDF brande, mapping maturite → offres.
+> **Goal** : Transformer le quiz en SMI™ avec 3 parcours (ITSM/CX/ESM), ROI estime et mapping maturite → offres.
+> **Livre a J5** : 4 pts / 14 pts. 10 pts restants non demarres (stories NOT READY, cf. [refinement S18](./refinement/sprint-18-refinement.md)).
 
-| Story | Pts |
-|---|---|
-| Renommage quiz → SMI™ (i18n, composants, config) | 2 |
-| Routing initial par contexte (ITSM/CX/ESM) | 3 |
-| ROI estime dans resultats + mapping maturite → offre WaS | 3 |
+| Story | Pts | Statut |
+|---|---|---|
+| T16 — Test i18n deep parity (Try retro S17) | 1 | ✅ `ba410c1` |
+| SMI-rename — Renommage SMI™ | 2 | ✅ `efd55ee` |
+| OPS-obs — Observabilite API (D19, ajout mi-sprint) | 1 | ✅ `97913b8` |
+| SMI-esm — Full ESM path (config + questions + i18n) | 6 | 🔴 Non demarre (NOT READY — bloque D20) |
+| SMI-roi — ROI estime dans resultats | 2 | 🔴 Non demarre (NOT READY — bloque D21) |
+| SMI-offers — Mapping maturite → offre | 2 | 🔴 Non demarre (NOT READY — bloque D22) |
+
+**Arbitrage PO necessaire Sprint Review S18 (17/04)** : trancher D20/D21/D22, puis reaffecter les 10 pts residuels sur Sprint 19.
 
 ### Sprint 19 — "Pages services dediees + SEO" (10 pts)
 
@@ -175,17 +184,33 @@ Les 3 backlogs existants sont **significativement obsoletes** :
 
 ---
 
-## 6 · Decisions strategiques — arbitrees le 12/04/2026
+## 6 · Decisions strategiques
 
-| ID | Decision | Statut |
+### Tranchees
+
+| ID | Decision | Date |
 |---|---|---|
-| D9 | **Pas de Freshchat.** Pas d'integration chat sur le site. | Tranchee |
-| D10 | **Blog : Ghost a explorer** (CMS headless). Spike a planifier avant implementation. | A instruire |
-| D11 | **Pas de ROI Calculator.** Le quiz ITSM/CX suffit comme lead magnet unique. | Tranchee |
-| D12 | **Page pricing : "Sur devis".** Pas d'affichage de prix. | Tranchee |
-| D13 | **Resend DNS : configure.** Domaine verifie. | Tranchee |
-| D14 | **Domaine custom Vercel : freshworks.whataservice.fr** au lieu du domaine Vercel par defaut. A configurer dans Vercel dashboard. | A configurer |
+| D9 | **Pas de Freshchat.** Pas d'integration chat sur le site. | 12/04 |
+| D11 | **Pas de ROI Calculator standalone.** SMI sert de lead magnet unique (l'estimation ROI est INTEGREE au SMI, cf. D21 et SMI-roi). | 12/04 |
+| D12 | **Page pricing : "Sur devis".** (Annule par D15.) | 12/04 |
+| D13 | **Resend DNS : configure.** Domaine verifie. | 12/04 |
+| D15 | **Pricing "A partir de"** sur toutes les offres (annule D12). | 12/04 |
+| D16 | **Quiz renomme Service Maturity Index™** — garde 5 dimensions par parcours. | 12/04 |
+| D17 | **Personas** : Thomas (DSI), Mathieu (Lead Transfo), Nadia (DRH ESM). | 12/04 |
+| D18 | **8 offres complexity-first** : CX/ESM Transfo, Migration, Freddy AI, Freshservice, Freshdesk, ESM Sprints, Audit, Managed Services. | 12/04 |
+| D19 | **Observabilite API** — structured JSON logger, correlation ID (x-request-id), health check `?deep=1`. | 14/04 |
+
+### A arbitrer (Sprint Review S18 — 17/04)
+
+| ID | Decision | Bloque |
+|---|---|---|
+| D10 | **Blog : Ghost a explorer** (CMS headless). Spike avant implementation. | Sprint 20 |
+| D14 | **Domaine custom Vercel : freshworks.whataservice.fr** — a configurer dans Vercel dashboard. | Ops |
+| D20 | **Choix des 5 dimensions ESM** pour le parcours SMI. | SMI-esm |
+| D21 | **Source benchmarks ROI** + inputs moteur (score seul ou + taille entreprise ?). | SMI-roi |
+| D22 | **Regle mapping maturite → offre** : matrice 5×3 ou regle generique ? | SMI-offers |
 
 ---
 
 *Ce document est vivant. Il evolue a chaque Sprint Review via la boucle universelle.*
+*Derniere mise a jour : 16 avril 2026 (cloture S17, status S18, ajout D19-D22).*
