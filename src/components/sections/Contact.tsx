@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import SectionTag from "@/components/ui/SectionTag";
+import { FormInput } from "@/components/ui/FormInput";
 import { CERT_KEYS } from "@/config/certifications";
 import { useContactForm, CHALLENGE_KEYS } from "@/hooks/useContactForm";
 import CalendlyPopup from "@/components/ui/CalendlyPopup";
@@ -55,53 +56,32 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
-                <div>
-                  <label htmlFor="contact-name" className="block text-slate-400 text-sm font-medium mb-2">
-                    {t("form.name")}
-                  </label>
-                  <input
-                    id="contact-name"
-                    name="name"
-                    type="text"
-                    placeholder={t("form.namePlaceholder")}
-                    aria-invalid={!!errors.name}
-                    aria-describedby={errors.name ? "contact-name-error" : undefined}
-                    className="w-full bg-white/[0.03] border border-white/8 rounded-lg px-4 py-3.5 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all"
-                  />
-                  {errors.name && <p id="contact-name-error" role="alert" className="text-red-400 text-xs mt-1.5">{errors.name}</p>}
-                </div>
+                <FormInput
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  label={t("form.name")}
+                  placeholder={t("form.namePlaceholder")}
+                  error={errors.name}
+                />
 
-                <div>
-                  <label htmlFor="contact-email" className="block text-slate-400 text-sm font-medium mb-2">
-                    {t("form.email")}
-                  </label>
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    placeholder={t("form.emailPlaceholder")}
-                    aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    className="w-full bg-white/[0.03] border border-white/8 rounded-lg px-4 py-3.5 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all"
-                  />
-                  {errors.email && <p id="contact-email-error" role="alert" className="text-red-400 text-xs mt-1.5">{errors.email}</p>}
-                </div>
+                <FormInput
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  label={t("form.email")}
+                  placeholder={t("form.emailPlaceholder")}
+                  error={errors.email}
+                />
 
-                <div>
-                  <label htmlFor="contact-company" className="block text-slate-400 text-sm font-medium mb-2">
-                    {t("form.company")}
-                  </label>
-                  <input
-                    id="contact-company"
-                    name="company"
-                    type="text"
-                    placeholder={t("form.companyPlaceholder")}
-                    aria-invalid={!!errors.company}
-                    aria-describedby={errors.company ? "contact-company-error" : undefined}
-                    className="w-full bg-white/[0.03] border border-white/8 rounded-lg px-4 py-3.5 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all"
-                  />
-                  {errors.company && <p id="contact-company-error" role="alert" className="text-red-400 text-xs mt-1.5">{errors.company}</p>}
-                </div>
+                <FormInput
+                  id="contact-company"
+                  name="company"
+                  type="text"
+                  label={t("form.company")}
+                  placeholder={t("form.companyPlaceholder")}
+                  error={errors.company}
+                />
 
                 <div>
                   <label htmlFor="contact-challenge" className="block text-slate-400 text-sm font-medium mb-2">
