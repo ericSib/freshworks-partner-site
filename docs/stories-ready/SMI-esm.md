@@ -3,10 +3,10 @@
 > **Epic** : E-SMI — Refonte quiz Service Maturity Index™
 > **Priorite** : Must
 > **Estimation** : 6 pts
-> **Sprint cible** : Sprint 18 (engagee, non demarree a J5) → a reaffecter Sprint 19
+> **Sprint cible** : Sprint 19 (reaffectee apres Sprint Review S18)
 > **Auteur** : Eric Sib (PO)
-> **Date** : 16/04/2026
-> **DoR** : ❌ **BLOQUEE par D20** (dimensions ESM non arbitrees)
+> **Date** : 16/04/2026 · **Mise a jour** : 25/04/2026 (D20 actee)
+> **DoR** : ✅ **READY** — D20 tranchee le 25/04/2026
 
 ---
 
@@ -118,8 +118,7 @@ Alors 0 violation critique ou serieuse WCAG 2.1 AA est rapportee
 
 ## Dependances
 
-- [ ] **D20 (bloquante)** : choix des 5 dimensions ESM.
-  Proposition PO a valider :
+- [x] **D20 (actee 25/04/2026)** : 5 dimensions ESM @ 20% chacune.
   1. Employee Experience & Service Design (20%)
   2. Incident & Request Management ESM (20%)
   3. Automatisation multi-departement (RH + Facility + IT) (20%)
@@ -135,12 +134,12 @@ Alors 0 violation critique ou serieuse WCAG 2.1 AA est rapportee
 - [x] Format standard (role + action + benefice)
 - [x] 5 criteres d'acceptation Gherkin
 - [x] Estimation Fibonacci (6 pts — reprise pattern itsm.ts)
-- [ ] **Pas de dependance bloquante** — D20 ouverte
+- [x] **Pas de dependance bloquante** — D20 actee 25/04/2026
 - [x] Fichiers impactes identifies
 - [x] Donnees de test definies
 - [x] Criteres de test automatisable (QA)
 
-**Statut** : **NOT READY** — bloquee par D20.
+**Statut** : ✅ **READY** — engageable Sprint 19.
 
 ### Suggestion de decoupage SPIDR (si D20 reste ouverte)
 

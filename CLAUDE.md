@@ -184,6 +184,12 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-12 | D17 | **Personas : Thomas (DSI), Mathieu (Lead Transfo), Nadia (DRH ESM)** — remplacent Sophie/Marc/Karim | Refonte narratif |
 | 2026-04-12 | D18 | **8 offres complexity-first** — CX/ESM Transfo, Migration, Freddy AI, Freshservice, Freshdesk, ESM Sprints, Audit, Managed Services | Refonte catalogue |
 | 2026-04-13 | D19 | **Observabilite API** — structured JSON logger, correlation ID (x-request-id), health check enrichi (?deep=1) | Ops / DevOps |
+| 2026-04-25 | D20 | **5 dimensions ESM** : Employee Experience & Service Design / Incident & Request ESM / Automatisation multi-departement / Gouvernance & conformite / Analytics & satisfaction employe (5 × 20%) | Spec SMI-esm |
+| 2026-04-25 | D21 | **ROI moteur** : sources Forrester TEI public + modele interne (option d). Inputs : score global (1-5) + taille entreprise (3 brackets) + segment. Cas clients WaS reportes a iteration future quand disponibles | Spec SMI-roi |
+| 2026-04-25 | D22 | **Mapping maturite → offre** : matrice complete 5 niveaux × 3 segments (15 cellules), validee par PO. Niveaux : Firefighting / Reactive / Managed / Strategic / Optimized | Spec SMI-offers |
+| 2026-04-25 | D23 | **Cadence Refactoring Radar institutionnalisee** — chaque execution de la tache planifiee `refactoring-radar` produit un refinement `docs/refinement/refactoring-radar-YYYY-MM-DD.md` qui alimente l'epic E23 | Gouvernance dette |
+| 2026-04-25 | D24 | **Epic E23 ouverte** — "Refactoring Radar (hygiene continue)" — accumule les findings de chaque scan en stories US-23.x | Backlog tech debt |
+| 2026-04-25 | D25 | **Budget refactoring : ~20% du sprint** (Manifeste P9) — quick wins (1-2 pts) injectes en buffer du sprint en cours, refactorings structurels (3+ pts) en stories dediees du sprint suivant | Capacite sprint |
 
 ---
 
@@ -234,4 +240,4 @@ npx playwright test      # Playwright E2E (104 tests)
 
 ---
 
-*Derniere mise a jour : 12 avril 2026 · Version 2.0*
+*Derniere mise a jour : 25 avril 2026 · Version 2.2 (D20-D25 actees — radar refactoring institutionnalise)*

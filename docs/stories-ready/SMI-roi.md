@@ -3,10 +3,10 @@
 > **Epic** : E-SMI — Refonte quiz Service Maturity Index™
 > **Priorite** : Should
 > **Estimation** : 2 pts
-> **Sprint cible** : Sprint 18 (engagee, non demarree) → a reaffecter Sprint 19
+> **Sprint cible** : Sprint 19 (reaffectee apres Sprint Review S18)
 > **Auteur** : Eric Sib (PO)
-> **Date** : 16/04/2026
-> **DoR** : ❌ **BLOQUEE par D21** (source benchmarks + inputs moteur)
+> **Date** : 16/04/2026 · **Mise a jour** : 25/04/2026 (D21 actee)
+> **DoR** : ✅ **READY** — D21 tranchee le 25/04/2026
 
 ---
 
@@ -99,17 +99,19 @@ Alors le libelle mentionne des benefices typiques ITSM (temps de resolution, MTT
 
 ## Dependances
 
-- [ ] **D21 (bloquante)** : Source des benchmarks ROI
-  Options proposees :
-  - **A** : Forrester TEI Freshworks (rapport public, citer la source, fourchette large)
-  - **B** : Cas clients WaS anonymises (plus credible, moins scalable en scripting)
-  - **C** : Modele interne (score base × coefficient segment × coefficient taille) + mention "estimation interne"
-  - Recommandation PO : combiner A (benchmarks publics) + C (coefficients internes)
-- [ ] **D21-bis (bloquante)** : Inputs du moteur
-  - Obligatoire : score global (1-5)
-  - A trancher : taille d'entreprise (3 brackets) oui/non ?
-  - A trancher : secteur (finance, industrie, services, public) oui/non ?
-- [ ] **Story prerequise** : aucune (roi peut tourner sur ITSM/CX deja en prod, avant meme SMI-esm)
+- [x] **D21-A (actee 25/04/2026)** : Source des benchmarks
+  - **Option d retenue** : Forrester TEI Freshworks (rapport public) + modele interne
+    (score × coefficient segment × coefficient taille).
+  - Cas clients WaS reportes a iteration future (PO ne les a pas disponibles
+    actuellement, upgrade vers option e quand 3 cas anonymises seront prets).
+  - Mention obligatoire affichee : "Estimation indicative basee sur les benchmarks
+    publics Forrester TEI Freshworks. Non contractuelle."
+- [x] **D21-B (actee 25/04/2026)** : Inputs du moteur
+  - Score global (1-5) — obligatoire
+  - Taille d'entreprise (3 brackets : <100 / 100-1000 / >1000) — obligatoire
+  - Segment (ITSM / CX / ESM) — deja collecte par le quiz
+  - **Pas de secteur** : evite friction UI, suffisamment differencie via segment
+- [x] **Story prerequise** : aucune (roi peut tourner sur ITSM/CX deja en prod, avant meme SMI-esm)
 
 ---
 
@@ -118,12 +120,12 @@ Alors le libelle mentionne des benefices typiques ITSM (temps de resolution, MTT
 - [x] Format standard
 - [x] 4 criteres d'acceptation Gherkin
 - [x] Estimation Fibonacci (2 pts)
-- [ ] **Pas de dependance bloquante** — D21 ouverte
+- [x] **Pas de dependance bloquante** — D21 actee 25/04/2026 (option d)
 - [x] Fichiers impactes identifies
-- [x] Donnees de test definies (structure, calibration pending D21)
+- [x] Donnees de test definies (calibration coefficients internes en sprint)
 - [x] Criteres de test automatisable
 
-**Statut** : **NOT READY** — bloquee par D21.
+**Statut** : ✅ **READY** — engageable Sprint 19.
 
 ---
 

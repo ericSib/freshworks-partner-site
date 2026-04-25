@@ -3,10 +3,10 @@
 > **Epic** : E-SMI — Refonte quiz Service Maturity Index™
 > **Priorite** : Should
 > **Estimation** : 2 pts
-> **Sprint cible** : Sprint 18 (engagee, non demarree) → a reaffecter Sprint 19
+> **Sprint cible** : Sprint 19 (reaffectee apres Sprint Review S18)
 > **Auteur** : Eric Sib (PO)
-> **Date** : 16/04/2026
-> **DoR** : ❌ **BLOQUEE par D22** (regle de mapping non tranchee)
+> **Date** : 16/04/2026 · **Mise a jour** : 25/04/2026 (D22 actee — matrice complete validee)
+> **DoR** : ✅ **READY** — D22 tranchee le 25/04/2026
 
 ---
 
@@ -99,13 +99,20 @@ Alors la propriete custom `smi_recommended_offer` est remplie avec le slug de l'
 
 ## Dependances
 
-- [ ] **D22 (bloquante)** : Regle de mapping
-  Options proposees :
-  - **A (matrice complete 5×3)** : PO definit explicitement l'offre pour chaque cellule. 15 decisions manuelles. Plus precis, plus de travail PO.
-  - **B (regle par niveau global)** : niveau 1-2 → Transfo, 3 → Implementation, 4-5 → Audit/Managed. Simple, generique, perd la nuance segment.
-  - **C (hybride)** : matrice 5×3 pour les niveaux 1-3, regle unique (Managed Services) pour 4-5. Equilibre.
-  - Recommandation PO : option C ou A, eviter B (perd le segment differentiator).
-- [ ] **Asset** : proposition de matrice initiale a valider par le PO (tableau 5×3 a produire en amont du refinement)
+- [x] **D22 (actee 25/04/2026)** : Matrice complete 5×3 retenue (option A).
+  Niveaux : Firefighting / Reactive / Managed / Strategic / Optimized.
+
+  **Matrice validee par le PO le 25/04/2026** :
+
+  | Niveau | ITSM (Thomas) | CX (Mathieu) | ESM (Nadia) |
+  |---|---|---|---|
+  | 1 Firefighting (1.0-1.9) | `freshservice` | `freshdesk` | `esm-sprints` |
+  | 2 Reactive (2.0-2.4) | `audit-optimisation` | `audit-optimisation` | `esm-sprints` |
+  | 3 Managed (2.5-3.4) | `migration` | `freddy-ai` | `cx-esm-transformation` |
+  | 4 Strategic (3.5-4.4) | `freddy-ai` | `cx-esm-transformation` | `cx-esm-transformation` |
+  | 5 Optimized (4.5-5.0) | `managed-excellence` | `managed-excellence` | `managed-excellence` |
+
+  Cette matrice doit etre encodee dans `src/lib/quiz/offer-mapping-matrix.ts`.
 - [ ] **Ops** : propriete HubSpot custom `smi_recommended_offer` a creer (singleSelect avec les 8 slugs D18)
 
 ---
@@ -115,12 +122,12 @@ Alors la propriete custom `smi_recommended_offer` est remplie avec le slug de l'
 - [x] Format standard
 - [x] 4 criteres d'acceptation Gherkin
 - [x] Estimation Fibonacci (2 pts)
-- [ ] **Pas de dependance bloquante** — D22 ouverte + matrice a produire
+- [x] **Pas de dependance bloquante** — D22 actee 25/04/2026, matrice 5×3 validee
 - [x] Fichiers impactes identifies
-- [x] Donnees de test definies (structure, contenu pending D22)
+- [x] Donnees de test definies (15 cellules de la matrice)
 - [x] Criteres de test automatisable
 
-**Statut** : **NOT READY** — bloquee par D22.
+**Statut** : ✅ **READY** — engageable Sprint 19.
 
 ---
 
