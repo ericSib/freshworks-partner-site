@@ -129,6 +129,53 @@ describe("buildQuizProperties", () => {
     expect(props.quiz_segment).toBe("esm");
   });
 
+  it("attaches the recommended offer slug from the D22 matrix (SMI-offers)", () => {
+    // ITSM × level 3 → migration (per OFFER_MATRIX)
+    const itsmProps = buildQuizProperties(
+      validPayload({
+        segment: "itsm",
+        maturityLevel: {
+          level: 3,
+          labelKey: "x",
+          descriptionKey: "x",
+          ctaKey: "x",
+          urgency: "medium",
+        },
+      })
+    );
+    expect(itsmProps.smi_recommended_offer).toBe("migration");
+
+    // ESM × level 1 → esm-sprints
+    const esmProps = buildQuizProperties(
+      validPayload({
+        segment: "esm",
+        maturityLevel: {
+          level: 1,
+          labelKey: "x",
+          descriptionKey: "x",
+          ctaKey: "x",
+          urgency: "critical",
+        },
+      })
+    );
+    expect(esmProps.smi_recommended_offer).toBe("esm-sprints");
+
+    // CX × level 5 → managed-excellence
+    const cxProps = buildQuizProperties(
+      validPayload({
+        segment: "cx",
+        maturityLevel: {
+          level: 5,
+          labelKey: "x",
+          descriptionKey: "x",
+          ctaKey: "x",
+          urgency: "low",
+        },
+      })
+    );
+    expect(cxProps.smi_recommended_offer).toBe("managed-excellence");
+  });
+
   it("uses the translator when provided to resolve the maturity label", () => {
     const t = (key: string) =>
       key === "quiz.itsm.levels.established.label" ? "Established" : key;

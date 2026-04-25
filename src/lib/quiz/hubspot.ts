@@ -12,6 +12,10 @@
 
 import type { QuizSubmitPayload } from "@/lib/validation";
 import { createLogger } from "@/lib/logger";
+import {
+  recommendOffer,
+  type MaturityLevelNumber,
+} from "@/lib/quiz/offer-mapping";
 
 const HUBSPOT_API = "https://api.hubapi.com";
 const log = createLogger("HubSpotQuiz");
@@ -48,6 +52,11 @@ export function buildQuizProperties(
     ? t(payload.maturityLevel.labelKey)
     : payload.maturityLevel.labelKey;
 
+  const recommendedOffer = recommendOffer(
+    payload.maturityLevel.level as MaturityLevelNumber,
+    payload.segment
+  );
+
   return {
     email: payload.email,
     firstname,
@@ -66,6 +75,7 @@ export function buildQuizProperties(
     quiz_industry: payload.demographics.industry,
     quiz_role: payload.demographics.role,
     quiz_submitted_at: new Date().toISOString(),
+    smi_recommended_offer: recommendedOffer,
   };
 }
 

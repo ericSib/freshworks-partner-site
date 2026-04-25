@@ -8,9 +8,11 @@ import { generateQuizPdf } from "@/lib/quiz/generate-pdf";
 import RadarChart from "./RadarChart";
 import QuizScoreHeader from "./QuizScoreHeader";
 import QuizQuickWins from "./QuizQuickWins";
+import QuizRecommendedOffer from "./QuizRecommendedOffer";
 import QuizEmailGate from "./QuizEmailGate";
 import QuizDimensionBreakdown from "./QuizDimensionBreakdown";
 import QuizResultCtas from "./QuizResultCtas";
+import type { MaturityLevelNumber } from "@/lib/quiz/offer-mapping";
 
 interface QuizResultsPreviewProps {
   results: QuizResults;
@@ -60,6 +62,13 @@ export default function QuizResultsPreview({
 
         {/* Quick wins — FREE (always visible) */}
         <QuizQuickWins weakestDimensions={weakestDimensions} t={t} />
+
+        {/* Recommended offer (SMI-offers, D22) — FREE */}
+        <QuizRecommendedOffer
+          level={maturityLevel.level as MaturityLevelNumber}
+          segment={results.segment}
+          t={t}
+        />
 
         {/* EMAIL GATE — Unlock detailed results */}
         {gateState !== "unlocked" ? (

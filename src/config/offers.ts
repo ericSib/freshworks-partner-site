@@ -161,3 +161,17 @@ export const RECURRING_OFFERS = OFFERS.filter((o) => o.tier === "recurring");
 
 /** Slugs for Service schema JSON-LD */
 export const OFFER_SLUGS = OFFERS.map((o) => o.slug);
+
+/**
+ * Resolve an offer by id, returning it together with its index in OFFERS.
+ * The index is the integer used in i18n paths (services.cards.{index}.*).
+ * Returns null when the id is unknown — callers should treat that as a
+ * data-mapping bug, not a runtime path the user can hit.
+ */
+export function findOfferById(
+  id: string
+): { offer: Offer; index: number } | null {
+  const index = OFFERS.findIndex((o) => o.id === id);
+  if (index === -1) return null;
+  return { offer: OFFERS[index], index };
+}

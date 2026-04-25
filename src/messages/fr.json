@@ -539,6 +539,17 @@
       "restart": "Recommencer",
       "downloadPdf": "Télécharger le rapport PDF"
     },
+    "recommendation": {
+      "tagline": "VOTRE PROCHAINE ÉTAPE",
+      "cta": "Réserver un appel de 30 minutes",
+      "heading": {
+        "level1": "Reprendre la main : par quoi commencer",
+        "level2": "Stabiliser et structurer",
+        "level3": "Industrialiser et passer à l'échelle",
+        "level4": "Optimiser et différencier",
+        "level5": "Maintenir l'excellence"
+      }
+    },
     "section": "Section",
     "of": "sur",
     "back": "Précédent",

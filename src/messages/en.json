@@ -539,6 +539,17 @@
       "restart": "Start over",
       "downloadPdf": "Download PDF report"
     },
+    "recommendation": {
+      "tagline": "YOUR NEXT STEP",
+      "cta": "Book a 30-minute call",
+      "heading": {
+        "level1": "Get back in control: where to start",
+        "level2": "Stabilize and structure",
+        "level3": "Industrialize and scale",
+        "level4": "Optimize and differentiate",
+        "level5": "Sustain excellence"
+      }
+    },
     "section": "Section",
     "of": "of",
     "back": "Back",
