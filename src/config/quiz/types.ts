@@ -7,7 +7,7 @@
  */
 
 /** Identifies which assessment track the user is taking. */
-export type QuizSegment = "itsm" | "cx";
+export type QuizSegment = "itsm" | "cx" | "esm";
 
 /** A single answer option with descriptive text (blueprint: "descriptive choice"). */
 export interface QuizOption {

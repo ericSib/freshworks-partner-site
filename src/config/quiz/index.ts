@@ -5,6 +5,7 @@
 
 export { ITSM_CONFIG } from "./itsm";
 export { CX_CONFIG } from "./cx";
+export { ESM_CONFIG } from "./esm";
 export { DEMOGRAPHIC_FIELDS } from "./types";
 export type {
   QuizConfig,
