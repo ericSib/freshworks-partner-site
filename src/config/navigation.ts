@@ -21,7 +21,7 @@ export const NAV_LINKS: NavLink[] = [
 // Breadcrumb page map — used by Breadcrumb component (US-22.7)
 // ---------------------------------------------------------------------------
 
-export type BreadcrumbPage = {
+type BreadcrumbPage = {
   /** Route path segment (e.g. "quiz", "mentions-legales") */
   slug: string;
   /** i18n key inside "breadcrumb" namespace */

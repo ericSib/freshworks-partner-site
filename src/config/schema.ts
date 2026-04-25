@@ -114,14 +114,6 @@ export const FOUNDER = {
 // Service definitions — used to generate Service schemas dynamically
 // ---------------------------------------------------------------------------
 
-export interface ServiceDefinition {
-  /** i18n key path inside "services.cards[index]" */
-  nameKey: string;
-  descriptionKey: string;
-  /** Stable slug for the @id anchor */
-  slug: string;
-}
-
 /**
  * Service slugs for JSON-LD schema generation.
  * Re-exported from the canonical offers config (D18).
