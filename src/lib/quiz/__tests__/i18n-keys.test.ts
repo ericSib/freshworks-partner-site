@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { ITSM_CONFIG } from "@/config/quiz/itsm";
 import { CX_CONFIG } from "@/config/quiz/cx";
+import { ESM_CONFIG } from "@/config/quiz/esm";
 import type { QuizConfig } from "@/config/quiz/types";
 import frMessages from "@/messages/fr.json";
 import enMessages from "@/messages/en.json";
@@ -50,6 +51,7 @@ function extractKeys(config: QuizConfig): string[] {
 describe("Quiz i18n key validation", () => {
   const itsmKeys = extractKeys(ITSM_CONFIG);
   const cxKeys = extractKeys(CX_CONFIG);
+  const esmKeys = extractKeys(ESM_CONFIG);
 
   describe("ITSM config keys exist in fr.json", () => {
     it.each(itsmKeys)("key '%s' exists", (key) => {
@@ -77,6 +79,22 @@ describe("Quiz i18n key validation", () => {
 
   describe("CX config keys exist in en.json", () => {
     it.each(cxKeys)("key '%s' exists", (key) => {
+      const value = resolve(key, enMessages as Record<string, unknown>);
+      expect(value, `Missing in en.json: ${key}`).toBeDefined();
+      expect(typeof value, `Not a string in en.json: ${key}`).toBe("string");
+    });
+  });
+
+  describe("ESM config keys exist in fr.json", () => {
+    it.each(esmKeys)("key '%s' exists", (key) => {
+      const value = resolve(key, frMessages as Record<string, unknown>);
+      expect(value, `Missing in fr.json: ${key}`).toBeDefined();
+      expect(typeof value, `Not a string in fr.json: ${key}`).toBe("string");
+    });
+  });
+
+  describe("ESM config keys exist in en.json", () => {
+    it.each(esmKeys)("key '%s' exists", (key) => {
       const value = resolve(key, enMessages as Record<string, unknown>);
       expect(value, `Missing in en.json: ${key}`).toBeDefined();
       expect(typeof value, `Not a string in en.json: ${key}`).toBe("string");

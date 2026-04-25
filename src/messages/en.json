@@ -512,7 +512,7 @@
     "selector": {
       "tagline": "Service Maturity Index™ — Free, 3 minutes",
       "headline": "How mature are your services?",
-      "subheadline": "Choose the track that matches your challenge. Each assessment covers 8 key dimensions with specific recommendations.",
+      "subheadline": "Choose the track that matches your challenge. Each assessment covers the key dimensions of your domain with specific recommendations.",
       "itsm": {
         "title": "IT Services (ITSM)",
         "description": "Assess your IT service maturity: incident management, change management, CMDB, automation, service catalog, and governance."
@@ -521,8 +521,12 @@
         "title": "Customer Support (CX)",
         "description": "Assess your customer support maturity: ticket management, omnichannel, self-service, satisfaction, analytics, and proactive support."
       },
+      "esm": {
+        "title": "Employee Services (ESM)",
+        "description": "Assess your internal HR/Facility/IT services maturity: employee experience, requests & incidents, multi-department automation, governance, and analytics."
+      },
       "start": "Start assessment",
-      "timeEstimate": "~3 minutes • 10 questions • Instant results"
+      "timeEstimate": "~3 minutes • Instant results"
     },
     "results": {
       "quickWinsTitle": "Quick wins — your priority improvement areas",
@@ -835,6 +839,130 @@
         "analytics": "71% consider AI important | Adoption limited to 34% | Freshdesk Freddy: 45%+ AI deflection",
         "knowledge": "KB coverage Level 3: 50-70% | KCS = +37% CSAT | Self-service adoption target: 50-65%",
         "proactive": "Inbound volume reduction: 20-30% | NPS +15-20 points | Predictive support = competitive advantage"
+      }
+    },
+    "esm": {
+      "dim": {
+        "experience": "Employee experience and service design",
+        "incident": "Internal requests and incidents",
+        "automation": "Multi-department automation",
+        "governance": "Governance and compliance",
+        "analytics": "Analytics and employee satisfaction"
+      },
+      "q": {
+        "1a": {
+          "text": "How do your employees access internal services (HR, IT, Facility)?",
+          "opt1": "Email, phone or Slack on a case-by-case basis. Each team has its own channels. Employees often don't know who to reach.",
+          "opt2": "Separate portals per department, with inconsistent forms. Employees juggle multiple tools depending on their request.",
+          "opt3": "Single portal with a service catalog structured by department. Requests are categorized and tracked end-to-end.",
+          "opt4": "Single portal with personalization per employee profile. Federated search. Auto-suggested services based on context (mobility, onboarding).",
+          "opt5": "Conversational experience (HR/IT/Facility chatbot). Service design driven by employee feedback. Internal NPS measured and correlated with retention."
+        },
+        "1b": {
+          "text": "How well is your internal service catalog aligned to key employee moments (onboarding, mobility, parental leave, offboarding)?",
+          "opt1": "No formal catalog. HR/managers improvise per case. New hires discover processes as they go.",
+          "opt2": "A few process pages documented but scattered. Onboarding is partially tooled, the rest is manual.",
+          "opt3": "Catalog covering the main moments (onboarding, exit). Workflows defined for the most common requests. Explicit SLAs.",
+          "opt4": "Employee journeys tooled end-to-end (onboarding, mobility, parental leave). Automated coordination across HR × IT × Facility for each key moment.",
+          "opt5": "Continuous service design: every journey is measured (time, satisfaction, drop-off) and improved iteratively. Employee experience is a managed product."
+        },
+        "2a": {
+          "text": "How are internal requests handled (access, equipment, leave, payroll, badge…)?",
+          "opt1": "Email tickets or shared spreadsheets. No systematic categorization. Tracking depends on operational team memory.",
+          "opt2": "Ticketing tool in place but partially used. No consistent SLAs. Lead times vary widely depending on the request.",
+          "opt3": "Structured ticketing with categories, priorities and SLAs. Manual but documented routing. Backlog tracked monthly.",
+          "opt4": "AI auto-routing based on category and skill. SLA compliance > 90%. 360° view of employee history. Cross-department coordination.",
+          "opt5": "Predictive resolution: AI anticipates demand peaks (back-to-school, fiscal periods). 40-60% of L1 requests resolved via self-service or bot."
+        },
+        "2b": {
+          "text": "What is your average resolution time for a routine employee request (badge, access, simple HR request)?",
+          "opt1": "More than 5 working days. Employees follow up multiple times and don't know where their request stands.",
+          "opt2": "2 to 5 days. Partial visibility for the employee. Escalations are informal.",
+          "opt3": "1 to 2 days for standard requests. SLAs tracked and communicated. Status available in self-service.",
+          "opt4": "Less than 24h for 80% of routine requests. Automated notifications at every step. Systematic feedback loop.",
+          "opt5": "Instant resolution for most requests (automated provisioning, conversational bots). Lead times < 2h on requests requiring human action."
+        },
+        "3a": {
+          "text": "How are cross-department processes (onboarding, mobility, exit) orchestrated?",
+          "opt1": "Each team (HR, IT, Facility) triggers its tasks manually. Many oversights, duplicates and tasks falling through the cracks.",
+          "opt2": "Shared checklists (Excel, Notion). Orchestration relies on emails and the vigilance of an HR coordinator.",
+          "opt3": "Automated workflows for onboarding and offboarding. HR/IT/Facility tasks triggered in cascade from a source event (start date).",
+          "opt4": "Multi-department orchestration driven by a workflow engine. Exception handling, automatic escalations, conductor view for HR.",
+          "opt5": "Event- and data-driven orchestration: role changes, return from parental leave, end of mission automatically trigger the right workflows. Full audit trail."
+        },
+        "3b": {
+          "text": "What is the integration level between your HRIS, your ITSM and your Facility tools?",
+          "opt1": "No integration. Employee data is entered manually in each tool. Risk of drift between systems.",
+          "opt2": "Occasional file imports (CSV, batch). Several days of lag between systems.",
+          "opt3": "API or connectors between HRIS and ITSM. Daily sync of active employees. Facility tools still in silo.",
+          "opt4": "Real-time integration HRIS ↔ ITSM ↔ Facility. Automatic provisioning of access, badges and equipment on arrival.",
+          "opt5": "Event-driven architecture: any HR change (role, team, status) automatically propagates to rights, equipment, spaces. Unified employee reference data."
+        },
+        "4a": {
+          "text": "How do you manage compliance (GDPR, collective agreements, traceability) across your employee services?",
+          "opt1": "No formal mapping of employee data. Compliance relies on HR/IT teams' goodwill.",
+          "opt2": "A few hand-maintained registers. Employee data access requests (GDPR) are handled case by case, sometimes off-deadline.",
+          "opt3": "Up-to-date processing register. Formal workflows for employee rights (access, deletion). GDPR deadlines met.",
+          "opt4": "Compliance by design: retention periods, anonymization and audit trail driven from the platform. Automated reports to DPO and works councils.",
+          "opt5": "Continuous employee data governance: automated DPIAs on each new use case, permanent controls, integration with the global security policy."
+        },
+        "5a": {
+          "text": "How do you measure employee satisfaction and experience on internal services?",
+          "opt1": "No formal measurement. Sentiment surfaces via word of mouth or annual reviews.",
+          "opt2": "Annual engagement survey, with no specific measurement on internal services. Low response rate.",
+          "opt3": "Post-resolution CSAT on HR/IT tickets. Quarterly pulse. Monthly feedback review by service leads.",
+          "opt4": "ENPS (Employee NPS) on internal services measured continuously. Closed feedback loop < 7 days on negative responses. Indicators reported to the HR committee.",
+          "opt5": "Sentiment analysis on tickets and conversations. Predictive models linking service experience × engagement × retention. ENPS published and managed."
+        },
+        "5b": {
+          "text": "How do you leverage ESM data to steer and improve your internal services?",
+          "opt1": "No dashboards. Volumes are only known when leadership requests ad hoc reporting.",
+          "opt2": "Monthly manual reporting (volumes, lead times). No cross-referencing with other sources (HRIS, payroll).",
+          "opt3": "Standard dashboards: volumes, SLAs, top categories, resolution time. Quarterly reporting to HR/Operations leadership.",
+          "opt4": "Real-time dashboards with alerts. Cross-referencing ESM × HRIS × engagement. Automatic anomaly detection (request peaks, SLA drift).",
+          "opt5": "Predictive analytics: anticipation of peaks (back-to-school, payroll, year-end), dynamic resource allocation, ROI of internal services measured and published."
+        }
+      },
+      "level": {
+        "1": {
+          "label": "Firefighting",
+          "desc": "No ESM catalog, requests handled case by case, little visibility. Employees reach informal contacts and HR absorbs escalations.",
+          "cta": "Book a free ESM diagnostic"
+        },
+        "2": {
+          "label": "Reactive",
+          "desc": "Tools in place but siloed by department. Processes are partially documented, SLAs drift and cross-team coordination remains manual.",
+          "cta": "Get your personalized ESM roadmap"
+        },
+        "3": {
+          "label": "Managed",
+          "desc": "Unified portal, structured ESM catalog, SLAs tracked. Key cross-department processes (onboarding, exit) are automated.",
+          "cta": "See how to reach Strategic level"
+        },
+        "4": {
+          "label": "Strategic",
+          "desc": "Data-driven service design, automated multi-department orchestration, ENPS tracked continuously. Employee experience is an employer brand lever.",
+          "cta": "Explore advanced ESM optimization plays"
+        },
+        "5": {
+          "label": "Optimized",
+          "desc": "Predictive, event-driven ESM. Internal services are managed as a product, measured on engagement and retention. ROI published to the leadership committee.",
+          "cta": "Sustain your ESM excellence"
+        }
+      },
+      "commercial": {
+        "experience": "An average employee experience score correlates with +25% turnover. Industrializing service design typically reduces replacement cost by €10,000–25,000 per role.",
+        "incident": "Each manually handled HR/IT request costs €15–30. Automating 40% of routine requests saves €150–250k/year for 1,000 employees.",
+        "automation": "An unorchestrated onboarding loses 1 to 2 productive days per new hire. For 100 hires/year, that's €200k of lost productivity.",
+        "governance": "A major GDPR non-compliance exposes you to 4% of global revenue. A maintained, auditable ESM register reduces risk and accelerates CNIL/works council audits.",
+        "analytics": "Organizations that measure ENPS and link it to internal services show engagement up by 17 points and retention improved by 21%."
+      },
+      "benchmark": {
+        "experience": "Median B2B ENPS: 0–20 | Best-in-class: 40+ | Service design cuts onboarding lead time by 30–50%",
+        "incident": "Manual HR/IT ticket cost: €15–30 | Mature self-service: €1–4 | ESM deflection target: 30–45%",
+        "automation": "Tooled onboarding: −40% HR × IT time | Automatic provisioning: D0 vs. typical D+5 | Multi-department workflows: −60% data re-entry",
+        "governance": "Legal GDPR deadline: 1 month | Best-in-class: < 7 days | Automated DPIA: −70% DPO effort",
+        "analytics": "Continuous ENPS adoption: 24% | Champions: ENPS published to executive committee | Peak prediction accuracy: 80–90%"
       }
     }
   },

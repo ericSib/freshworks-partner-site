@@ -512,7 +512,7 @@
     "selector": {
       "tagline": "Service Maturity Index™ — Gratuit, 3 minutes",
       "headline": "Quelle est la maturité de vos services ?",
-      "subheadline": "Choisissez le parcours qui correspond à votre enjeu. Chaque évaluation couvre 8 dimensions clés avec des recommandations spécifiques.",
+      "subheadline": "Choisissez le parcours qui correspond à votre enjeu. Chaque évaluation couvre les dimensions clés de votre métier avec des recommandations spécifiques.",
       "itsm": {
         "title": "Services IT (ITSM)",
         "description": "Évaluez la maturité de vos services IT : gestion des incidents, changements, CMDB, automatisation, catalogue de services et gouvernance."
@@ -521,8 +521,12 @@
         "title": "Support Client (CX)",
         "description": "Évaluez la maturité de votre support client : gestion des tickets, omnicanal, self-service, satisfaction, analytics et support proactif."
       },
+      "esm": {
+        "title": "Services aux employés (ESM)",
+        "description": "Évaluez la maturité de vos services internes RH/Facility/IT : expérience employé, demandes & incidents, automatisation multi-département, gouvernance et analytics."
+      },
       "start": "Démarrer l'évaluation",
-      "timeEstimate": "~3 minutes • 10 questions • Résultats immédiats"
+      "timeEstimate": "~3 minutes • Résultats immédiats"
     },
     "results": {
       "quickWinsTitle": "Quick wins — vos axes d'amélioration prioritaires",
@@ -835,6 +839,130 @@
         "analytics": "71% considèrent l'IA importante | Adoption limitée à 34% | Freshdesk Freddy : 45%+ déflexion IA",
         "knowledge": "Couverture KB Level 3 : 50-70% | KCS = +37% CSAT | Self-service adoption cible : 50-65%",
         "proactive": "Réduction volume entrant : 20-30% | NPS +15-20 points | Support prédictif = avantage concurrentiel"
+      }
+    },
+    "esm": {
+      "dim": {
+        "experience": "Expérience employé et service design",
+        "incident": "Demandes et incidents internes",
+        "automation": "Automatisation multi-département",
+        "governance": "Gouvernance et conformité",
+        "analytics": "Analytics et satisfaction employé"
+      },
+      "q": {
+        "1a": {
+          "text": "Comment vos employés accèdent-ils aux services internes (RH, IT, Facility) ?",
+          "opt1": "Email, téléphone ou Slack au cas par cas. Chaque équipe a ses propres canaux. Les employés ne savent souvent pas à qui s'adresser.",
+          "opt2": "Portails séparés par département, avec des formulaires hétérogènes. L'employé doit jongler entre plusieurs outils selon sa demande.",
+          "opt3": "Portail unique avec catalogue de services structuré par département. Les demandes sont catégorisées et tracées de bout en bout.",
+          "opt4": "Portail unique avec personnalisation par profil employé. Recherche fédérée. Auto-suggestion de services en fonction du contexte (mobilité, onboarding).",
+          "opt5": "Expérience conversationnelle (chatbot RH/IT/Facility). Service design piloté par les feedbacks employés. NPS interne mesuré et corrélé à la rétention."
+        },
+        "1b": {
+          "text": "À quel point votre catalogue de services internes est-il aligné sur les moments-clés du parcours employé (onboarding, mobilité, parentalité, offboarding) ?",
+          "opt1": "Pas de catalogue formalisé. Chaque RH/manager improvise selon les cas. Les nouveaux arrivants découvrent les processus en marchant.",
+          "opt2": "Quelques fiches process documentées mais éparpillées. L'onboarding est partiellement outillé, le reste se fait à la main.",
+          "opt3": "Catalogue couvrant les principaux moments (onboarding, départ). Workflows définis pour les demandes les plus courantes. SLA explicites.",
+          "opt4": "Parcours employés outillés bout en bout (onboarding, mobilité, parentalité). Coordination automatisée RH × IT × Facility pour chaque moment-clé.",
+          "opt5": "Service design continu : chaque parcours est mesuré (temps, satisfaction, drop-off) et amélioré itérativement. L'employee experience est un produit géré."
+        },
+        "2a": {
+          "text": "Comment sont traitées les demandes internes (accès, matériel, congés, paie, badge…) ?",
+          "opt1": "Tickets émail ou tableurs partagés. Pas de catégorisation systématique. Le suivi dépend de la mémoire des opérationnels.",
+          "opt2": "Outil de ticketing en place mais utilisé partiellement. Pas de SLA cohérents. Les délais varient fortement selon les demandes.",
+          "opt3": "Ticketing structuré avec catégories, priorités et SLA. Routage manuel mais documenté. Backlog suivi mensuellement.",
+          "opt4": "Auto-routage IA selon catégorie et compétence. Conformité SLA > 90%. Vue 360° de l'historique employé. Coordination cross-département.",
+          "opt5": "Résolution prédictive : l'IA anticipe les demandes (rentrée scolaire, périodes fiscales). 40-60% des demandes L1 résolues en self-service ou par bot."
+        },
+        "2b": {
+          "text": "Quel est votre temps moyen de résolution d'une demande employé courante (badge, accès, demande RH simple) ?",
+          "opt1": "Plus de 5 jours ouvrés. Les employés relancent plusieurs fois et ne savent pas où en est leur demande.",
+          "opt2": "2 à 5 jours. Visibilité partielle pour l'employé. Les escalades sont informelles.",
+          "opt3": "1 à 2 jours pour les demandes standard. SLA suivis et communiqués. Statut consultable en self-service.",
+          "opt4": "Moins de 24h pour 80% des demandes courantes. Notifications automatiques à chaque étape. Boucle de feedback systématique.",
+          "opt5": "Résolution instantanée pour la majorité des demandes (provisioning automatique, bots conversationnels). Délais < 2h sur les demandes nécessitant une action humaine."
+        },
+        "3a": {
+          "text": "Comment les processus inter-départements (onboarding, mobilité, départ) sont-ils orchestrés ?",
+          "opt1": "Chaque équipe (RH, IT, Facility) déclenche ses tâches manuellement. Beaucoup d'oublis, de doublons et de tâches qui tombent entre les chaises.",
+          "opt2": "Checklists partagées (Excel, Notion). L'orchestration repose sur des emails et la vigilance d'un coordinateur RH.",
+          "opt3": "Workflows automatisés pour l'onboarding et l'offboarding. Tâches RH/IT/Facility déclenchées en cascade depuis un événement source (date d'arrivée).",
+          "opt4": "Orchestration multi-département pilotée par moteur de workflow. Gestion d'exceptions, escalades automatiques, vue chef d'orchestre pour la RH.",
+          "opt5": "Orchestration pilotée par événements et data : changement de poste, retour de congé parental, fin de mission déclenchent automatiquement les bons workflows. Audit complet."
+        },
+        "3b": {
+          "text": "Quel est le niveau d'intégration entre votre SIRH, votre ITSM et vos outils Facility ?",
+          "opt1": "Aucune intégration. Les données employé sont saisies manuellement dans chaque outil. Risques d'écart entre systèmes.",
+          "opt2": "Imports fichiers ponctuels (CSV, batch). Décalages de plusieurs jours entre les systèmes.",
+          "opt3": "API ou connecteurs entre SIRH et ITSM. Synchronisation quotidienne des employés actifs. Outils Facility encore en silo.",
+          "opt4": "Intégration temps réel SIRH ↔ ITSM ↔ Facility. Provisioning automatique des accès, badges et équipements à l'arrivée.",
+          "opt5": "Architecture événementielle : tout changement RH (poste, équipe, statut) propage automatiquement aux droits, équipements, espaces. Référentiel employé unifié."
+        },
+        "4a": {
+          "text": "Comment gérez-vous la conformité (RGPD, accords sociaux, traçabilité) sur vos services aux employés ?",
+          "opt1": "Pas de cartographie formelle des données employé. La conformité repose sur la bonne volonté des équipes RH/IT.",
+          "opt2": "Quelques registres tenus à la main. Les demandes d'accès aux données (RGPD) sont traitées au cas par cas, parfois hors délai.",
+          "opt3": "Registre des traitements à jour. Workflows formalisés pour les droits employés (accès, suppression). Délais RGPD respectés.",
+          "opt4": "Conformité by design : durées de rétention, anonymisation et audit trail pilotés depuis la plateforme. Reportings automatiques au DPO et aux IRP.",
+          "opt5": "Gouvernance data employé continue : DPIA automatisées sur chaque nouvel usage, contrôles permanents, intégration avec la politique de sécurité globale."
+        },
+        "5a": {
+          "text": "Comment mesurez-vous la satisfaction et l'expérience de vos employés sur les services internes ?",
+          "opt1": "Pas de mesure formelle. Le ressenti remonte par bouche-à-oreille ou en entretien annuel.",
+          "opt2": "Enquête annuelle d'engagement, sans mesure spécifique sur les services internes. Faible taux de réponse.",
+          "opt3": "CSAT post-traitement sur les tickets RH/IT. Pulse trimestriel. Revue mensuelle des feedbacks par les responsables de service.",
+          "opt4": "ENPS (Employee NPS) sur les services internes mesuré en continu. Boucle fermée < 7 jours sur les retours négatifs. Indicateurs au comité RH.",
+          "opt5": "Analyse de sentiment sur tickets et conversations. Modèles prédictifs reliant expérience services × engagement × rétention. ENPS publié et piloté."
+        },
+        "5b": {
+          "text": "Comment exploitez-vous les données ESM pour piloter et améliorer vos services internes ?",
+          "opt1": "Pas de tableau de bord. Les volumes ne sont connus que lors des reportings ad hoc demandés par la direction.",
+          "opt2": "Reportings mensuels manuels (volumes, délais). Pas de croisement avec d'autres sources (SIRH, paie).",
+          "opt3": "Dashboards standard : volumes, SLA, top motifs, temps de résolution. Reporting trimestriel à la direction RH/Opérations.",
+          "opt4": "Dashboards temps réel avec alertes. Croisement ESM × SIRH × engagement. Détection automatique d'anomalies (pic de demandes, dérive SLA).",
+          "opt5": "Analytics prédictif : anticipation des pics (rentrée, paie, fin d'année), allocation dynamique des ressources, ROI des services internes mesuré et publié."
+        }
+      },
+      "level": {
+        "1": {
+          "label": "Firefighting",
+          "desc": "Aucun catalogue ESM, demandes traitées au cas par cas, peu de visibilité. Les employés s'adressent à des contacts informels et la RH absorbe les escalades.",
+          "cta": "Réservez un diagnostic ESM gratuit"
+        },
+        "2": {
+          "label": "Reactive",
+          "desc": "Outils en place mais en silos par département. Les processus sont documentés partiellement, les SLA flottent et les coordinations inter-équipes restent manuelles.",
+          "cta": "Obtenez votre roadmap ESM personnalisée"
+        },
+        "3": {
+          "label": "Managed",
+          "desc": "Portail unifié, catalogue ESM structuré, SLA suivis. Les processus inter-départements clés (onboarding, départ) sont automatisés.",
+          "cta": "Découvrez comment passer au niveau Strategic"
+        },
+        "4": {
+          "label": "Strategic",
+          "desc": "Service design piloté par la donnée, orchestration multi-département automatisée, ENPS suivi en continu. L'expérience employé est un levier de marque employeur.",
+          "cta": "Explorez les leviers d'optimisation ESM avancés"
+        },
+        "5": {
+          "label": "Optimized",
+          "desc": "ESM prédictif et événementiel. Les services internes sont gérés comme un produit, mesurés sur l'engagement et la rétention. ROI publié au comité de direction.",
+          "cta": "Maintenez votre excellence ESM"
+        }
+      },
+      "commercial": {
+        "experience": "Un employee experience score moyen est corrélé à un turnover de +25%. Industrialiser le service design réduit typiquement le coût de remplacement de 10 000–25 000 € par poste.",
+        "incident": "Chaque demande RH/IT traitée manuellement coûte 15–30 €. Automatiser 40% des demandes courantes économise 150–250 k€/an pour 1 000 employés.",
+        "automation": "Un onboarding non orchestré perd 1 à 2 jours de productivité par nouveau collaborateur. Pour 100 arrivées/an, c'est 200 k€ de productivité perdue.",
+        "governance": "Une non-conformité RGPD majeure expose à 4% du CA monde. Un registre ESM tenu et auditable réduit le risque et accélère les audits CNIL/IRP.",
+        "analytics": "Les organisations qui mesurent l'ENPS et le relient aux services internes affichent un engagement supérieur de 17 points et une rétention améliorée de 21%."
+      },
+      "benchmark": {
+        "experience": "ENPS médian B2B : 0–20 | Best-in-class : 40+ | Le service design réduit le délai onboarding de 30–50%",
+        "incident": "Coût ticket RH/IT manuel : 15–30 € | Self-service mature : 1–4 € | Cible déflexion ESM : 30–45%",
+        "automation": "Onboarding outillé : −40% temps RH × IT | Provisioning automatique : J0 vs. J+5 typique | Workflows multi-département : −60% ressaisie",
+        "governance": "Délai RGPD légal : 1 mois | Best-in-class : < 7 jours | DPIA automatisée : −70% effort DPO",
+        "analytics": "Adoption ENPS continue : 24% | Champions : ENPS publié au COMEX | Prédiction de pics : précision 80–90%"
       }
     }
   },
