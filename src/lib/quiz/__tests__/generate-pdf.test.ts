@@ -11,7 +11,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { ITSM_CONFIG, CX_CONFIG } from "@/config/quiz";
+import { ITSM_CONFIG, CX_CONFIG, ESM_CONFIG } from "@/config/quiz";
 import type { QuizResults } from "@/hooks/useQuiz";
 
 // ---------------------------------------------------------------------------
@@ -277,6 +277,48 @@ describe("generateQuizPdf — CX English (US-21.5, scenario 2)", () => {
 
     expect(mockInstance.save).toHaveBeenCalledWith(
       "WaS-CX-Maturity-Score.pdf"
+    );
+  });
+});
+
+describe("generateQuizPdf — ESM segment (SMI-esm)", () => {
+  it("writes the FR title 'Score de Maturité ESM'", () => {
+    const t = vi.fn((key: string) => key);
+    generateQuizPdf({
+      results: createQuizResults({ segment: "esm" }),
+      config: ESM_CONFIG,
+      t,
+      locale: "fr",
+    });
+
+    const textCalls = mockInstance.text.mock.calls.map((c) => String(c[0]));
+    expect(textCalls).toContain("Score de Maturité ESM");
+  });
+
+  it("writes the EN title 'ESM Maturity Score'", () => {
+    const t = vi.fn((key: string) => key);
+    generateQuizPdf({
+      results: createQuizResults({ segment: "esm" }),
+      config: ESM_CONFIG,
+      t,
+      locale: "en",
+    });
+
+    const textCalls = mockInstance.text.mock.calls.map((c) => String(c[0]));
+    expect(textCalls).toContain("ESM Maturity Score");
+  });
+
+  it("saves the file with filename 'WaS-ESM-Maturity-Score.pdf'", () => {
+    const t = vi.fn((key: string) => key);
+    generateQuizPdf({
+      results: createQuizResults({ segment: "esm" }),
+      config: ESM_CONFIG,
+      t,
+      locale: "fr",
+    });
+
+    expect(mockInstance.save).toHaveBeenCalledWith(
+      "WaS-ESM-Maturity-Score.pdf"
     );
   });
 });

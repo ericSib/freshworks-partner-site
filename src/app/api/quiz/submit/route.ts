@@ -115,7 +115,7 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: "Eric Sib — What A Service <noreply@whataservice.fr>",
         to: [payload.email],
-        subject: "Votre Score de Maturité ITSM/CX — What A Service",
+        subject: `Votre Score de Maturité ${payload.segment.toUpperCase()} — What A Service`,
         text: [
           "Bonjour,",
           "",

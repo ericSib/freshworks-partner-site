@@ -123,6 +123,12 @@ describe("buildQuizProperties", () => {
     expect(props.quiz_segment).toBe("cx");
   });
 
+  it("labels ESM leads with the ESM company marker", () => {
+    const props = buildQuizProperties(validPayload({ segment: "esm" }));
+    expect(props.company).toBe("Quiz ESM lead");
+    expect(props.quiz_segment).toBe("esm");
+  });
+
   it("uses the translator when provided to resolve the maturity label", () => {
     const t = (key: string) =>
       key === "quiz.itsm.levels.established.label" ? "Established" : key;

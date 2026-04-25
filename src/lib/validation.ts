@@ -47,8 +47,8 @@ export type ContactFormData = z.infer<typeof contactFormSchema>;
 
 // ─── Quiz submission ────────────────────────────────────────────────────
 
-/** Allowed quiz segments. */
-export const QUIZ_SEGMENTS = ["itsm", "cx"] as const;
+/** Allowed quiz segments. Kept in lockstep with QuizSegment (src/config/quiz/types.ts). */
+export const QUIZ_SEGMENTS = ["itsm", "cx", "esm"] as const;
 
 /** Urgency labels emitted by the maturity level computation. */
 export const MATURITY_URGENCIES = ["critical", "high", "medium", "low"] as const;

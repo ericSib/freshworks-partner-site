@@ -61,7 +61,7 @@ export function generateQuizPdf({
   doc.text("ERIC SIBOMANA", BAND_W / 2, logoY + 16, { align: "center" });
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6.5);
-  doc.text("Consultant ITSM & CX", BAND_W / 2, logoY + 21, {
+  doc.text("Consultant ITSM, CX & ESM", BAND_W / 2, logoY + 21, {
     align: "center",
   });
 
@@ -81,7 +81,7 @@ export function generateQuizPdf({
   doc.setTextColor(NAVY);
   doc.setFontSize(20);
   doc.setFont("helvetica", "bold");
-  const titleSegment = config.segment === "itsm" ? "ITSM" : "CX";
+  const titleSegment = config.segment.toUpperCase();
   const title =
     locale === "fr"
       ? `Score de Maturit\u00e9 ${titleSegment}`

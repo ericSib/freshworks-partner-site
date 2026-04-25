@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { EMAIL_REGEX } from "@/lib/validation";
+import { EMAIL_REGEX, QUIZ_SEGMENTS } from "@/lib/validation";
 
 // ---------------------------------------------------------------------------
 // EMAIL_REGEX
@@ -70,6 +70,21 @@ describe("EMAIL_REGEX", () => {
     it("should allow numeric domain labels", () => {
       expect(EMAIL_REGEX.test("user@123.123.123.com")).toBe(true);
     });
+  });
+});
+
+// ---------------------------------------------------------------------------
+// QUIZ_SEGMENTS — kept in lockstep with QuizSegment type (D20)
+// ---------------------------------------------------------------------------
+describe("QUIZ_SEGMENTS", () => {
+  it("includes the three SMI tracks ITSM / CX / ESM", () => {
+    expect(QUIZ_SEGMENTS).toContain("itsm");
+    expect(QUIZ_SEGMENTS).toContain("cx");
+    expect(QUIZ_SEGMENTS).toContain("esm");
+  });
+
+  it("has exactly 3 segments (no orphan or extra value)", () => {
+    expect(QUIZ_SEGMENTS).toHaveLength(3);
   });
 });
 

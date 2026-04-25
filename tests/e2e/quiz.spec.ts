@@ -69,6 +69,21 @@ test.describe("Quiz — Full ITSM Flow", () => {
     await expect(page.getByText("Quelques informations")).toBeVisible();
   });
 
+  test("ESM selector leads to ESM quiz (SMI-esm)", async ({ page }) => {
+    await page.goto("/fr/quiz");
+    await page.waitForLoadState("domcontentloaded");
+
+    // Choose ESM (third card, D20)
+    const esmCard = page.getByRole("button", {
+      name: /Services aux employés/i,
+    });
+    await expect(esmCard).toBeVisible();
+    await esmCard.click();
+
+    // Should show demographics (ESM path loaded)
+    await expect(page.getByText("Quelques informations")).toBeVisible();
+  });
+
   test("restart button returns to segment selector", async ({ page }) => {
     await page.goto("/fr/quiz");
     await page.waitForLoadState("domcontentloaded");
