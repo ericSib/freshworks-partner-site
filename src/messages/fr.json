@@ -550,6 +550,26 @@
         "level5": "Maintenir l'excellence"
       }
     },
+    "roi": {
+      "tagline": "VOTRE GAIN POTENTIEL",
+      "perYear": "an",
+      "disclaimer": "Estimation indicative basée sur les benchmarks publics Forrester TEI Freshworks et notre modèle interne. Non contractuelle.",
+      "fallbackHint": "Affinez cette estimation en parlant à un expert.",
+      "heading": {
+        "itsm": "Économies annualisées potentielles sur vos services IT",
+        "cx": "Économies annualisées potentielles sur votre support client",
+        "esm": "Économies annualisées potentielles sur vos services aux employés"
+      },
+      "body": {
+        "itsm": "Réduction du temps de résolution, déflexion en self-service et automatisation des demandes courantes — typiquement 20 à 40 % du coût opérationnel ITSM.",
+        "cx": "Diminution du volume entrant, augmentation du FCR et déflexion par IA conversationnelle — typiquement 15 à 30 % du coût agent.",
+        "esm": "Industrialisation des parcours employés (onboarding, mobilité, départ) et automatisation multi-département RH × IT × Facility."
+      },
+      "optimized": {
+        "heading": "Vous êtes déjà dans le top 10 %",
+        "body": "À ce niveau de maturité, le levier n'est plus la transformation mais l'optimisation continue : maintenir l'excellence, anticiper les pics, monétiser la donnée d'expérience. Parlons-en."
+      }
+    },
     "section": "Section",
     "of": "sur",
     "back": "Précédent",

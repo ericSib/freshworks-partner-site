@@ -8,6 +8,7 @@ import { generateQuizPdf } from "@/lib/quiz/generate-pdf";
 import RadarChart from "./RadarChart";
 import QuizScoreHeader from "./QuizScoreHeader";
 import QuizQuickWins from "./QuizQuickWins";
+import QuizROI from "./QuizROI";
 import QuizRecommendedOffer from "./QuizRecommendedOffer";
 import QuizEmailGate from "./QuizEmailGate";
 import QuizDimensionBreakdown from "./QuizDimensionBreakdown";
@@ -62,6 +63,15 @@ export default function QuizResultsPreview({
 
         {/* Quick wins — FREE (always visible) */}
         <QuizQuickWins weakestDimensions={weakestDimensions} t={t} />
+
+        {/* ROI estimate (SMI-roi, D21) — FREE */}
+        <QuizROI
+          level={maturityLevel.level as MaturityLevelNumber}
+          segment={results.segment}
+          companySize={results.demographics.companySize}
+          locale={locale}
+          t={t}
+        />
 
         {/* Recommended offer (SMI-offers, D22) — FREE */}
         <QuizRecommendedOffer

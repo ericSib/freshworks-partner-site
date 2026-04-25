@@ -550,6 +550,26 @@
         "level5": "Sustain excellence"
       }
     },
+    "roi": {
+      "tagline": "YOUR POTENTIAL GAIN",
+      "perYear": "year",
+      "disclaimer": "Indicative estimate based on Forrester TEI Freshworks public benchmarks and our internal model. Non-contractual.",
+      "fallbackHint": "Sharpen this estimate by speaking with an expert.",
+      "heading": {
+        "itsm": "Potential annualized savings on your IT services",
+        "cx": "Potential annualized savings on your customer support",
+        "esm": "Potential annualized savings on your employee services"
+      },
+      "body": {
+        "itsm": "Lower resolution times, self-service deflection and routine-request automation — typically 20–40% of ITSM operating cost.",
+        "cx": "Reduced inbound volume, higher FCR and conversational-AI deflection — typically 15–30% of agent cost.",
+        "esm": "Industrialized employee journeys (onboarding, mobility, exit) and multi-department automation across HR × IT × Facility."
+      },
+      "optimized": {
+        "heading": "You're already in the top 10%",
+        "body": "At this maturity level, the lever is no longer transformation but continuous optimization: sustain excellence, anticipate peaks, monetize experience data. Let's talk."
+      }
+    },
     "section": "Section",
     "of": "of",
     "back": "Back",
