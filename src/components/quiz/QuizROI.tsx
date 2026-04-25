@@ -89,7 +89,7 @@ export default function QuizROI({
         data-testid="quiz-roi-range"
       >
         {formatEUR(roi.min, locale)} – {formatEUR(roi.max, locale)}
-        <span className="text-slate-500 text-base font-normal ml-2">
+        <span className="text-slate-400 text-base font-normal ml-2">
           / {t("quiz.roi.perYear")}
         </span>
       </p>
@@ -99,12 +99,12 @@ export default function QuizROI({
       </p>
 
       {usingFallbackBracket && (
-        <p className="text-slate-500 text-xs italic mt-2">
+        <p className="text-slate-400 text-xs italic mt-2">
           {t("quiz.roi.fallbackHint")}
         </p>
       )}
 
-      <p className="text-slate-500 text-xs italic mt-4">
+      <p className="text-slate-400 text-xs italic mt-4">
         {t("quiz.roi.disclaimer")}
       </p>
     </section>
