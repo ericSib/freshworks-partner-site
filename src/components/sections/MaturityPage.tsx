@@ -1,18 +1,5 @@
 import SectionTag from "@/components/ui/SectionTag";
-
-type Props = {
-  sectionTag: string;
-  headline: string;
-  intro: string;
-  problemsTitle: string;
-  problems: string[];
-  recommendationsTitle: string;
-  recommendations: string[];
-  cta: string;
-  timeframe: string;
-  segment: string;
-  locale: string;
-};
+import type { MaturityPageProps } from "@/config/quiz/types";
 
 /**
  * Maturity level landing page template.
@@ -20,21 +7,26 @@ type Props = {
  * Reusable for all 10 pages (5 ITSM + 5 CX levels).
  * Content is fully driven by i18n props — zero hardcoded text.
  *
- * US-18.7a
+ * US-18.7a — original implementation.
+ * US-23.5  — Long Parameter List → Introduce Parameter Object: the
+ *            11 raw props are grouped into `content` (editorial),
+ *            `diagnosis` (problems + recommendations), and `context`
+ *            (cta + timeframe + segment + locale).
  */
 export default function MaturityPage({
-  sectionTag,
-  headline,
-  intro,
-  problemsTitle,
-  problems,
-  recommendationsTitle,
-  recommendations,
-  cta,
-  timeframe,
-  segment,
-  locale,
-}: Props) {
+  content,
+  diagnosis,
+  context,
+}: MaturityPageProps) {
+  const { sectionTag, headline, intro } = content;
+  const {
+    problemsTitle,
+    problems,
+    recommendationsTitle,
+    recommendations,
+  } = diagnosis;
+  const { cta, timeframe, segment, locale } = context;
+
   const accentColor = segment === "itsm" ? "text-accent" : "text-blue-400";
 
   return (

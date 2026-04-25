@@ -66,6 +66,36 @@ export interface DimensionRecommendation {
   recommendationKey: string;
 }
 
+/** Editorial header copy for the maturity-level landing page. */
+export interface MaturityPageContent {
+  sectionTag: string;
+  headline: string;
+  intro: string;
+}
+
+/** Diagnosis panel: typical problems and prioritized recommendations. */
+export interface MaturityPageDiagnosis {
+  problemsTitle: string;
+  problems: string[];
+  recommendationsTitle: string;
+  recommendations: string[];
+}
+
+/** Routing/branding context (CTA destination, segment colour, locale). */
+export interface MaturityPageContext {
+  cta: string;
+  timeframe: string;
+  segment: string;
+  locale: string;
+}
+
+/** Parameter object for the MaturityPage component (US-23.5). */
+export interface MaturityPageProps {
+  content: MaturityPageContent;
+  diagnosis: MaturityPageDiagnosis;
+  context: MaturityPageContext;
+}
+
 /** Complete quiz configuration for one segment (ITSM or CX). */
 export interface QuizConfig {
   /** Segment identifier. */

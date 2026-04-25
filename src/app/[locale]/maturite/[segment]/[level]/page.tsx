@@ -76,17 +76,23 @@ export default async function MaturityLevelPage({ params }: Props) {
       <Breadcrumb locale={locale} slug={`maturite/${segment}/${level}`} label={t("sectionTag")} />
       <JsonLd data={serviceSchema} />
       <MaturityPage
-        sectionTag={t("sectionTag")}
-        headline={t("headline")}
-        intro={t("intro")}
-        problemsTitle={t("problemsTitle")}
-        problems={t.raw("problems") as string[]}
-        recommendationsTitle={t("recommendationsTitle")}
-        recommendations={t.raw("recommendations") as string[]}
-        cta={t("cta")}
-        timeframe={t("timeframe")}
-        segment={segment}
-        locale={locale}
+        content={{
+          sectionTag: t("sectionTag"),
+          headline: t("headline"),
+          intro: t("intro"),
+        }}
+        diagnosis={{
+          problemsTitle: t("problemsTitle"),
+          problems: t.raw("problems") as string[],
+          recommendationsTitle: t("recommendationsTitle"),
+          recommendations: t.raw("recommendations") as string[],
+        }}
+        context={{
+          cta: t("cta"),
+          timeframe: t("timeframe"),
+          segment,
+          locale,
+        }}
       />
     </>
   );
