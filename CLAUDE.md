@@ -190,6 +190,8 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-25 | D23 | **Cadence Refactoring Radar institutionnalisee** — chaque execution de la tache planifiee `refactoring-radar` produit un refinement `docs/refinement/refactoring-radar-YYYY-MM-DD.md` qui alimente l'epic E23 | Gouvernance dette |
 | 2026-04-25 | D24 | **Epic E23 ouverte** — "Refactoring Radar (hygiene continue)" — accumule les findings de chaque scan en stories US-23.x | Backlog tech debt |
 | 2026-04-25 | D25 | **Budget refactoring : ~20% du sprint** (Manifeste P9) — quick wins (1-2 pts) injectes en buffer du sprint en cours, refactorings structurels (3+ pts) en stories dediees du sprint suivant | Capacite sprint |
+| 2026-04-25 | D26 | **Publication prod sur `freshworks.whataservice.fr`** — DNS OVH (CNAME → cname.vercel-dns.com), cert Let's Encrypt auto-renew Vercel, deploiement Vercel auto sur push main. Apex `whataservice.fr` + `www.whataservice.fr` restent attaches au projet Vercel mais dormants (DNS non resolu) en attendant la page ombrelle WaS Phase 2 | Ops production |
+| 2026-04-25 | D27 | **Sender Resend = `update.whataservice.fr`** — sous-domaine dedie a l'envoi pour isoler la reputation (best practice Resend). Tous les emails transactionnels (contact + quiz) partent de `noreply@update.whataservice.fr`. Mutualise entre futurs sites WaS | Ops emails |
 
 ---
 
@@ -240,4 +242,4 @@ npx playwright test      # Playwright E2E (104 tests)
 
 ---
 
-*Derniere mise a jour : 25 avril 2026 · Version 2.2 (D20-D25 actees — radar refactoring institutionnalise)*
+*Derniere mise a jour : 25 avril 2026 · Version 2.3 (D26-D27 actees — site publie sur freshworks.whataservice.fr, sender Resend = update.whataservice.fr)*

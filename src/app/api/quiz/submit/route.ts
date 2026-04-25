@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     await Promise.all([
       // Internal notification to the sales inbox
       resend.emails.send({
-        from: "What A Service <noreply@whataservice.fr>",
+        from: "What A Service <noreply@update.whataservice.fr>",
         to: [RECIPIENT_EMAIL],
         replyTo: payload.email,
         subject: `Quiz ${payload.segment.toUpperCase()} — score ${payload.overallScore}/100 (${payload.email})`,
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
       }),
       // Confirmation email to the prospect
       resend.emails.send({
-        from: "Eric Sib — What A Service <noreply@whataservice.fr>",
+        from: "Eric Sib — What A Service <noreply@update.whataservice.fr>",
         to: [payload.email],
         subject: `Votre Score de Maturité ${payload.segment.toUpperCase()} — What A Service`,
         text: [

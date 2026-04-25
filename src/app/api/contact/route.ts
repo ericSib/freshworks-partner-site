@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     await Promise.all([
       // Notification email to WaS
       resend.emails.send({
-        from: "What A Service <noreply@whataservice.fr>",
+        from: "What A Service <noreply@update.whataservice.fr>",
         to: [RECIPIENT_EMAIL],
         replyTo: email,
         subject: `Nouvelle demande de ${name} — ${company}`,
@@ -104,7 +104,7 @@ export async function POST(request: Request) {
       }),
       // Confirmation email to prospect
       resend.emails.send({
-        from: "Eric Sib — What A Service <noreply@whataservice.fr>",
+        from: "Eric Sib — What A Service <noreply@update.whataservice.fr>",
         to: [email],
         subject: "Bien reçu — What A Service",
         text: [
