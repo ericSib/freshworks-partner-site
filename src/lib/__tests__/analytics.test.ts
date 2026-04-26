@@ -16,6 +16,9 @@ import {
   trackQuizResultsViewed,
   trackQuizPdfDownloaded,
   trackContactSubmit,
+  trackCtaHero,
+  trackCtaSticky,
+  trackCalendlyOpened,
 } from "@/lib/analytics";
 import frMessages from "@/messages/fr.json";
 import enMessages from "@/messages/en.json";
@@ -318,6 +321,81 @@ describe("Analytics trackers (US-21.6)", () => {
       trackQuizLeadSubmitted("cx", 70, 3);
       trackQuizResultsViewed("esm", 4, true);
       trackQuizPdfDownloaded("itsm", 2);
+
+      expect(gtagMock).not.toHaveBeenCalled();
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // US-S20-6 — CTA tracking (hero + sticky + calendly)
+  // -------------------------------------------------------------------------
+
+  describe("CTA tracking (US-S20-6)", () => {
+    it("trackCtaHero('primary') emits with primary variant label", () => {
+      grantConsent();
+
+      trackCtaHero("primary");
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "cta_hero_click", {
+        event_category: "engagement",
+        event_label: "primary",
+        value: undefined,
+      });
+    });
+
+    it("trackCtaHero('secondary') emits with secondary variant label", () => {
+      grantConsent();
+
+      trackCtaHero("secondary");
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "cta_hero_click", {
+        event_category: "engagement",
+        event_label: "secondary",
+        value: undefined,
+      });
+    });
+
+    it("trackCtaSticky emits with sticky label under engagement", () => {
+      grantConsent();
+
+      trackCtaSticky();
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "cta_sticky_click", {
+        event_category: "engagement",
+        event_label: undefined,
+        value: undefined,
+      });
+    });
+
+    it("trackCalendlyOpened encodes source in label", () => {
+      grantConsent();
+
+      trackCalendlyOpened("hero");
+      trackCalendlyOpened("sticky");
+      trackCalendlyOpened("contact");
+
+      expect(gtagMock).toHaveBeenCalledTimes(3);
+      expect(gtagMock).toHaveBeenNthCalledWith(1, "event", "calendly_opened", {
+        event_category: "conversion",
+        event_label: "hero",
+        value: undefined,
+      });
+      expect(gtagMock).toHaveBeenNthCalledWith(2, "event", "calendly_opened", {
+        event_category: "conversion",
+        event_label: "sticky",
+        value: undefined,
+      });
+      expect(gtagMock).toHaveBeenNthCalledWith(3, "event", "calendly_opened", {
+        event_category: "conversion",
+        event_label: "contact",
+        value: undefined,
+      });
+    });
+
+    it("CTA trackers are no-op when consent is missing (RGPD)", () => {
+      trackCtaHero("primary");
+      trackCtaSticky();
+      trackCalendlyOpened("contact");
 
       expect(gtagMock).not.toHaveBeenCalled();
     });

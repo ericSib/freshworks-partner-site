@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { CALENDLY_URL } from "@/config/site";
+import { trackCalendlyOpened } from "@/lib/analytics";
 
 interface CalendlyPopupProps {
   /** Label displayed on the trigger button. */
@@ -45,6 +46,7 @@ export default function CalendlyPopup({
           ...(email ? { email } : {}),
         },
       });
+      trackCalendlyOpened("contact");
       return true;
     }
     return false;

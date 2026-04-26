@@ -11,10 +11,16 @@
 // Consent storage key — shared with CookieBanner
 export const CONSENT_KEY = "was-analytics-consent";
 
-/** Check if user has given analytics consent. */
+/** Check if user has given analytics consent. Defensive: returns false if localStorage throws. */
 export function hasConsent(): boolean {
   if (typeof window === "undefined") return false;
-  return localStorage.getItem(CONSENT_KEY) === "granted";
+  try {
+    return localStorage.getItem(CONSENT_KEY) === "granted";
+  } catch {
+    // localStorage can throw in restricted contexts (Safari private mode,
+    // sandboxed iframes, etc.) — treat as no consent (RGPD-safe default).
+    return false;
+  }
 }
 
 /** Set analytics consent state. */
@@ -138,6 +144,43 @@ export function trackQuizPdfDownloaded(segment: QuizSegmentLabel, level: number)
     category: "conversion",
     label: `${segment}-level-${level}`,
     value: level,
+  });
+}
+
+// ---------------------------------------------------------------------------
+// US-S20-6 — CTA tracking (hero + sticky + calendly)
+//
+// Conversion-side events not tied to the quiz — the on-page CTAs that
+// drive visitors toward Calendly or the contact form. Without these we
+// cannot A/B test CTA copy or measure scroll-depth conversion.
+// ---------------------------------------------------------------------------
+
+/** Source of a Calendly opening event — used to attribute the conversion. */
+export type CalendlySource = "hero" | "sticky" | "contact" | "results";
+
+/** Fired when the visitor clicks one of the two hero CTAs. */
+export function trackCtaHero(variant: "primary" | "secondary"): void {
+  trackEvent({
+    action: "cta_hero_click",
+    category: "engagement",
+    label: variant,
+  });
+}
+
+/** Fired when the visitor clicks the sticky banner CTA. */
+export function trackCtaSticky(): void {
+  trackEvent({
+    action: "cta_sticky_click",
+    category: "engagement",
+  });
+}
+
+/** Fired when the Calendly popup is opened — source identifies the trigger. */
+export function trackCalendlyOpened(source: CalendlySource): void {
+  trackEvent({
+    action: "calendly_opened",
+    category: "conversion",
+    label: source,
   });
 }
 

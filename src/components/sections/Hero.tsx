@@ -8,6 +8,7 @@ import { CERT_KEYS } from "@/config/certifications";
 import { CLIENT_LOGOS } from "@/config/clients";
 import { SECTION_IMAGES } from "@/config/images";
 import TextReveal from "@/components/ui/TextReveal";
+import { trackCtaHero } from "@/lib/analytics";
 
 export default function Hero() {
   const t = useTranslations("hero");
@@ -87,6 +88,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
+                onClick={() => trackCtaHero("primary")}
                 className="group inline-flex items-center justify-center bg-accent text-deep px-8 py-4 rounded-lg text-base font-semibold hover:bg-accent-light transition-all duration-300 shadow-[var(--shadow-accent-md)] hover:shadow-[var(--shadow-accent-lg)]"
                 style={{ transitionTimingFunction: "var(--ease-spring)" }}
               >
@@ -103,6 +105,7 @@ export default function Hero() {
               </a>
               <Link
                 href="/quiz"
+                onClick={() => trackCtaHero("secondary")}
                 className="inline-flex items-center justify-center border border-white/10 text-surface/80 px-8 py-4 rounded-lg text-base font-medium hover:border-accent/30 hover:text-accent transition-all duration-300"
               >
                 {t("ctaSecondary")}

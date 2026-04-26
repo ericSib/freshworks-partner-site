@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { CALENDLY_URL } from "@/config/site";
+import { trackCalendlyOpened, trackCtaSticky } from "@/lib/analytics";
 
 /**
  * Persistent CTA banner fixed at the bottom of the viewport.
@@ -48,6 +49,10 @@ export default function StickyCtaBanner() {
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackCtaSticky();
+              trackCalendlyOpened("sticky");
+            }}
             className="bg-accent hover:bg-accent-light text-deep px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors whitespace-nowrap"
           >
             {t("ctaPrimary")}

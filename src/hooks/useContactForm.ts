@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { EMAIL_REGEX } from "@/lib/validation";
+import { trackContactSubmit } from "@/lib/analytics";
 
 type FormState = "idle" | "sending" | "success" | "error";
 
@@ -80,6 +81,7 @@ export function useContactForm(
         email: form.get("email") as string,
       });
       setFormState("success");
+      trackContactSubmit();
     } catch {
       setFormState("error");
     }
