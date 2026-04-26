@@ -218,6 +218,7 @@ Je dois **obligatoirement pauser et demander confirmation au PO** quand :
 - Le scope depasse le site vitrine (ajout de fonctionnalites SaaS/app)
 - Un quality gate echoue 3 fois de suite sur la meme story
 - Une API tierce change de comportement (HubSpot, Resend, GA4)
+- **Un Sprint Planning N+1 est demande alors que la retro N n'est pas committee dans `docs/retro/`** (T22, Drop S19 D7) — pauser, conduire la retro d'abord, puis reprendre le planning
 
 ---
 

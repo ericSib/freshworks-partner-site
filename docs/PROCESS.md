@@ -236,6 +236,14 @@ Inbox → Redigee → Raffinee → Ready → Committed → In Progress → In Re
 
 ### 4.1 · Sprint Planning (Jour 1 — matin)
 
+**Pre-requis (T22, Drop S19 D7)** — gate strict, non-negociable :
+
+- [ ] Retrospective du sprint precedent committee dans `docs/retro/sprint-N-retro.md`
+- [ ] Refinement preparatoire du sprint a venir committee dans `docs/refinement/sprint-N+1-refinement.md`
+- [ ] Stories candidates Ready (DoR cochee)
+
+**Si la retro N n'est pas committee** : pauser, conduire la retro d'abord (1h max), commit, puis reprendre le Sprint Planning. Aucune exception — la retro est une livraison process, elle conditionne le Sprint Planning suivant. Cf. retrospective S19 Drop D7.
+
 **Inputs** : refinement preparatoire, stories Ready, capacite (~20 SP), feedback retro
 **Sequence** :
 1. Formuler le Sprint Goal (outcome-focused, pas une liste de PBIs)
