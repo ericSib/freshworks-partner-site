@@ -307,7 +307,214 @@
           "Monthly value reports for C-suite"
         ]
       }
-    ]
+    ],
+    "detail": {
+      "freshservice": {
+        "meta": {
+          "title": "Freshservice Consultant | ITIL 4 & PRINCE2 Implementation",
+          "description": "Freshservice consulting boutique: deployment, optimization, ServiceNow migration. ITIL 4 / PRINCE2 / Forrester ESM Strong Performer 2025. FR/EN."
+        },
+        "breadcrumbLabel": "Freshservice",
+        "hero": {
+          "eyebrow": "Service · Freshservice Implementation",
+          "h1": "Freshservice Consulting — Deployment & Optimization for Mid-Market",
+          "subtitle": "Independent ITIL 4 / PRINCE2 boutique specialized in Freshworks. From POC to full deployment in 8 to 12 weeks. Adoption-first, ROI-measured, teams trained in FR/EN.",
+          "ctaPrimary": "Book a discovery call",
+          "ctaSecondary": "Assess my ITSM maturity",
+          "trust": "Freshworks Advanced Partner · Forrester Wave™ ESM Strong Performer Q4 2025 · ITIL 4 · PRINCE2 · DORA Lead Auditor."
+        },
+        "problems": {
+          "title": "Sound familiar?",
+          "p1": {
+            "label": "Adoption",
+            "title": "Freshservice deployed but underused",
+            "body": "Adoption < 40 %, agents bypassing the tool, leadership asking for ROI. Without a structured adoption plan, the investment stays invisible."
+          },
+          "p2": {
+            "label": "Migration",
+            "title": "ServiceNow too expensive, change-anxious",
+            "body": "ServiceNow TCO 3x higher than Freshservice, but the last migration went wrong. You want to migrate without breaking operations — that requires method."
+          },
+          "p3": {
+            "label": "Performance",
+            "title": "SLAs in breach, empty CMDB, ITIL 4 unapplied",
+            "body": "The self-service portal is ignored, workflows aren't formalized, the CMDB was never populated. Good tools poorly configured create more friction than value."
+          }
+        },
+        "approach": {
+          "title": "Our 4-phase methodology",
+          "subtitle": "From diagnosis to your team's autonomy — every phase has a measurable deliverable and shared KPIs.",
+          "step1": {
+            "title": "Discover — 1 to 2 weeks",
+            "body": "Field audit: workflows, CMDB, IS integrations, current ITIL 4 KPIs. Gap mapping and quantified roadmap."
+          },
+          "step2": {
+            "title": "Implement — 4 to 8 weeks",
+            "body": "Freshservice configuration (workflows, forms, automations), integrations (Azure AD, Slack, monitoring), CMDB population."
+          },
+          "step3": {
+            "title": "Optimize — 2 to 3 weeks",
+            "body": "Workflow tuning on real data, SLA optimization, steering KPIs (FCR, MTTR, CSAT). Documented quick-win ROI."
+          },
+          "step4": {
+            "title": "Scale — ongoing support",
+            "body": "Team training (admin + agents), bilingual runbook documentation, knowledge transfer. Optional managed services for continuous run."
+          }
+        },
+        "benefits": {
+          "title": "The numbers that matter",
+          "subtitle": "Public benchmarks calibrated on Forrester TEI Freshworks 2024 and Freshservice Benchmark Report 2025.",
+          "metric1": {
+            "value": "356 %",
+            "label": "3-year ROI"
+          },
+          "metric2": {
+            "value": "< 6 months",
+            "label": "Payback period"
+          },
+          "metric3": {
+            "value": "34 %",
+            "label": "Tickets deflected by Freddy AI"
+          },
+          "metric4": {
+            "value": "74 %",
+            "label": "First Contact Resolution"
+          },
+          "source": "Sources: Forrester Total Economic Impact™ Freshworks 2024 (composite organization, 7,000 employees, 160 agents, 120k tickets/year) + Freshservice Benchmark Report 2025 (Freshworks)."
+        },
+        "pricing": {
+          "title": "How much does it cost?",
+          "subtitle": "Project-based pricing scoped at kickoff. No surprises, no hidden subscription.",
+          "unit": "per project, Freshworks licenses excluded",
+          "note": "Final pricing is calibrated based on the number of agents, IS integrations and duration. Detailed quote within 48 hours of the discovery call."
+        },
+        "faq": {
+          "title": "Frequently asked questions about Freshservice implementation",
+          "q1": "How long does it take to deploy Freshservice?",
+          "a1": "8 to 12 weeks for a standard mid-market deployment (200-1000 employees). A 4-week QuickStart formula exists for SMBs with simple scope (1 portal, 5 workflows, < 50 agents).",
+          "q2": "What does a Freshservice consultant do?",
+          "a2": "A specialist in implementing and optimizing Freshworks products (Freshservice ITSM, ESM, ITAM). Beyond technical configuration, they bring a method (ITIL 4, PRINCE2, Agile) and change-management expertise — that's what makes the difference between a deployed tool and an adopted tool.",
+          "q3": "Why migrate from ServiceNow to Freshservice?",
+          "a3": "Three main reasons: 50-70 % TCO reduction (licenses + integrations), Time-to-value of 3 to 6 months (vs 12 to 18 on ServiceNow), modern UX that reduces agent friction and therefore adoption cost. For mid-market organizations < 5,000 employees, Freshservice covers 90 % of ITIL 4 needs without enterprise complexity.",
+          "q4": "What does a WaS Freshservice project include?",
+          "a4": "Discover (audit + roadmap), Implement (configuration + Azure AD/Slack/monitoring integrations + CMDB population), Optimize (workflow tuning + ITIL 4 KPIs), Scale (bilingual admin + agent training, runbook documentation). Everything is documented and transferred — you're never locked in.",
+          "q5": "What certifications do you hold?",
+          "a5": "ITIL 4 Foundation, PRINCE2 Foundation, DORA Lead Auditor, Professional Scrum Master I, Professional Scrum Product Owner I, and Freshworks Advanced Partner. Profile available on LinkedIn and on the About page.",
+          "q6": "Do you work in English?",
+          "a6": "Yes — French and English natively. Bilingual workshops, translated documentation, post-deployment support in both languages. Relevant for mid-market organizations with UK/Ireland/Belgium/Switzerland subsidiaries."
+        },
+        "cta": {
+          "title": "Let's discuss your Freshservice project",
+          "subtitle": "30-minute discovery call. No sales pitch — field diagnosis and first quote at the end.",
+          "primary": "Book my discovery call",
+          "secondary": "Back to home"
+        }
+      },
+      "freshdesk": {
+        "meta": {
+          "title": "Freshdesk Consultant | Omnichannel Customer Service",
+          "description": "Freshdesk consulting boutique: omnichannel deployment, Freddy AI Agent, CSAT automation. Forrester Strong Performer 2025. FR/EN."
+        },
+        "breadcrumbLabel": "Freshdesk",
+        "hero": {
+          "eyebrow": "Service · Freshdesk Implementation",
+          "h1": "Freshdesk Consulting — Omnichannel Customer Service That Scales",
+          "subtitle": "Independent boutique specialized in Freshworks. Omnichannel Freshdesk deployment (email, chat, voice, WhatsApp), Freddy AI Agent, CSAT optimization. Project-based pricing, ROI-measured.",
+          "ctaPrimary": "Book a discovery call",
+          "ctaSecondary": "Assess my CX maturity",
+          "trust": "Freshworks Advanced Partner · Forrester Wave™ Strong Performer · 79 % of CX leaders say AI agents are essential (Salesforce 2025)."
+        },
+        "problems": {
+          "title": "Sound familiar?",
+          "p1": {
+            "label": "Volume",
+            "title": "Tickets x3 in 18 months, team at saturation",
+            "body": "Channels are exploding (email, chat, social), agents are overloaded, CSAT is dropping. Without automation and intelligent routing, you're hiring at a loss."
+          },
+          "p2": {
+            "label": "Silos",
+            "title": "Email, chat, phone: 3 tools, 3 experiences",
+            "body": "The customer tells their problem 3 times. Agents juggle 4 tabs. You don't know who said what to whom — data is scattered, context is lost."
+          },
+          "p3": {
+            "label": "ROI",
+            "title": "30 % of consumers switched brands after a bad service experience",
+            "body": "(Genesys 2025). Customer service is no longer a cost center — it's a retention asset. But without relevant automation and mature agentic AI, the investment stays invisible."
+          }
+        },
+        "approach": {
+          "title": "Our 4-phase methodology",
+          "subtitle": "From customer journey diagnosis to agentic AI — every phase produces a measurable deliverable.",
+          "step1": {
+            "title": "Discover — 1 to 2 weeks",
+            "body": "Channel audit, resolution time measurement, CSAT/NPS/CES analysis. Mapping of customer journey moments of truth and gaps."
+          },
+          "step2": {
+            "title": "Implement — 4 to 8 weeks",
+            "body": "Omnichannel Freshdesk deployment (Omniroute, Command Center), integrations (CRM, e-commerce, social), bilingual knowledge base, Freddy AI scenarios."
+          },
+          "step3": {
+            "title": "Optimize — 2 to 3 weeks",
+            "body": "Auto-assignment rule tuning, FCR and CSAT optimization, progressive Freddy AI Agent rollout (targeted deflection by ticket category)."
+          },
+          "step4": {
+            "title": "Scale — ongoing support",
+            "body": "Supervisor and agent training, bilingual playbook documentation, knowledge transfer. Optional managed services for continuous steering."
+          }
+        },
+        "benefits": {
+          "title": "The numbers that matter",
+          "subtitle": "Freshworks 2025 benchmarks + consulting insights (BCG Agentic AI, Salesforce State of Service 2025).",
+          "metric1": {
+            "value": "< 4 min",
+            "label": "First response time"
+          },
+          "metric2": {
+            "value": "< 32 min",
+            "label": "Average resolution time"
+          },
+          "metric3": {
+            "value": "+50 %",
+            "label": "Agent productivity (BCG)"
+          },
+          "metric4": {
+            "value": "+18 pts",
+            "label": "Average CSAT uplift"
+          },
+          "source": "Sources: Customer Service Benchmark Report 2025 (Freshworks, 32,000 enterprises) + BCG Agentic AI Customer Service (Dec 2025) + Salesforce State of Service 2025 (6,500 pros, 40 countries)."
+        },
+        "pricing": {
+          "title": "How much does it cost?",
+          "subtitle": "Project-based pricing scoped at kickoff. No surprises, no hidden subscription.",
+          "unit": "per project, Freshworks licenses excluded",
+          "note": "Final pricing is calibrated based on activated channels, CRM/e-commerce integrations and Freddy AI scenarios. Detailed quote within 48 hours."
+        },
+        "faq": {
+          "title": "Frequently asked questions about Freshdesk implementation",
+          "q1": "How long does it take to deploy omnichannel Freshdesk?",
+          "a1": "6 to 10 weeks for a complete omnichannel deployment (email + chat + voice + knowledge base). A 3-week QuickStart formula exists to start with email + portal only.",
+          "q2": "What is Freddy AI Agent?",
+          "a2": "Freshworks' virtual AI agent. It deflects repetitive questions via the self-service portal and chat, routes complex tickets to the right agents and summarizes conversations. In 2025, the Freshworks benchmark reports 34 % of tickets deflected on average on Freshservice — Freshdesk goes further on conversational use cases.",
+          "q3": "Freshdesk vs Zendesk: what's the difference?",
+          "a3": "Freshdesk = TCO reduced by 30 to 50 %, modern agent UX, native AI (Freddy), Time-to-value 6 to 10 weeks. Zendesk = legacy enterprise, mature but expensive integrations, expanded scope (Sell, Explore) unnecessary for most mid-market organizations.",
+          "q4": "What does a WaS Freshdesk project include?",
+          "a4": "Discover (channel + journey audit), Implement (omnichannel configuration + Omniroute + Command Center + Freddy AI + integrations), Optimize (FCR + CSAT + deflection), Scale (bilingual supervisor and agent training, playbook documentation).",
+          "q5": "What certifications do you hold?",
+          "a5": "ITIL 4 Foundation, PRINCE2 Foundation, DORA Lead Auditor, Professional Scrum Master I, Professional Scrum Product Owner I, and Freshworks Advanced Partner. Profile available on LinkedIn and on the About page.",
+          "q6": "Do you work in English?",
+          "a6": "Yes — French and English natively. Bilingual workshops, Freshdesk knowledge base deployed in both languages, bilingual post-deployment support. Relevant for mid-market organizations with UK/Ireland/Belgium/Switzerland subsidiaries."
+        },
+        "cta": {
+          "title": "Let's discuss your Freshdesk project",
+          "subtitle": "30-minute discovery call. Field diagnosis and first quote at the end.",
+          "primary": "Book my discovery call",
+          "secondary": "Back to home"
+        }
+      }
+    },
+    "common": {
+      "priceFromLabel": "Starting at"
+    }
   },
   "caseStudies": {
     "sectionTag": "Case Studies",

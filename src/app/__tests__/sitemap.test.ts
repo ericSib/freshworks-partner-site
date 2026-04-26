@@ -3,12 +3,14 @@ import sitemap from "../sitemap";
 import { SITE_URL } from "@/config/site";
 
 describe("sitemap", () => {
-  it("emits 5 routes (home, quiz, mentions-legales, maturite/itsm, maturite/cx)", () => {
+  it("emits 7 routes (home, services freshservice/freshdesk, quiz, maturite itsm/cx, legal)", () => {
     const entries = sitemap();
-    expect(entries).toHaveLength(5);
+    expect(entries).toHaveLength(7);
 
     const urls = entries.map((e) => e.url);
     expect(urls).toContain(`${SITE_URL}/fr`);
+    expect(urls).toContain(`${SITE_URL}/fr/services/freshservice`);
+    expect(urls).toContain(`${SITE_URL}/fr/services/freshdesk`);
     expect(urls).toContain(`${SITE_URL}/fr/quiz`);
     expect(urls).toContain(`${SITE_URL}/fr/mentions-legales`);
     expect(urls).toContain(`${SITE_URL}/fr/maturite/itsm/level-1`);

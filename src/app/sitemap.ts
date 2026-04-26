@@ -20,6 +20,8 @@ const LAST_MODIFIED: Record<string, string> = {
   "/mentions-legales": "2026-04-12", // legal — initial publication
   "/maturite/itsm/level-1": "2026-04-25", // maturity ITSM lvl1 — refonte SMI
   "/maturite/cx/level-1": "2026-04-25", // maturity CX lvl1 — refonte SMI
+  "/services/freshservice": "2026-04-26", // service detail page — US-S20-2
+  "/services/freshdesk": "2026-04-26", // service detail page — US-S20-2
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -50,9 +52,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     bilingualEntry("", 1.0, "weekly"),
+    bilingualEntry("/services/freshservice", 0.9, "monthly"),
+    bilingualEntry("/services/freshdesk", 0.9, "monthly"),
     bilingualEntry("/quiz", 0.9, "monthly"),
-    bilingualEntry("/mentions-legales", 0.3, "yearly"),
     bilingualEntry("/maturite/itsm/level-1", 0.8, "monthly"),
     bilingualEntry("/maturite/cx/level-1", 0.8, "monthly"),
+    bilingualEntry("/mentions-legales", 0.3, "yearly"),
   ];
 }

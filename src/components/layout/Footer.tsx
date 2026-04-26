@@ -65,6 +65,23 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              {/* Service detail pages — US-S20-2 */}
+              <li>
+                <Link
+                  href="/services/freshservice"
+                  className="text-slate-400 hover:text-accent transition-colors duration-300 text-sm"
+                >
+                  Freshservice
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/freshdesk"
+                  className="text-slate-400 hover:text-accent transition-colors duration-300 text-sm"
+                >
+                  Freshdesk
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/mentions-legales"
