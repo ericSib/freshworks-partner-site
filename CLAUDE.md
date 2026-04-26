@@ -200,6 +200,9 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-26 | D31 | **Cluster maturite etendu (ESM + niveaux 2-5) = backlog Phase 2** (hors scope S20) — code actuel = `VALID_SEGMENTS=["itsm","cx"]` + `VALID_LEVELS=["level-1"]` (2 pages reelles), extension = ~13 pts contenu PO | Scope produit |
 | 2026-04-26 | D32 | **Epic E25 "Conversion instrumentation" ouverte** — accueille US-S20-5 (funnel quiz GA4), US-S20-6 (CTA tracking), US-S20-7 (calibration ROI Forrester) + futures stories A/B testing, heatmaps, funnel optim. Domaine produit distinct de E22 SEO | Backlog structure |
 | 2026-04-26 | D33 | **Source ROI Forrester confirmee = Forrester TEI Freshworks 2024** (publication officielle Forrester sponsorisee Freshworks, gratuite avec form, reference marche ITSM) — utilise pour calibrer `roi.ts` coefficients dans US-S20-7 | Source data |
+| 2026-04-26 | D34 | **Hotfix lockfile** — `npm install` + commit du `package-lock.json` regenere (CI rouge depuis 5 runs sur drift `@swc/helpers` next-intl transitive) | Ops emergency |
+| 2026-04-26 | D35 | **Aligner Node CI ↔ local via `.nvmrc` = Node 22 LTS** — single source of truth, workflows lisent `node-version-file: '.nvmrc'` | Process gouvernance |
+| 2026-04-26 | D36 | **Regle commit lockfile** — tout `npm install` qui modifie `package-lock.json` doit etre committe scope `chore(deps)` dans le meme push que la modif deps qui l'a declenche | Process gouvernance |
 
 ---
 
@@ -251,4 +254,4 @@ npx playwright test      # Playwright E2E (104 tests)
 
 ---
 
-*Derniere mise a jour : 26 avril 2026 · Version 2.5 (D28-D33 actees — pivot Sprint 20 vers SEO + conversion, epic E25 conversion ouverte, source ROI Forrester confirmee TEI 2024)*
+*Derniere mise a jour : 26 avril 2026 · Version 2.6 (Sprint 20 cloture, D28-D36 actees — Sprint Goal 100% atteint sur 4 outcomes, 19 pts effectifs livres, lockfile + Node 22 LTS process structurel)*
