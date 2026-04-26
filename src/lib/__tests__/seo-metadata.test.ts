@@ -9,6 +9,7 @@
 import { describe, it, expect } from "vitest";
 import frMessages from "../../messages/fr.json";
 import enMessages from "../../messages/en.json";
+import { GOOGLE_SITE_VERIFICATION } from "../../config/site";
 
 const TITLE_MAX = 60;
 const DESCRIPTION_MAX = 155;
@@ -49,6 +50,14 @@ describe("SEO metadata length budget (US-S20-4)", () => {
       const description = (enMessages as { metadata: { description: string } }).metadata
         .description;
       expect(description).toMatch(/Freshworks/i);
+    });
+  });
+
+  describe("Google Search Console site verification (US-S20-1)", () => {
+    it("token is present and matches Google's expected format", () => {
+      // GSC tokens are URL-safe base64-ish, length 40+ — guards against
+      // accidental empty string or truncated paste from the dashboard.
+      expect(GOOGLE_SITE_VERIFICATION).toMatch(/^[A-Za-z0-9_-]{40,}$/);
     });
   });
 });

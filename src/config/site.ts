@@ -13,3 +13,14 @@ export const OG_LOCALES: Record<string, string> = {
   fr: "fr_FR",
   en: "en_US",
 };
+
+/**
+ * Google Search Console site verification token (US-S20-1 follow-up).
+ *
+ * Public token by design — Google reads it from the rendered <meta>
+ * tag to confirm domain ownership. Not a secret; safe to commit.
+ * Issued via search.google.com/search-console for
+ * https://freshworks.whataservice.fr.
+ */
+export const GOOGLE_SITE_VERIFICATION =
+  "OqXkg8XyZSh8be19kzQ_GdTC6ev0GjZuexBJnDJ3c38";

@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { SITE_URL, SITE_NAME, OG_LOCALES } from "@/config/site";
+import { SITE_URL, SITE_NAME, OG_LOCALES, GOOGLE_SITE_VERIFICATION } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/ui/ScrollProgress";
@@ -38,6 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
+    verification: {
+      google: GOOGLE_SITE_VERIFICATION,
+    },
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
       languages: {
