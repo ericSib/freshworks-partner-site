@@ -53,8 +53,11 @@ export function trackEvent({ action, category, label, value }: GtagEvent): void 
   });
 }
 
-/** Track quiz completion. */
-export function trackQuizComplete(segment: "itsm" | "cx", score: number): void {
+/** Quiz segment slug — kept narrow to prevent typos when wiring call-sites. */
+type QuizSegmentLabel = "itsm" | "cx" | "esm";
+
+/** Track quiz completion (legacy event from S18, kept for back-compat). */
+export function trackQuizComplete(segment: QuizSegmentLabel, score: number): void {
   trackEvent({
     action: "quiz_complete",
     category: "engagement",
@@ -68,6 +71,73 @@ export function trackContactSubmit(): void {
   trackEvent({
     action: "contact_submit",
     category: "conversion",
+  });
+}
+
+// ---------------------------------------------------------------------------
+// US-S20-5 — Funnel quiz tracking (5 events post segment selection)
+//
+// Events form the macro funnel:
+//   started → form_shown → lead_submitted → results_viewed → pdf_downloaded
+//
+// `quiz_question_completed` (per-question granular event) is intentionally
+// out of scope for S20 — high volume, low ROI for funnel optimization.
+// ---------------------------------------------------------------------------
+
+/** Fired when the visitor picks a segment (ITSM/CX/ESM) on the quiz home. */
+export function trackQuizStarted(segment: QuizSegmentLabel): void {
+  trackEvent({
+    action: "quiz_started",
+    category: "engagement",
+    label: segment,
+  });
+}
+
+/** Fired when the email gate becomes visible (post free results screen). */
+export function trackQuizFormShown(segment: QuizSegmentLabel, scoreGlobal: number): void {
+  trackEvent({
+    action: "quiz_form_shown",
+    category: "conversion",
+    label: segment,
+    value: Math.round(scoreGlobal),
+  });
+}
+
+/** Fired when the visitor submits the lead form (email captured + CRM upsert). */
+export function trackQuizLeadSubmitted(
+  segment: QuizSegmentLabel,
+  scoreGlobal: number,
+  level: number
+): void {
+  trackEvent({
+    action: "quiz_lead_submitted",
+    category: "conversion",
+    label: `${segment}-level-${level}`,
+    value: Math.round(scoreGlobal),
+  });
+}
+
+/** Fired when the gated results screen is rendered (after free + email gate). */
+export function trackQuizResultsViewed(
+  segment: QuizSegmentLabel,
+  level: number,
+  hasRoi: boolean
+): void {
+  trackEvent({
+    action: "quiz_results_viewed",
+    category: "engagement",
+    label: hasRoi ? `${segment}-roi` : segment,
+    value: level,
+  });
+}
+
+/** Fired when the visitor downloads their personal PDF report. */
+export function trackQuizPdfDownloaded(segment: QuizSegmentLabel, level: number): void {
+  trackEvent({
+    action: "quiz_pdf_downloaded",
+    category: "conversion",
+    label: `${segment}-level-${level}`,
+    value: level,
   });
 }
 

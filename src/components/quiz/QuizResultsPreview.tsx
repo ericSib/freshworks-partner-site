@@ -1,10 +1,16 @@
 "use client";
 
+import { useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import type { QuizResults } from "@/hooks/useQuiz";
 import type { QuizConfig } from "@/config/quiz";
 import { useQuizSubmit } from "@/hooks/useQuizSubmit";
 import { generateQuizPdf } from "@/lib/quiz/generate-pdf";
+import {
+  trackQuizFormShown,
+  trackQuizPdfDownloaded,
+  trackQuizResultsViewed,
+} from "@/lib/analytics";
 import RadarChart from "./RadarChart";
 import QuizScoreHeader from "./QuizScoreHeader";
 import QuizQuickWins from "./QuizQuickWins";
@@ -40,6 +46,17 @@ export default function QuizResultsPreview({
     results;
 
   const radarLabels = config.dimensions.map((dim) => t(dim.nameKey));
+
+  // Funnel tracking (US-S20-5) — emit once per render cycle, no-op if no consent.
+  useEffect(() => {
+    trackQuizResultsViewed(results.segment, maturityLevel.level, true);
+  }, [results.segment, maturityLevel.level]);
+
+  useEffect(() => {
+    if (gateState === "locked") {
+      trackQuizFormShown(results.segment, overallScore);
+    }
+  }, [gateState, results.segment, overallScore]);
 
   return (
     <div className="min-h-[100dvh] bg-deep">
@@ -93,9 +110,10 @@ export default function QuizResultsPreview({
           <QuizDimensionBreakdown
             dimensions={config.dimensions}
             dimensionScores={dimensionScores}
-            onDownloadPdf={() =>
-              generateQuizPdf({ results, config, t, locale })
-            }
+            onDownloadPdf={() => {
+              trackQuizPdfDownloaded(results.segment, maturityLevel.level);
+              generateQuizPdf({ results, config, t, locale });
+            }}
             t={t}
           />
         )}

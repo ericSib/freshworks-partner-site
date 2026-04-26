@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { QuizResults } from "@/hooks/useQuiz";
 import type { QuizEmailGateState } from "@/components/quiz/QuizEmailGate";
+import { trackQuizLeadSubmitted } from "@/lib/analytics";
 
 interface UseQuizSubmitReturn {
   email: string;
@@ -49,6 +50,11 @@ export function useQuizSubmit(results: QuizResults): UseQuizSubmitReturn {
           })),
         }),
       });
+      trackQuizLeadSubmitted(
+        results.segment,
+        results.overallScore,
+        results.maturityLevel.level
+      );
     } catch {
       // Fire-and-forget — never block the user from seeing their results
     }

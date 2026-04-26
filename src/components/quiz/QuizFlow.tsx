@@ -8,6 +8,7 @@ import {
   type QuizConfig,
   type QuizSegment,
 } from "@/config/quiz";
+import { trackQuizStarted } from "@/lib/analytics";
 import QuizSelector from "./QuizSelector";
 import QuizContainer from "./QuizContainer";
 
@@ -33,7 +34,14 @@ export default function QuizFlow() {
 
   // Phase 1: Segment selection
   if (!selectedSegment) {
-    return <QuizSelector onSelect={setSelectedSegment} />;
+    return (
+      <QuizSelector
+        onSelect={(segment) => {
+          trackQuizStarted(segment);
+          setSelectedSegment(segment);
+        }}
+      />
+    );
   }
 
   // Phase 2: Quiz with segment-specific config

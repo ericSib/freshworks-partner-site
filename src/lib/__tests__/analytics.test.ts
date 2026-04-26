@@ -10,6 +10,11 @@ import {
   CONSENT_KEY,
   trackEvent,
   trackQuizComplete,
+  trackQuizStarted,
+  trackQuizFormShown,
+  trackQuizLeadSubmitted,
+  trackQuizResultsViewed,
+  trackQuizPdfDownloaded,
   trackContactSubmit,
 } from "@/lib/analytics";
 import frMessages from "@/messages/fr.json";
@@ -212,6 +217,107 @@ describe("Analytics trackers (US-21.6)", () => {
 
     it("is a no-op when consent is missing", () => {
       trackContactSubmit();
+
+      expect(gtagMock).not.toHaveBeenCalled();
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // US-S20-5 — Funnel quiz tracking (5 events post-segment-selection)
+  // -------------------------------------------------------------------------
+
+  describe("Funnel quiz tracking (US-S20-5)", () => {
+    it("trackQuizStarted accepts the 3 segments incl. ESM (D20)", () => {
+      grantConsent();
+
+      trackQuizStarted("esm");
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_started", {
+        event_category: "engagement",
+        event_label: "esm",
+        value: undefined,
+      });
+    });
+
+    it("trackQuizComplete now accepts ESM segment (S20 dette S19)", () => {
+      grantConsent();
+
+      trackQuizComplete("esm", 65);
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_complete", {
+        event_category: "engagement",
+        event_label: "esm",
+        value: 65,
+      });
+    });
+
+    it("trackQuizFormShown emits with segment label and score value", () => {
+      grantConsent();
+
+      trackQuizFormShown("itsm", 78);
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_form_shown", {
+        event_category: "conversion",
+        event_label: "itsm",
+        value: 78,
+      });
+    });
+
+    it("trackQuizLeadSubmitted emits with segment + level encoded in label", () => {
+      grantConsent();
+
+      trackQuizLeadSubmitted("cx", 72, 3);
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_lead_submitted", {
+        event_category: "conversion",
+        event_label: "cx-level-3",
+        value: 72,
+      });
+    });
+
+    it("trackQuizResultsViewed encodes hasRoi flag in label", () => {
+      grantConsent();
+
+      trackQuizResultsViewed("esm", 4, true);
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_results_viewed", {
+        event_category: "engagement",
+        event_label: "esm-roi",
+        value: 4,
+      });
+    });
+
+    it("trackQuizResultsViewed encodes no-roi case", () => {
+      grantConsent();
+
+      trackQuizResultsViewed("itsm", 2, false);
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_results_viewed", {
+        event_category: "engagement",
+        event_label: "itsm",
+        value: 2,
+      });
+    });
+
+    it("trackQuizPdfDownloaded emits with segment-level label", () => {
+      grantConsent();
+
+      trackQuizPdfDownloaded("cx", 5);
+
+      expect(gtagMock).toHaveBeenCalledWith("event", "quiz_pdf_downloaded", {
+        event_category: "conversion",
+        event_label: "cx-level-5",
+        value: 5,
+      });
+    });
+
+    it("all funnel trackers are no-op when consent is missing (RGPD)", () => {
+      // No grantConsent() — consent is denied/unset
+      trackQuizStarted("itsm");
+      trackQuizFormShown("itsm", 80);
+      trackQuizLeadSubmitted("cx", 70, 3);
+      trackQuizResultsViewed("esm", 4, true);
+      trackQuizPdfDownloaded("itsm", 2);
 
       expect(gtagMock).not.toHaveBeenCalled();
     });
