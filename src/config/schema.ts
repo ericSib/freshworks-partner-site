@@ -26,15 +26,22 @@ export const ORGANIZATION = {
   description:
     "Cabinet de conseil Freshworks : déploiement, migration et optimisation Freshservice (ITSM) et Freshdesk (CX).",
   foundingDate: "2024",
-  areaServed: {
-    "@type": "GeoCircle" as const,
-    geoMidpoint: {
-      "@type": "GeoCoordinates" as const,
-      latitude: 48.8566,
-      longitude: 2.3522,
+  // areaServed extended to FR (Paris + 500km radius) + UK + BE + CH (US-S20-4) —
+  // unblocks UK/BE/CH search intent declared in PO-CADRAGE.
+  areaServed: [
+    {
+      "@type": "GeoCircle" as const,
+      geoMidpoint: {
+        "@type": "GeoCoordinates" as const,
+        latitude: 48.8566,
+        longitude: 2.3522,
+      },
+      geoRadius: "500 km",
     },
-    geoRadius: "500 km",
-  },
+    { "@type": "Country" as const, name: "United Kingdom" },
+    { "@type": "Country" as const, name: "Belgium" },
+    { "@type": "Country" as const, name: "Switzerland" },
+  ],
   sameAs: [
     "https://www.linkedin.com/company/what-a-service/",
     "https://www.linkedin.com/in/ericsibomana/",

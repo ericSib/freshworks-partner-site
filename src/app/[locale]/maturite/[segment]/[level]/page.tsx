@@ -59,7 +59,8 @@ export default async function MaturityLevelPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: `maturity.${segment}.${level}` });
 
-  // JSON-LD Service schema specific to this maturity level
+  // JSON-LD Service schema specific to this maturity level.
+  // areaServed extended to FR/UK/BE/CH (US-S20-4) — aligned with ORGANIZATION.areaServed.
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -67,7 +68,12 @@ export default async function MaturityLevelPage({ params }: Props) {
     name: t("meta.title"),
     description: t("meta.description"),
     provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: { "@type": "Country", name: "France" },
+    areaServed: [
+      { "@type": "Country", name: "France" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Belgium" },
+      { "@type": "Country", name: "Switzerland" },
+    ],
     serviceType: segment === "itsm" ? "ITSM Consulting" : "Customer Experience Consulting",
   };
 

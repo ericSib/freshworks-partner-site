@@ -57,9 +57,25 @@ describe("Organization schema (US-22.1)", () => {
     expect(ORGANIZATION.contactPoint.availableLanguage).toContain("English");
   });
 
-  it("has areaServed with GeoCircle", () => {
-    expect(ORGANIZATION.areaServed["@type"]).toBe("GeoCircle");
-    expect(ORGANIZATION.areaServed.geoMidpoint.latitude).toBeCloseTo(48.8566, 2);
+  it("has areaServed extended to FR (GeoCircle Paris+500km) + UK + BE + CH (US-S20-4)", () => {
+    expect(Array.isArray(ORGANIZATION.areaServed)).toBe(true);
+    expect(ORGANIZATION.areaServed).toHaveLength(4);
+
+    // First entry = primary France GeoCircle (Paris + 500km)
+    const primary = ORGANIZATION.areaServed[0];
+    expect(primary["@type"]).toBe("GeoCircle");
+    expect(
+      "geoMidpoint" in primary && primary.geoMidpoint.latitude
+    ).toBeCloseTo(48.8566, 2);
+
+    // Remaining 3 entries = Country (UK + Belgium + Switzerland)
+    const countries = ORGANIZATION.areaServed
+      .slice(1)
+      .filter((a) => a["@type"] === "Country")
+      .map((a) => ("name" in a ? a.name : null));
+    expect(countries).toContain("United Kingdom");
+    expect(countries).toContain("Belgium");
+    expect(countries).toContain("Switzerland");
   });
 });
 
