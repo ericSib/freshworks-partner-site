@@ -53,18 +53,19 @@
 
 | Ordre | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|---|
+| 0 | OPS-S20.1 | Resync lockfile (hotfix CI) + alignement Node CI ↔ local via .nvmrc | 1 | Must | 🟠 Hotfix lockfile applique J0 (26/04 soir) — alignement Node a faire J1 |
 | 2 | T25 | Mini-refinement obligatoire ops > 30 min (formalisation) | 0 | Must | 🔵 A faire |
 | 3 | T22 | Retrospective N en gate du Sprint Planning N+1 | 1 | Must | 🔵 A faire |
 | 5 | T24 | Runbook env vars Vercel + force-fresh-build | 1 | Must | 🔵 A faire |
 | 6 | T23 | Sender Resend en variable d'environnement + assertion | 1 | Must | 🔵 A faire |
 
-**Sous-total Phase 3 : 3 pts**
+**Sous-total Phase 3 : 4 pts** (était 3 pts, +1 pt OPS-S20.1)
 
 ---
 
-## Total engage Sprint 20 : 17 pts (sur 20 capacite)
+## Total engage Sprint 20 : 18 pts (sur 20 capacite)
 
-**Marge** : 3 pts pour absorber un Refactoring Radar mensuel (D23) ou une story emergente.
+**Marge** : 2 pts (était 3 pts) pour absorber un Refactoring Radar mensuel (D23) ou une story emergente. OPS-S20.1 a pris 1 pt de marge.
 
 ---
 
@@ -114,6 +115,9 @@ A la cloture (~3/05/2026) :
 | D31 | Cluster maturite etendu (ESM + niveaux 2-5) = backlog Phase 2 (hors scope S20) | 26/04/2026 |
 | D32 | Epic **E25 "Conversion instrumentation"** ouverte — US-S20-5/6/7 rattaches | 26/04/2026 |
 | D33 | Source ROI Forrester = Forrester TEI Freshworks 2024 (US-S20-7) | 26/04/2026 |
+| D34 | **Hotfix lockfile** — `npm install` + commit du `package-lock.json` regenere (CI rouge depuis 5 runs sur drift `@swc/helpers` next-intl transitive) | 26/04/2026 |
+| D35 | **Aligner Node CI ↔ local via `.nvmrc` = Node 22 LTS** — story OPS-S20.1 (1 pt, buffer Phase 3) | 26/04/2026 |
+| D36 | **Regle commit lockfile** — tout `npm install` qui modifie `package-lock.json` doit etre committe scope `chore(deps)` dans le meme push que la modif deps qui l'a declenche | 26/04/2026 |
 
 ---
 
