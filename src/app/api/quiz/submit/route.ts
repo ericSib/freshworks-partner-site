@@ -5,6 +5,7 @@ import { quizRateLimiter } from "@/lib/rate-limit";
 import { upsertHubSpotQuizLead } from "@/lib/quiz/hubspot";
 import { createLogger } from "@/lib/logger";
 import { getRequestId, REQUEST_ID_HEADER } from "@/lib/request-id";
+import { getDefaultSender, getReplySender } from "@/lib/email/sender";
 
 /** Lazy Resend client — avoid build-time crash when the env var is absent. */
 function getResendClient(): Resend {
@@ -88,7 +89,7 @@ export async function POST(request: Request) {
     await Promise.all([
       // Internal notification to the sales inbox
       resend.emails.send({
-        from: "What A Service <noreply@update.whataservice.fr>",
+        from: getDefaultSender(),
         to: [RECIPIENT_EMAIL],
         replyTo: payload.email,
         subject: `Quiz ${payload.segment.toUpperCase()} — score ${payload.overallScore}/100 (${payload.email})`,
@@ -113,7 +114,7 @@ export async function POST(request: Request) {
       }),
       // Confirmation email to the prospect
       resend.emails.send({
-        from: "Eric Sib — What A Service <noreply@update.whataservice.fr>",
+        from: getReplySender(),
         to: [payload.email],
         subject: `Votre Score de Maturité ${payload.segment.toUpperCase()} — What A Service`,
         text: [

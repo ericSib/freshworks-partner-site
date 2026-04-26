@@ -5,6 +5,7 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { upsertHubSpotContact } from "@/lib/hubspot";
 import { createLogger } from "@/lib/logger";
 import { getRequestId, REQUEST_ID_HEADER } from "@/lib/request-id";
+import { getDefaultSender, getReplySender } from "@/lib/email/sender";
 
 /** Lazy-instantiated Resend client — avoids build-time crash when env var is absent. */
 function getResendClient(): Resend {
@@ -88,7 +89,7 @@ export async function POST(request: Request) {
     await Promise.all([
       // Notification email to WaS
       resend.emails.send({
-        from: "What A Service <noreply@update.whataservice.fr>",
+        from: getDefaultSender(),
         to: [RECIPIENT_EMAIL],
         replyTo: email,
         subject: `Nouvelle demande de ${name} — ${company}`,
@@ -104,7 +105,7 @@ export async function POST(request: Request) {
       }),
       // Confirmation email to prospect
       resend.emails.send({
-        from: "Eric Sib — What A Service <noreply@update.whataservice.fr>",
+        from: getReplySender(),
         to: [email],
         subject: "Bien reçu — What A Service",
         text: [
