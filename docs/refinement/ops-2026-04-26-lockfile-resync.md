@@ -186,3 +186,86 @@ npm error Missing: @swc/helpers@0.5.21 from lock file
 ---
 
 *Refinement ops cree le 26/04/2026 a J0 du Sprint 20. Decisions D34-D36 actees, story OPS-S20.1 Ready et engagee. Plan d'execution sequence avant J1.*
+
+---
+
+## 7 · Suites — decouvertes post-fix lockfile (26/04 soir)
+
+### 7.1 · Constat
+
+Une fois le step `Install dependencies` debloque par le commit `c2b555e`, **2 nouveaux blocages CI ont surface** sur le workflow `e2e.yml` (run 24967397305) et `ci.yml` (run 17). Ces erreurs etaient masquees pendant ~10h par l'echec precoce de `npm ci`.
+
+**Diagnostic** :
+
+| # | Workflow | Step | Erreur | Categorie |
+|---|---|---|---|---|
+| 1 | e2e.yml | Run Playwright tests | `homepage.spec.ts:23/30` `toHaveTitle(/What A Service/)` ne match pas le nouveau titre SEO US-S20-1 | Regression test (bug coverage US-S20-1) |
+| 2 | ci.yml | Type-check | `useQuizSubmit.test.ts` (7 erreurs) — `vi` non importe + mocks `MaturityLevel` / `QuizDimension` / `QuizResults` desalignes du schema S19 | Drift type tests (cumulatif depuis S19 SMI) |
+| 3 | ci.yml | Type-check | `quiz-submit.test.ts:228/233` (4 erreurs) — narrowing TS 5.x sur `mock.calls[0]` (tuple `[]`) | Drift TypeScript (bump deps) |
+| 4 | ci.yml | Type-check | `keyboard-nav.spec.ts` (10 erreurs) — `Parameters<Parameters<typeof test>[1]>[0]['page']` resout a `never` | Drift Playwright (bump deps) |
+| 5 | ci.yml | Lint | 4 warnings unused-vars (`_`, `capturedCallback`, `RECURRING_OFFERS`) | Bruit pre-existant, non bloquant strict |
+
+**Tous etaient pre-existants** mais invisibles tant que `npm ci` echouait en 1s avant tout step.
+
+### 7.2 · Decisions PO complementaires
+
+#### D37 — Test regression US-S20-1 = bug de la story livree, pas Drop S20
+
+**Decision** : la mise a jour des assertions E2E sur le titre relevait de la DoD de US-S20-1. Le test n'a pas ete ajuste lorsque le `<title>` a ete change dans `src/messages/{fr,en}.json` via la story. **Bug coverage** a inscrire au compte US-S20-1, pas un Drop S20 process distinct.
+
+**Rationale** : tagger ca comme Drop S20 dilue le signal de l'incident vrai (= drift CI). Tagger ca comme bug coverage de US-S20-1 force un Try precis sur la DoD : "toute story qui modifie un texte SEO/meta DOIT lister les tests E2E qui asserent dessus dans la PR description".
+
+**Action** : enrichir la DoD dans `docs/PROCESS.md` (story candidate **T28**, S21+, 0.5 pt) — ajouter checklist "tests E2E couvrant les meta/SEO touches sont mis a jour".
+
+#### D38 — TypeScript drift sur tests = trigger pour pre-commit `tsc --noEmit`
+
+**Decision** : la situation actuelle (3 fichiers tests avec erreurs TS post-bump dependances) est invisible localement tant qu'on ne lance pas `npx tsc --noEmit` explicitement (pas dans le pre-commit hook actuel, qui ne fait que `eslint --quiet`). **Ajouter `npx tsc --noEmit` au pre-commit hook (husky)** pour bloquer le drift au commit, pas en CI.
+
+**Rationale** :
+- Cout : 5-15s ajoute au commit (acceptable, c'est le projet `freshworks-partner-site` dont on parle, pas un monorepo).
+- Benefice : evite le pattern "je dev sur Node 25, je commit, CI Node 22 detecte 11 erreurs TS, je rouvre une PR".
+- Story candidate **T29** (S21+, 1 pt) — modifier `.husky/pre-commit` + tester sur un drift artificiel.
+
+**Risque** : le pre-commit pourrait devenir lent. Mitigation : `tsc --noEmit --incremental` (deja active via `incremental: true` dans `tsconfig.json`).
+
+#### Note sur D35 (alignement Node) — partiellement deja fait
+
+`bc7f8b5` (commit parallele session ops) a deja switche `e2e.yml` vers `node-version-file: '.nvmrc'`. OPS-S20.1 cote infra = ✅ Done. Reste juste le check des erreurs TS qui en decoule (cf D38 ci-dessus).
+
+### 7.3 · Insights complementaires pour la rétrospective S20
+
+**Drop · D2-S20 — Le drift TypeScript sur fichiers tests etait masque par 2 effets cumules**
+
+- **Effet 1** : pre-commit hook actuel = `eslint --quiet` uniquement, sans `tsc --noEmit`. Donc 0 detection au commit.
+- **Effet 2** : 5 echecs CI consecutifs sur `npm ci` (lockfile drift) ont empeche le step Type-check de tourner pendant ~10h. Donc 0 detection en CI.
+- **Cout reel** : 11 erreurs TS s'etaient accumulees, decouvertes en cascade au moment du fix lockfile.
+- **Action** : voir Try T1-S20 + Try T3-S20 (nouveau).
+
+**Try · T3-S20 — `tsc --noEmit` au pre-commit hook**
+
+- **Hypothese** : si le pre-commit fait `tsc --noEmit`, le drift type est bloque a la source (commit refuse) et CI ne se prend plus jamais une cascade de 11 erreurs.
+- **Mesure de succes** : 0 erreur TS en step Type-check de `ci.yml` sur l'ensemble du Sprint S21.
+- **Story** : T29 (1 pt), candidate S21.
+
+**Try · T4-S20 — DoD enrichie sur stories SEO/meta**
+
+- **Hypothese** : si la DoD impose explicitement de lister les tests E2E qui asserent sur les meta touchees, la regression D37 ne se reproduira pas.
+- **Mesure de succes** : 0 fail E2E sur des assertions meta/title sur les 3 prochaines stories US-S2x-* qui touchent au SEO.
+- **Story** : T28 (0.5 pt), candidate S21.
+
+### 7.4 · Bilan final hotfix lockfile + cascade
+
+| Indicateur | Avant fix lockfile | Apres fix lockfile + 3 commits cascade |
+|---|---|---|
+| `e2e.yml` | ❌ 5 runs rouges, 0 test execute | 🟢 (en attente verif post-push) |
+| `ci.yml` | ❌ 5 runs rouges sur `npm ci` | 🟢 (en attente verif post-push) |
+| Erreurs TS detectees | 0 (masquees) | 11 (toutes fixees) |
+| Warnings lint | 0 (masques) | 4 (tous fixes) |
+| Pre-commit hook | `eslint --quiet` | inchange (D38 = candidate S21) |
+| Decisions PO ajoutees | D34-D36 | + D37, D38 |
+| Stories S21 candidates ouvertes | OPS-S20.1 (1 pt) | + T28 (0.5 pt) + T29 (1 pt) |
+| Insights retro | D1-S20 / T1-S20 / T2-S20 | + D2-S20 / T3-S20 / T4-S20 |
+
+---
+
+*Section 7 ajoutee le 26/04/2026 soir, post-execution du fix lockfile. Documente les 4 cascades de drift detectees une fois le blocage `npm ci` leve. 3 commits chirurgicaux livres : `ca9bb0b` (test fixtures), `b41ab07` (E2E titles), `794683e` (lint cleanup). Decisions D37-D38 actees. Stories S21 candidates : T28 (DoD SEO), T29 (pre-commit tsc).*
