@@ -269,3 +269,41 @@ Une fois le step `Install dependencies` debloque par le commit `c2b555e`, **2 no
 ---
 
 *Section 7 ajoutee le 26/04/2026 soir, post-execution du fix lockfile. Documente les 4 cascades de drift detectees une fois le blocage `npm ci` leve. 3 commits chirurgicaux livres : `ca9bb0b` (test fixtures), `b41ab07` (E2E titles), `794683e` (lint cleanup). Decisions D37-D38 actees. Stories S21 candidates : T28 (DoD SEO), T29 (pre-commit tsc).*
+
+---
+
+## 8 · Addendum — regression sur Commit 3 (cloture session 26/04 soir)
+
+### 8.1 · Incident
+
+Le commit `794683e` (lint cleanup) a renomme `capturedCallback` → `_capturedCallback` dans `src/hooks/__tests__/useScrollReveal.test.ts` (convention prefix underscore pour vars unused), mais **a rate les 2 references** lignes 22 et 28 (assignations dans `beforeEach()` et dans le stub `IntersectionObserver`). Resultat : run CI #20 sur `b1425f1` a echoue au step Type-check avec `Cannot find name 'capturedCallback'. Did you mean '_capturedCallback'?` (3 erreurs).
+
+### 8.2 · Hotfix
+
+Commit `90dde7d` `fix(test): complete useScrollReveal capturedCallback rename (regression hotfix)` — rename complet aux 2 sites d'usage. Verification triple-check avant push : `npx tsc --noEmit` exit 0, `npm run lint` exit 0, `vitest` 6/6 pass.
+
+### 8.3 · Cause racine process
+
+Le renommage avait ete fait via `Edit` sans `replace_all: true` ni `npx tsc --noEmit` apres edit. Le pre-commit hook actuel = `eslint --quiet` uniquement, donc le drift TS est passe au commit.
+
+**Renforce massivement D38** : si T29 (pre-commit `tsc --noEmit`) avait ete deja en place, ce commit aurait ete bloque a la source. Cette regression est l'illustration parfaite du Drop D2-S20 ("drift TS masque par 2 effets cumules") qui s'est rejoue 1h apres avoir ete documente.
+
+**Insight retro additionnel** : la velocite intensive du sprint S20 (1 session vs 1 semaine) cumule un risque eleve de regressions de ce type. La discipline "1 commit = 1 intention" doit s'accompagner d'un "1 commit = triple-check tsc/lint/test" qui ne peut pas reposer sur la rigueur humaine — d'ou l'urgence de T29 en S21.
+
+### 8.4 · Bilan revise (cloture session)
+
+| Commits livres aujourd'hui | SHA | Statut CI |
+|---|---|---|
+| Lockfile resync | `c2b555e` | ✅ debloque step Install |
+| Refinement initial | `633e367` | ✅ doc only |
+| Test fixtures alignment | `ca9bb0b` | ✅ debloque step Type-check (11 erreurs) |
+| E2E titles SEO alignment | `b41ab07` | ✅ debloque 4 fails Playwright |
+| Lint cleanup | `794683e` | ⚠️ a introduit regression rename |
+| Refinement section 7 | `b1425f1` | ⚠️ a remonte la regression au CI run #20 |
+| **Hotfix rename complet** | **`90dde7d`** | 🟡 en attente CI run final |
+
+**Total : 7 commits, 1 regression auto-introduite, 1 hotfix.** A scores constant sur l'objectif initial : CI debloquee + 11 erreurs TS resolues + 4 warnings cleanus + Sprint 20 ferme + 4 stories S21 candidates ouvertes (OPS-S20.1, T28, T29, plus la regle commit lockfile D36).
+
+---
+
+*Section 8 ajoutee 27/04 (00h locale) en cloture de session. Documente la regression cascade et reinforce D38/T29 comme priorite S21. Status CI final a confirmer sur `90dde7d`.*
