@@ -19,13 +19,13 @@ beforeEach(() => {
   observeMock = vi.fn();
   unobserveMock = vi.fn();
   disconnectMock = vi.fn();
-  capturedCallback = undefined;
+  _capturedCallback = undefined;
   mockMatchMedia(false);
 
   vi.stubGlobal(
     "IntersectionObserver",
     vi.fn((cb: IntersectionObserverCallback) => {
-      capturedCallback = cb;
+      _capturedCallback = cb;
       return {
         observe: observeMock,
         unobserve: unobserveMock,
