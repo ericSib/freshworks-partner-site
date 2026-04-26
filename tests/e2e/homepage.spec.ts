@@ -24,14 +24,17 @@ test.describe("Homepage — Smoke Tests", () => {
     const home = new HomePage(page);
     await home.goto("fr");
 
-    await expect(page).toHaveTitle(/What A Service/);
+    // SEO-optimized title from US-S20-1: contains brand "WaS" + product "Freshworks"
+    // FR: "Conseil Freshworks France | Freshservice & Freshdesk — WaS"
+    await expect(page).toHaveTitle(/Freshworks.*WaS/);
   });
 
   test("page title is correct in EN", async ({ page }) => {
     const home = new HomePage(page);
     await home.goto("en");
 
-    await expect(page).toHaveTitle(/What A Service/);
+    // EN: "Freshworks Consulting | Freshservice & Freshdesk — WaS"
+    await expect(page).toHaveTitle(/Freshworks.*WaS/);
   });
 
   test("all main sections are rendered in FR", async ({ page }) => {
