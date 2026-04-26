@@ -4,13 +4,30 @@ import { useSyncExternalStore, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { setConsent, CONSENT_KEY } from "@/lib/analytics";
 
-/** Subscribe to consent key changes in localStorage. */
+/**
+ * Subscribe to consent key changes — both cross-tab and same-tab.
+ *
+ * The DOM `storage` event is dispatched by the browser ONLY for changes
+ * made in OTHER tabs (MDN spec). Same-tab changes (e.g., the user
+ * clicking Accept) never fire `storage` — that's why we also listen to
+ * the custom `was-consent-change` event dispatched by the Accept and
+ * Decline handlers below (fix US-S20-BUG.1).
+ */
+const CONSENT_CHANGE_EVENT = "was-consent-change";
+
 function subscribe(onStoreChange: () => void) {
   function onStorage(e: StorageEvent) {
     if (e.key === CONSENT_KEY) onStoreChange();
   }
+  function onCustom() {
+    onStoreChange();
+  }
   window.addEventListener("storage", onStorage);
-  return () => window.removeEventListener("storage", onStorage);
+  window.addEventListener(CONSENT_CHANGE_EVENT, onCustom);
+  return () => {
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener(CONSENT_CHANGE_EVENT, onCustom);
+  };
 }
 
 /**
@@ -36,11 +53,14 @@ export default function CookieBanner() {
 
   function handleAccept() {
     setConsent(true);
-    window.dispatchEvent(new Event("was-consent-change"));
+    window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
   }
 
   function handleDecline() {
     setConsent(false);
+    // Same event on decline — keeps the banner re-render symmetric and
+    // lets GoogleAnalytics react if it ever needs to (US-S20-BUG.1).
+    window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
   }
 
   if (!shouldShow) return null;
