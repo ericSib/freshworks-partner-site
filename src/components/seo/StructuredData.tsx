@@ -34,7 +34,11 @@ export default async function StructuredData({ locale }: Props) {
     ],
   };
 
-  // Build Service schemas from i18n cards
+  // Build Service schemas from i18n cards.
+  // areaServed reuses ORGANIZATION.areaServed (FR + UK + BE + CH) so the
+  // entity-level geo signal stays coherent with the per-service signal —
+  // US-S20-4 follow-up after audit revealed the 8 dynamic services were
+  // still France-only despite the Organization being extended.
   const services = SERVICE_SLUGS.map((slug, index) => ({
     "@context": "https://schema.org",
     "@type": "Service",
@@ -42,10 +46,7 @@ export default async function StructuredData({ locale }: Props) {
     name: t(`cards.${index}.title`),
     description: t(`cards.${index}.description`),
     provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: {
-      "@type": "Country",
-      name: "France",
-    },
+    areaServed: ORGANIZATION.areaServed,
     serviceType: "IT Consulting",
   }));
 

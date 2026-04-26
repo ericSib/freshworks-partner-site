@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE_URL, SITE_NAME } from "@/config/site";
+import { ORGANIZATION } from "@/config/schema";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import MaturityPage from "@/components/sections/MaturityPage";
 import JsonLd from "@/components/seo/JsonLd";
@@ -60,7 +61,9 @@ export default async function MaturityLevelPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: `maturity.${segment}.${level}` });
 
   // JSON-LD Service schema specific to this maturity level.
-  // areaServed extended to FR/UK/BE/CH (US-S20-4) — aligned with ORGANIZATION.areaServed.
+  // areaServed reuses ORGANIZATION.areaServed (FR + UK + BE + CH) for
+  // single source of truth — US-S20-4 follow-up to keep all Service
+  // schemas (organization, dynamic offers, maturity) on the same geo signal.
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -68,12 +71,7 @@ export default async function MaturityLevelPage({ params }: Props) {
     name: t("meta.title"),
     description: t("meta.description"),
     provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: [
-      { "@type": "Country", name: "France" },
-      { "@type": "Country", name: "United Kingdom" },
-      { "@type": "Country", name: "Belgium" },
-      { "@type": "Country", name: "Switzerland" },
-    ],
+    areaServed: ORGANIZATION.areaServed,
     serviceType: segment === "itsm" ? "ITSM Consulting" : "Customer Experience Consulting",
   };
 
