@@ -102,4 +102,45 @@ describe("estimateROI — segment differentiation", () => {
     const esm = estimateROI({ level: 2, segment: "esm", companySize: "medium" });
     expect(itsm.max).not.toBe(esm.max);
   });
+
+  it("ESM > ITSM > CX at same level/size — multi-department > standalone > agent-bound", () => {
+    const same = { level: 2 as const, companySize: "medium" as const };
+    const itsm = estimateROI({ ...same, segment: "itsm" });
+    const cx = estimateROI({ ...same, segment: "cx" });
+    const esm = estimateROI({ ...same, segment: "esm" });
+    // Hierarchy reflects scope of impact:
+    // - ESM = broadest org reach (HR + IT + Facilities) → highest per-employee gain
+    // - ITSM = standalone IT productivity (TEI baseline)
+    // - CX = concentrated on customer-facing agents → lowest per-employee gain when amortized over the whole headcount
+    expect(esm.max).toBeGreaterThan(itsm.max);
+    expect(itsm.max).toBeGreaterThan(cx.max);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// US-S20-7 — Calibration on Forrester TEI Freshworks 2024
+// ---------------------------------------------------------------------------
+
+describe("estimateROI — Forrester TEI 2024 calibration (US-S20-7, D33)", () => {
+  it("ITSM medium-org level 1 estimate falls within the TEI-implied band", () => {
+    // TEI Composite: 7,000 employees · $3.64M total PV / 3y · ≈ $1.21M/year
+    // Per-employee/year ≈ $173 → ≈ €161 (USD-EUR ~0.93)
+    // Conservative WaS multiplier (~1.25x for consulting value-add) → ITSM = 200 €/emp/y
+    // For medium bracket (600 employees) at level 1 (full headroom):
+    //   center ≈ 600 × 200 = 120,000 €
+    //   ±30% spread → 84,000-156,000 € (rounded to thousands)
+    const out = estimateROI({ level: 1, segment: "itsm", companySize: "medium" });
+    // Sanity: the band should remain within an order of magnitude of the TEI baseline
+    expect(out.min).toBeGreaterThanOrEqual(60_000);
+    expect(out.max).toBeLessThanOrEqual(200_000);
+  });
+
+  it("level 1 large-org ESM estimate scales linearly with headcount (1800/600 ≈ 3x medium)", () => {
+    const medium = estimateROI({ level: 1, segment: "esm", companySize: "medium" });
+    const large = estimateROI({ level: 1, segment: "esm", companySize: "large" });
+    // 1800 / 600 = 3 → expect ~3x ratio (allow ±15% tolerance for rounding)
+    const ratio = large.max / medium.max;
+    expect(ratio).toBeGreaterThan(2.5);
+    expect(ratio).toBeLessThan(3.5);
+  });
 });

@@ -553,7 +553,7 @@
     "roi": {
       "tagline": "VOTRE GAIN POTENTIEL",
       "perYear": "an",
-      "disclaimer": "Estimation indicative basée sur les benchmarks publics Forrester TEI Freshworks et notre modèle interne. Non contractuelle.",
+      "disclaimer": "Estimation annuelle indicative calibrée sur Forrester TEI Freshworks 2024 (composite 7 000 employés : 356% ROI, $2,84 M NPV) et notre modèle interne. Non contractuelle.",
       "fallbackHint": "Affinez cette estimation en parlant à un expert.",
       "heading": {
         "itsm": "Économies annualisées potentielles sur vos services IT",

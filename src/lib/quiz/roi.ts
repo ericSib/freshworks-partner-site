@@ -1,24 +1,32 @@
 /**
- * SMI-roi — Indicative annualized savings estimator (D21).
+ * SMI-roi — Indicative annualized savings estimator (D21, recalibrated US-S20-7).
  *
  * Pure function: takes a maturity level + segment + company size,
  * returns a min/max range in EUR. Never a promise, never a single
- * number — calibrated on the Forrester TEI public studies for
- * Freshworks + an internal multiplier model (D21-A, option d).
+ * number — calibrated on the Forrester TEI 2024 study for Freshworks
+ * + an internal multiplier model (D21-A, option d ; D33).
  *
- * Calibration intent
- * ------------------
- * Forrester TEI Freshservice (public, 2023) reports ~$1.85M three-year
- * NPV for a composite ~1500-employee org → annualized ~€570k. Backing
- * that out per employee at maximum maturity headroom (level 1 → 5)
- * gives ~€380/employee/year as the upper anchor for ITSM. CX TEI
- * benefits are ~25% lower per employee (concentrated on agents). ESM
- * lands between the two: multi-department reach offsets the lower
- * intensity per single department.
+ * Calibration source (US-S20-7, D33)
+ * -----------------------------------
+ * Forrester TEI Freshservice 2024 (commissioned by Freshworks, public PDF) :
+ *   - Composite organization : 7,000 employees · 160 service agents · ~120k tickets/year
+ *   - 3-year NPV (risk-adjusted) : $2.84M
+ *   - Total benefits PV (3y) : $3.64M → annualized ≈ $1.21M/year
+ *   - ROI : 356% · Payback : < 6 months
+ *   - Per-employee/year ≈ $173 → ≈ €161 at USD/EUR 0.93
+ *
+ * Calibration choices :
+ *   - ITSM = 200 €/emp/y → TEI baseline + ~25% WaS consulting value-add
+ *     (process redesign + training + adoption uplift = above pure software
+ *     deployment effect captured by TEI)
+ *   - CX = 160 €/emp/y → concentrated on agents (160 of 7,000 in TEI),
+ *     so per-employee/whole-headcount lower than ITSM
+ *   - ESM = 220 €/emp/y → broader reach (HR + IT + Facilities), highest
+ *     per-employee impact when measured org-wide
  *
  * The model is intentionally coarse — we surface a band, not a quote.
- * Future iteration (D23 candidate) will replace the constants below
- * with three anonymized WaS case studies.
+ * Future iteration (D23 candidate) will add three anonymized WaS case
+ * studies as additional anchors alongside the Forrester TEI baseline.
  */
 
 import type { QuizSegment } from "@/config/quiz";
@@ -52,11 +60,14 @@ const EMPLOYEES_BY_BRACKET: Record<CompanySize, number> = {
 /**
  * Per-employee annualized gain (EUR) at maximum headroom (level 1).
  * Decreases linearly with level — headroom = 5 - level scaled to [0..1].
+ *
+ * Values calibrated on Forrester TEI Freshworks 2024 (US-S20-7, D33).
+ * Hierarchy : ESM > ITSM > CX — reflects the scope of impact per employee.
  */
 const PER_EMPLOYEE_GAIN_AT_LEVEL_1: Record<QuizSegment, number> = {
-  itsm: 380,
-  cx: 240,
-  esm: 320,
+  itsm: 200,
+  cx: 160,
+  esm: 220,
 };
 
 /** Map a demographics company-size key to one of the 3 ROI brackets (D21-B). */
