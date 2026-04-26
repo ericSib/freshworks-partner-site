@@ -403,6 +403,49 @@ Chaque insight Keep/Drop/Try → entree dans le refinement preparatoire du sprin
 Attente decision PO.
 ```
 
+### 6.9 · Operation hors-code estimee > 30 min (T25, Drop S19 D8)
+
+**Declencheurs typiques** :
+- DNS : ajout/edit zone, propagation, verification
+- Deploy : configuration plateforme, redeploy from cache, custom domain
+- Env vars : ajout/edit dashboard Vercel/Netlify/etc. + force-fresh-build
+- Integrations tiers : configuration Resend, HubSpot, GA4, Calendly, Stripe, etc.
+- Configuration dashboard externe (GSC submission, Search Console, Linear, etc.)
+
+**Regle** : AVANT la 1ere action terminal ou dashboard, ouvrir `docs/refinement/ops-YYYY-MM-DD-<slug>.md` avec :
+
+```markdown
+# Refinement Ops — <titre>
+
+> **Date** · **Sprint en cours** · **Duree estimee**
+> **Declencheurs** : evenement(s) qui ont ouvert cette session ops
+
+## 1 · Stories OPS Ready
+| ID | Description | Effort | Owner |
+|---|---|---|---|
+| OPS-XX.1 | ... | ... | ... |
+
+## 2 · Decisions PO actees
+| ID | Decision | Justification |
+
+## 3 · Pre-requis verifies
+- [ ] Acces dashboard X
+- [ ] Cle API Y
+- [ ] Backup / rollback plan
+
+## 4 · Sequence d'execution
+1. ...
+2. ...
+
+## 5 · Smoke tests post-execution
+- [ ] Test reel (curl, formulaire, etc.)
+- [ ] Verification logs / dashboard
+```
+
+**Pourquoi 30 min** : seuil empirique issu de la retrospective S19 — les 5 stories OPS-26.x de la Phase 2 deploiement (DNS + env vars + sender Resend + smoke test) ont ete executees "au fil de l'eau" sans refinement prealable, generant une violation de la boucle universelle (Drop D8) et une tracabilite degradee. Toute operation depassant 30 min cumulee merite la rigueur d'un refinement.
+
+**Exception** : execution d'une story OPS-x.x deja Ready dans un refinement actif (ex: au cours d'une story du sprint en cours). Pas besoin d'ouvrir un nouveau refinement ops.
+
 ---
 
 ## 7 · Quality gates et Definition of Done

@@ -126,6 +126,8 @@ EVENEMENT  →  REFINEMENT THREE AMIGOS  →  UPDATE BACKLOG
 
 **Regle immuable** : aucun evenement ne va directement modifier le backlog sans passer par une session de refinement Three Amigos, meme minimale. Le refinement est le **seul point d'entree** autorise pour modifier le backlog.
 
+**Sous-regle ops** (Drop S19 D8, T25) : toute operation **hors-code** dont l'execution est estimee > 30 min (DNS, deploy, env vars, integrations tiers, configuration dashboard) ouvre AVANT la 1ere action terminal/dashboard un fichier `docs/refinement/ops-YYYY-MM-DD-<slug>.md` avec stories OPS-x.x Ready, decisions PO actees, scope chiffre. Aucune Phase 2 ops n'est executee "au fil de l'eau" comme cela est arrive en S19 (cf. retrospective S19, Drop D8). Detail : voir PROCESS.md §6.9.
+
 Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 2.
 
 ---
