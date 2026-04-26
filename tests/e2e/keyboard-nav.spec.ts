@@ -62,7 +62,7 @@ test.describe("Keyboard Navigation — Mobile Menu", () => {
    * ("false" on mount).
    */
   async function gotoHydratedMobile(
-    page: Parameters<Parameters<typeof test>[1]>[0]["page"],
+    page: import("@playwright/test").Page,
     locale: "fr" | "en"
   ) {
     await page.goto(`/${locale}`, { waitUntil: "domcontentloaded" });
@@ -78,10 +78,8 @@ test.describe("Keyboard Navigation — Mobile Menu", () => {
    * attached its onClick handler to the SSR-rendered button.
    */
   async function openMenuWithKeyboard(
-    page: Parameters<Parameters<typeof test>[1]>[0]["page"],
-    hamburger: ReturnType<
-      Parameters<Parameters<typeof test>[1]>[0]["page"]["getByRole"]
-    >
+    page: import("@playwright/test").Page,
+    hamburger: import("@playwright/test").Locator
   ) {
     await expect(async () => {
       await hamburger.focus();

@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 import { useQuizSubmit } from "../useQuizSubmit";
 import type { QuizResults } from "@/hooks/useQuiz";
@@ -8,14 +9,18 @@ const fetchSpy = vi.fn<(typeof globalThis)["fetch"]>();
 vi.stubGlobal("fetch", fetchSpy);
 
 // ── Fixture: deterministic QuizResults ───────────────────────────────
+// Note: shape aligned on src/config/quiz/types.ts — MaturityLevel needs
+// scoreRange, QuizDimension needs weight + benchmarkKey (S19 SMI schema).
 
 const MOCK_RESULTS: QuizResults = {
   segment: "itsm",
   overallScore: 62,
+  answers: {},
   maturityLevel: {
     level: 3,
     labelKey: "quiz.itsm.levels.established.label",
     descriptionKey: "quiz.itsm.levels.established.description",
+    scoreRange: [41, 60],
     ctaKey: "quiz.itsm.levels.established.cta",
     urgency: "medium",
   },
@@ -34,13 +39,17 @@ const MOCK_RESULTS: QuizResults = {
       id: "problem_management",
       score: 2.8,
       nameKey: "quiz.itsm.dimensions.problem_management",
+      weight: 0.15,
       commercialAngleKey: "quiz.itsm.commercial.problem_management",
+      benchmarkKey: "quiz.itsm.benchmark.problem_management",
     },
     {
       id: "change_management",
       score: 3.0,
       nameKey: "quiz.itsm.dimensions.change_management",
+      weight: 0.15,
       commercialAngleKey: "quiz.itsm.commercial.change_management",
+      benchmarkKey: "quiz.itsm.benchmark.change_management",
     },
   ],
 };

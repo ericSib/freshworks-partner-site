@@ -225,12 +225,13 @@ describe("POST /api/quiz/submit", () => {
     // Two emails: internal notification + prospect confirmation
     expect(sendMock).toHaveBeenCalledTimes(2);
 
-    const internalCall = sendMock.mock.calls[0][0] as {
+    const calls = sendMock.mock.calls as unknown as Array<unknown[]>;
+    const internalCall = calls[0][0] as {
       to: string[];
       subject: string;
       text: string;
     };
-    const prospectCall = sendMock.mock.calls[1][0] as {
+    const prospectCall = calls[1][0] as {
       to: string[];
       subject: string;
     };
