@@ -6,7 +6,13 @@ import { mockMatchMedia } from "./test-helpers";
 let observeMock: ReturnType<typeof vi.fn>;
 let unobserveMock: ReturnType<typeof vi.fn>;
 let disconnectMock: ReturnType<typeof vi.fn>;
-let capturedCallback: IntersectionObserverCallback | undefined;
+// Captured in the IntersectionObserver constructor stub for tests that
+// need to fire the callback manually. Currently only the stub captures
+// it; future tests may invoke it. Marked with leading underscore +
+// // eslint-disable-next-line so the lint warning stays silenced
+// without losing the assignment.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+let _capturedCallback: IntersectionObserverCallback | undefined;
 
 beforeEach(() => {
   vi.restoreAllMocks();

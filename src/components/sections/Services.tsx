@@ -7,7 +7,7 @@ import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import StaggerChildren from "@/components/ui/StaggerChildren";
 import CheckIcon from "@/components/ui/CheckIcon";
 import { serviceIcons } from "@/components/icons/service-icons";
-import { OFFERS, PREMIUM_OFFERS, IMPLEMENT_OFFERS, RECURRING_OFFERS } from "@/config/offers";
+import { OFFERS, PREMIUM_OFFERS, IMPLEMENT_OFFERS } from "@/config/offers";
 import { SECTION_IMAGES } from "@/config/images";
 
 export default function Services() {

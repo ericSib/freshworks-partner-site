@@ -23,7 +23,8 @@ describe("contactFormSchema", () => {
 
   // 2. Missing name
   it("rejects when name is missing", () => {
-    const { name: _, ...noName } = validPayload;
+    const { name: _name, ...noName } = validPayload;
+    void _name;
     const result = contactFormSchema.safeParse(noName);
 
     expect(result.success).toBe(false);
@@ -37,7 +38,8 @@ describe("contactFormSchema", () => {
 
   // 3. Missing email
   it("rejects when email is missing", () => {
-    const { email: _, ...noEmail } = validPayload;
+    const { email: _email, ...noEmail } = validPayload;
+    void _email;
     const result = contactFormSchema.safeParse(noEmail);
 
     expect(result.success).toBe(false);
