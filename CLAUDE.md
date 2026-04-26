@@ -192,6 +192,12 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-25 | D25 | **Budget refactoring : ~20% du sprint** (Manifeste P9) — quick wins (1-2 pts) injectes en buffer du sprint en cours, refactorings structurels (3+ pts) en stories dediees du sprint suivant | Capacite sprint |
 | 2026-04-25 | D26 | **Publication prod sur `freshworks.whataservice.fr`** — DNS OVH (CNAME → cname.vercel-dns.com), cert Let's Encrypt auto-renew Vercel, deploiement Vercel auto sur push main. Apex `whataservice.fr` + `www.whataservice.fr` restent attaches au projet Vercel mais dormants (DNS non resolu) en attendant la page ombrelle WaS Phase 2 | Ops production |
 | 2026-04-25 | D27 | **Sender Resend = `update.whataservice.fr`** — sous-domaine dedie a l'envoi pour isoler la reputation (best practice Resend). Tous les emails transactionnels (contact + quiz) partent de `noreply@update.whataservice.fr`. Mutualise entre futurs sites WaS | Ops emails |
+| 2026-04-26 | D28 | **Pivot Sprint Goal S20** vers SEO surface + conversion instrumentation (vs guard-rails proposes fin S19) — declenche par demande PO orientee KPIs cadrage (Top 10 SEO, conversion >3%) | Direction sprint |
+| 2026-04-26 | D29 | **2 pages services prioritaires S20 = Freshservice + Freshdesk**, FR+EN simultane — choix WSJF base sur audit SEO mots-cles a plus fort intent transactionnel | Scope S20 |
+| 2026-04-26 | D30 | **Audit SEO formel obligatoire en pre-Sprint Planning** quand le Sprint Goal cible le SEO — pattern : skill marketing:seo-audit + agent Explore code, rapport committe dans `docs/seo/audit-YYYY-MM-DD.md` | Process gouvernance |
+| 2026-04-26 | D31 | **Cluster maturite etendu (ESM + niveaux 2-5) = backlog Phase 2** (hors scope S20) — code actuel = `VALID_SEGMENTS=["itsm","cx"]` + `VALID_LEVELS=["level-1"]` (2 pages reelles), extension = ~13 pts contenu PO | Scope produit |
+| 2026-04-26 | D32 | **Epic E25 "Conversion instrumentation" ouverte** — accueille US-S20-5 (funnel quiz GA4), US-S20-6 (CTA tracking), US-S20-7 (calibration ROI Forrester) + futures stories A/B testing, heatmaps, funnel optim. Domaine produit distinct de E22 SEO | Backlog structure |
+| 2026-04-26 | D33 | **Source ROI Forrester confirmee = Forrester TEI Freshworks 2024** (publication officielle Forrester sponsorisee Freshworks, gratuite avec form, reference marche ITSM) — utilise pour calibrer `roi.ts` coefficients dans US-S20-7 | Source data |
 
 ---
 
@@ -242,4 +248,4 @@ npx playwright test      # Playwright E2E (104 tests)
 
 ---
 
-*Derniere mise a jour : 25 avril 2026 · Version 2.3 (D26-D27 actees — site publie sur freshworks.whataservice.fr, sender Resend = update.whataservice.fr)*
+*Derniere mise a jour : 26 avril 2026 · Version 2.5 (D28-D33 actees — pivot Sprint 20 vers SEO + conversion, epic E25 conversion ouverte, source ROI Forrester confirmee TEI 2024)*

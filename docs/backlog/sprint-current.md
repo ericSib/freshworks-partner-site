@@ -1,128 +1,132 @@
-# Sprint 19 — "SMI complet : ESM + ROI + offer mapping" — 🟢 CLOTURE
+# Sprint 20 — "Surface SEO + funnel instrumente"
 
-> **Sprint Goal** : Livrer le Service Maturity Index™ complet — 3 parcours (ITSM/CX/ESM), ROI estime, offre recommandee.
-> **Debut** : 25 avril 2026
-> **Fin effective** : 26 avril 2026 (publication prod 25/04 soir)
-> **Capacite** : 20 pts (engage 13 pts dev + 4 pts ops Phase 2)
-> **Verdict final** : **ATTEINT — INCREMENT EN PRODUCTION**
-> **Refinement source** : [refinement/sprint-19-refinement.md](../refinement/sprint-19-refinement.md)
-> **Refinement complementaire** : [refinement/refactoring-radar-2026-04-25.md](../refinement/refactoring-radar-2026-04-25.md)
-> **Review** : [demo/sprint-19.md](../demo/sprint-19.md)
-> **Retrospective** : [retro/sprint-19-retro.md](../retro/sprint-19-retro.md)
+> **Sprint Goal** : Etendre la surface de captage SEO du site (pages services dediees Freshservice + Freshdesk en FR+EN, schema.org enrichi UK/BE/CH, OG dynamiques) et instrumenter le funnel de conversion (events GA4 quiz + CTA + contact) pour piloter les optimisations a la donnee.
+> **Debut** : 27 avril 2026 (J1)
+> **Fin cible** : 3 mai 2026 (J7)
+> **Capacite** : 20 pts (cadence 1 semaine, Manifeste P8)
+> **Engage** : 17 pts (marge 3 pts pour Refactoring Radar mensuel ou story emergente)
+> **Refinement source** : [refinement/sprint-20-refinement.md](../refinement/sprint-20-refinement.md)
+> **Audit SEO source** : a formaliser dans `docs/seo/audit-2026-04-26.md` via US-S20-1
+> **Statut** : 🟡 EN COURS
 
 ---
 
-## Stories engagees — Phase 1 (Dev)
+## Verification T1-v2 (PROCESS.md §4.1) — etat reel des stories candidates
+
+| Story | Verification code | Verdict |
+|---|---|---|
+| US-S20-1 | `src/app/sitemap.ts` : `lastModified: new Date()` ligne 12 — fix necessaire. GSC submission non faite. Audit SEO present dans refinement, a formaliser. | ✅ A faire |
+| US-S20-2 | `src/app/[locale]/services/` : route inexistante. `src/config/services-content.ts` : fichier absent. | ✅ A faire |
+| US-S20-3 | Recherche `opengraph-image.tsx` : 0 fichier trouve. OG = `/images/og-default.png` statique unique. | ✅ A faire |
+| US-S20-4 | `src/config/schema.ts` : `areaServed` = single GeoCircle Paris+500km. Meta description home = 268 chars (audit). | ✅ A faire |
+| US-S20-5 | `grep -rn "trackQuiz" src/components/quiz/` = 0 call-site. Helpers definis `src/lib/analytics.ts:57-72` mais jamais appeles. Signature `trackQuizComplete(segment: "itsm" \| "cx", ...)` manque ESM. | ✅ A faire |
+| US-S20-6 | `grep -rn "trackContactSubmit\|trackEvent" src/components/sections/Contact.tsx` = 0 call-site. CTA Hero/Sticky/Calendly = liens directs sans tracking. | ✅ A faire |
+| US-S20-7 | `src/lib/quiz/roi.ts` existe (Sprint 19 livre) mais coefficients heuristiques. Pre-requis ouvert post-S19. | ✅ A faire (depend confirmation source) |
+| T22-T25 | `docs/PROCESS.md` + `docs/runbooks/` : aucune trace des trois mises a jour visees. | ✅ A faire |
+
+**Conclusion** : 11 / 11 stories valides — aucune story ecartee pour cause de "deja fait dans le code".
+
+---
+
+## Stories engagees — Phase 1 (SEO surface + meta)
 
 | Ordre | ID | Titre | Pts | Priorite | Statut |
 |---|---|---|---|---|---|
-| 1 | SMI-esm | Full ESM path (config + questions + dimensions + i18n) | 6 | Must | 🟢 Done (commits 1d21502 / d12f439 / 4f82320 / fe188cb) |
-| 2 | SMI-offers | Mapping maturite → offre WaS (matrice 5×3) | 2 | Must | 🟢 Done (commit f2db051) |
-| 3 | SMI-roi | ROI estime dans les resultats du quiz | 2 | Should | 🟢 Done (commit 771ef9e) |
-| 4 | US-23.4 | (buffer) Suppression exports morts (config) | 1 | Could | 🟢 Done (commit 47a4822) |
-| 5 | US-23.5 | (buffer) MaturityPage parameter object | 1 | Could | 🟢 Done (commit c1c3ea0) |
-| 6 | US-23.3 | (buffer) Extract FormInput composant | 1 | Could | 🟢 Done (commit 5d97114) |
+| 1 | US-S20-1 | Audit SEO formel + soumission Google Search Console | 1 | Must | 🔵 A faire |
+| 4 | US-S20-4 | Schema.org areaServed UK/BE/CH + meta home raccourcie | 1 | Must | 🔵 A faire |
+| 9 | US-S20-3 | OG image dynamique per route (Next.js opengraph-image) | 2 | Must | 🔵 A faire |
+| 11 | US-S20-2 | Pages services dediees Freshservice + Freshdesk (FR+EN) | 5 | Must | 🔵 A faire |
 
-**Phase 1 — 13 / 13 pts livres + 1 hotfix a11y** (`aebf9e7`)
+**Sous-total Phase 1 : 9 pts**
 
-## Stories Phase 2 (Deploy / Ops — hors backlog initial)
+## Stories engagees — Phase 2 (Conversion instrumentation)
 
-| ID | Titre | Pts | Statut |
-|---|---|---|---|
-| OPS-26.1 | Domaine custom freshworks.whataservice.fr (DNS OVH + Vercel + cert Let's Encrypt) | 1 | 🟢 Done (ops, no code) |
-| OPS-26.2 | Push 15 commits S18+S19 + auto-deploy Vercel | 1 | 🟢 Done (commit 2a82c58) |
-| OPS-26.3 | Configurer 3 env vars Vercel (RESEND_API_KEY, NEXT_PUBLIC_GA_MEASUREMENT_ID, CONTACT_EMAIL) + force fresh build | 1 | 🟢 Done (commit 92e8c8e) |
-| OPS-26.4 | Fix sender Resend → noreply@update.whataservice.fr (D27) | 1 | 🟢 Done (commit 1e92f10) |
-| OPS-26.5 | Smoke test reel : POST /api/contact → email reçu + contact HubSpot cree | 0 | 🟢 Done (validation) |
+| Ordre | ID | Titre | Pts | Priorite | Statut |
+|---|---|---|---|---|---|
+| 7 | US-S20-5 | Funnel GA4 quiz (events started/question/results/lead/pdf) | 2 | Must | 🔵 A faire |
+| 8 | US-S20-6 | CTA tracking (hero/sticky/calendly/contact_submit) | 1 | Must | 🔵 A faire |
+| 10 | US-S20-7 | Calibration ROI Forrester (rapport TEI public) | 2 | Should | 🟡 Quasi-Ready (depend confirmation source PO) |
 
-**Phase 2 — 4 pts ops livres** (boucle universelle violee, cf. retro Drop D8)
+**Sous-total Phase 2 : 5 pts**
 
-## Total Sprint 19
+## Stories engagees — Phase 3 (Process / Ops buffer)
 
-- **Pts livres** : 13 dev + 4 ops = **17 pts** (sur capacite 20)
-- **Increment en prod** : ✅ `https://freshworks.whataservice.fr`
-- **Email + CRM end-to-end** : ✅ valide par le test 21:54:33
+| Ordre | ID | Titre | Pts | Priorite | Statut |
+|---|---|---|---|---|---|
+| 2 | T25 | Mini-refinement obligatoire ops > 30 min (formalisation) | 0 | Must | 🔵 A faire |
+| 3 | T22 | Retrospective N en gate du Sprint Planning N+1 | 1 | Must | 🔵 A faire |
+| 5 | T24 | Runbook env vars Vercel + force-fresh-build | 1 | Must | 🔵 A faire |
+| 6 | T23 | Sender Resend en variable d'environnement + assertion | 1 | Must | 🔵 A faire |
 
----
-
-## Decisions PO sources
-
-| ID | Decision | Date | Source |
-|---|---|---|---|
-| D20 | 5 dimensions ESM @ 20% chacune | 25/04/2026 | Refinement S19 |
-| D21 | ROI : Forrester TEI + modele interne (option d) — score + taille + segment | 25/04/2026 | Refinement S19 |
-| D22 | Matrice complete 5 niveaux × 3 segments validee (15 cellules) | 25/04/2026 | Refinement S19 |
-| D23 | Cadence Refactoring Radar institutionnalisee | 25/04/2026 | Refinement Radar |
-| D24 | Epic E23 ouverte — "Refactoring Radar (hygiene continue)" | 25/04/2026 | Refinement Radar |
-| D25 | Budget refactoring : ~20% sprint | 25/04/2026 | Refinement Radar |
-| D26 | Publication prod sur `freshworks.whataservice.fr` (Pattern A "sous-domaine par activite") | 25/04/2026 | Phase 2 ops |
-| D27 | Sender Resend = `update.whataservice.fr` (best practice Resend reputation isolation) | 25/04/2026 | Phase 2 ops |
+**Sous-total Phase 3 : 3 pts**
 
 ---
 
-## Sprint Goal — test d'atteinte
+## Total engage Sprint 20 : 17 pts (sur 20 capacite)
 
-A la cloture (26/04/2026) :
-- [x] Demo : Nadia (DRH ESM) complete /quiz en 7 minutes, voit son score sur les 5 dimensions — couvert par `tests/e2e/quiz-esm.spec.ts` (2/2 passes)
-- [x] Demo : page resultats affiche fourchette ROI EUR (min/max) avec disclaimer — composant `QuizROI` + Intl.NumberFormat
-- [x] Demo : page resultats affiche l'offre recommandee selon la cellule matrice — composant `QuizRecommendedOffer` + matrice D22 dans `offer-mapping.ts`
-- [x] CI green : 913 unit tests, 6/6 quiz E2E + 10/10 contact/a11y E2E, T16 i18n parity passe avec 168 nouvelles cles ESM
-- [x] **Increment en prod** : `https://freshworks.whataservice.fr` HTTPS valide, sitemap servi, smoke test POST /api/contact 200 OK
-- [x] **Emails operationnels** : test reel `Claude Deploy Test` → email reçu cote PO + contact HubSpot cree (verifie 25/04 ~22h)
+**Marge** : 3 pts pour absorber un Refactoring Radar mensuel (D23) ou une story emergente.
 
 ---
 
-## Pre-requis ops — bilan post-cloture
+## Plan d'enchainement (jours 1-6)
 
-- [x] **D26** : DNS OVH `freshworks` → CNAME → cname.vercel-dns.com (resolu)
-- [x] **D27** : sender Resend aligne sur `update.whataservice.fr`
-- [x] **Env vars Vercel** : `RESEND_API_KEY`, `HUBSPOT_ACCESS_TOKEN`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `CONTACT_EMAIL`, `LOG_LEVEL` configures
-- [ ] **HubSpot custom properties ESM** (`smi_esm_score_dim1..5`, `smi_recommended_offer`) — A FAIRE par le PO avant le 1er prospect ESM reel (sinon les leads ESM seront crees mais sans segmentation par dimension)
-- [ ] **Lecture rapport Forrester TEI Freshworks public** — pour calibrer les coefficients `PER_EMPLOYEE_GAIN_AT_LEVEL_1` dans `roi.ts` (story candidate S20+)
-- [ ] **Soumettre sitemap a Google Search Console** : `https://search.google.com/search-console` → Add property `https://freshworks.whataservice.fr` → Sitemaps → submit `/sitemap.xml`
-
----
-
-## Inbox Sprint 20 — backlog ordonne par WSJF approximatif
-
-### Stories du Refactoring Radar (refinement 25/04)
-
-| ID | Titre | Pts | Origine |
-|---|---|---|---|
-| US-23.1 | Decompose `generate-pdf.ts` en helpers (Extract Method) | 2 | Radar 25/04 — S |
-| US-23.2 | Extract `MobileMenu` + `useFocusTrap` depuis Header | 3 | Radar 25/04 — M |
-
-### Stories de la Retrospective S19
-
-| ID | Titre | Pts | Origine |
-|---|---|---|---|
-| T20 | `vitest-axe` sur composants critiques quiz | 2 | Retro S19 — D5 |
-| T21 | Process : relecture editoriale PO i18n > 50 cles | 0 | Retro S19 — D6 |
-| T22 | Retrospective N en gate du Sprint Planning N+1 (PROCESS.md §4.1) | 1 | Retro S19 — D7 |
-| T23 | Sender Resend en variable d'env + assertion de coherence | 1 | Retro S19 — D9 |
-| T24 | Runbook env vars Vercel + force-fresh-build documente | 1 | Retro S19 — D10 |
-| T25 | Mini-refinement obligatoire pour ops > 30 min | 0 | Retro S19 — D8 |
-| T26 | `checkResend` health check : passer a `/emails` (Sending-scope compatible) | 1 | Retro S19 — Phase 2 |
-
-### Total inbox S20 disponible
-
-**12 pts Ready ou refinable** — sous capacite 20 pts. Marge confortable pour absorber un nouveau Refactoring Radar mensuel + une eventuelle decision PO sur la calibration ROI ou la page maturite niveau 2-5.
-
-### Sprint Goal S20 — proposition (a valider Sprint Planning)
-
-> *"Industrialiser les guard-rails qualite et ops decouverts en Phase 2 S19 (a11y au commit, sender en config, runbook deploy) pour que les futurs sprints livrent en prod sans Phase 2 manuelle."*
+| Jour | Stories prioritaires | Focus |
+|---|---|---|
+| **J1** | T25 + T22 + US-S20-1 + US-S20-4 | Process formalise + audit + quick wins SEO (4 stories courtes, 3 pts) |
+| **J2** | T23 + T24 + US-S20-5 (debut) | Ops runbooks + funnel quiz GA4 (3 pts) |
+| **J3** | US-S20-5 (fin) + US-S20-6 + US-S20-3 | Tracking complet + OG dynamique (3 pts livres) |
+| **J4** | US-S20-2 (debut) — homepage Freshservice FR | Premiere page service en place |
+| **J5** | US-S20-2 (suite) — Freshservice EN + Freshdesk FR | Bilingue + 2eme service |
+| **J6** | US-S20-2 (fin) + US-S20-7 (apres confirmation source) | Freshdesk EN + ROI Forrester |
+| **J7** | Sprint Review + Retro S20 | Demo live + Keep/Drop/Try |
 
 ---
 
-## Transition vers Sprint 20
+## Sprint Goal — test d'atteinte (a verifier en Sprint Review J7)
 
-**Avant le Sprint Planning S20, conduire** :
-1. ✅ Retro S18 (rattrape 25/04) → [retro/sprint-18-retro.md](../retro/sprint-18-retro.md)
-2. ✅ Retro S19 (cloturee 26/04) → [retro/sprint-19-retro.md](../retro/sprint-19-retro.md)
-3. ⏳ Refinement preparatoire S20 — passer T20, T22, T23, T24, T26 a DoR Ready (specs Gherkin + estimation chiffree). Estimation duree refinement : ~45 min.
-
-**Trigger** : prochaine session ouvre par "Refinement preparatoire Sprint 20" dans `docs/refinement/sprint-20-refinement.md`.
+A la cloture (~3/05/2026) :
+- [ ] Sitemap passe de 10 URLs a 14 URLs (+ 2 services × 2 langues) — `curl https://freshworks.whataservice.fr/sitemap.xml | grep -c "<url>"`
+- [ ] GSC : sitemap soumis, 0 erreur 24h apres deploy, screenshot dans `docs/seo/`
+- [ ] Schema Organization + Service couvrent 4 pays (FR/UK/BE/CH) — Schema.org Validator passe
+- [ ] OG image dynamique generee per route — fetch `/<route>/opengraph-image` retourne 200 + content-type image/png pour les 4 routes services + quiz + maturity + home
+- [ ] 8-10 events GA4 firing en prod apres consent (verifie en E2E + DevTools)
+- [ ] ROI Forrester calibre sur source publique citee dans le disclaimer FR+EN
+- [ ] 6 nouvelles specs Playwright passent (estimation : 61 tests E2E vs 55)
+- [ ] T16 i18n parity passe avec ~250 nouvelles cles services FR+EN
 
 ---
 
-*Sprint 19 cloture le 26/04/2026 — increment SMI complet en prod, email + CRM operationnels. Voir [demo/sprint-19.md](../demo/sprint-19.md) pour la Sprint Review complete.*
+## Pre-requis ouverts (hors S20 mais a clarifier)
+
+- [x] **Confirmation source Forrester pour US-S20-7** : ✅ acte D33 — Forrester TEI Freshworks 2024 retenu (26/04)
+- [x] **Decision D32 candidate** : ✅ acte D32 — epic **E25 "Conversion instrumentation"** ouverte (26/04). US-S20-5/6/7 rattaches a E25.
+- [ ] **HubSpot custom properties ESM** (`smi_esm_score_dim1..5`, `smi_recommended_offer`) — toujours ouvert depuis S19 cloture, a faire avant le 1er prospect ESM reel
+
+---
+
+## Decisions PO sources S20
+
+| ID | Decision | Date |
+|---|---|---|
+| D28 | Pivot Sprint Goal S20 vers SEO surface + conversion instrumentation | 26/04/2026 |
+| D29 | 2 pages services prioritaires = Freshservice + Freshdesk, FR+EN simultane | 26/04/2026 |
+| D30 | Audit SEO formel obligatoire en pre-Sprint Planning quand le Sprint Goal cible le SEO | 26/04/2026 |
+| D31 | Cluster maturite etendu (ESM + niveaux 2-5) = backlog Phase 2 (hors scope S20) | 26/04/2026 |
+| D32 | Epic **E25 "Conversion instrumentation"** ouverte — US-S20-5/6/7 rattaches | 26/04/2026 |
+| D33 | Source ROI Forrester = Forrester TEI Freshworks 2024 (US-S20-7) | 26/04/2026 |
+
+---
+
+## Reportes en S21+ (acte refinement S20)
+
+| Story | Pts | Raison report |
+|---|---|---|
+| US-23.1 — Decompose generate-pdf.ts | 2 | Refactoring lourd, valeur indirecte |
+| US-23.2 — Extract MobileMenu + useFocusTrap | 3 | Refactoring lourd, valeur a11y indirecte |
+| T20 — vitest-axe sur composants critiques quiz | 2 | A11y unit, valeur indirecte (axe-core E2E suffit court terme) |
+| T26 — checkResend health check `/emails` | 1 | Cosmetique (faux degraded), pas urgent |
+| T21 — Process : relecture editoriale PO i18n > 50 cles | 0 | Reportee comme story formelle mais appliquee de facto en S20 (pages services) |
+
+---
+
+*Sprint 20 demarre le 27/04/2026 — pivot Sprint Goal vers SEO + conversion (D28-D31). Refinement complet [ici](../refinement/sprint-20-refinement.md). 11 stories Ready, 17 pts engages, 3 pts marge.*
