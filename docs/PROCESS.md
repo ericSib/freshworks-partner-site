@@ -485,8 +485,10 @@ Attente decision PO.
 ### 7.3 · CI stages
 
 ```
-Stage 1 · Pre-commit (local, < 10s)
-  → commitlint + next lint (quiet)
+Stage 1 · Pre-commit (local, < 15s — T29/D41 acquis S21)
+  → commitlint (commit-msg)
+  → lint-staged → eslint sur fichiers stages (.husky/pre-commit step 1)
+  → tsc --noEmit sur tout le projet (.husky/pre-commit step 2, incremental)
 
 Stage 2 · PR / Merge Gate (CI, < 5min)
   → build + lint + tests + coverage ≥ 70%
@@ -494,6 +496,10 @@ Stage 2 · PR / Merge Gate (CI, < 5min)
 Stage 3 · Playwright E2E (CI, a venir — US-15.4)
   → 104 tests Playwright + axe-core
 ```
+
+**Note T29/D41** : le step `tsc --noEmit` du pre-commit utilise le mode incremental (`tsBuildInfoFile` genere via `incremental: true` dans `tsconfig.json`). Cout typique : 5-15s sur le projet. Bypass possible en urgence : `git commit --no-verify` (deja autorise pour le lint, meme philosophie).
+
+**Pourquoi pas `tsc-files` (tsc sur fichiers stages uniquement)** : un fichier non-modifie peut casser parce qu'un de ses imports a change. On execute `tsc --noEmit` sur tout le projet pour aligner avec ce que CI fait — pas de faux negatif possible.
 
 ---
 
