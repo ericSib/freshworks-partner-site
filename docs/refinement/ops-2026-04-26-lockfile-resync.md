@@ -209,7 +209,9 @@ Une fois le step `Install dependencies` debloque par le commit `c2b555e`, **2 no
 
 ### 7.2 · Decisions PO complementaires
 
-#### D37 — Test regression US-S20-1 = bug de la story livree, pas Drop S20
+> **Note renumerotation 27/04** : ces decisions etaient initialement numerotees D37/D38 mais entraient en collision avec D37/D38/D39 du refinement security-scan-2026-04-26.md (publie le meme jour, plus tot). Resolution chronologique : security-scan = D37/D38/D39, lockfile §7.2 = **D40/D41**.
+
+#### D40 — Test regression US-S20-1 = bug de la story livree, pas Drop S20
 
 **Decision** : la mise a jour des assertions E2E sur le titre relevait de la DoD de US-S20-1. Le test n'a pas ete ajuste lorsque le `<title>` a ete change dans `src/messages/{fr,en}.json` via la story. **Bug coverage** a inscrire au compte US-S20-1, pas un Drop S20 process distinct.
 
@@ -217,7 +219,7 @@ Une fois le step `Install dependencies` debloque par le commit `c2b555e`, **2 no
 
 **Action** : enrichir la DoD dans `docs/PROCESS.md` (story candidate **T28**, S21+, 0.5 pt) — ajouter checklist "tests E2E couvrant les meta/SEO touches sont mis a jour".
 
-#### D38 — TypeScript drift sur tests = trigger pour pre-commit `tsc --noEmit`
+#### D41 — TypeScript drift sur tests = trigger pour pre-commit `tsc --noEmit`
 
 **Decision** : la situation actuelle (3 fichiers tests avec erreurs TS post-bump dependances) est invisible localement tant qu'on ne lance pas `npx tsc --noEmit` explicitement (pas dans le pre-commit hook actuel, qui ne fait que `eslint --quiet`). **Ajouter `npx tsc --noEmit` au pre-commit hook (husky)** pour bloquer le drift au commit, pas en CI.
 
@@ -230,7 +232,7 @@ Une fois le step `Install dependencies` debloque par le commit `c2b555e`, **2 no
 
 #### Note sur D35 (alignement Node) — partiellement deja fait
 
-`bc7f8b5` (commit parallele session ops) a deja switche `e2e.yml` vers `node-version-file: '.nvmrc'`. OPS-S20.1 cote infra = ✅ Done. Reste juste le check des erreurs TS qui en decoule (cf D38 ci-dessus).
+`bc7f8b5` (commit parallele session ops) a deja switche `e2e.yml` vers `node-version-file: '.nvmrc'`. OPS-S20.1 cote infra = ✅ Done. Reste juste le check des erreurs TS qui en decoule (cf D41 ci-dessus).
 
 ### 7.3 · Insights complementaires pour la rétrospective S20
 
@@ -249,7 +251,7 @@ Une fois le step `Install dependencies` debloque par le commit `c2b555e`, **2 no
 
 **Try · T4-S20 — DoD enrichie sur stories SEO/meta**
 
-- **Hypothese** : si la DoD impose explicitement de lister les tests E2E qui asserent sur les meta touchees, la regression D37 ne se reproduira pas.
+- **Hypothese** : si la DoD impose explicitement de lister les tests E2E qui asserent sur les meta touchees, la regression D40 ne se reproduira pas.
 - **Mesure de succes** : 0 fail E2E sur des assertions meta/title sur les 3 prochaines stories US-S2x-* qui touchent au SEO.
 - **Story** : T28 (0.5 pt), candidate S21.
 
@@ -261,14 +263,14 @@ Une fois le step `Install dependencies` debloque par le commit `c2b555e`, **2 no
 | `ci.yml` | ❌ 5 runs rouges sur `npm ci` | 🟢 (en attente verif post-push) |
 | Erreurs TS detectees | 0 (masquees) | 11 (toutes fixees) |
 | Warnings lint | 0 (masques) | 4 (tous fixes) |
-| Pre-commit hook | `eslint --quiet` | inchange (D38 = candidate S21) |
-| Decisions PO ajoutees | D34-D36 | + D37, D38 |
+| Pre-commit hook | `eslint --quiet` | inchange (D41 = candidate S21) |
+| Decisions PO ajoutees | D34-D36 | + D40, D41 |
 | Stories S21 candidates ouvertes | OPS-S20.1 (1 pt) | + T28 (0.5 pt) + T29 (1 pt) |
 | Insights retro | D1-S20 / T1-S20 / T2-S20 | + D2-S20 / T3-S20 / T4-S20 |
 
 ---
 
-*Section 7 ajoutee le 26/04/2026 soir, post-execution du fix lockfile. Documente les 4 cascades de drift detectees une fois le blocage `npm ci` leve. 3 commits chirurgicaux livres : `ca9bb0b` (test fixtures), `b41ab07` (E2E titles), `794683e` (lint cleanup). Decisions D37-D38 actees. Stories S21 candidates : T28 (DoD SEO), T29 (pre-commit tsc).*
+*Section 7 ajoutee le 26/04/2026 soir, post-execution du fix lockfile. Documente les 4 cascades de drift detectees une fois le blocage `npm ci` leve. 3 commits chirurgicaux livres : `ca9bb0b` (test fixtures), `b41ab07` (E2E titles), `794683e` (lint cleanup). Decisions D40-D41 actees (renumerotees 27/04 pour eviter collision avec security-scan D37/D38/D39). Stories S21 candidates : T28 (DoD SEO), T29 (pre-commit tsc).*
 
 ---
 
@@ -286,7 +288,7 @@ Commit `90dde7d` `fix(test): complete useScrollReveal capturedCallback rename (r
 
 Le renommage avait ete fait via `Edit` sans `replace_all: true` ni `npx tsc --noEmit` apres edit. Le pre-commit hook actuel = `eslint --quiet` uniquement, donc le drift TS est passe au commit.
 
-**Renforce massivement D38** : si T29 (pre-commit `tsc --noEmit`) avait ete deja en place, ce commit aurait ete bloque a la source. Cette regression est l'illustration parfaite du Drop D2-S20 ("drift TS masque par 2 effets cumules") qui s'est rejoue 1h apres avoir ete documente.
+**Renforce massivement D41** : si T29 (pre-commit `tsc --noEmit`) avait ete deja en place, ce commit aurait ete bloque a la source. Cette regression est l'illustration parfaite du Drop D2-S20 ("drift TS masque par 2 effets cumules") qui s'est rejoue 1h apres avoir ete documente.
 
 **Insight retro additionnel** : la velocite intensive du sprint S20 (1 session vs 1 semaine) cumule un risque eleve de regressions de ce type. La discipline "1 commit = 1 intention" doit s'accompagner d'un "1 commit = triple-check tsc/lint/test" qui ne peut pas reposer sur la rigueur humaine — d'ou l'urgence de T29 en S21.
 
@@ -306,4 +308,4 @@ Le renommage avait ete fait via `Edit` sans `replace_all: true` ni `npx tsc --no
 
 ---
 
-*Section 8 ajoutee 27/04 (00h locale) en cloture de session. Documente la regression cascade et reinforce D38/T29 comme priorite S21. Status CI final a confirmer sur `90dde7d`.*
+*Section 8 ajoutee 27/04 (00h locale) en cloture de session. Documente la regression cascade et reinforce D41/T29 comme priorite S21. Status CI final a confirmer sur `90dde7d`.*

@@ -203,6 +203,11 @@ Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
 | 2026-04-26 | D34 | **Hotfix lockfile** — `npm install` + commit du `package-lock.json` regenere (CI rouge depuis 5 runs sur drift `@swc/helpers` next-intl transitive) | Ops emergency |
 | 2026-04-26 | D35 | **Aligner Node CI ↔ local via `.nvmrc` = Node 22 LTS** — single source of truth, workflows lisent `node-version-file: '.nvmrc'` | Process gouvernance |
 | 2026-04-26 | D36 | **Regle commit lockfile** — tout `npm install` qui modifie `package-lock.json` doit etre committe scope `chore(deps)` dans le meme push que la modif deps qui l'a declenche | Process gouvernance |
+| 2026-04-27 | D37 | **Ouverture Epic E26 "Hygiene securite hebdomadaire"** — alimentee par la tache planifiee `security--accessibility-scan`, budget ~1-2 pts/sprint en marge. Symetrique de E23 (Refactoring Radar) pour le tech debt | Backlog tech debt |
+| 2026-04-27 | D38 | **Strategie upgrade deps** — pas de `npm audit fix --force` jamais. Range bumps explicites + audit fix transitifs sans force. Rollback plan documente obligatoire (revert + `npm ci`) | Process gouvernance |
+| 2026-04-27 | D39 | **US-26.1 = hotfix immediat hors-sprint** (revision de la candidate "injection en marge S20" caduque — Sprint 20 clos avant). Vuln HIGH (Next.js DoS GHSA-q4gf-8mx6-v5v3) = exposition non negociable, livre le 27/04 sans attendre Sprint Planning S21 | Ops securite |
+| 2026-04-27 | D40 | **Regression test US-S20-1 = bug coverage de la story livree, pas Drop S20 distinct** — toute story qui modifie un texte SEO/meta DOIT lister les tests E2E qui asserent dessus dans la PR description (story T28 candidate S21) | Process gouvernance |
+| 2026-04-27 | D41 | **Pre-commit `tsc --noEmit` au husky hook** — bloque le drift TypeScript au commit (pas en CI). Cout 5-15s/commit, mitigation `--incremental` (deja active via tsconfig). Story T29 candidate S21 | Process gouvernance |
 
 ---
 
@@ -254,4 +259,4 @@ npx playwright test      # Playwright E2E (104 tests)
 
 ---
 
-*Derniere mise a jour : 26 avril 2026 · Version 2.6 (Sprint 20 cloture, D28-D36 actees — Sprint Goal 100% atteint sur 4 outcomes, 19 pts effectifs livres, lockfile + Node 22 LTS process structurel)*
+*Derniere mise a jour : 27 avril 2026 · Version 2.7 (Sprint 20 cloture + transition S21 — D37-D41 actees post-cloture : E26 ouvert, US-26.1 hotfix livre 27/04, strategie deps + DoD SEO + pre-commit tsc actes)*
