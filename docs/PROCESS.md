@@ -251,6 +251,7 @@ Inbox → Redigee → Raffinee → Ready → Committed → In Progress → In Re
 3. **Verifier l'etat reel de chaque story (T1-v2)** — pour chaque candidate, executer les tests existants et lire le code source. Si le code est deja ecrit → story ecartee immediatement. Ne jamais engager une story sans cette verification.
 4. Verifier que chaque story retenue est Ready (DoR)
 5. Decomposer en tasks techniques
+6. **Si le Sprint Planning N+1 commence par un audit formel** (D30 pattern : audit SEO, audit perf, audit a11y, audit securite quand le Sprint Goal cible ce domaine) **: reserver explicitement 1-3 pts de "audit findings buffer"** (5-15% de la capacite ~20 SP) dans le sprint pour les follow-ups que l'audit revelera post-deploy. Ces buffer pts ne sont pas alloues a une story specifique, ils sont consommes par les findings emergents (T35/D30 acquis S21, prevention pattern S20 D13 ou 2 follow-ups GSC + areaServed ont consomme ~1.5 pt hors capacite engagee).
 **Output** : `docs/backlog/sprint-current.md` mis a jour
 
 **Regle cardinale** : le Sprint Goal engage, la liste de stories est un forecast.
@@ -271,12 +272,20 @@ Inbox → Redigee → Raffinee → Ready → Committed → In Progress → In Re
 
 ### 4.3 · Sprint Review (Jour 7 — matin)
 
+**Pre-requis (T34/Drop S20 D12)** — gate strict avant demarrage Review :
+
+- [ ] **Verifier explicitement "tous les outcomes du Sprint Goal sont livres en prod ?"** (pas juste les pts livres)
+  - Si OUI → Sprint Review demarre.
+  - Si NON → CONTINUER LE SPRINT, pas de Review prematuree. Le PO peut toujours demander une demo intermediaire, mais le rituel formel "Review" reste pour quand le Sprint Goal est atteint a 100%.
+  - Rationale : la metrique "pts livres" peut tromper si les pts livres ne correspondent pas aux outcomes (ex: 8/17 pts = 47% pts mais 2/4 outcomes seulement). En S20, mid-sprint a 8/17 pts livres, le PO a demande "passe a la review" → ecriture prematuree d'un fichier `demo/sprint-20.md` qui a ete supprime apres correction. Cf. retrospective S20 Drop D12.
+
 **Sequence** :
 1. Presenter l'increment livre — demo live sur le site reel (Vercel)
 2. Comparer au Sprint Goal — atteint oui / partiellement / non ?
 3. Lister les stories livrees (Done) vs engagees (forecast)
-4. Identifier les apprentissages
-5. Recueillir le feedback du PO
+4. **Test live en navigation incognito** (T39/Keep S20 K7) : le PO valide en navigation incognito sur le site reel les principaux parcours (homepage, formulaire contact, quiz, cookie banner, pages services Tier 1+2). **Bug detecte = story bug fix immediate avant cloture du sprint** (le sprint reste ouvert tant que le bug n'est pas livre, pattern US-S20-BUG.1 ou bug RGPD critique a ete detecte par PO en visite live et fixe + livre le meme apres-midi).
+5. Identifier les apprentissages
+6. Recueillir le feedback du PO
 
 **Quality gate** : la demo doit fonctionner **sans bricolage**.
 
@@ -473,6 +482,7 @@ Attente decision PO.
 - [ ] Tests ecrits AVANT l'implementation (TDD)
 - [ ] `npm run build` passe
 - [ ] `npm run lint` — 0 erreur
+- [ ] `npx tsc --noEmit` — 0 erreur (T29/D41 acquis S21, garanti par pre-commit)
 - [ ] `npm run test` — tous les tests passent
 - [ ] Coverage ≥ 80 % sur le nouveau code
 - [ ] axe-core — 0 violation critique/serieuse (si UI)
@@ -481,6 +491,7 @@ Attente decision PO.
 - [ ] Commit conventionnel : `type(scope): description`
 - [ ] Aucun secret hardcode
 - [ ] Story fermee dans sprint-current.md
+- [ ] **Si la story modifie un texte SEO/meta** (titre `<title>`, meta description, h1, og-title, schema.org Service.name, og-image text overlay) : **lister explicitement les tests E2E** qui asserent dessus dans la PR description (ou le body du commit) **ET verifier que ces tests sont mis a jour** (T28/D40 acquis S21, prevention regression D40 vecue post-S20 sur US-S20-1)
 
 ### 7.3 · CI stages
 

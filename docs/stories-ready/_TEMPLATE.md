@@ -95,9 +95,11 @@ Alors ...
 
 - [ ] `npm run build` passe
 - [ ] `npm run lint` — 0 erreur
+- [ ] `npx tsc --noEmit` — 0 erreur (T29/D41 garanti par pre-commit)
 - [ ] `npm run test` — tous les tests passent
 - [ ] Contenu bilingue FR + EN (si UI)
 - [ ] Responsive mobile 375px + desktop 1440px (si UI)
+- [ ] **Si SEO/meta modifie** (title, meta desc, h1, og-title, schema.org) : tests E2E asserent les nouveaux textes (T28/D40)
 - [ ] Commit conventionnel : `type(scope): description`
 - [ ] Aucun secret hardcode
 
