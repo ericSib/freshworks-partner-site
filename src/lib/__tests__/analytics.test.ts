@@ -23,27 +23,9 @@ import {
 import frMessages from "@/messages/fr.json";
 import enMessages from "@/messages/en.json";
 
-// Mock localStorage
-const store: Record<string, string> = {};
-const localStorageMock = {
-  getItem: vi.fn((key: string) => store[key] ?? null),
-  setItem: vi.fn((key: string, value: string) => {
-    store[key] = value;
-  }),
-  removeItem: vi.fn((key: string) => {
-    delete store[key];
-  }),
-  clear: vi.fn(() => {
-    Object.keys(store).forEach((key) => delete store[key]);
-  }),
-  length: 0,
-  key: vi.fn(),
-};
-
-Object.defineProperty(global, "localStorage", { value: localStorageMock });
-
+// localStorage mock is provided by vitest.setup.ts (T33 / D11) — fresh
+// instance per test, no cross-file leak. We just clear gtag mocks here.
 beforeEach(() => {
-  localStorageMock.clear();
   vi.clearAllMocks();
 });
 
@@ -54,13 +36,13 @@ describe("Analytics consent (US-22.8)", () => {
 
   it("hasConsent returns true after setConsent(true)", () => {
     setConsent(true);
-    expect(store[CONSENT_KEY]).toBe("granted");
+    expect(localStorage.getItem(CONSENT_KEY)).toBe("granted");
     expect(hasConsent()).toBe(true);
   });
 
   it("hasConsent returns false after setConsent(false)", () => {
     setConsent(false);
-    expect(store[CONSENT_KEY]).toBe("denied");
+    expect(localStorage.getItem(CONSENT_KEY)).toBe("denied");
     expect(hasConsent()).toBe(false);
   });
 
@@ -100,11 +82,11 @@ describe("Analytics trackers (US-21.6)", () => {
    * covered by the "Analytics consent (US-22.8)" describe above).
    */
   function grantConsent(): void {
-    store[CONSENT_KEY] = "granted";
+    localStorage.setItem(CONSENT_KEY, "granted");
   }
 
   beforeEach(() => {
-    localStorageMock.clear();
+    // localStorage is auto-reset to a fresh mock by vitest.setup.ts (T33).
     vi.clearAllMocks();
     vi.stubGlobal("gtag", gtagMock);
     // Also mirror it onto `window` since the module reads `window.gtag`.

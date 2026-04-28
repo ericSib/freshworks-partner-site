@@ -19,39 +19,15 @@ vi.mock("next-intl", () => ({
   useTranslations: () => (key: string) => key,
 }));
 
-// Local localStorage mock (defensive: another test file uses
-// Object.defineProperty(global, "localStorage", ...) which leaks
-// across test files — install our own controlled store here).
-const store: Record<string, string> = {};
-const localStorageMock: Storage = {
-  getItem: (key) => store[key] ?? null,
-  setItem: (key, value) => {
-    store[key] = String(value);
-  },
-  removeItem: (key) => {
-    delete store[key];
-  },
-  clear: () => {
-    Object.keys(store).forEach((k) => delete store[k]);
-  },
-  key: (i) => Object.keys(store)[i] ?? null,
-  get length() {
-    return Object.keys(store).length;
-  },
-};
-Object.defineProperty(globalThis, "localStorage", {
-  value: localStorageMock,
-  configurable: true,
-});
+// localStorage mock is provided by vitest.setup.ts (T33 / D11) — fresh
+// instance per test, no cross-file leak. The previous defensive local
+// mock is no longer needed.
 
 import CookieBanner from "../CookieBanner";
 
 const CONSENT_KEY = "was-analytics-consent";
 
 describe("CookieBanner (US-S20-BUG.1)", () => {
-  beforeEach(() => {
-    Object.keys(store).forEach((k) => delete store[k]);
-  });
 
   it("renders the banner when no consent decision is stored", () => {
     render(<CookieBanner />);
