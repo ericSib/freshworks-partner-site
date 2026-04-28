@@ -712,6 +712,107 @@
           "primary": "Book my free migration audit",
           "secondary": "Back to home"
         }
+      },
+      "freddy-ai": {
+        "meta": {
+          "title": "Freddy AI Freshworks | Copilot, Autonomous Agent & Insights — Consultancy",
+          "description": "Freddy AI consulting and deployment: Copilot for agents, Autonomous Agent (34% deflection), Insights analytics. Sources BCG / Salesforce / Forrester cited. EN/FR."
+        },
+        "breadcrumbLabel": "Freddy AI",
+        "hero": {
+          "eyebrow": "Service · Freddy AI Consulting & Deployment",
+          "h1": "Freddy AI — your Freshworks copilot, agent and analyst",
+          "subtitle": "3 Freddy products (Copilot for your agents, Autonomous Agent for L1 deflection, Insights for your managers), one consultancy to deploy them rigorously. No AI hype — only quantified use cases and cited sources (BCG, Salesforce, Forrester). You test on your real use case before scaling.",
+          "ctaPrimary": "Test Freddy AI on my use case",
+          "ctaSecondary": "Assess my AI maturity",
+          "trust": "Forrester Wave™ Strong Performer ESM Q4 2025 · ITIL 4 + practical AI · 79% of CX leaders say AI agents are essential (Salesforce State of Service 2025)."
+        },
+        "problems": {
+          "title": "Your AI-in-production doubts",
+          "p1": {
+            "label": "Hallucination",
+            "title": "\"What if Freddy makes things up to my customers?\"",
+            "body": "Freddy AI Agent is grounded in YOUR knowledge base (strict RAG, no free generation). Sourced answers, near-zero hallucination rate when KB is clean. Pre-deployment KB audit included in our engagements."
+          },
+          "p2": {
+            "label": "GDPR",
+            "title": "\"My data will feed a public model\"",
+            "body": "No. Freshworks doesn't retrain its foundation models on your customer data. EU hosting available. Freshworks DPA signable. We systematically validate the data scope with your DPO before kickoff."
+          },
+          "p3": {
+            "label": "ROI",
+            "title": "\"We've seen lots of AI POCs, few in production\"",
+            "body": "BCG 2025: only 33% of organizations have scaled an AI use case. Root cause #1 = lack of operational framework. Our Observe-Plan-Act method (BCG Agentic AI Framework) bounds each deployment to a measurable use case, not an open-ended POC."
+          }
+        },
+        "approach": {
+          "title": "3 Freddy products, 3 methods",
+          "subtitle": "Each product has its use cases and pitfalls. We deploy one product at a time, on a bounded use case, with impact measurement.",
+          "step1": {
+            "title": "Freddy Copilot — L1/L2 agent assistance",
+            "body": "Contextual response suggestions, ticket summaries, email response generation. Ideal to reduce AHT (Average Handling Time) without changing the customer relationship. 2-3 week deployment, ROI measured on AHT and CSAT."
+          },
+          "step2": {
+            "title": "Freddy Agent — autonomous L1 deflection",
+            "body": "Virtual agent that resolves repetitive questions autonomously via self-service portal and chat. Freshworks Benchmark 2025: 34% of tickets deflected on average for Freshservice. 4-6 week deployment with KB audit and answer quality measurement."
+          },
+          "step3": {
+            "title": "Freddy Insights — conversational analytics",
+            "body": "Natural-language analysis of tickets and conversations: \"What are the 5 trending topics this month?\", \"Which agents perform on billing tickets?\". For supervisors and managers. 1-2 week deployment, immediate steering value."
+          },
+          "step4": {
+            "title": "Common method — Observe-Plan-Act (BCG 2025)",
+            "body": "Observe phase (1 wk: use case audit + KB), Plan phase (1 wk: bounded pilot + KPIs), Act phase (variable: deployment + measurement + iteration). Each phase has a deliverable and a PO GO/NO-GO. No production without validated pilot."
+          }
+        },
+        "benefits": {
+          "title": "The proven numbers (sources cited)",
+          "subtitle": "2025 sector insights from Freshservice Benchmark, BCG Agentic AI and Salesforce State of Service.",
+          "metric1": {
+            "value": "34%",
+            "label": "Freddy Agent deflection (Freshservice 2025)"
+          },
+          "metric2": {
+            "value": "+50%",
+            "label": "Agent productivity (BCG 2025)"
+          },
+          "metric3": {
+            "value": "+18 pts",
+            "label": "Average CSAT uplift (BCG 2025)"
+          },
+          "metric4": {
+            "value": "79%",
+            "label": "CX leaders say AI agents are essential (Salesforce 2025)"
+          },
+          "source": "Sources: Freshservice Benchmark Report 2025 (Freshworks, 32,000 organizations) + BCG Agentic AI Customer Service (Dec 2025) + Salesforce State of Service 2025 (6,500 pros, 40 countries)."
+        },
+        "pricing": {
+          "title": "How much does it cost?",
+          "subtitle": "Project fee per Freddy product (Copilot OR Agent OR Insights). No hidden subscription, no AI hype — one deployment, one bounded use case, one measured ROI.",
+          "unit": "per Freddy deployment (1 product), excluding Freshworks Pro+ licenses",
+          "note": "Scope covers KB audit, bounded pilot and 30-day measurement deployment. For 2 or 3 Freddy products in parallel, add +60 to +120%. Detailed quote within 48h after brief."
+        },
+        "faq": {
+          "title": "Frequently asked questions about Freddy AI",
+          "q1": "Do I need a Freshworks Pro license to use Freddy?",
+          "a1": "Yes — Freddy AI Copilot and Insights require Freshservice Pro or Freshdesk Pro. Freddy AI Agent requires the Freddy AI Agent add-on (billed per deflected session). We quote the full TCO (licenses + deployment + add-on) during the Observe phase.",
+          "q2": "How long does a Freddy deployment take?",
+          "a2": "Copilot: 2-3 weeks. Agent: 4-6 weeks (KB audit included). Insights: 1-2 weeks. For 3 products in parallel: 8-10 weeks with a single PO contact.",
+          "q3": "How do you measure impact?",
+          "a3": "Before deployment: 30-day baseline on target KPIs (AHT, CSAT, deflection, FCR). After deployment: 30-day measurement and iteration if needed. KPI dashboard installed on your Freshworks instance.",
+          "q4": "Which use cases do you avoid with Freddy?",
+          "a4": "Freddy Agent doesn't handle regulated tickets (HR conflict, sensitive financial, legal) — systematic escalation. Freddy Copilot doesn't generate sent emails without agent validation. Freddy Insights makes no automatic decision — analysis only for humans.",
+          "q5": "What if we've already tried a failed AI POC?",
+          "a5": "It's the most common case (BCG 2025: 67% of organizations remain in POC). We audit what failed (often: incomplete KB, missing KPIs, scope too broad) then restart with the Observe-Plan-Act method on a bounded use case. First measurable ROI in 6-8 weeks.",
+          "q6": "Do you work in English?",
+          "a6": "Yes — French and English natively. Workshops, KB audit and readouts available in both languages. Freddy AI Agent multi-language activated by default on our deployments."
+        },
+        "cta": {
+          "title": "Let's test Freddy on your use case",
+          "subtitle": "30-minute discovery call + identification of the most profitable Freddy use case for you.",
+          "primary": "Book my use case test",
+          "secondary": "Back to home"
+        }
       }
     },
     "common": {
