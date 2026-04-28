@@ -259,4 +259,4 @@ npx playwright test      # Playwright E2E (104 tests)
 
 ---
 
-*Derniere mise a jour : 27 avril 2026 · Version 2.7 (Sprint 20 cloture + transition S21 — D37-D41 actees post-cloture : E26 ouvert, US-26.1 hotfix livre 27/04, strategie deps + DoD SEO + pre-commit tsc actes)*
+*Derniere mise a jour : 28 avril 2026 · Version 2.8 (Sprint 21 cloture — Sprint Goal 100% atteint sur 4 outcomes, 9 pts engages livres + ~3 hors capacite = ~12 pts effectifs, 11 commits. Acquis structurels D37-D41 livres comme stories T28/T29/T34/T35/T39. 10 routes indexables prod vs 7 baseline.)*
