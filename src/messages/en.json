@@ -1044,6 +1044,7 @@
       "gateSubtitle": "Score by dimension, industry benchmarks, and personalized recommendations — straight to your inbox.",
       "gateUnlock": "Unlock",
       "gatePlaceholder": "your@email.pro",
+      "gateAriaLabel": "Enter your work email",
       "gateDisclaimer": "No spam. Results only.",
       "detailedTitle": "Detailed score by dimension",
       "restart": "Start over",

@@ -1044,6 +1044,7 @@
       "gateSubtitle": "Score par dimension, benchmarks sectoriels, et recommandations personnalisées — directement dans votre boîte mail.",
       "gateUnlock": "Débloquer",
       "gatePlaceholder": "votre@email.pro",
+      "gateAriaLabel": "Saisissez votre email professionnel",
       "gateDisclaimer": "Pas de spam. Résultats uniquement.",
       "detailedTitle": "Score détaillé par dimension",
       "restart": "Recommencer",

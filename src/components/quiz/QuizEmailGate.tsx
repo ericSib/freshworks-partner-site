@@ -44,6 +44,7 @@ export default function QuizEmailGate({
           value={email}
           onChange={(e) => onEmailChange(e.target.value)}
           placeholder={t("quiz.results.gatePlaceholder")}
+          aria-label={t("quiz.results.gateAriaLabel")}
           required
           className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-surface placeholder:text-slate-600 focus:outline-none focus:border-accent/40 focus:shadow-[0_0_0_3px_rgba(184,146,106,0.08)] transition-all text-sm"
         />
