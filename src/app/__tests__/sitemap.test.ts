@@ -3,14 +3,19 @@ import sitemap from "../sitemap";
 import { SITE_URL } from "@/config/site";
 
 describe("sitemap", () => {
-  it("emits 7 routes (home, services freshservice/freshdesk, quiz, maturite itsm/cx, legal)", () => {
+  it("emits 10 routes — 4 baseline + 5 services (Tier 1 + Tier 2 US-S21-1/2/3) + 2 maturite + legal", () => {
     const entries = sitemap();
-    expect(entries).toHaveLength(7);
+    expect(entries).toHaveLength(10);
 
     const urls = entries.map((e) => e.url);
     expect(urls).toContain(`${SITE_URL}/fr`);
+    // Tier 1 services (US-S20-2)
     expect(urls).toContain(`${SITE_URL}/fr/services/freshservice`);
     expect(urls).toContain(`${SITE_URL}/fr/services/freshdesk`);
+    // Tier 2 services (US-S21-1/2/3)
+    expect(urls).toContain(`${SITE_URL}/fr/services/migration`);
+    expect(urls).toContain(`${SITE_URL}/fr/services/freddy-ai`);
+    expect(urls).toContain(`${SITE_URL}/fr/services/audit-optimisation`);
     expect(urls).toContain(`${SITE_URL}/fr/quiz`);
     expect(urls).toContain(`${SITE_URL}/fr/mentions-legales`);
     expect(urls).toContain(`${SITE_URL}/fr/maturite/itsm/level-1`);

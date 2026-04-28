@@ -22,6 +22,9 @@ const LAST_MODIFIED: Record<string, string> = {
   "/maturite/cx/level-1": "2026-04-25", // maturity CX lvl1 — refonte SMI
   "/services/freshservice": "2026-04-26", // service detail page — US-S20-2
   "/services/freshdesk": "2026-04-26", // service detail page — US-S20-2
+  "/services/audit-optimisation": "2026-04-28", // service detail page — US-S21-3
+  "/services/migration": "2026-04-28", // service detail page — US-S21-1
+  "/services/freddy-ai": "2026-04-28", // service detail page — US-S21-2
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -52,8 +55,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     bilingualEntry("", 1.0, "weekly"),
+    // Tier 1 services (US-S20-2)
     bilingualEntry("/services/freshservice", 0.9, "monthly"),
     bilingualEntry("/services/freshdesk", 0.9, "monthly"),
+    // Tier 2 services (US-S21-1/2/3)
+    bilingualEntry("/services/migration", 0.85, "monthly"),
+    bilingualEntry("/services/freddy-ai", 0.85, "monthly"),
+    bilingualEntry("/services/audit-optimisation", 0.85, "monthly"),
     bilingualEntry("/quiz", 0.9, "monthly"),
     bilingualEntry("/maturite/itsm/level-1", 0.8, "monthly"),
     bilingualEntry("/maturite/cx/level-1", 0.8, "monthly"),
