@@ -6,7 +6,12 @@ import { CALENDLY_URL } from "@/config/site";
 import { trackCalendlyOpened, trackCtaHero } from "@/lib/analytics";
 
 interface ServicePageContentProps {
-  slug: "freshservice" | "freshdesk";
+  slug:
+    | "freshservice"
+    | "freshdesk"
+    | "migration"
+    | "freddy-ai"
+    | "audit-optimisation";
   priceFrom: number;
   locale: string;
 }
@@ -164,7 +169,7 @@ export default function ServicePageContent({
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs text-slate-500 italic">
+          <p className="mt-6 text-xs text-slate-400 italic">
             {t("benefits.source")}
           </p>
         </div>
@@ -185,7 +190,7 @@ export default function ServicePageContent({
               {priceFormatter.format(priceFrom)}
             </p>
             <p className="text-sm text-slate-400">{t("pricing.unit")}</p>
-            <p className="mt-4 text-xs text-slate-500 max-w-xs">
+            <p className="mt-4 text-xs text-slate-400 max-w-xs">
               {t("pricing.note")}
             </p>
           </div>
