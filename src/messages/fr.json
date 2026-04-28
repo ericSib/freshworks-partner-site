@@ -611,6 +611,107 @@
           "primary": "Réserver mon appel découverte",
           "secondary": "Retour à l'accueil"
         }
+      },
+      "migration": {
+        "meta": {
+          "title": "Migration ServiceNow vers Freshworks | Sans perte d'historique, sans downtime",
+          "description": "Migration ServiceNow → Freshservice / Freshdesk en 6 à 8 semaines. Zéro perte de données, retour arrière documenté. Forrester Wave ESM Q4 2025 Strong Performer. FR/EN."
+        },
+        "breadcrumbLabel": "Migration ServiceNow",
+        "hero": {
+          "eyebrow": "Service · Migration ServiceNow → Freshworks",
+          "h1": "Migrer de ServiceNow vers Freshworks — sans casser votre opérationnel",
+          "subtitle": "12+ ans de customisation ServiceNow, des workflows critiques, une équipe IT déjà en charge : la migration paraît impossible. Notre méthode 4 étapes garantit zéro perte d'historique, zéro downtime planifié, et un retour arrière documenté à chaque jalon. Une migration réussie économise 500 K€+ de TCO sur 3 ans.",
+          "ctaPrimary": "Réserver un audit migration gratuit",
+          "ctaSecondary": "Évaluer ma maturité d'abord",
+          "trust": "Forrester Wave™ Strong Performer ESM Q4 2025 · ITIL 4 + PRINCE2 · Méthode appliquée chez ETI 200-2 000 collaborateurs avec ServiceNow legacy."
+        },
+        "problems": {
+          "title": "Vos doutes — qu'on a tous entendus",
+          "p1": {
+            "label": "Historique",
+            "title": "« On va perdre 5 ans de tickets et de connaissance »",
+            "body": "C'est le risque numéro un cité par les DSI. Nos migrations préservent 100 % de l'historique — tickets, change requests, problem records, base de connaissances, CMDB. Mapping 1-pour-1 documenté avant tout transfert."
+          },
+          "p2": {
+            "label": "Downtime",
+            "title": "« On ne peut pas se permettre une coupure de service »",
+            "body": "Migration incrémentale, pas big-bang. Bascule progressive par périmètre (incident management → change → request fulfillment → knowledge). Aucune fenêtre de downtime planifiée. Plan de rollback validé à chaque jalon."
+          },
+          "p3": {
+            "label": "Workflows",
+            "title": "« Nos 200 business rules ServiceNow ne tiendront jamais dans Freshservice »",
+            "body": "Audit préalable de la complexité réelle (pas la perçue) : 80 % des règles ServiceNow ETI sont obsolètes ou redondantes. Les 20 % critiques sont traduites en workflows Freshservice ou en Freddy AI. Vous y gagnez en simplicité ET en performance."
+          }
+        },
+        "approach": {
+          "title": "Notre méthode en 4 étapes",
+          "subtitle": "6 à 8 semaines en moyenne, jalonnage strict, validation PO à chaque étape. Pas de surprise, pas de scope creep.",
+          "step1": {
+            "title": "Étape 1 — Audit & due diligence (1-2 sem)",
+            "body": "Inventaire exhaustif : tables ServiceNow, business rules, scripts client/server, intégrations, base de connaissances, CMDB. Analyse complexité réelle, identification des chantiers obsolètes à abandonner. Livrable : plan de migration chiffré + roadmap rollback."
+          },
+          "step2": {
+            "title": "Étape 2 — Mapping & transformation (2-3 sem)",
+            "body": "Mapping 1-pour-1 des objets ServiceNow → Freshservice / Freshdesk. Traduction des business rules en workflows Freshworks ou Freddy AI. Transformation des données (tickets, CMDB items, articles KB) avec validation PO. Tests unitaires sur sandbox."
+          },
+          "step3": {
+            "title": "Étape 3 — Migration incrémentale & validation (2 sem)",
+            "body": "Bascule progressive par module (incident → change → request → knowledge). Tests de non-régression à chaque jalon. Formation équipes en parallèle. Acceptance tests utilisateurs avant chaque GO-LIVE module. Rollback documenté disponible 48 h après bascule."
+          },
+          "step4": {
+            "title": "Étape 4 — Stabilisation & transfert (1 sem)",
+            "body": "Hyper-care 5 jours post-migration complète. Documentation runbook bilingue. Formation administrateurs et superviseurs. Transfert de la maintenance à votre équipe IT — vous n'êtes pas dépendant de WaS pour les évolutions futures."
+          }
+        },
+        "benefits": {
+          "title": "Ce que vous gagnez",
+          "subtitle": "Benchmarks Forrester TEI Freshworks 2024 + retours d'expérience consulting WaS sur projets ServiceNow → Freshworks.",
+          "metric1": {
+            "value": "500 K€",
+            "label": "Économies TCO 3 ans (médiane)"
+          },
+          "metric2": {
+            "value": "100 %",
+            "label": "Historique préservé"
+          },
+          "metric3": {
+            "value": "0",
+            "label": "Downtime planifié"
+          },
+          "metric4": {
+            "value": "6-8 sem",
+            "label": "Du kickoff au GO-LIVE complet"
+          },
+          "source": "Sources : Forrester TEI Freshworks 2024 (étude ROI sur 4 ans, 6 entreprises ETI) + Forrester Wave™ ESM Q4 2025 (Freshworks Strong Performer) + retours d'expérience consultants WaS."
+        },
+        "pricing": {
+          "title": "Combien ça coûte ?",
+          "subtitle": "Forfait projet basé sur le scope défini en kickoff (volumétrie tickets, complexité business rules, intégrations). Pas d'abonnement caché.",
+          "unit": "par migration, hors licences Freshworks",
+          "note": "Le chiffrage final dépend de la volumétrie historique (< 50 K tickets, 50-500 K, > 500 K), du nombre d'intégrations et de la complexité CMDB. Devis détaillé sous 5 jours après audit gratuit."
+        },
+        "faq": {
+          "title": "Questions fréquentes sur la migration ServiceNow → Freshworks",
+          "q1": "Combien de temps pour migrer ?",
+          "a1": "6 à 8 semaines en médiane pour une organisation 200-1 000 collaborateurs avec un volume historique 50-500 K tickets. Au-delà de 500 K tickets ou si vous avez plus de 5 intégrations critiques, comptez 10 à 12 semaines.",
+          "q2": "Vraiment zéro perte de données ?",
+          "a2": "Oui. Mapping 1-pour-1 documenté avant tout transfert. Validation PO à chaque jalon. Réconciliation post-migration sur échantillon 1 % aléatoire. En cas de discrepancy détectée (rare), retour arrière 48 h disponible et re-transfert ciblé.",
+          "q3": "Qu'est-ce qu'on garde de ServiceNow ?",
+          "a3": "100 % de l'historique tickets, change requests, problem records, articles KB, CMDB items, organisations / contacts / users. Les 200 business rules ServiceNow typiques sont auditées : 80 % obsolètes ou redondantes (abandon assumé), 20 % critiques traduites en workflows Freshservice ou en Freddy AI Agent.",
+          "q4": "Et nos intégrations existantes (LDAP, monitoring, ITAM) ?",
+          "a4": "Audit préalable des intégrations actives (souvent 60 % sont obsolètes). Les intégrations critiques sont reconstruites avec les connecteurs natifs Freshworks (Azure AD, Okta, Datadog, Jamf, Intune, ServiceNow legacy en lecture seule pour transition douce, etc.) ou via Workato / Zapier si besoin.",
+          "q5": "Quel ROI attendre ?",
+          "a5": "Selon Forrester TEI 2024 (étude sur 6 ETI), la médiane de TCO économisé sur 3 ans est de 500 K€ (licences ServiceNow Pro vs Freshservice Pro), plus 30-40 % d'économie sur la maintenance interne (configuration plus simple, moins de scripts custom).",
+          "q6": "Pourquoi pas un partenaire ServiceNow plutôt qu'un cabinet indépendant ?",
+          "a6": "Un partenaire ServiceNow n'a aucune incitation à vous faire migrer ailleurs (logique commerciale). Notre indépendance permet une analyse honnête de votre legacy + une recommandation neutre Freshservice ou Freshdesk selon vos use cases réels. Pas de revente de licences chez WaS — on est rémunéré sur le conseil et la mise en œuvre."
+        },
+        "cta": {
+          "title": "Lançons votre audit migration",
+          "subtitle": "30 minutes d'appel découverte + audit migration gratuit (2 jours) avec plan de migration chiffré.",
+          "primary": "Réserver mon audit migration gratuit",
+          "secondary": "Retour à l'accueil"
+        }
       }
     },
     "common": {

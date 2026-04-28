@@ -611,6 +611,107 @@
           "primary": "Book my discovery call",
           "secondary": "Back to home"
         }
+      },
+      "migration": {
+        "meta": {
+          "title": "ServiceNow to Freshworks Migration | No history loss, no downtime",
+          "description": "ServiceNow → Freshservice / Freshdesk migration in 6-8 weeks. Zero data loss, documented rollback at every milestone. Forrester Wave ESM Q4 2025 Strong Performer. EN/FR."
+        },
+        "breadcrumbLabel": "ServiceNow Migration",
+        "hero": {
+          "eyebrow": "Service · ServiceNow → Freshworks Migration",
+          "h1": "Migrate from ServiceNow to Freshworks — without breaking your operations",
+          "subtitle": "12+ years of ServiceNow customization, critical workflows, an already-stretched IT team: migration looks impossible. Our 4-step method guarantees zero history loss, zero planned downtime, and a documented rollback at every milestone. A successful migration saves €500K+ in 3-year TCO.",
+          "ctaPrimary": "Book a free migration audit",
+          "ctaSecondary": "Assess my maturity first",
+          "trust": "Forrester Wave™ Strong Performer ESM Q4 2025 · ITIL 4 + PRINCE2 · Method applied at mid-market organizations 200-2,000 employees with ServiceNow legacy."
+        },
+        "problems": {
+          "title": "Your doubts — we've heard them all",
+          "p1": {
+            "label": "History",
+            "title": "\"We'll lose 5 years of tickets and tribal knowledge\"",
+            "body": "It's the #1 risk cited by CIOs. Our migrations preserve 100% of history — tickets, change requests, problem records, knowledge base, CMDB. 1-to-1 mapping documented before any transfer."
+          },
+          "p2": {
+            "label": "Downtime",
+            "title": "\"We can't afford a service outage\"",
+            "body": "Incremental migration, not big-bang. Progressive cutover by scope (incident management → change → request fulfillment → knowledge). Zero planned downtime window. Rollback plan validated at every milestone."
+          },
+          "p3": {
+            "label": "Workflows",
+            "title": "\"Our 200 ServiceNow business rules will never fit in Freshservice\"",
+            "body": "Pre-audit of real (vs. perceived) complexity: 80% of mid-market ServiceNow rules are obsolete or redundant. The 20% critical ones are translated into Freshservice workflows or Freddy AI. You gain in simplicity AND performance."
+          }
+        },
+        "approach": {
+          "title": "Our 4-step method",
+          "subtitle": "6-8 weeks on average, strict milestoning, PO sign-off at each step. No surprises, no scope creep.",
+          "step1": {
+            "title": "Step 1 — Audit & due diligence (1-2 weeks)",
+            "body": "Full inventory: ServiceNow tables, business rules, client/server scripts, integrations, knowledge base, CMDB. Real complexity analysis, identification of obsolete projects to drop. Deliverable: costed migration plan + rollback roadmap."
+          },
+          "step2": {
+            "title": "Step 2 — Mapping & transformation (2-3 weeks)",
+            "body": "1-to-1 mapping of ServiceNow objects → Freshservice / Freshdesk. Translation of business rules into Freshworks workflows or Freddy AI. Data transformation (tickets, CMDB items, KB articles) with PO validation. Sandbox unit tests."
+          },
+          "step3": {
+            "title": "Step 3 — Incremental migration & validation (2 weeks)",
+            "body": "Progressive cutover by module (incident → change → request → knowledge). Non-regression tests at each milestone. Parallel team training. User acceptance tests before each module GO-LIVE. Rollback documented and available 48h after cutover."
+          },
+          "step4": {
+            "title": "Step 4 — Stabilization & handover (1 week)",
+            "body": "5-day hyper-care post-complete migration. Bilingual runbook documentation. Admin and supervisor training. Maintenance handover to your IT team — you're not dependent on WaS for future evolutions."
+          }
+        },
+        "benefits": {
+          "title": "What you gain",
+          "subtitle": "Benchmarks Forrester TEI Freshworks 2024 + WaS consulting feedback on ServiceNow → Freshworks projects.",
+          "metric1": {
+            "value": "€500K",
+            "label": "3-year TCO savings (median)"
+          },
+          "metric2": {
+            "value": "100%",
+            "label": "History preserved"
+          },
+          "metric3": {
+            "value": "0",
+            "label": "Planned downtime"
+          },
+          "metric4": {
+            "value": "6-8 wk",
+            "label": "From kickoff to full GO-LIVE"
+          },
+          "source": "Sources: Forrester TEI Freshworks 2024 (4-year ROI study, 6 mid-market organizations) + Forrester Wave™ ESM Q4 2025 (Freshworks Strong Performer) + WaS consulting feedback."
+        },
+        "pricing": {
+          "title": "How much does it cost?",
+          "subtitle": "Project fee based on the scope defined at kickoff (ticket volume, business rules complexity, integrations). No hidden subscription.",
+          "unit": "per migration, excluding Freshworks licenses",
+          "note": "Final price depends on history volume (< 50K tickets, 50-500K, > 500K), number of integrations and CMDB complexity. Detailed quote within 5 days after free audit."
+        },
+        "faq": {
+          "title": "Frequently asked questions about ServiceNow → Freshworks migration",
+          "q1": "How long does it take?",
+          "a1": "6-8 weeks median for an organization 200-1,000 employees with 50-500K ticket history volume. Beyond 500K tickets or if you have more than 5 critical integrations, expect 10-12 weeks.",
+          "q2": "Really zero data loss?",
+          "a2": "Yes. 1-to-1 mapping documented before any transfer. PO validation at every milestone. Post-migration reconciliation on 1% random sample. If discrepancy detected (rare), 48h rollback available and targeted re-transfer.",
+          "q3": "What do we keep from ServiceNow?",
+          "a3": "100% of ticket history, change requests, problem records, KB articles, CMDB items, organizations/contacts/users. The typical 200 ServiceNow business rules are audited: 80% obsolete or redundant (drop assumed), 20% critical translated into Freshservice workflows or Freddy AI Agent.",
+          "q4": "And our existing integrations (LDAP, monitoring, ITAM)?",
+          "a4": "Pre-audit of active integrations (often 60% obsolete). Critical integrations are rebuilt with native Freshworks connectors (Azure AD, Okta, Datadog, Jamf, Intune, ServiceNow legacy in read-only for soft transition, etc.) or via Workato / Zapier if needed.",
+          "q5": "What ROI to expect?",
+          "a5": "According to Forrester TEI 2024 (study on 6 mid-market organizations), median 3-year TCO savings is €500K (ServiceNow Pro vs Freshservice Pro licenses), plus 30-40% savings on internal maintenance (simpler configuration, fewer custom scripts).",
+          "q6": "Why not a ServiceNow partner rather than an independent consultancy?",
+          "a6": "A ServiceNow partner has no incentive to migrate you elsewhere (commercial logic). Our independence allows an honest analysis of your legacy + a neutral recommendation Freshservice or Freshdesk based on your real use cases. WaS doesn't resell licenses — we're paid on consulting and implementation."
+        },
+        "cta": {
+          "title": "Let's launch your migration audit",
+          "subtitle": "30-minute discovery call + free migration audit (2 days) with costed migration plan.",
+          "primary": "Book my free migration audit",
+          "secondary": "Back to home"
+        }
       }
     },
     "common": {
