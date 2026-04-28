@@ -510,6 +510,107 @@
           "primary": "Réserver mon appel découverte",
           "secondary": "Retour à l'accueil"
         }
+      },
+      "audit-optimisation": {
+        "meta": {
+          "title": "Audit Freshservice & Optimisation Freshdesk Freshworks | Health Check 2 semaines",
+          "description": "Audit complet Freshservice et Freshdesk en 2 semaines : rapport actionnable, roadmap chiffrée, quick wins identifiés. Cabinet ITIL 4 indépendant. FR/EN."
+        },
+        "breadcrumbLabel": "Audit & Optimisation",
+        "hero": {
+          "eyebrow": "Service · Health Check 2 semaines",
+          "h1": "Audit & Optimisation Freshworks — votre Health Check en 2 semaines",
+          "subtitle": "Vous avez Freshservice ou Freshdesk déployé depuis 6 mois et vous savez qu'il sous-performe. En 2 semaines, on objective les écarts, on chiffre les quick wins et on livre une roadmap actionnable. Pas de PowerPoint creux — un plan que vos équipes exécutent dès la semaine 3.",
+          "ctaPrimary": "Lancer mon Health Check (devis 24h)",
+          "ctaSecondary": "Évaluer ma maturité d'abord",
+          "trust": "Cabinet indépendant ITIL 4 + Forrester Strong Performer ESM 2025 · Méthodologie testée sur Freshservice + Freshdesk · Livrable garanti sous 14 jours."
+        },
+        "problems": {
+          "title": "Vos symptômes typiques",
+          "p1": {
+            "label": "Adoption",
+            "title": "Outil déployé, équipes qui contournent encore",
+            "body": "Tickets traités hors-ticketing (mail, Teams, post-it). Le portail self-service n'est pas adopté. Vous sentez que le ROI Freshworks n'est pas atteint mais sans diagnostic objectif, impossible d'arbitrer."
+          },
+          "p2": {
+            "label": "Workflows",
+            "title": "Configuration figée à l'installation, jamais re-tunée",
+            "body": "Les SLAs ne reflètent plus vos engagements 2026. Les automatisations couvrent 30 % de ce qu'elles pourraient. Vous ne savez pas quels workflows réécrire en priorité ni avec quel impact attendu."
+          },
+          "p3": {
+            "label": "KPIs",
+            "title": "Pas de tableau de bord, donc pas de pilotage",
+            "body": "Vous ne pouvez pas répondre à 'quel est notre FCR ?' ou 'combien Freddy déflecte vraiment ?' parce que les rapports natifs ne sont pas configurés. Décider sans donnée, c'est décider mal."
+          }
+        },
+        "approach": {
+          "title": "Notre méthode Health Check en 4 étapes",
+          "subtitle": "2 semaines bornées — Discovery, Diagnostic, Recommandations, Roadmap. Livrables datés, pas de scope creep.",
+          "step1": {
+            "title": "J1-J3 — Discovery",
+            "body": "Workshops avec PO, agents, superviseurs, équipe IT. Audit de la configuration courante (workflows, SLAs, automatisations, intégrations, base de connaissances, Freddy AI). Récupération des données KPI 6 derniers mois."
+          },
+          "step2": {
+            "title": "J4-J7 — Diagnostic",
+            "body": "Analyse des écarts vs Freshworks Benchmark 2025 (FCR, CSAT, déflexion, MTTR). Identification des 10 quick wins (< 2 jours d'effort) et des 5 chantiers structurels (1 à 4 semaines). Chiffrage du gain attendu pour chacun."
+          },
+          "step3": {
+            "title": "J8-J10 — Recommandations",
+            "body": "Restitution exécutive (DSI/COMEX) + restitution opérationnelle (équipes). Document de 30 pages avec captures d'écran annotées, scripts d'automatisation prêts à déployer, checklists ITIL 4."
+          },
+          "step4": {
+            "title": "J11-J14 — Roadmap & transfert",
+            "body": "Roadmap 6 mois priorisée WSJF (effort × impact). Coaching de votre équipe sur les 3 quick wins les plus rapides. Tableau de bord KPI installé. Vous repartez autonome."
+          }
+        },
+        "benefits": {
+          "title": "Ce que vous obtenez en 2 semaines",
+          "subtitle": "Benchmarks Freshservice Benchmark 2025 (32 000 entreprises) + diagnostic terrain consultant.",
+          "metric1": {
+            "value": "10",
+            "label": "Quick wins chiffrés"
+          },
+          "metric2": {
+            "value": "5",
+            "label": "Chantiers structurels priorisés"
+          },
+          "metric3": {
+            "value": "30",
+            "label": "Pages livrable actionnable"
+          },
+          "metric4": {
+            "value": "14j",
+            "label": "Du kickoff à la roadmap"
+          },
+          "source": "Sources : Freshservice Benchmark Report 2025 (Freshworks, 32 000 entreprises) + référentiel ITIL 4 Foundation + méthodologie WSJF (SAFe)."
+        },
+        "pricing": {
+          "title": "Combien ça coûte ?",
+          "subtitle": "Forfait Health Check fixe, calibré selon le scope (1 produit Freshworks ou les 2). Pas d'abonnement, pas de surprise.",
+          "unit": "par Health Check 2 semaines, hors licences Freshworks",
+          "note": "Le prix de référence couvre 1 produit Freshworks (Freshservice OU Freshdesk). Pour un audit conjoint des 2 produits, comptez +50 %. Devis détaillé sous 24 h après brief."
+        },
+        "faq": {
+          "title": "Questions fréquentes sur le Health Check",
+          "q1": "Pourquoi 2 semaines et pas 1 mois ?",
+          "a1": "Au-delà de 2 semaines, le Health Check perd son rythme et entre en concurrence avec votre roadmap projet. 14 jours bornés forcent la priorisation et garantissent une livraison actionnable rapidement.",
+          "q2": "Quels Freshworks couvrez-vous ?",
+          "a2": "Freshservice (ITSM, ITAM, ESM) et Freshdesk (CX omnicanal). Pour Freshchat et Freshcaller, audit possible mais plus court (1 semaine, devis sur mesure). Freshmarketer et Freshsales hors scope.",
+          "q3": "Que faut-il préparer côté équipe ?",
+          "a3": "Accès lecture Freshworks (rôle Observer suffit), exports KPI 6 mois (CSAT, FCR, MTTR, volume tickets), disponibilité 4-6h des PO/superviseurs sur les 3 premiers jours, 1 sponsor décisionnaire pour la restitution exécutive.",
+          "q4": "Que comprend le livrable final ?",
+          "a4": "Document Word 30 pages : diagnostic chiffré + 10 quick wins (chacun avec effort, impact, script si pertinent) + 5 chantiers structurels avec roadmap WSJF + tableau de bord KPI préinstallé sur votre instance + 1 session de coaching 2h.",
+          "q5": "Travaillez-vous en anglais ?",
+          "a5": "Oui — FR et EN nativement. Workshops, restitution et livrable disponibles dans les 2 langues. Pertinent pour les ETI avec filiales UK/Irlande/Belgique/Suisse.",
+          "q6": "Et après le Health Check ?",
+          "a6": "Vous avez le choix : (1) implémenter en autonomie via la roadmap fournie, (2) déléguer 1 ou 2 chantiers structurels à WaS sur devis projet, (3) souscrire à un Managed Service mensuel pour pilotage continu. Aucun engagement implicite — vous décidez."
+        },
+        "cta": {
+          "title": "Lançons votre Health Check",
+          "subtitle": "30 minutes d'appel découverte. Devis et planning de Health Check sous 24 h.",
+          "primary": "Réserver mon appel découverte",
+          "secondary": "Retour à l'accueil"
+        }
       }
     },
     "common": {

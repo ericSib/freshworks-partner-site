@@ -8,28 +8,44 @@ import ServicePageContent from "@/components/sections/ServicePageContent";
 import JsonLd from "@/components/seo/JsonLd";
 
 /**
- * Dedicated service pages (US-S20-2, D29).
+ * Dedicated service pages.
  *
- * Two services prioritized for S20 — selected by SEO keyword volume on
- * the FR market (audit 26/04) :
+ * Tier 1 (US-S20-2, D29) — selected by SEO keyword volume on the FR
+ * market (audit 26/04) :
  *   - freshservice  → "consultant Freshservice France"  (~50-150 vol/mo)
  *   - freshdesk     → "consultant Freshdesk France"     (~30-80 vol/mo)
  *
- * Other 6 offers (cx-esm-transformation, migration, freddy-ai,
- * esm-sprints, audit-optimisation, managed-excellence) are backlog
- * S21+ — high marketing value but lower direct-search intent.
+ * Tier 2 (US-S21-1/2/3, decomposition T37) — extension SEO Sprint 21 :
+ *   - migration            → "migration ServiceNow Freshworks"  (~30-100 vol/mo)
+ *   - freddy-ai            → "Freddy AI Freshworks consultant"  (~20-50 vol/mo)
+ *   - audit-optimisation   → "audit Freshservice / optimisation Freshdesk" (~50-150 vol/mo)
+ *
+ * Other 3 offers (cx-esm-transformation, esm-sprints, managed-excellence)
+ * remain backlog S22+ — lower direct-search intent.
  */
-const VALID_SLUGS = ["freshservice", "freshdesk"] as const;
+const VALID_SLUGS = [
+  "freshservice",
+  "freshdesk",
+  "migration",
+  "freddy-ai",
+  "audit-optimisation",
+] as const;
 type ServiceSlug = (typeof VALID_SLUGS)[number];
 
 const SERVICE_PRICE_FROM: Record<ServiceSlug, number> = {
   freshservice: 5_000,
   freshdesk: 4_000,
+  migration: 12_000,
+  "freddy-ai": 8_000,
+  "audit-optimisation": 6_000,
 };
 
 const SERVICE_TYPE: Record<ServiceSlug, string> = {
   freshservice: "ITSM Consulting",
   freshdesk: "Customer Service Consulting",
+  migration: "Migration Consulting",
+  "freddy-ai": "AI Consulting",
+  "audit-optimisation": "Audit & Optimization Consulting",
 };
 
 type Props = {
