@@ -60,19 +60,20 @@
 
 **Sous-total Bloc 3 : 2 / 2 pts livres**
 
-## Hors capacite — follow-ups & hotfixes (~3 pts effort)
+## Hors capacite — follow-ups & hotfixes (~4 pts effort)
 
 | ID | Titre | Pts effort | Priorite | Statut | Commit |
 |---|---|---|---|---|---|
 | **US-26.1** | Hotfix vuln HIGH next 16.2.4 + next-intl 4.9.1 (D39 hors-sprint immediat) | 2 | P0 | 🟢 Done | [3f9c682](https://github.com/ericSib/freshworks-partner-site/commit/3f9c682) |
 | **Bonus a11y** | Fix pre-existant `text-slate-500` → `400` ServicePageContent.tsx (decouvert pendant US-S21-3) | 0.5 | Should | 🟢 Done | [c83d8e3](https://github.com/ericSib/freshworks-partner-site/commit/c83d8e3) |
 | **Audit findings T35** | Sitemap.ts manquait 3 routes Tier 2 — fix + test update | 0.5 | Must | 🟢 Done | [098fd7a](https://github.com/ericSib/freshworks-partner-site/commit/098fd7a) |
+| **T40 livre en avance** | Test E2E sitemap hreflang FR/EN/x-default (initialement liste Try S22, livre en S21 suite a question PO 28/04 sur visibilite hreflang) | 1 | Should | 🟢 Done | [cfbde0a](https://github.com/ericSib/freshworks-partner-site/commit/cfbde0a) |
 
-**Sous-total hors capacite : ~3 pts effort livres (consommation buffer T35 = ~30%)**
+**Sous-total hors capacite : ~4 pts effort livres (consommation buffer T35 = ~40%)**
 
 ---
 
-## Total Sprint 21 : 9 / 9 pts engages livres + ~3 pts hors capacite = **~12 pts effectifs livres**
+## Total Sprint 21 : 9 / 9 pts engages livres + ~4 pts hors capacite = **~13 pts effectifs livres**
 
 **Sprint Goal** : 🟢 **ATTEINT — 4 outcomes / 4 livres en prod** :
 1. ✅ Surface SEO indexable étendue de 7 à 10 routes
@@ -116,6 +117,7 @@ Velocite atypique reproduite (S19 + S20 + S21 = pattern recurrent). T36/T42 cali
 
 - [ ] **HubSpot custom properties ESM** (`smi_esm_score_dim1..5`, `smi_recommended_offer`) — toujours ouvert depuis S19, Q4 PO acte report jusqu'au 1er prospect ESM reel
 - [ ] **T39 navigation incognito** par PO — recommande sur les 6 nouvelles routes services + funnel quiz pour valider US-26.2 avec screen reader (VoiceOver/NVDA)
+- [ ] **Indexation Google** — diagnostic 28/04 : 0 page indexee (site:freshworks.whataservice.fr = 0 resultat). Cause principale = age domaine (3 jours en prod, delai typique 4j-4sem). Actions PO recommandees : GSC > Inspection URL "Demander indexation" sur les 10 routes prioritaires + verifier statut sitemap dans GSC > Sitemaps + investiguer header `cache-control: private, no-cache, no-store` etrange sur les pages services (potentiel ralentisseur de re-crawl, probablement lie a next-intl middleware — story candidate S22 ~1 pt)
 
 ---
 
@@ -146,14 +148,15 @@ Aucune nouvelle decision structurelle (D42+) ouverte pendant S21 — les 5 arbit
 
 ## Trys retro S21 (entrees Sprint 22)
 
-- T40 (1 pt) — Test E2E asserte sitemap.xml contient toutes les routes actives
+- ~~T40 (1 pt) — Test E2E asserte sitemap.xml contient toutes les routes actives~~ ✅ **livre en S21 (cfbde0a)** suite a question PO 28/04
 - T41 (1 pt) — Refactor sitemap.ts pour boucler sur VALID_SLUGS (source unique verite)
-- T42 (1 pt) — Calibrage capacite Claude Code (T36 reporte de S20)
+- T42 (1 pt) — Calibrage capacite Claude Code (T36 reporte de S20) — **obligatoire S22 Bloc 1**
 - T43 (1 pt) — Specs E2E retroactives sur freshservice + freshdesk (combler dette S20)
 - T44 (0 pt) — Estimation i18n basee sur volume cles (process)
 - T45 (0 pt) — Promotion T29 au statut acquis structurel CLAUDE.md (process)
 - T46 (5 pts) — Pages services Tier 3 (3 pages restantes catalogue)
 - T47 (1 pt) — Runbook hotfix-procedure.md avec etape "verify Vercel preview"
+- **T48** (1 pt) — Investiguer header `cache-control: private, no-cache, no-store` sur pages services (impact crawl Google) + runbook indexation GSC (`docs/runbooks/seo-indexation-checklist.md`)
 
 ---
 
@@ -168,4 +171,4 @@ Aucune nouvelle decision structurelle (D42+) ouverte pendant S21 — les 5 arbit
 
 ---
 
-*Sprint 21 cloture le 28/04/2026 — Sprint Goal 100% atteint, ~12 pts effectifs livres en 1 session intensive (vs cadence 1 semaine). 11 commits livres (3f9c682 → 098fd7a). Voir [demo/sprint-21.md](../demo/sprint-21.md) pour la Sprint Review complete et [retro/sprint-21-retro.md](../retro/sprint-21-retro.md) pour les Keep/Drop/Try.*
+*Sprint 21 cloture definitivement le 29/04/2026 — Sprint Goal 100% atteint, ~13 pts effectifs livres (9 engages + ~4 hors capacite incl. T40 livre en avance suite a question PO sur visibilite sitemap hreflang). 13 commits livres (3f9c682 → cfbde0a). Voir [demo/sprint-21.md](../demo/sprint-21.md) pour la Sprint Review complete et [retro/sprint-21-retro.md](../retro/sprint-21-retro.md) pour les Keep/Drop/Try.*

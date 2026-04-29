@@ -72,11 +72,11 @@
 
 ## TRY — entrées Sprint 22
 
-### T40 · Test E2E asserte sitemap.xml contient toutes les routes actives
+### T40 · Test E2E asserte sitemap.xml contient toutes les routes actives — ✅ **LIVRE EN S21 (cfbde0a)**
 - **Quoi** : ajouter `tests/e2e/sitemap.spec.ts` qui demande `/sitemap.xml`, parse le XML, et asserte que chaque slug de `VALID_SLUGS` du fichier `[slug]/page.tsx` est présent dans le sitemap.
-- **Pourquoi** : Drop S21 D15 — éviter de re-laisser un slug livré sans entrée sitemap. Test bloque le merge si oubli.
+- **Pourquoi** : Drop S21 D15 — éviter de re-laisser un slug livré sans entrée sitemap. Test bloque le merge si oubli. **Bonus** : suite question PO 28/04 sur la lisibilité du sitemap (les `<loc>` ne montrent que FR, les EN sont dans `<xhtml:link rel=alternate>`), le test renforce la confiance en pinnant 5 contrats : XML valide + 3 hreflang/entry + EN miroite FR + x-default = FR canonical + smoke 3 URLs EN 200.
 - **Estimation** : 1 pt.
-- **Sprint cible** : S22.
+- **Sprint cible** : S22 → ~~tire en S21~~ ✅ livre commit cfbde0a (29/04, 5/5 tests pass).
 
 ### T41 · Refactor sitemap.ts pour boucler dynamiquement sur VALID_SLUGS
 - **Quoi** : extraire `VALID_SLUGS` de `src/app/[locale]/services/[slug]/page.tsx` dans `src/config/services-slugs.ts` partagé. Importer dans `sitemap.ts` et boucler. Source unique de verité.
@@ -127,9 +127,9 @@
 | Métrique | S20 (référence) | S21 |
 |---|---|---|
 | Pts engagés | 18 | 9 |
-| Pts livrés | 18 + 1 bonus = 19 effectifs (105%) | 9 engagés + ~3 hors capacité = ~12 effectifs (133%) |
+| Pts livrés | 18 + 1 bonus = 19 effectifs (105%) | 9 engagés + ~4 hors capacité = ~13 effectifs (144%) |
 | Stories Done (engagées) | 13 | 10 |
-| Stories Done (hors capacité) | 0 | 3 (US-26.1 + slate-400 + sitemap) |
+| Stories Done (hors capacité) | 0 | 4 (US-26.1 + slate-400 + sitemap fix + T40 sitemap E2E) |
 | Commits feature | 8 | 3 (US-S21-1/2/3) |
 | Commits docs/process | 6 | 4 (refinement S21 + setup + DoD enrich + sprint-current) |
 | Commits chore/ci | 2 | 2 (US-26.1 deps + T29 hook) |
@@ -152,4 +152,4 @@ Le sprint S21 marque une **maturité process** : les apprentissages des retros S
 
 ---
 
-*Sprint Retrospective S21 cloturée le 28/04/2026 — gate T22 (retro committee avant Sprint Planning N+1) sera respectée. Voir [backlog/sprint-current.md](../backlog/sprint-current.md) pour la cloture du sprint.*
+*Sprint Retrospective S21 cloturée le 28/04/2026, finalisée le 29/04/2026 (T40 livré en avance suite à question PO sur visibilité hreflang sitemap + diagnostic indexation Google = T48 candidate S22). Gate T22 (retro committee avant Sprint Planning N+1) respectée. Voir [backlog/sprint-current.md](../backlog/sprint-current.md) pour la cloture du sprint.*

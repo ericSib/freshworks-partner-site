@@ -118,15 +118,16 @@ Cleanup post-test : fichier supprimé, hook reste en place, prochain commit pass
 | US-26.2 — aria-label QuizEmailGate WCAG 1.3.1 AA | 1 | ✅ Done | [05704fa](https://github.com/ericSib/freshworks-partner-site/commit/05704fa) |
 | T33 — refactor mock localStorage setupFile | 1 | ✅ Done | [8382cab](https://github.com/ericSib/freshworks-partner-site/commit/8382cab) |
 
-### Hors capacité — follow-ups & hotfixes (~3 pts effort)
+### Hors capacité — follow-ups & hotfixes (~4 pts effort)
 
 | ID | Pts effort | Statut | Commit |
 |---|---|---|---|
 | **US-26.1** — hotfix vuln HIGH next 16.2.4 (D39, hors-sprint immédiat) | 2 | ✅ Done | [3f9c682](https://github.com/ericSib/freshworks-partner-site/commit/3f9c682) |
 | **Bonus** — fix a11y pré-existant `text-slate-500` → `400` ServicePageContent.tsx | 0.5 | ✅ Done | [c83d8e3](https://github.com/ericSib/freshworks-partner-site/commit/c83d8e3) |
 | **Audit findings** — sitemap fix manquant 3 routes Tier 2 | 0.5 | ✅ Done | [098fd7a](https://github.com/ericSib/freshworks-partner-site/commit/098fd7a) |
+| **T40 livré en avance** — Test E2E sitemap hreflang FR/EN/x-default (suite question PO 28/04 sur visibilité du sitemap, initialement Try S22) | 1 | ✅ Done | [cfbde0a](https://github.com/ericSib/freshworks-partner-site/commit/cfbde0a) |
 
-**Bilan livraison** : 9/9 pts engagés livrés (100%) + ~3 pts effort hors capacité = ~12 pts effectifs en 1 session intensive (vs cadence Manifeste P3 1 semaine — pattern S20 D14 / Try T36 toujours ouvert).
+**Bilan livraison** : 9/9 pts engagés livrés (100%) + ~4 pts effort hors capacité = **~13 pts effectifs** en 1 session intensive (vs cadence Manifeste P3 1 semaine — pattern S20 D14 / Try T36→T42 toujours ouvert obligatoire S22).
 
 ---
 
@@ -144,6 +145,16 @@ Cleanup post-test : fichier supprimé, hook reste en place, prochain commit pass
 | Routes indexables | 7 | **10** (+3 Tier 2) |
 | Sitemap URLs | 7 | **10** (+3 Tier 2) |
 | i18n cles ajoutées | — | **+~360** (3 pages × ~58 cles × 2 langues) + 2 (US-26.2 aria-label) + 0 (process) |
+
+---
+
+## Diagnostic indexation Google (29/04)
+
+WebSearch `site:freshworks.whataservice.fr` → **0 page indexée** au 29/04. Tous les feux techniques sont au vert (robots.txt ouvert, balise GSC en place, sitemap valide soumis, pages 200), la cause unique est **l'âge du domaine** : `freshworks.whataservice.fr` est en prod depuis le 25/04 (D26), soit J+4. Délai d'indexation Google typique sur nouveau sous-domaine sans backlinks : **4 jours à 4 semaines**.
+
+**Action PO recommandée** : Search Console → Inspection d'URL → "Demander une indexation" sur les 10 routes prioritaires pour forcer le crawl en quelques heures plutôt qu'attendre le crawler naturel.
+
+**Point d'attention** : header `cache-control: private, no-cache, no-store, max-age=0` constaté sur `/fr/services/migration` — inhabituel pour des pages SEO statiques, peut ralentir le re-crawl Google. À investiguer en S22 (story candidate **T48**, ~1 pt, lien probable avec next-intl middleware ou config Vercel).
 
 ---
 
@@ -203,4 +214,4 @@ Aucune nouvelle décision structurelle (D42+) ouverte pendant S21 — les 5 déc
 
 ---
 
-*Sprint Review S21 cloturée le 28/04/2026 — gate T34 respectée (Sprint Goal verifie 100% AVANT démarrage Review). 11 commits livrés (3f9c682 → 098fd7a). Voir [retro/sprint-21-retro.md](../retro/sprint-21-retro.md) pour les Keep/Drop/Try.*
+*Sprint Review S21 cloturée le 28/04/2026, finalisée le 29/04/2026 (T40 livré en avance + diagnostic indexation Google). Gate T34 respectée (Sprint Goal verifie 100% AVANT démarrage Review). **13 commits livrés (3f9c682 → cfbde0a)**. Voir [retro/sprint-21-retro.md](../retro/sprint-21-retro.md) pour les Keep/Drop/Try.*
