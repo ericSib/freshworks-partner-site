@@ -32,35 +32,35 @@
 
 | Ordre | ID | Titre | Pts | Priorite | Statut | Commit |
 |---|---|---|---|---|---|---|
-| 1 | **HOTFIX-S22.0a** | Cache-control public sur routes indexables | 1.5 | **P0 Must** | ⏳ TODO | — |
-| 2 | **HOTFIX-S22.0c** | Runbook seo-indexation-checklist.md (ex-T48 absorbe) | 0.5 | P0 Must | ⏳ TODO | — |
-| 3 | **HOTFIX-S22.0b** | Fix canonical "Page en double" (depend Q2 PO) | 1 | P1 Should | ⏳ Bloque DoR | — |
+| 1 | **HOTFIX-S22.0a** | Cache-control public sur routes indexables | 1.5 | **P0 Must** | 🟢 Done (PR #1) | [124aa0b](https://github.com/ericSib/freshworks-partner-site/commit/124aa0b) |
+| 2 | **HOTFIX-S22.0c** | Runbook seo-indexation-checklist.md (ex-T48 absorbe) | 0.5 | P0 Must | 🟢 Done (PR #1) | [f4ddd8e](https://github.com/ericSib/freshworks-partner-site/commit/f4ddd8e) |
+| 3 | **HOTFIX-S22.0b** | Fix canonical "Page en double" (depend Q2 PO) | 1 | P1 Should | ⏳ Bloque Q2 PO | — |
 
-**Sous-total Bloc 1 : 2 pts engages (3 si Q2 debloque)**
+**Sous-total Bloc 1 : 2 / 2 pts livres (3 si Q2 debloque)**
 
 ## Stories engagees — Bloc 2 (Process & calibration — P0/P1 Must)
 
 | Ordre | ID | Titre | Pts | Priorite | Statut | Commit |
 |---|---|---|---|---|---|---|
-| 4 | **T42** | Calibration capacite Claude Code (story points ↔ heures) | 1 | **P0 Must** | ⏳ TODO | — |
-| 5 | T44 | Section "estimation i18n volume cles" PROCESS.md | 0 | Should | ⏳ TODO | — |
-| 6 | T45 | Promotion T29 acquis structurel CLAUDE.md | 0 | Should | ⏳ TODO | — |
+| 4 | **T42** | Calibration capacite Claude Code (story points ↔ heures) | 1 | **P0 Must** | 🟢 Done (PR #1) | [128647f](https://github.com/ericSib/freshworks-partner-site/commit/128647f) |
+| 5 | T44 | Section "estimation i18n volume cles" PROCESS.md | 0 | Should | 🟢 Done (PR #1) | [128647f](https://github.com/ericSib/freshworks-partner-site/commit/128647f) |
+| 6 | T45 | Promotion T29 acquis structurel CLAUDE.md | 0 | Should | 🟢 Done (PR #1) | [128647f](https://github.com/ericSib/freshworks-partner-site/commit/128647f) |
 
-**Sous-total Bloc 2 : 1 pt engage**
+**Sous-total Bloc 2 : 1 / 1 pt livre**
 
 ## Stories engagees — Bloc 3 (Quality work — Should)
 
 | Ordre | ID | Titre | Pts | Priorite | Statut | Commit |
 |---|---|---|---|---|---|---|
-| 7 | T41 | Refactor sitemap.ts loop sur VALID_SLUGS (single source) | 1 | Must | ⏳ TODO | — |
-| 8 | T43 | Specs E2E retro freshservice + freshdesk (dette S20) | 1 | Should | ⏳ TODO | — |
-| 9 | T47 | Runbook hotfix-procedure.md | 1 | Should | ⏳ TODO | — |
+| 7 | T41 | Refactor sitemap.ts loop sur VALID_SLUGS (single source) | 1 | Must | 🟢 Done (PR #1) | [53ead16](https://github.com/ericSib/freshworks-partner-site/commit/53ead16) |
+| 8 | T43 | Specs E2E retro freshservice + freshdesk (dette S20) | 1 | Should | 🟢 Done (PR #1) | [8f4e9d1](https://github.com/ericSib/freshworks-partner-site/commit/8f4e9d1) |
+| 9 | T47 | Runbook hotfix-procedure.md | 1 | Should | 🟢 Done (PR #1) | [adc9998](https://github.com/ericSib/freshworks-partner-site/commit/adc9998) |
 
-**Sous-total Bloc 3 : 3 pts engages**
+**Sous-total Bloc 3 : 3 / 3 pts livres**
 
 ---
 
-## Total Sprint 22 : 6 pts engages (7 si Q2 PO debloque HOTFIX-S22.0b)
+## Total Sprint 22 (au 08/05 J0) : **6 / 6 pts engages livres** (en attente merge main + Q2 pour HOTFIX-S22.0b)
 
 **Sprint Goal — criteres d'atteinte (test cloture)** :
 - [ ] `curl -I` sur 10 URLs sitemap retourne `cache-control: public, s-maxage=86400, ...` (no `private/no-store`)
