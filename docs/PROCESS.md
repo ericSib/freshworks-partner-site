@@ -252,6 +252,12 @@ Inbox → Redigee → Raffinee → Ready → Committed → In Progress → In Re
 4. Verifier que chaque story retenue est Ready (DoR)
 5. Decomposer en tasks techniques
 6. **Si le Sprint Planning N+1 commence par un audit formel** (D30 pattern : audit SEO, audit perf, audit a11y, audit securite quand le Sprint Goal cible ce domaine) **: reserver explicitement 1-3 pts de "audit findings buffer"** (5-15% de la capacite ~20 SP) dans le sprint pour les follow-ups que l'audit revelera post-deploy. Ces buffer pts ne sont pas alloues a une story specifique, ils sont consommes par les findings emergents (T35/D30 acquis S21, prevention pattern S20 D13 ou 2 follow-ups GSC + areaServed ont consomme ~1.5 pt hors capacite engagee).
+7. **Estimation i18n basee sur volume de cles** (T44 acquis S22) — pour toute story qui ajoute ou modifie du contenu localise FR/EN, appliquer cette heuristique de calibration en **complement** de l'estimation base de la story :
+   - **≤ 50 cles × 2 langues = 100 entrees** → +0 pt (volume normal, deja absorbe par l'estimation base)
+   - **51-100 cles × 2 langues = 200 entrees** → +0.5 pt (volume eleve)
+   - **101-200 cles × 2 langues = 400 entrees** → +1 pt (volume tres eleve : page service avec sources analystes, dimensions ROI, etc.)
+   - **> 200 cles × 2 langues** → red flag, decomposer la story en plusieurs sprints OU split FR puis EN
+   Cette heuristique est validee retroactivement sur S21 (3 pages services Tier 2 = ~360 cles × 2 langues = +~1 pt collectif inclus dans les 5 pts engages, pas un debordement).
 **Output** : `docs/backlog/sprint-current.md` mis a jour
 
 **Regle cardinale** : le Sprint Goal engage, la liste de stories est un forecast.

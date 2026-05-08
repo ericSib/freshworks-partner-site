@@ -103,6 +103,7 @@ Ces regles ne sont jamais negociables pendant une session. Toute demande qui les
 15. **Scope obligatoire** pour feat, fix, refactor, test.
 16. **Body requis** quand le commit touche 5+ fichiers — expliquer POURQUOI.
 17. **Reference tickets** dans le footer : `Closes #XX` ou `Refs US-XXX`.
+18. **Pre-commit `tsc --noEmit` obligatoire** (D41/T29 acquis S21, T45 promu structurel S22) — bloque le drift TypeScript a la source. Cout 5-15s/commit, mitigation `--incremental` (deja active). Ne jamais bypasser via `--no-verify` (regle generique deja appliquee, ce point la confirme specifiquement pour tsc).
 
 **Types** : feat, fix, refactor, test, docs, style, perf, chore, ci
 
@@ -111,7 +112,7 @@ Ces regles ne sont jamais negociables pendant une session. Toute demande qui les
 ### Pre-commit Hooks
 
 - `commit-msg` : commitlint validates conventional format
-- `pre-commit` : next lint (quiet mode)
+- `pre-commit` : `npx lint-staged` puis `tsc --noEmit` (D41/T29, acquis structurel T45 S22)
 
 ---
 
@@ -158,6 +159,61 @@ Chaque sprint suit strictement les 4 rituels suivants :
 ```
 
 Detail complet : voir [`docs/PROCESS.md`](docs/PROCESS.md) section 4.
+
+---
+
+## Calibration capacite Claude Code (T42 acquis S22)
+
+> Section livree S22 — fin du carry-over T36 → T42 (reporte 2 fois depuis S20). Calibration retroactive sur S19+S20+S21 + heuristiques planning S22+.
+
+### Definition operationnelle d'un story point pour Claude Code
+
+| SP | Type d'effort representatif | Wall-clock typique session |
+|---|---|---|
+| **0** | Process change (markdown only — PROCESS.md, CLAUDE.md, README) | < 5 min |
+| **0.5** | Trivial fix (one-liner + test rapide, runbook court) | 15-30 min |
+| **1** | Story simple (1-2 fichiers, tests inclus, page services standard, hotfix avec test E2E) | 1-2 h |
+| **2** | Story moderee (multi-fichiers, refacto cible, page service avec contenu dense + sources analystes) | 2-4 h |
+| **3** | Story complexe (architecturale, nouveau pattern, decomposition module non-trivial) | 4-6 h |
+| **5** | Feature majeure (1 session intensive complete) | ~1 jour de session |
+| **8** | Seuil "a decomposer" (> 1 session) — pause obligatoire au PO | > 1 session |
+
+### Velocite Claude Code observee (calibration retroactive)
+
+| Sprint | Pts engages | Pts effectifs livres | Sessions wall-clock | Pattern |
+|---|---|---|---|---|
+| **S19** | 13 | **17** (13 dev + 4 ops) | ~1 session intensive J0+1 nuit | Surperformance avec ops |
+| **S20** | 18 | **19** (18 + 1 bug fix RGPD imprevu) | ~1 session intensive 26/04 | Surengagement (90% capacite) → marge nulle |
+| **S21** | 9 | **~13** (9 engages + ~4 hors capacite : US-26.1 hotfix + a11y + sitemap fix + T40 livre en avance) | ~1 session intensive 27-28/04 | Sous-engagement reussi (45% capacite) |
+
+**Pattern recurrent confirme** : 1 sprint cadence Manifeste 1 semaine = 1 session intensive Claude Code de 6-12h. La cadence wall-clock est **compressee 5-10x** vs equipe humaine standard.
+
+**Velocite moyenne observee** : ~13-19 pts effectifs livres par session intensive. La fourchette haute (S20 : 19) correspond a l'absence de buffer ; la fourchette basse (S21 : 13) correspond a un sous-engagement intentionnel.
+
+### Recommandation capacite-cible S22+
+
+- **Capacite par sprint = 20 pts** (Manifeste P8 conserve)
+- **Engagement realiste = 8-12 pts** (40-60% capacite, marge buffer 40-60%)
+- **Pattern S21 (9 engages = 45%) = bon optimum** — a reproduire
+- **Eviter le piege S20 (18 engages = 90%) qui ne laisse pas de marge** — un seul imprevu (US-S20-BUG.1) a deborde la capacite
+
+### Heuristiques de planning par typologie de story
+
+- **Page service standard FR+EN** = 1-2 pts (i18n ~50-80 cles × 2 langues + tests E2E + axe-core + Schema.org)
+- **Hotfix critique avec test E2E nouveau** = 1-2 pts
+- **Hotfix sans test (cosmetique)** = 0.5 pt
+- **Refactor architectural cible** (decomposition module unique, migration librairie sur surface contenue) = 2-3 pts
+- **Refactor architectural lourd** (migration librairie sur > 5 fichiers, restructuration packages) = 3-5 pts
+- **Process change pur** (markdown PROCESS.md/CLAUDE.md/README) = 0 pt — n'entame pas la capacite
+- **Runbook nouveau** = 0.5-1 pt selon longueur (< 100 lignes = 0.5 pt, > 100 lignes = 1 pt)
+- **Story i18n-dense (≥ 100 cles × 2 langues)** = ajouter +0.5 pt vs estimation base (T44, voir PROCESS.md §4.1)
+- **Spike / investigation (no code)** = 0.5-1 pt — sortir une recommandation Ready
+
+### Garde-fous
+
+- Si une story atteint **8 SP** → **pause obligatoire** au PO pour decomposition (regle deja active dans CLAUDE.md "Situations ou je pause")
+- Si la velocite reelle d'un sprint deborde la capacite **2 sprints consecutifs** → revisiter la calibration ci-dessus (cf. T42 promu acquis S22, mais la calibration peut etre revisee avec les donnees S22-S25)
+- Si l'engagement passe au-dessus de **70% de capacite** (= 14 pts sur 20) → red flag : surengagement + risque marge nulle si imprevu
 
 ---
 
