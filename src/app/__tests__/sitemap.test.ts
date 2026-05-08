@@ -1,8 +1,30 @@
 import { describe, it, expect } from "vitest";
 import sitemap from "../sitemap";
 import { SITE_URL } from "@/config/site";
+import { VALID_SLUGS } from "@/config/services";
 
 describe("sitemap", () => {
+  it("loops on VALID_SLUGS so adding a service automatically appears in sitemap (T41)", () => {
+    const entries = sitemap();
+    const urls = entries.map((e) => e.url);
+
+    // Pinning the T41 contract : every slug declared in @/config/services
+    // MUST be reflected in the sitemap. This guards against the S21 D15
+    // class bug where Tier 2 routes were added to the routing but
+    // forgotten in sitemap.ts.
+    for (const slug of VALID_SLUGS) {
+      expect(
+        urls,
+        `slug "${slug}" missing from sitemap — VALID_SLUGS drift`,
+      ).toContain(`${SITE_URL}/fr/services/${slug}`);
+    }
+
+    // The total entry count is also a function of VALID_SLUGS.length,
+    // so both assertions co-evolve as new slugs are added.
+    const NON_SERVICE_ENTRIES = 5; // home + quiz + 2 maturity + legal
+    expect(entries).toHaveLength(VALID_SLUGS.length + NON_SERVICE_ENTRIES);
+  });
+
   it("emits 10 routes — 4 baseline + 5 services (Tier 1 + Tier 2 US-S21-1/2/3) + 2 maturite + legal", () => {
     const entries = sitemap();
     expect(entries).toHaveLength(10);

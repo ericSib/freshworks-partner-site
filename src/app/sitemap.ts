@@ -1,31 +1,41 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config/site";
+import {
+  VALID_SLUGS,
+  SERVICE_PRIORITY,
+  SERVICE_DEFAULT_PRIORITY,
+  SERVICE_LAST_MODIFIED,
+} from "@/config/services";
 
 /**
  * Dynamic sitemap — lists all public routes with i18n alternates.
  *
- * Every route is declared once (FR canonical) with language alternates.
- * Priority reflects business value: homepage > quiz > maturity > legal.
+ * Service routes are derived from the `VALID_SLUGS` catalog in
+ * `@/config/services` (T41 acquis S22). Adding a slug there
+ * automatically extends both the Next.js routing and the sitemap —
+ * preventing the S21 D15 audit class bug where the 3 Tier 2 routes
+ * were forgotten in the sitemap.
  *
- * `lastModified` is **frozen per route content** — update the value here
- * when a route's content changes. Avoids the bruit crawler caused by
- * `new Date()` at build time, where every deploy bumps every `lastmod`
- * even when content hasn't moved (audit SEO 26/04, US-S20-1).
+ * Non-service routes (home, quiz, maturity, legal) are listed
+ * inline because each is a one-off route with bespoke priority.
+ *
+ * `lastModified` is **frozen per route content** — update the value
+ * here (or in `@/config/services` for service routes) when a route's
+ * content changes. Avoids the bruit crawler caused by `new Date()` at
+ * build time, where every deploy bumps every `lastmod` even when
+ * content hasn't moved (audit SEO 26/04, US-S20-1).
  */
 
-/** ISO date of last meaningful content change per route. Update on edit. */
+/** ISO date of last meaningful content change for non-service routes. */
 const LAST_MODIFIED: Record<string, string> = {
   "": "2026-04-25", // home — refonte SMI complete
   "/quiz": "2026-04-25", // quiz — ESM segment + ROI band + offer recommendation
   "/mentions-legales": "2026-04-12", // legal — initial publication
   "/maturite/itsm/level-1": "2026-04-25", // maturity ITSM lvl1 — refonte SMI
   "/maturite/cx/level-1": "2026-04-25", // maturity CX lvl1 — refonte SMI
-  "/services/freshservice": "2026-04-26", // service detail page — US-S20-2
-  "/services/freshdesk": "2026-04-26", // service detail page — US-S20-2
-  "/services/audit-optimisation": "2026-04-28", // service detail page — US-S21-3
-  "/services/migration": "2026-04-28", // service detail page — US-S21-1
-  "/services/freddy-ai": "2026-04-28", // service detail page — US-S21-2
 };
+
+const FALLBACK_LAST_MODIFIED = "2026-04-26";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
@@ -33,14 +43,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   function bilingualEntry(
     path: string,
     priority: number,
-    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
+    lastModifiedIso: string,
   ): MetadataRoute.Sitemap[number] {
     const frUrl = `${baseUrl}/fr${path}`;
     const enUrl = `${baseUrl}/en${path}`;
-    const lastModified = new Date(LAST_MODIFIED[path] ?? "2026-04-26");
     return {
       url: frUrl,
-      lastModified,
+      lastModified: new Date(lastModifiedIso),
       changeFrequency,
       priority,
       alternates: {
@@ -53,18 +63,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   }
 
+  const serviceEntries = VALID_SLUGS.map((slug) =>
+    bilingualEntry(
+      `/services/${slug}`,
+      SERVICE_PRIORITY[slug] ?? SERVICE_DEFAULT_PRIORITY,
+      "monthly",
+      SERVICE_LAST_MODIFIED[slug] ?? FALLBACK_LAST_MODIFIED,
+    ),
+  );
+
   return [
-    bilingualEntry("", 1.0, "weekly"),
-    // Tier 1 services (US-S20-2)
-    bilingualEntry("/services/freshservice", 0.9, "monthly"),
-    bilingualEntry("/services/freshdesk", 0.9, "monthly"),
-    // Tier 2 services (US-S21-1/2/3)
-    bilingualEntry("/services/migration", 0.85, "monthly"),
-    bilingualEntry("/services/freddy-ai", 0.85, "monthly"),
-    bilingualEntry("/services/audit-optimisation", 0.85, "monthly"),
-    bilingualEntry("/quiz", 0.9, "monthly"),
-    bilingualEntry("/maturite/itsm/level-1", 0.8, "monthly"),
-    bilingualEntry("/maturite/cx/level-1", 0.8, "monthly"),
-    bilingualEntry("/mentions-legales", 0.3, "yearly"),
+    bilingualEntry("", 1.0, "weekly", LAST_MODIFIED[""]),
+    ...serviceEntries,
+    bilingualEntry("/quiz", 0.9, "monthly", LAST_MODIFIED["/quiz"]),
+    bilingualEntry(
+      "/maturite/itsm/level-1",
+      0.8,
+      "monthly",
+      LAST_MODIFIED["/maturite/itsm/level-1"],
+    ),
+    bilingualEntry(
+      "/maturite/cx/level-1",
+      0.8,
+      "monthly",
+      LAST_MODIFIED["/maturite/cx/level-1"],
+    ),
+    bilingualEntry(
+      "/mentions-legales",
+      0.3,
+      "yearly",
+      LAST_MODIFIED["/mentions-legales"],
+    ),
   ];
 }

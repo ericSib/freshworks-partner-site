@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE_URL, SITE_NAME } from "@/config/site";
 import { ORGANIZATION } from "@/config/schema";
+import { VALID_SLUGS, type ServiceSlug } from "@/config/services";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ServicePageContent from "@/components/sections/ServicePageContent";
 import JsonLd from "@/components/seo/JsonLd";
@@ -22,15 +23,11 @@ import JsonLd from "@/components/seo/JsonLd";
  *
  * Other 3 offers (cx-esm-transformation, esm-sprints, managed-excellence)
  * remain backlog S22+ — lower direct-search intent.
+ *
+ * The slug catalog (`VALID_SLUGS`) lives in `@/config/services` so
+ * sitemap.xml can loop on it — T41 acquis S22, prevents the S21 D15
+ * audit class bug where new routes were forgotten in the sitemap.
  */
-const VALID_SLUGS = [
-  "freshservice",
-  "freshdesk",
-  "migration",
-  "freddy-ai",
-  "audit-optimisation",
-] as const;
-type ServiceSlug = (typeof VALID_SLUGS)[number];
 
 const SERVICE_PRICE_FROM: Record<ServiceSlug, number> = {
   freshservice: 5_000,
